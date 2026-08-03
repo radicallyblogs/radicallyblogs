@@ -152,7 +152,7 @@ html, body {
         font-weight: 400;
         -webkit-text-stroke: 0px;
         color: #000000;
-        margin-bottom: 1px; /* <-- SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
+        margin-bottom: 2px; /* <-- SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
     }
 
     /* USUARIO */
@@ -176,7 +176,7 @@ html, body {
     /* TEXTO DEL POST */
     .post-content {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 22px;
+        font-size: 21px;
         font-weight: 400;
         -webkit-text-stroke: 0px;
         line-height: 1.4; /* <-- SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
