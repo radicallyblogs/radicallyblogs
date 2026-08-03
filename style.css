@@ -104,14 +104,14 @@ html, body {
     }
 
     /* Texto del post (Proxima Nova, 20px) */
-    .post-content {
-        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 20px;
-        line-height: 1.4;
-        color: #000000;
-        margin: 0;
-        padding: 0;
-    }
+.post-content {
+    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px;
+    font-weight: 400; /* Añade esta línea aquí con el valor que quieras (400, 500, etc.) */
+    line-height: 1.4;
+    color: #000000;
+    margin: 0;
+    padding: 0;
 }
 
 /* =========================================================
