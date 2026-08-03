@@ -119,13 +119,20 @@ html, body {
         margin: 0;
         padding: 0;
     }
-} /* <-- ¡Aquí se cierra correctamente el bloque de PC! */
+}
 
 /* =========================================================
    MUNDO 2: ESTILOS EXCLUSIVOS PARA MÓVIL (PANTALLAS <= 768px)
-   (Lo afinaremos cuando terminemos el PC)
    ========================================================= */
 @media (max-width: 768px) {
+    /* Ocultamos la fecha de PC y mostramos la de móvil para que no se dupliquen */
+    .desktop-date {
+        display: none !important;
+    }
+    .mobile-date {
+        display: inline !important;
+    }
+
     /* Título Actualidad (SF UI Display Bold, 27px) */
     .feed-title {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
