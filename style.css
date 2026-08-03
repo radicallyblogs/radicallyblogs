@@ -182,6 +182,6 @@ html, body {
         line-height: 1.4; /* <-- SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
         color: #000000;
         margin: 0;
-        padding: 0;
+        padding-right: 5px; /* <-- CAMBIA ESTO: Aleja el texto del borde derecho (prueba 10px, 15px o 20px) */
     }
 }
