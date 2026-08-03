@@ -84,14 +84,17 @@ html, body {
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 18px;
+        font-weight: 300;
+        -webkit-text-stroke: 0.15px #000000;
         color: #000000;
         margin-bottom: 6px;
     }
 
-    /* Usuario (SF UI Display, 20px - con grosor 250) */
+    /* Usuario (SF UI Display, 20px) */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-weight: 380;
+        font-weight: 300;
+        -webkit-text-stroke: 0.15px #000000;
         font-size: 20px;
         color: #000000;
     }
@@ -99,15 +102,18 @@ html, body {
     /* Hora */
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 300;
+        -webkit-text-stroke: 0.15px #777777;
         color: #777777;
         font-size: 17px;
     }
 
-    /* Texto del post (Proxima Nova, 20px - con grosor 250) */
+    /* Texto del post (Proxima Nova, 20px) */
     .post-content {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 20px;
-        font-weight: 400;
+        font-weight: 300;
+        -webkit-text-stroke: 0.15px #000000;
         line-height: 1.4;
         color: #000000;
         margin: 0;
