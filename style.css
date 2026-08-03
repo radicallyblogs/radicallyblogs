@@ -1,4 +1,4 @@
-/* Base limpia y fondo blanco absoluto */
+/* Base limpia absoluta */
 html, body {
     background-color: #ffffff;
     margin: 0;
@@ -6,130 +6,94 @@ html, body {
     width: 100%;
     min-height: 100vh;
     color: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* Fuente idéntica a la estándar de Wix */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Cabecera superior estilo Wix (Banner negro con imagen espacial) */
-.site-header {
-    width: 100%;
-    background-color: #000000;
-    background-image: url('banner.jpg'); /* Si subes tu banner de Wix, irá aquí */
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    padding: 25px 0;
-    border-bottom: 1px solid #222;
-    margin-bottom: 35px;
-}
-
-.banner-title-img {
-    max-width: 220px; /* Tamaño exacto del logotipo "RADICALLY" */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Contenedor centrado del feed (ancho exacto de Wix) */
+/* Contenedor principal alineado y centrado */
 .feed-container {
-    max-width: 580px;
-    margin: 0 auto;
-    padding: 0 20px 60px 20px;
+    max-width: 600px;
+    margin: 60px auto; 
+    padding: 0 20px;
 }
 
-/* Control independiente de fechas (PC vs Móvil) */
-.desktop-date {
-    display: inline;
-}
-.mobile-date {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .desktop-date {
-        display: none;
-    }
-    .mobile-date {
-        display: inline;
-    }
-}
-
-/* Estilo del título de la sección (Actualidad) */
+/* Título Actualidad */
 .feed-title {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: bold;
     color: #000000;
-    margin: 0 0 16px 0;
+    margin: 0 0 30px 0;
     letter-spacing: -0.5px;
 }
 
-/* Estilo de la fecha de cada post (exacto al de Wix) */
-.date-divider {
-    font-size: 13px;
-    color: #555555;
-    margin: 22px 0 10px 0;
-    font-weight: 400;
-}
-
-/* Publicación (Plana, sin cajas, separada por espacios limpios) */
-.bloggy-card {
+/* Contenedor del post (CERO cajas, CERO sombras) */
+.post {
+    margin-bottom: 35px; /* Espacio entre un post y el siguiente */
     background: transparent;
     border: none;
-    box-shadow: none;
     padding: 0;
-    margin-bottom: 24px;
 }
 
-.bloggy-header {
+/* Fecha pegada justo encima del usuario */
+.post-date {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+/* Fila de la foto y el nombre */
+.post-header {
     display: flex;
     align-items: center;
-    margin-bottom: 6px;
+    margin-bottom: 6px; /* Distancia muy pequeña entre nombre y texto */
 }
 
-/* Avatar circular idéntico */
+/* Foto de perfil */
 .avatar {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background-image: url('avatar.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-right: 10px;
+    margin-right: 8px;
     flex-shrink: 0;
 }
 
-.user-info {
+.post-meta {
     display: flex;
     align-items: baseline;
-    gap: 6px;
-    font-size: 14px;
 }
 
 .username {
-    font-weight: 700;
+    font-weight: bold;
     color: #000000;
-    font-size: 14px;
-}
-
-.timestamp {
-    color: #888888;
-    font-size: 12px;
-}
-
-/* Texto del post con la tipografía y espaciado exacto de Wix */
-.bloggy-content {
     font-size: 15px;
-    line-height: 1.45;
-    color: #111111;
+}
+
+.time {
+    color: #777777;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* Texto del post */
+.post-content {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #000000;
     margin: 0;
     white-space: pre-line;
 }
 
-.bloggy-content a {
-    color: #0066cc;
+/* Color del enlace (azul de Wix) */
+.post-content a {
+    color: #3399ff;
     text-decoration: none;
 }
-.bloggy-content a:hover {
+
+.post-content a:hover {
     text-decoration: underline;
 }
