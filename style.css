@@ -31,7 +31,7 @@ html, body {
     display: flex !important;
     align-items: center !important;
     gap: 10px;
-    margin-bottom: 6px;
+    margin-bottom: 6px; /* <-- SEPARACIÓN 3: Distancia entre la cabecera (usuario/foto) y el texto del post */
 }
 
 .avatar {
@@ -70,7 +70,6 @@ html, body {
         display: none !important;
     }
 
-    /* Título Actualidad (SF UI Display Bold, 30px) */
     .feed-title {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         font-size: 30px;
@@ -80,7 +79,6 @@ html, body {
         letter-spacing: -0.5px;
     }
 
-    /* Fecha (Proxima Nova, 18px) */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 18px;
@@ -90,7 +88,6 @@ html, body {
         margin-bottom: 6px;
     }
 
-    /* Usuario (SF UI Display, 20px) */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         font-weight: 300;
@@ -99,7 +96,6 @@ html, body {
         color: #000000;
     }
 
-    /* Hora */
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 300;
@@ -108,7 +104,6 @@ html, body {
         font-size: 17px;
     }
 
-    /* Texto del post (Proxima Nova, 20px) */
     .post-content {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 20px;
@@ -125,7 +120,6 @@ html, body {
    MUNDO 2: ESTILOS EXCLUSIVOS PARA MÓVIL (PANTALLAS <= 768px)
    ========================================================= */
 @media (max-width: 768px) {
-    /* Ocultamos la fecha de PC y mostramos la de móvil para que no se dupliquen */
     .desktop-date {
         display: none !important;
     }
@@ -133,27 +127,27 @@ html, body {
         display: inline !important;
     }
 
-    /* Título Actualidad (SF UI Display Bold, 27px) */
+    /* TÍTULO ACTUALIDAD */
     .feed-title {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         font-size: 27px;
         font-weight: 700;
         color: #000000;
-        margin: 0 0 15px 0;
+        margin: 0 0 15px 0; /* <-- SEPARACIÓN 1: El tercer número (15px) controla el espacio debajo de "Actualidad" */
         letter-spacing: -0.5px;
     }
 
-    /* Fecha (Proxima Nova, 17px) */
+    /* FECHA DEL POST */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 17px;
         font-weight: 300;
         -webkit-text-stroke: 0px;
         color: #000000;
-        margin-bottom: 6px;
+        margin-bottom: 6px; /* <-- SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
     }
 
-    /* Usuario (SF UI Display Medium, 13px) */
+    /* USUARIO */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         font-weight: 500;
@@ -162,22 +156,22 @@ html, body {
         color: #000000;
     }
 
-    /* Hora (Proxima Nova, 13px) */
+    /* HORA (Sube el font-size aquí si la ves muy pequeña) */
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 300;
-        font-size: 13px;
+        font-size: 13px; /* <-- TAMAÑO DE LA HORA EN MÓVIL */
         -webkit-text-stroke: 0px;
         color: #777777;
     }
 
-    /* Texto del post (Proxima Nova, 16px) */
+    /* TEXTO DEL POST */
     .post-content {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 16px;
         font-weight: 400;
         -webkit-text-stroke: 0px;
-        line-height: 1.4;
+        line-height: 1.4; /* <-- SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
         color: #000000;
         margin: 0;
         padding: 0;
