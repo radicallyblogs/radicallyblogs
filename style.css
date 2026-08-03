@@ -87,13 +87,15 @@ html, body {
         margin-bottom: 6px;
     }
 
-    /* Nombre de usuario (20px reales, SF UI Display Medium) */
+    /* Nombre de usuario (20px reales, chafado un 10% verticalmente) */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         font-weight: 500;
         font-size: 20px;
-        line-height: 1.2;
         color: #000000;
+        display: inline-block;
+        transform: scaleY(0.90);
+        transform-origin: left center;
     }
 
     /* Hora */
