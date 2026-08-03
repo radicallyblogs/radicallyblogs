@@ -144,7 +144,7 @@ html, body {
         font-weight: 300;
         -webkit-text-stroke: 0px;
         color: #000000;
-        margin-bottom: 4px; /* <-- SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
+        margin-bottom: 1px; /* <-- SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
     }
 
     /* USUARIO */
