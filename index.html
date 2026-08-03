@@ -12,21 +12,43 @@
     <div class="feed-container">
         <h2 class="feed-title">Actualidad</h2>
 
-        <div class="post">
-            <div class="post-date">
-                <span class="desktop-date">dom. 2 de agosto de 2026</span>
-                <span class="mobile-date">dom. 2 ago 2026</span>
-            </div>
-            <div class="post-header">
-                <div class="avatar"></div>
-                <div class="user-info">
-                    <span class="username">@felipeortegareyes</span>
-                    <span class="timestamp">• 5:40 pm</span>
-                </div>
-            </div>
-            <div class="post-content">En cuanto al proyecto ETLQ Radio ya tengo planeado un primer programa, pero no se trata de la fecha. Es como sentirte ilusionado por algo que en el fondo sabes que te aterra, y tomármelo con calma esta siéndome de ayuda personally.</div>
-        </div>
+        <!-- Aquí se cargarán automáticamente los posts desde el archivo posts.json -->
+        <div id="feed-posts"></div>
     </div>
 
+    <!-- Script para leer el posts.json y pintar el feed -->
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const response = await fetch('posts.json');
+                const posts = await response.json();
+                const container = document.getElementById('feed-posts');
+                
+                container.innerHTML = ''; // Limpiar contenedor
+
+                posts.forEach(post => {
+                    const postHTML = `
+                        <div class="post">
+                            <div class="post-date">
+                                <span class="desktop-date">${post.fechaLarga}</span>
+                                <span class="mobile-date">${post.fechaCortas}</span>
+                            </div>
+                            <div class="post-header">
+                                <div class="avatar"></div>
+                                <div class="user-info">
+                                    <span class="username">@felipeortegareyes</span>
+                                    <span class="timestamp">• ${post.hora}</span>
+                                </div>
+                            </div>
+                            <div class="post-content">${post.texto}</div>
+                        </div>
+                    `;
+                    container.innerHTML += postHTML;
+                });
+            } catch (error) {
+                console.error("Error al cargar los posts:", error);
+            }
+        });
+    </script>
 </body>
 </html>
