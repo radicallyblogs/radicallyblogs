@@ -194,9 +194,10 @@ html, body {
         left: -3px !important;          /* Mueve la foto: positivo derecha, negativo izquierda */
     }
 
-    /* MUEVE EL NOMBRE Y LA HORA JUNTOS (IZQUIERDA / DERECHA) */
+    /* MUEVE EL NOMBRE Y LA HORA JUNTOS (ARRIBA / ABAJO, IZQUIERDA / DERECHA) */
     .username, .timestamp {
         position: relative !important;
-        left: -1px !important; /* Positivo los mueve a la derecha, negativo los mueve a la izquierda */
+        top: 1px !important;  /* <-- NUEVO: Positivo baja, negativo sube el bloque entero (ej: 1px, -2px) */
+        left: -2px !important; /* <-- YA LO TENÍAS: Positivo derecha, negativo izquierda */
     }
 }
