@@ -93,4 +93,11 @@ html, body {
     color: #111111;
     margin: 0;
     white-space: pre-line;
+}/* Estilo para el título de la sección (Actualidad) */
+.feed-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.4px;
 }
