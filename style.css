@@ -87,7 +87,7 @@ html, body {
         margin-bottom: 6px;
     }
 
-    /* Usuario (SF UI Display Medium, 20px) - RESTAURADO ORIGINAL */
+    /* Usuario (SF UI Display Medium, 20px) */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         font-weight: 500;
@@ -115,6 +115,7 @@ html, body {
 
 /* =========================================================
    MUNDO 2: ESTILOS EXCLUSIVOS PARA MÓVIL (PANTALLAS <= 768px)
+   (Lo afinaremos cuando terminemos el PC)
    ========================================================= */
 @media (max-width: 768px) {
     .desktop-date {
@@ -124,5 +125,5 @@ html, body {
         display: inline !important;
     }
 
-    /* Aislado para cuando vayamos al móvil */
+    /* Aquí irán los tamaños de móvil aislados */
 }
