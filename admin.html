@@ -173,7 +173,6 @@
         document.body.classList.add('login-active');
         document.getElementById('passwordInput').focus();
 
-        // Cargar token guardado previamente en el navegador si existe
         window.onload = function() {
             const savedToken = localStorage.getItem('gh_blog_token');
             if (savedToken) {
@@ -190,7 +189,6 @@
                     alert('Por favor, introduce tu Token de GitHub al menos esta primera vez.');
                     return;
                 }
-                // Guardar el token en el navegador
                 localStorage.setItem('gh_blog_token', tokenVal);
 
                 document.getElementById('loginScreen').style.display = 'none';
@@ -232,7 +230,7 @@
             }
 
             const token = localStorage.getItem('gh_blog_token');
-            const repo = "radicallyblogs/radicallyblogs.github.io";
+            const repo = "radicallyblogs/radicallyblogs";
             const path = "posts.json";
 
             if (!token) {
@@ -254,7 +252,6 @@
             };
 
             try {
-                // 1. Obtener el archivo actual de GitHub para coger su 'sha'
                 const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
@@ -272,10 +269,8 @@
                     posts = JSON.parse(atob(getData.content));
                 }
 
-                // Añadir el nuevo post al principio de la lista
                 posts.unshift(nuevoPost);
 
-                // 2. Subir el archivo actualizado a GitHub
                 const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     method: "PUT",
                     headers: {
