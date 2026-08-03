@@ -7,37 +7,34 @@ html, body {
     min-height: 100vh;
     color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Cabecera superior estilo Wix (Banner negro) */
+/* Cabecera superior estilo Wix (Banner negro con imagen espacial) */
 .site-header {
     width: 100%;
     background-color: #000000;
+    background-image: url('banner.jpg'); /* Si subes tu banner de Wix, irá aquí */
+    background-size: cover;
+    background-position: center;
     text-align: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #333;
-    margin-bottom: 30px;
+    padding: 25px 0;
+    border-bottom: 1px solid #222;
+    margin-bottom: 35px;
 }
 
-.site-header img, .site-header h1 {
-    max-width: 100%;
+.banner-title-img {
+    max-width: 220px; /* Tamaño exacto del logotipo "RADICALLY" */
     height: auto;
-}
-
-.banner-text {
-    font-family: monospace;
-    color: #ffd700;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    margin: 0;
-}
-
-/* Contenedor centrado del feed */
-.feed-container {
-    max-width: 600px;
+    display: block;
     margin: 0 auto;
-    padding: 0 20px 40px 20px;
+}
+
+/* Contenedor centrado del feed (ancho exacto de Wix) */
+.feed-container {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px 60px 20px;
 }
 
 /* Control independiente de fechas (PC vs Móvil) */
@@ -57,41 +54,42 @@ html, body {
     }
 }
 
-/* Estilo del texto de la fecha */
-.date-divider {
-    font-size: 14px;
-    color: #666666;
-    margin: 24px 0 10px 0;
-}
-
-/* Estilo para el título de la sección (Actualidad) */
+/* Estilo del título de la sección (Actualidad) */
 .feed-title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
     color: #000000;
-    margin: 0 0 15px 0;
-    letter-spacing: -0.4px;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
 }
 
-/* Publicación (SIN CAJAS, SIN BORDES, SIN SOMBRAS - Estilo Wix plano) */
+/* Estilo de la fecha de cada post (exacto al de Wix) */
+.date-divider {
+    font-size: 13px;
+    color: #555555;
+    margin: 22px 0 10px 0;
+    font-weight: 400;
+}
+
+/* Publicación (Plana, sin cajas, separada por espacios limpios) */
 .bloggy-card {
     background: transparent;
     border: none;
     box-shadow: none;
     padding: 0;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .bloggy-header {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
-/* Avatar circular */
+/* Avatar circular idéntico */
 .avatar {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background-image: url('avatar.jpeg');
     background-size: cover;
@@ -111,17 +109,27 @@ html, body {
 .username {
     font-weight: 700;
     color: #000000;
+    font-size: 14px;
 }
 
 .timestamp {
-    color: #737373;
-    font-size: 13px;
+    color: #888888;
+    font-size: 12px;
 }
 
+/* Texto del post con la tipografía y espaciado exacto de Wix */
 .bloggy-content {
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 1.45;
     color: #111111;
     margin: 0;
     white-space: pre-line;
+}
+
+.bloggy-content a {
+    color: #0066cc;
+    text-decoration: none;
+}
+.bloggy-content a:hover {
+    text-decoration: underline;
 }
