@@ -125,6 +125,13 @@ html, body {
    MUNDO 2: ESTILOS EXCLUSIVOS PARA MÓVIL (PANTALLAS <= 768px)
    ========================================================= */
 @media (max-width: 768px) {
+    /* Pegar el contenedor a la izquierda en móvil */
+    .feed-container {
+        margin: 20px 0 20px 15px !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
     /* Ocultamos la fecha de PC y mostramos la de móvil para que no se dupliquen */
     .desktop-date {
         display: none !important;
