@@ -1,96 +1,109 @@
-/* Base limpia absoluta */
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     background-color: #ffffff;
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100vh;
     color: #000000;
-    /* Fuente idéntica a la estándar de Wix */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Contenedor principal alineado y centrado */
 .feed-container {
-    max-width: 600px;
-    margin: 60px auto; 
+    max-width: 550px;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Título Actualidad */
+/* Título de la sección */
 .feed-title {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 800;
     color: #000000;
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
     letter-spacing: -0.5px;
 }
 
-/* Contenedor del post (CERO cajas, CERO sombras) */
+/* Bloque del post */
 .post {
-    margin-bottom: 35px; /* Espacio entre un post y el siguiente */
-    background: transparent;
-    border: none;
-    padding: 0;
+    margin-bottom: 24px;
 }
 
-/* Fecha pegada justo encima del usuario */
+/* Fecha (acercada a la foto de perfil) */
 .post-date {
     font-size: 14px;
     color: #333333;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
 
-/* Fila de la foto y el nombre */
+.desktop-date {
+    display: inline !important;
+}
+
+.mobile-date {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .desktop-date {
+        display: none !important;
+    }
+    .mobile-date {
+        display: inline !important;
+    }
+}
+
+/* Cabecera (Foto + Nombre alineados en la misma fila) */
 .post-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px; /* Distancia muy pequeña entre nombre y texto */
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px;
+    margin-bottom: 4px; /* Espacio sutil y muy pegado al texto */
 }
 
-/* Foto de perfil */
 .avatar {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background-image: url('avatar.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-right: 8px;
     flex-shrink: 0;
 }
 
-.post-meta {
+.user-info {
     display: flex;
-    align-items: baseline;
-}
-
-.username {
-    font-weight: bold;
-    color: #000000;
+    align-items: center;
+    gap: 5px;
     font-size: 15px;
 }
 
-.time {
-    color: #777777;
+.username {
+    font-weight: 700;
+    color: #000000;
+}
+
+.timestamp {
+    color: #666666;
     font-size: 14px;
-    margin-left: 5px;
 }
 
 /* Texto del post */
 .post-content {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.4;
     color: #000000;
     margin: 0;
-    white-space: pre-line;
+    padding: 0;
 }
 
-/* Color del enlace (azul de Wix) */
+/* Color azul para los enlaces */
 .post-content a {
-    color: #3399ff;
+    color: #3897f0;
     text-decoration: none;
 }
 
