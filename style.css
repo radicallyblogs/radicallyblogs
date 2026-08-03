@@ -113,7 +113,7 @@ html, body {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 20px;
         font-weight: 300;
-        -webkit-text-stroke: 0px #000000;
+        -webkit-text-stroke: 0.10px #000000;
         line-height: 1.4;
         color: #000000;
         margin: 0;
