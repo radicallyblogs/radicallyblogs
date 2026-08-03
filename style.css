@@ -65,7 +65,7 @@ html, body {
 @media (min-width: 769px) {
     
     .post {
-        margin-bottom: 35px; /* <-- NUEVO: Espacio entre posts en ORDENADOR */
+        margin-bottom: 15px; /* <-- NUEVO: Espacio entre posts en ORDENADOR */
     }
 
     .desktop-date {
@@ -127,7 +127,7 @@ html, body {
 @media (max-width: 768px) {
     
     .post {
-        margin-bottom: 25px; /* <-- NUEVO: Espacio entre posts en MÓVIL */
+        margin-bottom: 10px; /* <-- NUEVO: Espacio entre posts en MÓVIL */
     }
 
     /* CONTENEDOR MÓVIL: Mueve todo a la izquierda (cambia el 10px si quieres más o menos separación del borde izquierdo) */
