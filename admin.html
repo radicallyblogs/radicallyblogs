@@ -10,44 +10,40 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff; /* Fondo blanco puro global */
+            background-color: #ffffff;
             color: #000000;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center; /* Centra verticalmente las tarjetas */
+            align-items: center;
             min-height: 100vh;
         }
 
-        /* Estilo base para las tarjetas blancas flotantes */
         .card-style {
             background: #ffffff;
             padding: 30px;
-            border-radius: 16px; /* Bordes más redondeados */
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); /* Sombra suave para el efecto 'flotante' */
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
             width: 100%;
-            max-width: 500px; /* Un ancho máximo más elegante */
+            max-width: 500px;
             text-align: center;
         }
 
-        /* Pantalla de Acceso con contraseña */
         .login-screen {
-            display: none; /* Oculto por defecto hasta que no cargue la pantalla de login */
+            display: none;
         }
         
-        /* Aseguramos que el login sea visible al cargar */
         .login-active .login-screen {
             display: block;
         }
 
-        /* Panel de Administración (Oculto de inicio) */
         .admin-container {
-            display: none; /* Oculto hasta que ponga la contraseña correcta */
+            display: none;
         }
 
         h1 {
-            font-size: 24px; /* Título un poco más grande */
+            font-size: 24px;
             font-weight: 700;
             margin-bottom: 24px;
             border-bottom: 2px solid #000;
@@ -66,15 +62,15 @@
         }
         textarea, input[type="password"] {
             width: 100%;
-            padding: 14px; /* Más padding para mejor escritura */
-            border: 1px solid #e0e0e0; /* Borde gris más suave */
+            padding: 14px;
+            border: 1px solid #e0e0e0;
             border-radius: 12px;
             font-size: 16px;
             font-family: inherit;
             transition: border-color 0.2s;
         }
         textarea {
-            height: 160px; /* Un poco más alto */
+            height: 160px;
             resize: vertical;
         }
         textarea:focus, input[type="password"]:focus {
@@ -104,9 +100,9 @@
             background-color: #000000;
             color: #ffffff;
             border: none;
-            padding: 16px 24px; /* Botón más grande y contundente */
+            padding: 16px 24px;
             border-radius: 12px;
-            font-size: 17px; /* Tipografía más legible */
+            font-size: 17px;
             font-weight: 700;
             width: 100%;
             cursor: pointer;
@@ -114,10 +110,10 @@
             margin-top: 20px;
         }
         .btn-publish:hover, .btn-login:hover {
-            background-color: #212121; /* Negro ligeramente más suave al hover */
+            background-color: #212121;
         }
         .btn-publish:active, .btn-login:active {
-             transform: scale(0.98); /* Pequeño efecto de pulsación */
+             transform: scale(0.98);
         }
         .error-msg {
             color: red;
@@ -140,7 +136,7 @@
         <div class="error-msg" id="errorMsg">Contraseña incorrecta. Inténtalo de nuevo.</div>
     </div>
 
-    <!-- Panel de Administración (Oculto de inicio) -->
+    <!-- Panel de Administración -->
     <div class="card-style admin-container" id="adminContainer">
         <h1>Nueva Publicación</h1>
         
@@ -154,8 +150,8 @@
             <textarea id="post-content" placeholder="Escribe tu pensamiento, poema o nota mental aquí..."></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="media-file">Añadir imagen o vídeo (opcional):</label>
+        <div class="form-group" style="display:none;">
+            <!-- Opcional de ficheros reservado -->
             <input type="file" id="media-file" accept="image/*,video/*">
         </div>
 
@@ -163,28 +159,24 @@
     </div>
 
     <script>
-        // Al cargar la página, mostramos la pantalla de login
         document.body.classList.add('login-active');
-        document.getElementById('passwordInput').focus(); // Enfoca el campo de contraseña
+        document.getElementById('passwordInput').focus();
 
         function verificarPassword() {
             const pass = document.getElementById('passwordInput').value;
             if (pass === 'HURACAN') {
-                // Ocultar login, mostrar admin
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('adminContainer').style.display = 'block';
-                document.body.classList.remove('login-active'); // Limpiamos la clase del body
+                document.body.classList.remove('login-active');
                 actualizarFechaHora();
-                document.getElementById('post-content').focus(); // Enfoca el campo de texto del post
+                document.getElementById('post-content').focus();
             } else {
-                // Mostrar error
                 const errorMsg = document.getElementById('errorMsg');
                 errorMsg.style.display = 'block';
-                document.getElementById('passwordInput').select(); // Selecciona el texto incorrecto
+                document.getElementById('passwordInput').select();
             }
         }
 
-        // Permitir entrar pulsando la tecla "Enter" en la contraseña
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 verificarPassword();
@@ -195,18 +187,75 @@
             const ahora = new Date();
             const opcionesFecha = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
             let fechaStr = ahora.toLocaleDateString('es-ES', opcionesFecha);
-            // Formato de hora exacta (ej: 7:24 pm)
             let horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
             document.getElementById('live-datetime').innerText = `${fechaStr} • ${horaStr}`;
         }
 
-        function crearPublicacion() {
+        async function crearPublicacion() {
             const texto = document.getElementById('post-content').value;
             if (!texto.trim()) {
                 alert('Por favor, escribe algo antes de publicar.');
                 return;
             }
-            alert('¡Publicación lista para ser enviada al repositorio! El siguiente paso será conectar este botón con el guardado automático de archivos.');
+
+            const token = "ghp_K0xJuXb3uuaNLUOKi11w03NYmteGUR3Z2JUn";
+            const repo = "radicallyblogs/radicallyblogs.github.io";
+            const path = "posts.json";
+
+            const ahora = new Date();
+            const fechaLargaActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
+            const fechaCortasActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+            const horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
+
+            const nuevoPost = {
+                "texto": texto,
+                "fechaLarga": fechaLargaActual,
+                "fechaCortas": fechaCortasActual,
+                "hora": horaStr
+            };
+
+            try {
+                // 1. Obtener el archivo actual de GitHub para coger su 'sha'
+                const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                    headers: { "Authorization": `token ${token}` }
+                });
+                const getData = await getRes.json();
+                const sha = getData.sha;
+                
+                let posts = [];
+                if (getData.content) {
+                    posts = JSON.parse(atob(getData.content));
+                }
+
+                // Añadir el nuevo post al principio de la lista
+                posts.unshift(nuevoPost);
+
+                // 2. Subir el archivo actualizado a GitHub
+                const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `token ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        message: "Nuevo post desde el panel admin",
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2)))),
+                        sha: sha
+                    })
+                });
+
+                if (putRes.ok) {
+                    alert("¡Publicado con éxito en tu blog!");
+                    document.getElementById('post-content').value = "";
+                    actualizarFechaHora();
+                } else {
+                    alert("Hubo un error al conectar con GitHub.");
+                }
+
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error en la petición con la API.");
+            }
         }
     </script>
 
