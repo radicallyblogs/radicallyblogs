@@ -30,7 +30,7 @@ html, body {
     display: flex !important;
     align-items: center !important;
     gap: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .avatar {
@@ -69,9 +69,9 @@ html, body {
         display: none !important;
     }
 
-    /* Título Actualidad */
+    /* Título Actualidad (SF UI Display Bold, 30px) */
     .feed-title {
-        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         font-size: 30px;
         font-weight: 700;
         color: #000000;
@@ -79,7 +79,7 @@ html, body {
         letter-spacing: -0.5px;
     }
 
-    /* Fecha */
+    /* Fecha (Proxima Nova, 18px) */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 18px;
@@ -87,15 +87,12 @@ html, body {
         margin-bottom: 6px;
     }
 
-    /* Nombre de usuario (20px reales, chafado un 10% verticalmente) */
+    /* Usuario (SF UI Display Medium, 20px) - RESTAURADO ORIGINAL */
     .username {
-        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         font-weight: 500;
         font-size: 20px;
         color: #000000;
-        display: inline-block;
-        transform: scaleY(0.90);
-        transform-origin: left center;
     }
 
     /* Hora */
@@ -105,7 +102,7 @@ html, body {
         font-size: 17px;
     }
 
-    /* Texto del post */
+    /* Texto del post (Proxima Nova, 20px) */
     .post-content {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 20px;
@@ -126,4 +123,6 @@ html, body {
     .mobile-date {
         display: inline !important;
     }
+
+    /* Aislado para cuando vayamos al móvil */
 }
