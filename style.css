@@ -1,3 +1,4 @@
+/* Base limpia y fondo blanco absoluto */
 html, body {
     background-color: #ffffff;
     margin: 0;
@@ -5,4 +6,91 @@ html, body {
     width: 100%;
     min-height: 100vh;
     color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Contenedor centrado del feed */
+.feed-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Control independiente de fechas (PC vs Móvil) */
+.desktop-date {
+    display: inline; /* Se ve en ordenador */
+}
+.mobile-date {
+    display: none;    /* Oculto en ordenador por defecto */
+}
+
+/* Si la pantalla es de móvil (menos de 768px de ancho)... */
+@media (max-width: 768px) {
+    .desktop-date {
+        display: none;   /* Se oculta en móvil */
+    }
+    .mobile-date {
+        display: inline; /* Se muestra en móvil con el formato corto */
+    }
+}
+
+/* Estilo del texto de la fecha */
+.date-divider {
+    font-size: 14px;
+    color: #666666;
+    margin: 24px 0 12px 0;
+}
+
+/* Tarjeta del Bloggy / Publicación */
+.bloggy-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.bloggy-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* Avatar circular con tu imagen real subida */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url('avatar.jpeg'); /* Carga tu foto de perfil */
+    background-size: cover;               /* Ajusta la imagen para cubrir el círculo */
+    background-position: center;          /* Centra la imagen */
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.username {
+    font-weight: 700;
+    color: #000000;
+}
+
+.timestamp {
+    color: #737373;
+    font-size: 13px;
+}
+
+.bloggy-content {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #111111;
+    margin: 0;
+    white-space: pre-line;
 }
