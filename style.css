@@ -126,12 +126,53 @@ html, body {
    (Lo afinaremos cuando terminemos el PC)
    ========================================================= */
 @media (max-width: 768px) {
-    .desktop-date {
-        display: none !important;
-    }
-    .mobile-date {
-        display: inline !important;
+    /* Título Actualidad (SF UI Display Bold, 27px) */
+    .feed-title {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        font-size: 27px;
+        font-weight: 700;
+        color: #000000;
+        margin: 0 0 15px 0;
+        letter-spacing: -0.5px;
     }
 
-    /* Aquí irán los tamaños de móvil aislados */
+    /* Fecha (Proxima Nova, 17px) */
+    .post-date {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 17px;
+        font-weight: 300;
+        -webkit-text-stroke: 0px;
+        color: #000000;
+        margin-bottom: 6px;
+    }
+
+    /* Usuario (SF UI Display Medium, 13px) */
+    .username {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        -webkit-text-stroke: 0px;
+        color: #000000;
+    }
+
+    /* Hora (Proxima Nova, 13px) */
+    .timestamp {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 300;
+        font-size: 13px;
+        -webkit-text-stroke: 0px;
+        color: #777777;
+    }
+
+    /* Texto del post (Proxima Nova, 16px) */
+    .post-content {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        -webkit-text-stroke: 0px;
+        line-height: 1.4;
+        color: #000000;
+        margin: 0;
+        padding: 0;
+    }
 }
