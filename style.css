@@ -88,10 +88,10 @@ html, body {
         margin-bottom: 6px;
     }
 
-    /* Usuario (SF UI Display Medium, 20px) */
+    /* Usuario (SF UI Display Regular, 20px) */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 20px;
         color: #000000;
     }
