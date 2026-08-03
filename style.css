@@ -168,7 +168,7 @@ html, body {
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 300;
-        font-size: 16px; /* <-- TAMAÑO DE LA HORA EN MÓVIL */
+        font-size: 17px; /* <-- TAMAÑO DE LA HORA EN MÓVIL */
         -webkit-text-stroke: 0.30px;
         color: #777777;
     }
@@ -190,7 +190,7 @@ html, body {
         width: 37px !important;        /* Ancho de la foto (cámbialo si quieres encogerla más) */
         height: 37px !important;       /* Alto de la foto (debe medir lo mismo que el ancho) */
         position: relative !important; 
-        top: 1px !important;           /* Mueve la foto: positivo baja, negativo sube */
+        top: 0px !important;           /* Mueve la foto: positivo baja, negativo sube */
         left: -3px !important;          /* Mueve la foto: positivo derecha, negativo izquierda */
     }
 
