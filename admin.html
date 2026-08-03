@@ -13,11 +13,16 @@
             background-color: #ffffff;
             color: #000000;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 600px;
         }
 
         .card-style {
@@ -25,29 +30,36 @@
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eaeaea;
             width: 100%;
-            max-width: 500px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
         .login-screen {
             display: none;
+            max-width: 500px;
+            margin: 100px auto;
         }
         
         .login-active .login-screen {
             display: block;
         }
 
-        .admin-container {
+        .login-active .admin-container {
             display: none;
         }
 
+        .admin-container {
+            display: block;
+        }
+
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             border-bottom: 2px solid #000;
-            padding-bottom: 12px;
+            padding-bottom: 10px;
         }
         .form-group {
             margin-bottom: 20px;
@@ -70,7 +82,7 @@
             transition: border-color 0.2s;
         }
         textarea {
-            height: 160px;
+            height: 140px;
             resize: vertical;
         }
         textarea:focus, input[type="password"]:focus, input[type="text"]:focus {
@@ -79,41 +91,38 @@
         }
         .auto-info {
             background: #f9f9f9;
-            padding: 16px;
+            padding: 14px;
             border-radius: 12px;
             font-size: 14px;
             color: #555;
             border: 1px solid #eee;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             text-align: left;
         }
         .auto-info span {
             font-weight: bold;
             color: #000;
         }
-        input[type="file"] {
-            font-size: 15px;
-            margin-top: 8px;
-            width: 100%;
-        }
-        .btn-publish, .btn-login {
+        .btn-publish, .btn-login, .btn-action {
             background-color: #000000;
             color: #ffffff;
             border: none;
-            padding: 16px 24px;
+            padding: 14px 20px;
             border-radius: 12px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             width: 100%;
             cursor: pointer;
             transition: background-color 0.2s, transform 0.1s;
-            margin-top: 15px;
+            margin-top: 10px;
         }
-        .btn-publish:hover, .btn-login:hover {
+        .btn-publish:hover, .btn-login:hover, .btn-action:hover {
             background-color: #212121;
         }
-        .btn-publish:active, .btn-login:active {
-             transform: scale(0.98);
+        .btn-cancel {
+            background-color: #e0e0e0;
+            color: #000;
+            display: none;
         }
         .error-msg {
             color: red;
@@ -126,11 +135,61 @@
             color: #666;
             margin-top: 6px;
         }
+
+        /* Lista de gestión de posts */
+        .posts-manager {
+            text-align: left;
+        }
+        .post-item-admin {
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .post-preview {
+            font-size: 14px;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .post-meta-admin {
+            font-size: 12px;
+            color: #777;
+        }
+        .post-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .btn-edit {
+            background-color: #2b6cb0;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .btn-delete {
+            background-color: #c53030;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Pantalla de Acceso con contraseña y Token dinámico -->
+    <!-- Pantalla de Acceso -->
     <div class="card-style login-screen" id="loginScreen">
         <h1>Acceso Restringido</h1>
         <div class="form-group">
@@ -138,40 +197,54 @@
             <input type="password" id="passwordInput" placeholder="Contraseña secreta">
         </div>
         <div class="form-group">
-            <label for="tokenInput">Token de GitHub (Solo la 1ª vez):</label>
+            <label for="tokenInput">Token de GitHub (BlogPass):</label>
             <input type="text" id="tokenInput" placeholder="ghp_...">
-            <div class="token-hint">Se guardará en tu navegador para que no tengas que ponerlo más.</div>
+            <div class="token-hint">Se guardará en tu navegador de forma segura.</div>
         </div>
         <button class="btn-login" onclick="verificarPassword()">Entrar</button>
         <div class="error-msg" id="errorMsg">Contraseña incorrecta. Inténtalo de nuevo.</div>
     </div>
 
-    <!-- Panel de Administración -->
-    <div class="card-style admin-container" id="adminContainer">
-        <h1>Nueva Publicación</h1>
+    <!-- Panel de Administración y Gestor -->
+    <div class="main-wrapper admin-container" id="adminContainer">
         
-        <div class="auto-info">
-            📅 Fecha y hora de publicación (Automática): <br>
-            <span id="live-datetime">Calculando...</span>
+        <!-- Formulario de Crear / Editar -->
+        <div class="card-style">
+            <h1 id="form-title">Nueva Publicación</h1>
+            
+            <div class="auto-info">
+                📅 Fecha y hora de publicación: <br>
+                <span id="live-datetime">Calculando...</span>
+            </div>
+
+            <div class="form-group">
+                <label for="post-content" id="label-content">¿Qué quieres publicar hoy?</label>
+                <textarea id="post-content" placeholder="Escribe tu pensamiento, poema o nota mental aquí..."></textarea>
+            </div>
+
+            <button class="btn-publish" id="btn-submit" onclick="guardarPublicacion()">Publicar</button>
+            <button class="btn-action btn-cancel" id="btn-cancel" onclick="cancelarEdicion()">Cancelar Edición</button>
+            <button class="btn-action" onclick="cerrarSesion()" style="background-color: #f1f1f1; color: #000; font-size: 14px; padding: 10px; margin-top: 15px;">Cerrar Sesión / Cambiar Token</button>
         </div>
 
-        <div class="form-group">
-            <label for="post-content">¿Qué quieres publicar hoy?</label>
-            <textarea id="post-content" placeholder="Escribe tu pensamiento, poema o nota mental aquí..."></textarea>
+        <!-- Lista para Gestionar Posts Existentes -->
+        <div class="card-style posts-manager">
+            <h1>Gestionar Publicaciones Existentes</h1>
+            <div id="posts-container">
+                <p style="color: #666; font-size: 14px; text-align: center;">Cargando publicaciones...</p>
+            </div>
         </div>
 
-        <div class="form-group" style="display:none;">
-            <!-- Opcional de ficheros reservado -->
-            <input type="file" id="media-file" accept="image/*,video/*">
-        </div>
-
-        <button class="btn-publish" onclick="crearPublicacion()">Publicar</button>
-        <button class="btn-login" onclick="cerrarSesion()" style="background-color: #f1f1f1; color: #000; margin-top: 10px; font-size: 14px; padding: 12px;">Cambiar Token / Salir</button>
     </div>
 
     <script>
         document.body.classList.add('login-active');
         document.getElementById('passwordInput').focus();
+
+        let postsCache = [];
+        let editandoIndex = null; // null si es nuevo, o el número de índice si estamos editando
+        const repo = "radicallyblogs/radicallyblogs";
+        const path = "posts.json";
 
         window.onload = function() {
             const savedToken = localStorage.getItem('gh_blog_token');
@@ -186,16 +259,15 @@
 
             if (pass === 'HURACAN') {
                 if (!tokenVal) {
-                    alert('Por favor, introduce tu Token de GitHub al menos esta primera vez.');
+                    alert('Por favor, introduce tu Token de GitHub.');
                     return;
                 }
                 localStorage.setItem('gh_blog_token', tokenVal);
 
                 document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('adminContainer').style.display = 'block';
                 document.body.classList.remove('login-active');
                 actualizarFechaHora();
-                document.getElementById('post-content').focus();
+                cargarPostsGitHub();
             } else {
                 const errorMsg = document.getElementById('errorMsg');
                 errorMsg.style.display = 'block';
@@ -222,20 +294,87 @@
             document.getElementById('live-datetime').innerText = `${fechaStr} • ${horaStr}`;
         }
 
-        async function crearPublicacion() {
+        // Cargar posts desde GitHub para mostrarlos en el panel
+        async function cargarPostsGitHub() {
+            const token = localStorage.getItem('gh_blog_token');
+            const container = document.getElementById('posts-container');
+
+            try {
+                const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                    headers: { "Authorization": `token ${token}` }
+                });
+
+                if (!res.ok) {
+                    container.innerHTML = '<p style="color: red; font-size: 14px;">Error al cargar los posts. Token inválido o sin permisos.</p>';
+                    return;
+                }
+
+                const data = await res.json();
+                if (data.content) {
+                    postsCache = JSON.parse(atob(data.content));
+                } else {
+                    postsCache = [];
+                }
+
+                renderizarListaAdmin();
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<p style="color: red; font-size: 14px;">Error de conexión con la API.</p>';
+            }
+        }
+
+        function renderizarListaAdmin() {
+            const container = document.getElementById('posts-container');
+            if (postsCache.length === 0) {
+                container.innerHTML = '<p style="color: #666; font-size: 14px; text-align: center;">No hay publicaciones todavía.</p>';
+                return;
+            }
+
+            let html = '';
+            postsCache.forEach((post, index) => {
+                html += `
+                    <div class="post-item-admin">
+                        <div class="post-meta-admin">📅 ${post.fechaCortas || 'Sin fecha'} • ${post.hora || ''}</div>
+                        <div class="post-preview">"${post.texto}"</div>
+                        <div class="post-actions">
+                            <button class="btn-edit" onclick="prepararEdicion(${index})">Editar</button>
+                            <button class="btn-delete" onclick="borrarPost(${index})">Borrar</button>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function prepararEdicion(index) {
+            editandoIndex = index;
+            const post = postsCache[index];
+            document.getElementById('post-content').value = post.texto;
+            document.getElementById('form-title').innerText = "Editar Publicación";
+            document.getElementById('btn-submit').innerText = "Guardar Cambios";
+            document.getElementById('btn-cancel').style.display = "block";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('post-content').focus();
+        }
+
+        function cancelarEdicion() {
+            editandoIndex = null;
+            document.getElementById('post-content').value = "";
+            document.getElementById('form-title').innerText = "Nueva Publicación";
+            document.getElementById('btn-submit').innerText = "Publicar";
+            document.getElementById('btn-cancel').style.display = "none";
+        }
+
+        async function guardarPublicacion() {
             const texto = document.getElementById('post-content').value;
             if (!texto.trim()) {
-                alert('Por favor, escribe algo antes de publicar.');
+                alert('Por favor, escribe algo.');
                 return;
             }
 
             const token = localStorage.getItem('gh_blog_token');
-            const repo = "radicallyblogs/radicallyblogs";
-            const path = "posts.json";
-
             if (!token) {
-                alert('No se encuentra el token de GitHub. Por favor, vuelve a iniciar sesión.');
-                location.reload();
+                alert('Falta el token. Vuelve a iniciar sesión.');
                 return;
             }
 
@@ -244,33 +383,37 @@
             const fechaCortasActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
             const horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
 
-            const nuevoPost = {
-                "texto": texto,
-                "fechaLarga": fechaLargaActual,
-                "fechaCortas": fechaCortasActual,
-                "hora": horaStr
-            };
-
             try {
+                // 1. Obtener sha actual
                 const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
-
                 if (!getRes.ok) {
-                    alert("Error: El token de GitHub no es válido o ha expirado.");
+                    alert("Error al conectar con GitHub.");
                     return;
                 }
-
                 const getData = await getRes.json();
                 const sha = getData.sha;
-                
-                let posts = [];
+
                 if (getData.content) {
-                    posts = JSON.parse(atob(getData.content));
+                    postsCache = JSON.parse(atob(getData.content));
                 }
 
-                posts.unshift(nuevoPost);
+                if (editandoIndex !== null) {
+                    // Modo Edición: Actualizamos el texto pero mantenemos su fecha original (o puedes actualizarla si prefieres)
+                    postsCache[editandoIndex].texto = texto;
+                } else {
+                    // Modo Creación: Añadimos al principio
+                    const nuevoPost = {
+                        "texto": texto,
+                        "fechaLarga": fechaLargaActual,
+                        "fechaCortas": fechaCortasActual,
+                        "hora": horaStr
+                    };
+                    postsCache.unshift(nuevoPost);
+                }
 
+                // 2. Enviar actualización a GitHub
                 const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     method: "PUT",
                     headers: {
@@ -278,23 +421,75 @@
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        message: "Nuevo post desde el panel admin",
-                        content: btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2)))),
+                        message: editandoIndex !== null ? "Editar post desde panel admin" : "Nuevo post desde panel admin",
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(postsCache, null, 2)))),
                         sha: sha
                     })
                 });
 
                 if (putRes.ok) {
-                    alert("¡Publicado con éxito en tu blog!");
-                    document.getElementById('post-content').value = "";
-                    actualizarFechaHora();
+                    alert(editandoIndex !== null ? "¡Cambios guardados con éxito!" : "¡Publicado con éxito en tu blog!");
+                    cancelarEdicion();
+                    cargarPostsGitHub();
                 } else {
-                    alert("Hubo un error al conectar con GitHub.");
+                    alert("Hubo un error al guardar en GitHub.");
                 }
 
             } catch (error) {
                 console.error("Error:", error);
                 alert("Error en la petición con la API.");
+            }
+        }
+
+        async function borrarPost(index) {
+            if (!confirm("¿Estás seguro de que quieres borrar esta publicación?")) {
+                return;
+            }
+
+            const token = localStorage.getItem('gh_blog_token');
+            try {
+                const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                    headers: { "Authorization": `token ${token}` }
+                });
+                if (!getRes.ok) {
+                    alert("Error al conectar con GitHub.");
+                    return;
+                }
+                const getData = await getRes.json();
+                const sha = getData.sha;
+
+                if (getData.content) {
+                    postsCache = JSON.parse(atob(getData.content));
+                }
+
+                // Eliminar el post seleccionado de la lista
+                postsCache.splice(index, 1);
+
+                // Subir lista actualizada
+                const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `token ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        message: "Borrar post desde panel admin",
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(postsCache, null, 2)))),
+                        sha: sha
+                    })
+                });
+
+                if (putRes.ok) {
+                    alert("¡Publicación borrada con éxito!");
+                    cancelarEdicion();
+                    cargarPostsGitHub();
+                } else {
+                    alert("Hubo un error al borrar en GitHub.");
+                }
+
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error al procesar el borrado.");
             }
         }
     </script>
