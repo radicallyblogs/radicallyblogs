@@ -24,7 +24,7 @@ html, body {
 }
 
 .post {
-    margin-bottom: 30px;
+    /* El margen inferior se ha reubicado en los bloques multimedia de abajo para control independiente */
 }
 
 .post-header {
@@ -63,6 +63,11 @@ html, body {
    MUNDO 1: ESTILOS EXCLUSIVOS PARA PC (PANTALLAS > 768px)
    ========================================================= */
 @media (min-width: 769px) {
+    
+    .post {
+        margin-bottom: 35px; /* <-- NUEVO: Espacio entre posts en ORDENADOR */
+    }
+
     .desktop-date {
         display: inline !important;
     }
@@ -120,6 +125,11 @@ html, body {
    MUNDO 2: ESTILOS EXCLUSIVOS PARA MÓVIL (PANTALLAS <= 768px)
    ========================================================= */
 @media (max-width: 768px) {
+    
+    .post {
+        margin-bottom: 25px; /* <-- NUEVO: Espacio entre posts en MÓVIL */
+    }
+
     /* CONTENEDOR MÓVIL: Mueve todo a la izquierda (cambia el 10px si quieres más o menos separación del borde izquierdo) */
     .feed-container {
         width: 100% !important;
@@ -191,7 +201,7 @@ html, body {
         height: 37px !important;       /* Alto de la foto (debe medir lo mismo que el ancho) */
         position: relative !important; 
         top: 0px !important;           /* Mueve la foto: positivo baja, negativo sube */
-        left: -3px !important;          /* Mueve la foto: positivo derecha, negativo izquierda */
+        left: -3px !important;         /* Mueve la foto: positivo derecha, negativo izquierda */
     }
 
     /* MUEVE EL NOMBRE Y LA HORA JUNTOS (ARRIBA / ABAJO, IZQUIERDA / DERECHA) */
