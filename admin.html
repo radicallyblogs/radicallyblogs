@@ -50,7 +50,7 @@
             padding-bottom: 12px;
         }
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             text-align: left;
         }
         label {
@@ -60,7 +60,7 @@
             margin-bottom: 8px;
             color: #333;
         }
-        textarea, input[type="password"] {
+        textarea, input[type="password"], input[type="text"] {
             width: 100%;
             padding: 14px;
             border: 1px solid #e0e0e0;
@@ -73,7 +73,7 @@
             height: 160px;
             resize: vertical;
         }
-        textarea:focus, input[type="password"]:focus {
+        textarea:focus, input[type="password"]:focus, input[type="text"]:focus {
             outline: none;
             border-color: #000000;
         }
@@ -107,7 +107,7 @@
             width: 100%;
             cursor: pointer;
             transition: background-color 0.2s, transform 0.1s;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         .btn-publish:hover, .btn-login:hover {
             background-color: #212121;
@@ -121,16 +121,26 @@
             margin-top: 12px;
             display: none;
         }
+        .token-hint {
+            font-size: 12px;
+            color: #666;
+            margin-top: 6px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Pantalla de Acceso con contraseña -->
+    <!-- Pantalla de Acceso con contraseña y Token dinámico -->
     <div class="card-style login-screen" id="loginScreen">
         <h1>Acceso Restringido</h1>
         <div class="form-group">
             <label for="passwordInput">Introduce la contraseña:</label>
             <input type="password" id="passwordInput" placeholder="Contraseña secreta">
+        </div>
+        <div class="form-group">
+            <label for="tokenInput">Token de GitHub (Solo la 1ª vez):</label>
+            <input type="text" id="tokenInput" placeholder="ghp_...">
+            <div class="token-hint">Se guardará en tu navegador para que no tengas que ponerlo más.</div>
         </div>
         <button class="btn-login" onclick="verificarPassword()">Entrar</button>
         <div class="error-msg" id="errorMsg">Contraseña incorrecta. Inténtalo de nuevo.</div>
@@ -156,15 +166,33 @@
         </div>
 
         <button class="btn-publish" onclick="crearPublicacion()">Publicar</button>
+        <button class="btn-login" onclick="cerrarSesion()" style="background-color: #f1f1f1; color: #000; margin-top: 10px; font-size: 14px; padding: 12px;">Cambiar Token / Salir</button>
     </div>
 
     <script>
         document.body.classList.add('login-active');
         document.getElementById('passwordInput').focus();
 
+        // Cargar token guardado previamente en el navegador si existe
+        window.onload = function() {
+            const savedToken = localStorage.getItem('gh_blog_token');
+            if (savedToken) {
+                document.getElementById('tokenInput').value = savedToken;
+            }
+        };
+
         function verificarPassword() {
             const pass = document.getElementById('passwordInput').value;
+            const tokenVal = document.getElementById('tokenInput').value.trim();
+
             if (pass === 'HURACAN') {
+                if (!tokenVal) {
+                    alert('Por favor, introduce tu Token de GitHub al menos esta primera vez.');
+                    return;
+                }
+                // Guardar el token en el navegador
+                localStorage.setItem('gh_blog_token', tokenVal);
+
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('adminContainer').style.display = 'block';
                 document.body.classList.remove('login-active');
@@ -175,6 +203,11 @@
                 errorMsg.style.display = 'block';
                 document.getElementById('passwordInput').select();
             }
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem('gh_blog_token');
+            location.reload();
         }
 
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
@@ -198,9 +231,15 @@
                 return;
             }
 
-            const token = "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";
+            const token = localStorage.getItem('gh_blog_token');
             const repo = "radicallyblogs/radicallyblogs.github.io";
             const path = "posts.json";
+
+            if (!token) {
+                alert('No se encuentra el token de GitHub. Por favor, vuelve a iniciar sesión.');
+                location.reload();
+                return;
+            }
 
             const ahora = new Date();
             const fechaLargaActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
@@ -219,6 +258,12 @@
                 const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
+
+                if (!getRes.ok) {
+                    alert("Error: El token de GitHub no es válido o ha expirado.");
+                    return;
+                }
+
                 const getData = await getRes.json();
                 const sha = getData.sha;
                 
