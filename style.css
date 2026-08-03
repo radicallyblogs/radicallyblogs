@@ -1,3 +1,6 @@
+/* Carga externa de Proxima Nova para garantizar compatibilidad total */
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+
 * {
     box-sizing: border-box;
 }
@@ -8,35 +11,37 @@ html, body {
     padding: 0;
     width: 100%;
     color: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
 .feed-container {
-    max-width: 550px;
+    max-width: 580px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Título Actualidad (Corregido a grosor estándar limpio) */
+/* Título Actualidad: SF UI Display Bold, 30px */
 .feed-title {
-    font-size: 24px;
+    font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    font-size: 30px;
     font-weight: 700;
     color: #000000;
-    margin: 0 0 18px 0;
-    letter-spacing: -0.4px;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.5px;
 }
 
 /* Bloque del post */
 .post {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
 }
 
-/* Fecha */
+/* Fecha: Proxima Nova, 18px */
 .post-date {
-    font-size: 14px;
-    color: #333333;
-    margin-bottom: 4px;
+    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 6px;
 }
 
 .desktop-date {
@@ -56,17 +61,17 @@ html, body {
     }
 }
 
-/* Cabecera (Foto + Nombre alineados) */
+/* Cabecera (Foto + Nombre) */
 .post-header {
     display: flex !important;
     align-items: center !important;
-    gap: 8px;
-    margin-bottom: 4px;
+    gap: 10px;
+    margin-bottom: 6px;
 }
 
 .avatar {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-image: url('avatar.jpeg');
     background-size: cover;
@@ -78,30 +83,35 @@ html, body {
 .user-info {
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-size: 15px;
+    gap: 6px;
 }
 
+/* Nombre de usuario: SF UI Display Medium, 20px */
 .username {
-    font-weight: 700;
+    font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
     color: #000000;
 }
 
+/* Hora */
 .timestamp {
-    color: #666666;
-    font-size: 14px;
+    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #777777;
+    font-size: 17px;
 }
 
-/* Texto del post */
+/* Texto del post: Proxima Nova, 20px */
 .post-content {
-    font-size: 15px;
+    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px;
     line-height: 1.4;
     color: #000000;
     margin: 0;
     padding: 0;
 }
 
-/* Enlaces */
+/* Color azul para los enlaces */
 .post-content a {
     color: #3897f0;
     text-decoration: none;
