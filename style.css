@@ -187,10 +187,10 @@ html, body {
 
     /* FOTO DE PERFIL (TAMAÑO Y POSICIÓN EN MÓVIL) */
     .avatar {
-        width: 35px !important;        /* Ancho de la foto (cámbialo si quieres encogerla más) */
-        height: 35px !important;       /* Alto de la foto (debe medir lo mismo que el ancho) */
+        width: 38px !important;        /* Ancho de la foto (cámbialo si quieres encogerla más) */
+        height: 38px !important;       /* Alto de la foto (debe medir lo mismo que el ancho) */
         position: relative !important; 
-        top: 0px !important;           /* Mueve la foto: positivo baja, negativo sube */
-        left: 0px !important;          /* Mueve la foto: positivo derecha, negativo izquierda */
+        top: 5px !important;           /* Mueve la foto: positivo baja, negativo sube */
+        left: -3px !important;          /* Mueve la foto: positivo derecha, negativo izquierda */
     }
 }
