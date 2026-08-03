@@ -151,6 +151,7 @@
         </div>
 
         <div class="form-group" style="display:none;">
+            <!-- Opcional de ficheros reservado -->
             <input type="file" id="media-file" accept="image/*,video/*">
         </div>
 
@@ -197,7 +198,7 @@
                 return;
             }
 
-            const token = "ghp_K0xJuXb3uuaNLUOKi11w03NYmteGUR3Z2JUn";
+            const token = "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";
             const repo = "radicallyblogs/radicallyblogs.github.io";
             const path = "posts.json";
 
@@ -218,23 +219,12 @@
                 const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
-                
-                if (!getRes.ok) {
-                    const errData = await getRes.json();
-                    alert("Error al leer de GitHub: " + (errData.message || getRes.status));
-                    return;
-                }
-
                 const getData = await getRes.json();
                 const sha = getData.sha;
                 
                 let posts = [];
                 if (getData.content) {
-                    try {
-                        posts = JSON.parse(atob(getData.content));
-                    } catch (e) {
-                        posts = [];
-                    }
+                    posts = JSON.parse(atob(getData.content));
                 }
 
                 // Añadir el nuevo post al principio de la lista
@@ -259,13 +249,12 @@
                     document.getElementById('post-content').value = "";
                     actualizarFechaHora();
                 } else {
-                    const putErrData = await putRes.json();
-                    alert("Error al guardar en GitHub: " + (putErrData.message || putRes.status));
+                    alert("Hubo un error al conectar con GitHub.");
                 }
 
             } catch (error) {
                 console.error("Error:", error);
-                alert("Error de red o conexión: " + error.message);
+                alert("Error en la petición con la API.");
             }
         }
     </script>
