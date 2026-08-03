@@ -18,13 +18,13 @@ html, body {
     padding: 0 20px;
 }
 
-/* Título de la sección */
+/* Título Actualidad (Corregido a grosor estándar limpio) */
 .feed-title {
-    font-size: 26px;
-    font-weight: 800;
+    font-size: 24px;
+    font-weight: 700;
     color: #000000;
-    margin: 0 0 20px 0;
-    letter-spacing: -0.5px;
+    margin: 0 0 18px 0;
+    letter-spacing: -0.4px;
 }
 
 /* Bloque del post */
@@ -32,7 +32,7 @@ html, body {
     margin-bottom: 24px;
 }
 
-/* Fecha (acercada a la foto de perfil) */
+/* Fecha */
 .post-date {
     font-size: 14px;
     color: #333333;
@@ -56,12 +56,12 @@ html, body {
     }
 }
 
-/* Cabecera (Foto + Nombre alineados en la misma fila) */
+/* Cabecera (Foto + Nombre alineados) */
 .post-header {
     display: flex !important;
     align-items: center !important;
     gap: 8px;
-    margin-bottom: 4px; /* Espacio sutil y muy pegado al texto */
+    margin-bottom: 4px;
 }
 
 .avatar {
@@ -101,7 +101,7 @@ html, body {
     padding: 0;
 }
 
-/* Color azul para los enlaces */
+/* Enlaces */
 .post-content a {
     color: #3897f0;
     text-decoration: none;
