@@ -9,28 +9,51 @@ html, body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* Cabecera superior estilo Wix (Banner negro) */
+.site-header {
+    width: 100%;
+    background-color: #000000;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: 30px;
+}
+
+.site-header img, .site-header h1 {
+    max-width: 100%;
+    height: auto;
+}
+
+.banner-text {
+    font-family: monospace;
+    color: #ffd700;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
 /* Contenedor centrado del feed */
 .feed-container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px 40px 20px;
 }
 
 /* Control independiente de fechas (PC vs Móvil) */
 .desktop-date {
-    display: inline; /* Se ve en ordenador */
+    display: inline;
 }
 .mobile-date {
-    display: none;    /* Oculto en ordenador por defecto */
+    display: none;
 }
 
-/* Si la pantalla es de móvil (menos de 768px de ancho)... */
 @media (max-width: 768px) {
     .desktop-date {
-        display: none;   /* Se oculta en móvil */
+        display: none;
     }
     .mobile-date {
-        display: inline; /* Se muestra en móvil con el formato corto */
+        display: inline;
     }
 }
 
@@ -38,33 +61,41 @@ html, body {
 .date-divider {
     font-size: 14px;
     color: #666666;
-    margin: 24px 0 12px 0;
+    margin: 24px 0 10px 0;
 }
 
-/* Tarjeta del Bloggy / Publicación */
+/* Estilo para el título de la sección (Actualidad) */
+.feed-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 15px 0;
+    letter-spacing: -0.4px;
+}
+
+/* Publicación (SIN CAJAS, SIN BORDES, SIN SOMBRAS - Estilo Wix plano) */
 .bloggy-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 16px;
-    border: 1px solid #eaeaea;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 28px;
 }
 
 .bloggy-header {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
-/* Avatar circular con tu imagen real subida */
+/* Avatar circular */
 .avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-image: url('avatar.jpeg'); /* Carga tu foto de perfil */
-    background-size: cover;               /* Ajusta la imagen para cubrir el círculo */
-    background-position: center;          /* Centra la imagen */
+    background-image: url('avatar.jpeg');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     margin-right: 10px;
     flex-shrink: 0;
@@ -93,11 +124,4 @@ html, body {
     color: #111111;
     margin: 0;
     white-space: pre-line;
-}/* Estilo para el título de la sección (Actualidad) */
-.feed-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #000000;
-    margin: 0 0 4px 0;
-    letter-spacing: -0.4px;
 }
