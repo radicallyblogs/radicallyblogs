@@ -71,8 +71,8 @@ html, body {
 
     /* Título Actualidad */
     .feed-title {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-size: 28px;
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 30px;
         font-weight: 700;
         color: #000000;
         margin: 0 0 20px 0;
@@ -82,26 +82,25 @@ html, body {
     /* Fecha */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 17px;
-        color: #111111;
+        font-size: 18px;
+        color: #000000;
         margin-bottom: 6px;
     }
 
-    /* Nombre de usuario (Achatado/Compactado verticalmente, grosor Medium) */
+    /* Nombre de usuario (20px reales, SF UI Display Medium) */
     .username {
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-        font-weight: 600;
-        font-size: 16px;
-        letter-spacing: 0;
-        line-height: 1;
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
         color: #000000;
     }
 
     /* Hora */
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        color: #666666;
-        font-size: 15px;
+        color: #777777;
+        font-size: 17px;
     }
 
     /* Texto del post */
