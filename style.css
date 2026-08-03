@@ -88,10 +88,10 @@ html, body {
         margin-bottom: 6px;
     }
 
-    /* Usuario (SF UI Display Regular, 20px) */
+    /* Usuario (SF UI Display, 20px - con grosor 250) */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-weight: 300;
+        font-weight: 250;
         font-size: 20px;
         color: #000000;
     }
@@ -103,16 +103,17 @@ html, body {
         font-size: 17px;
     }
 
-    /* Texto del post (Proxima Nova, 20px) */
-.post-content {
-    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 20px;
-    font-weight: 300; /* Añade esta línea aquí con el valor que quieras (400, 500, etc.) */
-    line-height: 1.4;
-    color: #000000;
-    margin: 0;
-    padding: 0;
-}
+    /* Texto del post (Proxima Nova, 20px - con grosor 250) */
+    .post-content {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 20px;
+        font-weight: 250;
+        line-height: 1.4;
+        color: #000000;
+        margin: 0;
+        padding: 0;
+    }
+} /* <-- ¡Aquí se cierra correctamente el bloque de PC! */
 
 /* =========================================================
    MUNDO 2: ESTILOS EXCLUSIVOS PARA MÓVIL (PANTALLAS <= 768px)
