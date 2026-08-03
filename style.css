@@ -1,4 +1,4 @@
-/* Carga externa de Proxima Nova para garantizar compatibilidad total */
+/* Carga de Proxima Nova */
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
 
 * {
@@ -15,53 +15,17 @@ html, body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Base común del feed */
 .feed-container {
     max-width: 580px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Título Actualidad: SF UI Display Bold, 30px */
-.feed-title {
-    font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-    color: #000000;
-    margin: 0 0 20px 0;
-    letter-spacing: -0.5px;
-}
-
-/* Bloque del post */
 .post {
     margin-bottom: 30px;
 }
 
-/* Fecha: Proxima Nova, 18px */
-.post-date {
-    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 18px;
-    color: #000000;
-    margin-bottom: 6px;
-}
-
-.desktop-date {
-    display: inline !important;
-}
-
-.mobile-date {
-    display: none !important;
-}
-
-@media (max-width: 768px) {
-    .desktop-date {
-        display: none !important;
-    }
-    .mobile-date {
-        display: inline !important;
-    }
-}
-
-/* Cabecera (Foto + Nombre) */
 .post-header {
     display: flex !important;
     align-items: center !important;
@@ -86,37 +50,80 @@ html, body {
     gap: 6px;
 }
 
-/* Nombre de usuario: SF UI Display Medium, 20px */
-.username {
-    font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    color: #000000;
-}
-
-/* Hora */
-.timestamp {
-    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #777777;
-    font-size: 17px;
-}
-
-/* Texto del post: Proxima Nova, 20px */
-.post-content {
-    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 20px;
-    line-height: 1.4;
-    color: #000000;
-    margin: 0;
-    padding: 0;
-}
-
-/* Color azul para los enlaces */
 .post-content a {
     color: #3897f0;
     text-decoration: none;
 }
-
 .post-content a:hover {
     text-decoration: underline;
+}
+
+/* =========================================================
+   MUNDO 1: ESTILOS EXCLUSIVOS PARA PC (PANTALLAS > 768px)
+   ========================================================= */
+@media (min-width: 769px) {
+    .desktop-date {
+        display: inline !important;
+    }
+    .mobile-date {
+        display: none !important;
+    }
+
+    /* Título Actualidad (SF UI Display Bold, 30px) */
+    .feed-title {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        color: #000000;
+        margin: 0 0 20px 0;
+        letter-spacing: -0.5px;
+    }
+
+    /* Fecha (Proxima Nova, 18px) */
+    .post-date {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 18px;
+        color: #000000;
+        margin-bottom: 6px;
+    }
+
+    /* Usuario (SF UI Display Medium, 20px) */
+    .username {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        color: #000000;
+    }
+
+    /* Hora */
+    .timestamp {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #777777;
+        font-size: 17px;
+    }
+
+    /* Texto del post (Proxima Nova, 20px) */
+    .post-content {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 20px;
+        line-height: 1.4;
+        color: #000000;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* =========================================================
+   MUNDO 2: ESTILOS EXCLUSIVOS PARA MÓVIL (PANTALLAS <= 768px)
+   (Lo afinaremos cuando terminemos el PC)
+   ========================================================= */
+@media (max-width: 768px) {
+    .desktop-date {
+        display: none !important;
+    }
+    .mobile-date {
+        display: inline !important;
+    }
+
+    /* Aquí irán los tamaños de móvil aislados */
 }
