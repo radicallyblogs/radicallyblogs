@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RADICALLYBLOGS - Panel de Administración</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff; /* Fondo blanco puro global */
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centra verticalmente las tarjetas */
+            min-height: 100vh;
+        }
+
+        /* Estilo base para las tarjetas blancas flotantes */
+        .card-style {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px; /* Bordes más redondeados */
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); /* Sombra suave para el efecto 'flotante' */
+            width: 100%;
+            max-width: 500px; /* Un ancho máximo más elegante */
+            text-align: center;
+        }
+
+        /* Pantalla de Acceso con contraseña */
+        .login-screen {
+            display: none; /* Oculto por defecto hasta que no cargue la pantalla de login */
+        }
+        
+        /* Aseguramos que el login sea visible al cargar */
+        .login-active .login-screen {
+            display: block;
+        }
+
+        /* Panel de Administración (Oculto de inicio) */
+        .admin-container {
+            display: none; /* Oculto hasta que ponga la contraseña correcta */
+        }
+
+        h1 {
+            font-size: 24px; /* Título un poco más grande */
+            font-weight: 700;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 12px;
+        }
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        textarea, input[type="password"] {
+            width: 100%;
+            padding: 14px; /* Más padding para mejor escritura */
+            border: 1px solid #e0e0e0; /* Borde gris más suave */
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        textarea {
+            height: 160px; /* Un poco más alto */
+            resize: vertical;
+        }
+        textarea:focus, input[type="password"]:focus {
+            outline: none;
+            border-color: #000000;
+        }
+        .auto-info {
+            background: #f9f9f9;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #555;
+            border: 1px solid #eee;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .auto-info span {
+            font-weight: bold;
+            color: #000;
+        }
+        input[type="file"] {
+            font-size: 15px;
+            margin-top: 8px;
+            width: 100%;
+        }
+        .btn-publish, .btn-login {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 16px 24px; /* Botón más grande y contundente */
+            border-radius: 12px;
+            font-size: 17px; /* Tipografía más legible */
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 20px;
+        }
+        .btn-publish:hover, .btn-login:hover {
+            background-color: #212121; /* Negro ligeramente más suave al hover */
+        }
+        .btn-publish:active, .btn-login:active {
+             transform: scale(0.98); /* Pequeño efecto de pulsación */
+        }
+        .error-msg {
+            color: red;
+            font-size: 13px;
+            margin-top: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Pantalla de Acceso con contraseña -->
+    <div class="card-style login-screen" id="loginScreen">
+        <h1>Acceso Restringido</h1>
+        <div class="form-group">
+            <label for="passwordInput">Introduce la contraseña:</label>
+            <input type="password" id="passwordInput" placeholder="Contraseña secreta">
+        </div>
+        <button class="btn-login" onclick="verificarPassword()">Entrar</button>
+        <div class="error-msg" id="errorMsg">Contraseña incorrecta. Inténtalo de nuevo.</div>
+    </div>
+
+    <!-- Panel de Administración (Oculto de inicio) -->
+    <div class="card-style admin-container" id="adminContainer">
+        <h1>Nueva Publicación</h1>
+        
+        <div class="auto-info">
+            📅 Fecha y hora de publicación (Automática): <br>
+            <span id="live-datetime">Calculando...</span>
+        </div>
+
+        <div class="form-group">
+            <label for="post-content">¿Qué quieres publicar hoy?</label>
+            <textarea id="post-content" placeholder="Escribe tu pensamiento, poema o nota mental aquí..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="media-file">Añadir imagen o vídeo (opcional):</label>
+            <input type="file" id="media-file" accept="image/*,video/*">
+        </div>
+
+        <button class="btn-publish" onclick="crearPublicacion()">Publicar</button>
+    </div>
+
+    <script>
+        // Al cargar la página, mostramos la pantalla de login
+        document.body.classList.add('login-active');
+        document.getElementById('passwordInput').focus(); // Enfoca el campo de contraseña
+
+        function verificarPassword() {
+            const pass = document.getElementById('passwordInput').value;
+            if (pass === 'HURACAN') {
+                // Ocultar login, mostrar admin
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('adminContainer').style.display = 'block';
+                document.body.classList.remove('login-active'); // Limpiamos la clase del body
+                actualizarFechaHora();
+                document.getElementById('post-content').focus(); // Enfoca el campo de texto del post
+            } else {
+                // Mostrar error
+                const errorMsg = document.getElementById('errorMsg');
+                errorMsg.style.display = 'block';
+                document.getElementById('passwordInput').select(); // Selecciona el texto incorrecto
+            }
+        }
+
+        // Permitir entrar pulsando la tecla "Enter" en la contraseña
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                verificarPassword();
+            }
+        });
+
+        function actualizarFechaHora() {
+            const ahora = new Date();
+            const opcionesFecha = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
+            let fechaStr = ahora.toLocaleDateString('es-ES', opcionesFecha);
+            // Formato de hora exacta (ej: 7:24 pm)
+            let horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
+            document.getElementById('live-datetime').innerText = `${fechaStr} • ${horaStr}`;
+        }
+
+        function crearPublicacion() {
+            const texto = document.getElementById('post-content').value;
+            if (!texto.trim()) {
+                alert('Por favor, escribe algo antes de publicar.');
+                return;
+            }
+            alert('¡Publicación lista para ser enviada al repositorio! El siguiente paso será conectar este botón con el guardado automático de archivos.');
+        }
+    </script>
+
+</body>
+</html>
