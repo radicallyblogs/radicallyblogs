@@ -394,7 +394,7 @@ html, body {
     .post-images-grid {
         display: flex !important;            
         flex-wrap: wrap !important;         /* Salto de línea automático para que no se amontonen */
-        gap: 8px !important;                /* Espacio reducido entre fotos para móvil */
+        gap: 4px !important;                /* Espacio reducido entre fotos para móvil */
         width: 98% !important;              /* Ancho del 98% para respetar los márgenes del post */
         max-width: 98% !important;          
         margin-top: 12px !important;        
