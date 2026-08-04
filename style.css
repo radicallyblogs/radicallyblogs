@@ -214,11 +214,10 @@ html, body {
    CONFIGURACIÓN DE IMÁGENES: PC vs MÓVIL
    ========================================== */
 
-/* --- 1. CONFIGURACIÓN PARA PC / ESCRITORIO --- */
+/* --- 1. CONFIGURACIÓN PARA PC / ESCRITORIO (GRID MÚLTIPLE) --- */
 
-/* [ANOTACIÓN] Esta clase ahora es EXCLUSIVA para el GRID de imágenes múltiples. 
-   Se ha separado de la imagen única para que el grid mantenga su formato cuadrado perfecto. */
-.post-image-container {
+/* [ANOTACIÓN] Esta clase es EXCLUSIVA para los contenedores del grid de imágenes múltiples. */
+.post-images-grid .post-image-container {
     margin-top: 13px; /* Espacio superior: separación entre el texto del post y la foto */
     width: 100%;      /* Ancho del contenedor general */
     max-width: 500px; /* Ancho máximo en PC para que el cuadrado no sea gigantesco */
@@ -228,8 +227,8 @@ html, body {
 }
 
 .post-uploaded-img {
-    width: 100%          /* Ancho del 100% para llenar su caja */
-    height: 100%          /* Llena el contenedor cuadrado por completo */
+    width: 100%;          /* Ancho del 100% para llenar su caja */
+    height: 100%;         /* Llena el contenedor cuadrado por completo */
     max-height: none;     /* Sin límites de altura para mantener el formato cuadrado */
     object-fit: cover;    /* Recorte limpio y profesional sin deformar */
     border-radius: 12px;  /* Redondeo de esquinas en PC */
@@ -326,8 +325,8 @@ html, body {
    CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas < 768px)
    ========================================================== */
 @media (max-width: 767px) {
-    /* Imagen individual en móvil */
-    .post-image-container {
+    /* Contenedor del grid en móvil */
+    .post-images-grid .post-image-container {
         width: 100% !important;              
         max-width: 98% !important;          /* Tu truco maestro del 98% para evitar cortes a la derecha */
         aspect-ratio: 1 / 1 !important;     
@@ -393,12 +392,10 @@ html, body {
 
 
 /* ==========================================================
-   [ANOTACIÓN] NUEVO BLOQUE: IMAGEN ÚNICA (Independiente del grid)
+   [ANOTACIÓN] BLOQUE AISLADO: IMAGEN ÚNICA (No afecta al grid)
    ========================================================== */
 
-/* ==========================================
-   1. IMAGEN ÚNICA - VERSIÓN MÓVIL Y BASE
-   ========================================== */
+/* --- 1. IMAGEN ÚNICA - VERSIÓN MÓVIL Y BASE --- */
 .post-single-image-container {
     width: 100% !important;
     margin-top: 10px;
@@ -407,7 +404,7 @@ html, body {
     overflow: hidden;
     background: transparent;
     display: flex !important;
-    /* [ANOTACIÓN] Alinea el contenedor flexible hacia la izquierda */
+    /* [ANOTACIÓN] Alinea el contenedor flexible hacia la izquierda exactamente con el texto */
     justify-content: flex-start !important; 
 }
 
@@ -424,9 +421,7 @@ html, body {
     margin-right: auto !important; 
 }
 
-/* ==========================================
-   2. IMAGEN ÚNICA - VERSIÓN PC (Escritorio)
-   ========================================== */
+/* --- 2. IMAGEN ÚNICA - VERSIÓN PC (Escritorio) --- */
 @media (min-width: 768px) {
     .post-single-image-container {
         margin-top: 12px;
@@ -441,5 +436,13 @@ html, body {
         max-width: 80% !important;
         margin-left: 0 !important;
         margin-right: auto !important;
+    }
+}
+
+/* --- 3. IMAGEN ÚNICA - VERSIÓN MÓVIL (< 768px) --- */
+@media (max-width: 767px) {
+    .post-single-image-container img {
+        /* [ANOTACIÓN] Truco del 98% para evitar cortes a la derecha en pantallas de móvil */
+        max-width: 98% !important;
     }
 }
