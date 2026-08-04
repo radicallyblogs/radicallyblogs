@@ -216,7 +216,7 @@ html, body {
 
 /* --- 1. CONFIGURACIÓN PARA PC / ESCRITORIO --- */
 .post-image-container {
-    margin-top: 16px; /* Espacio superior: separación entre el texto del post y la foto */
+    margin-top: 13px; /* Espacio superior: separación entre el texto del post y la foto */
     width: 100%;      /* Ancho del contenedor general */
     max-width: 500px; /* Ancho máximo en PC para que el cuadrado no sea gigantesco */
     aspect-ratio: 1 / 1; /* Cuadrado perfecto (1:1) para que las fotos cuadradas se vean enteras */
