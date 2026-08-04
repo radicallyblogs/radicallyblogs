@@ -36,13 +36,13 @@
                 posts.forEach(post => {
                     let imagenHTML = '';
 
-                    // 1. Si el post tiene varias imágenes (nuevo formato)
+                    // 1. Si el post tiene varias imágenes (nuevo formato con tu CSS .post-images-grid)
                     if (post.imagenes && post.imagenes.length > 0) {
                         let imgsString = '';
                         post.imagenes.forEach(img => {
-                            imgsString += `<img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')">`;
+                            imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
                         });
-                        imagenHTML = `<div class="post-image-container">${imgsString}</div>`;
+                        imagenHTML = `<div class="post-images-grid">${imgsString}</div>`;
                     } 
                     // 2. Compatibilidad con posts antiguos que solo tienen una imagen
                     else if (post.imagen) {
