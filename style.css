@@ -303,7 +303,7 @@ html, body {
 @media (max-width: 767px) {
     .post-image-container {
         width: 100% !important;            /* Ancho completo: Ocupa todo el espacio disponible en la pantalla del móvil */
-        max-width: 100% !important;        /* Ancho máximo: Evita que el contenedor crezca más de la cuenta y desborde */
+        max-width: 95% !important;        /* Ancho máximo: Evita que el contenedor crezca más de la cuenta y desborde */
         aspect-ratio: 1 / 1 !important;    /* Cuadrado perfecto 1:1: Mantiene la proporción idéntica de alto y ancho */
         margin-top: 12px !important;       /* Espacio superior: Separación entre el texto y la foto en móvil */
         margin-bottom: 12px !important;    /* Espacio inferior: Separación entre la foto y el siguiente post */
