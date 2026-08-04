@@ -240,6 +240,7 @@ html, body {
     .post-uploaded-img {
         width: 100%;         /* ANCHO en móvil: Puedes ajustarlo aquí de forma independiente al PC */
         max-height: 350px;   /* ALTURA MÁXIMA en móvil: Más bajita para adaptarse mejor a pantallas pequeñas */
+        object-fit: contain; /* <-- LÍNEA 243: Evita que se corte la imagen en el móvil */
         border-radius: 8px;  /* Redondeo de esquinas específico para móvil (si lo prefieres más sutil) */
     }
 }
