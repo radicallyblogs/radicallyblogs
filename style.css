@@ -302,21 +302,30 @@ html, body {
 /* --- 2. CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas de menos de 768px) --- */
 @media (max-width: 767px) {
     .post-image-container {
-        width: 100%;          /* El contenedor ocupa el ancho disponible */
-        max-width: 100%;
-        aspect-ratio: 1 / 1;  /* El contenedor sigue siendo un cuadrado perfecto en el móvil */
-        margin-top: 12px;
+        /* CONTENEDOR CUADRADO 1:1 Y AJUSTADO A LA PANTALLA */
+        width: 100% !important;            /* Ocupa todo el ancho disponible */
+        max-width: 500px !important;       /* Opcional: Limita el tamaño máximo del cuadrado en tablets/móviles grandes */
+        aspect-ratio: 1 / 1 !important;    /* <-- FUERZA EL CUADRADO PERFECTO 1:1 */
+        margin-top: 15px !important;       /* Margen superior controlado */
+        margin-bottom: 10px !important;    /* Margen inferior controlado */
+        margin-left: auto !important;      /* Centra el contenedor cuadrado en la columna */
+        margin-right: auto !important;     /* Centra el contenedor cuadrado en la columna */
+        overflow: hidden !important;       /* Impide que nada sobresalga del contenedor */
+        box-sizing: border-box !important; /* Asegura que padding y borde se incluyan en el ancho */
+        display: block !important;
     }
 
     .post-uploaded-img {
-        width: 100%;          /* La imagen se expande al 100% del ancho del contenedor */
-        height: 320px;        /* Altura adaptada en móvil para mantener consistencia y rellenar la caja */
-        max-height: none;     /* Eliminamos cualquier límite de altura que la encogiera */
-        object-fit: cover;    /* Rellena por completo el espacio de la caja sin dejar huecos vacíos */
-        border-radius: 8px;   /* Mantiene tus bordes redondeados a tu gusto */
-        display: block;       
-        margin: 0 auto;       
+        /* LA IMAGEN LLENA EL CUADRADO Y SE RECORTA LIMPIAMENTE */
+        width: 100% !important;            /* Rellena el 100% del ancho del contenedor cuadrado */
+        height: 100% !important;           /* Rellena el 100% de la altura del contenedor cuadrado */
+        max-height: none !important;       /* Elimina cualquier límite de altura previo */
+        object-fit: cover !important;      /* Ajuste de imagen: Rellena y cubre el cuadrado sin deformarse */
+        border-radius: 8px !important;     /* Tus bordes redondeados */
+        display: block !important;
+        margin: 0 !important;              /* Sin márgenes adicionales */
     }
+}
 
     /* Adaptación del Pop-up / Lightbox para pantallas de móvil */
     .lightbox-overlay {
