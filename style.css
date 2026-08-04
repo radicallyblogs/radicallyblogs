@@ -231,19 +231,7 @@ html, body {
 }
 
 
-/* --- 2. CONFIGURACIÓN PARA MÓVIL (Pantallas de menos de 768px) --- */
-@media (max-width: 767px) {
-    .post-image-container {
-        margin-top: 12px; /* Espacio superior específico para cuando se ve en el móvil */
-    }
-
-    .post-uploaded-img {
-        width: 100%;         /* ANCHO en móvil: Puedes ajustarlo aquí de forma independiente al PC */
-        max-height: 350px;   /* ALTURA MÁXIMA en móvil: Más bajita para adaptarse mejor a pantallas pequeñas */
-        object-fit: contain; /* <-- LÍNEA 243: Evita que se corte la imagen en el móvil */
-        border-radius: 8px;  /* Redondeo de esquinas específico para móvil (si lo prefieres más sutil) */
-    }
-}/* ==========================================
+/* ==========================================
    ESTILOS DEL POP-UP / LIGHTBOX: PC vs MÓVIL
    ========================================== */
 .lightbox-overlay {
@@ -309,19 +297,35 @@ html, body {
 
 /* --- 2. CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas de menos de 768px) --- */
 @media (max-width: 767px) {
+    .post-image-container {
+        width: 100%;          /* El contenedor ocupa el ancho disponible */
+        margin-top: 12px;
+    }
+
+    .post-uploaded-img {
+        width: 100%;          /* La imagen se expande al 100% del ancho del contenedor */
+        height: 320px;        /* Altura adaptada en móvil para mantener consistencia y rellenar la caja */
+        max-height: none;     /* Eliminamos cualquier límite de altura que la encogiera */
+        object-fit: cover;    /* Rellena por completo el espacio de la caja sin dejar huecos vacíos */
+        border-radius: 8px;   /* Mantiene tus bordes redondeados a tu gusto */
+        display: block;       
+        margin: 0 auto;       
+    }
+
+    /* Adaptación del Pop-up / Lightbox para pantallas de móvil */
     .lightbox-overlay {
-        padding: 10px; 
+        padding: 10px;
     }
 
     .lightbox-img {
-        max-width: 98%;   
-        max-height: 90vh; 
-        border-radius: 8px; /* Bordes redondeados independientes para móvil si lo deseas */
+        max-width: 98%;
+        max-height: 90vh;
+        border-radius: 8px; /* Bordes redondeados específicos para móvil en el pop-up */
     }
 
     .lightbox-close {
-        top: 15px;        
+        top: 15px;
         right: 20px;
-        font-size: 35px;  
+        font-size: 35px;
     }
 }
