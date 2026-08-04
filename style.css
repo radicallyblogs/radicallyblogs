@@ -217,7 +217,7 @@ html, body {
         font-size: 21px;          /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
         font-weight: 400;
         -webkit-text-stroke: 0px;
-        line-height: 1.4;         /* SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
+        line-height: 1;         /* SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
         color: #000000;
         margin: 0;
         padding-right: 5px;       /* Aleja el texto del borde derecho de la pantalla móvil */
