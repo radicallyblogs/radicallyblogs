@@ -302,28 +302,24 @@ html, body {
 /* --- 2. CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas de menos de 768px) --- */
 @media (max-width: 767px) {
     .post-image-container {
-        /* CONTENEDOR CUADRADO 1:1 Y AJUSTADO A LA PANTALLA */
-        width: 100% !important;            /* Ocupa todo el ancho disponible */
-        max-width: 500px !important;       /* Opcional: Limita el tamaño máximo del cuadrado en tablets/móviles grandes */
-        aspect-ratio: 1 / 1 !important;    /* <-- FUERZA EL CUADRADO PERFECTO 1:1 */
-        margin-top: 15px !important;       /* Margen superior controlado */
-        margin-bottom: 10px !important;    /* Margen inferior controlado */
-        margin-left: auto !important;      /* Centra el contenedor cuadrado en la columna */
-        margin-right: auto !important;     /* Centra el contenedor cuadrado en la columna */
-        overflow: hidden !important;       /* Impide que nada sobresalga del contenedor */
-        box-sizing: border-box !important; /* Asegura que padding y borde se incluyan en el ancho */
-        display: block !important;
+        width: 100% !important;            /* Ocupa exactamente el 100% del ancho de su caja contenedora */
+        max-width: 100% !important;        /* Evita que crezca más de la cuenta */
+        aspect-ratio: 1 / 1 !important;    /* Mantiene el cuadrado perfecto 1:1 */
+        margin-top: 12px !important;       
+        margin-bottom: 12px !important;    
+        margin-left: 0 !important;         /* <-- CLAVE: Alineado a la izquierda exacto con el texto */
+        margin-right: 0 !important;        /* <-- CLAVE: Sin margen derecho automático que lo mueva */
+        box-sizing: border-box !important; /* Vital para que los bordes y anchos respeten la caja */
     }
 
     .post-uploaded-img {
-        /* LA IMAGEN LLENA EL CUADRADO Y SE RECORTA LIMPIAMENTE */
-        width: 100% !important;            /* Rellena el 100% del ancho del contenedor cuadrado */
-        height: 100% !important;           /* Rellena el 100% de la altura del contenedor cuadrado */
-        max-height: none !important;       /* Elimina cualquier límite de altura previo */
-        object-fit: cover !important;      /* Ajuste de imagen: Rellena y cubre el cuadrado sin deformarse */
-        border-radius: 8px !important;     /* Tus bordes redondeados */
-        display: block !important;
-        margin: 0 !important;              /* Sin márgenes adicionales */
+        width: 100% !important;            /* Llena todo el ancho del contenedor cuadrado */
+        height: 100% !important;           /* Llena todo el alto del contenedor cuadrado */
+        max-height: none !important;       
+        object-fit: cover !important;      /* Rellena el cuadrado limpiamente sin deformar */
+        border-radius: 8px !important;     
+        display: block !important;      
+        margin: 0 !important;              
     }
 }
 
