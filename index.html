@@ -32,11 +32,24 @@
             
             container.innerHTML = '';
 
+            // Función para limpiar formato de hora ("p. m." a "pm")
+            function limpiarHora(hora) {
+                if (!hora) return '';
+                return hora.replace(/p\.\s*m\./gi, 'pm').replace(/a\.\s*m\./gi, 'am').trim();
+            }
+
+            // Función para cambiar la coma por punto en fechas clásicas
+            function limpiarFecha(fecha) {
+                if (!fecha) return '';
+                return fecha.replace(',', '.');
+            }
+
             posts.forEach(post => {
                 let postHTML = '';
+                const horaLimpia = limpiarHora(post.hora);
 
                 // ==========================================
-                // 1. PHOTO BLOGGY (Formato de fecha exacto: "martes. 4 ago 2026")
+                // 1. PHOTO BLOGGY
                 // ==========================================
                 if (post.tipo === 'photo_bloggy') {
                     const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
@@ -45,7 +58,6 @@
                         ? `<p class="pb-caption"><span class="pb-user-inferior">@felipeortegareyes</span>${post.texto}</p>` 
                         : '';
 
-                    // Transformación automática: convierte "mar, 4 ago 2026" en "martes. 4 ago 2026"
                     let fechaPhoto = post.fechaCortas || '';
                     const diasMap = {
                         'lun': 'lunes.',
@@ -70,21 +82,16 @@
 
                     postHTML = `
                         <article class="photo-bloggy-post">
-                            <!-- Cabecera -->
                             <div class="pb-header-wix">
                                 <div class="avatar"></div>
                                 <div class="pb-text-container">
                                     <span class="pb-username">@felipeortegareyes</span>
-                                    <span class="pb-datetime">${fechaPhoto} • ${post.hora || ''}</span>
+                                    <span class="pb-datetime">${fechaPhoto} • ${horaLimpia}</span>
                                 </div>
                             </div>
-
-                            <!-- Imagen con bordes independientes -->
                             <div class="pb-image-container">
                                 <img src="${imagenUrl}" alt="Photo Bloggy" onclick="abrirLightbox('${imagenUrl}')">
                             </div>
-
-                            <!-- Pie de página -->
                             <div class="pb-footer-content">
                                 <div class="pb-meta-icons">
                                     <span>👁️ vistas</span>
@@ -97,7 +104,7 @@
                     `;
                 } 
                 // ==========================================
-                // 2. BLOGGY CLÁSICO (Intacto)
+                // 2. BLOGGY CLÁSICO
                 // ==========================================
                 else {
                     let imagenHTML = '';
@@ -117,17 +124,20 @@
                         imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
                     }
 
+                    const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
+                    const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
+
                     postHTML = `
                         <div class="post">
                             <div class="post-date">
-                                <span class="desktop-date">${post.fechaLarga || ''}</span>
-                                <span class="mobile-date">${post.fechaCortas || ''}</span>
+                                <span class="desktop-date">${fechaLargaLimpia}</span>
+                                <span class="mobile-date">${fechaCortasLimpia}</span>
                             </div>
                             <div class="post-header">
                                 <div class="avatar"></div>
                                 <div class="user-info">
                                     <span class="username">@felipeortegareyes</span>
-                                    <span class="timestamp">• ${post.hora || ''}</span>
+                                    <span class="timestamp">• ${horaLimpia}</span>
                                 </div>
                             </div>
                             <div class="post-content">${post.texto || ''}</div>
