@@ -519,7 +519,7 @@ html, body {
     display: block;
     font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
     color: #000000;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 /* 2. Fecha y hora: Fuente Proxima Nova (o la de fecha) y gris */
@@ -533,7 +533,7 @@ html, body {
 /* Contenedor de la imagen con esquinas redondeadas importantes */
 .pb-image-container {
     width: 100%;
-    border-radius: 18px;
+    border-radius: 30px;
     overflow: hidden;
     background: #000;
     margin-bottom: 12px;
