@@ -299,32 +299,78 @@ html, body {
 }
 
 
-/* --- 2. CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas de menos de 768px) --- */
+/* ==========================================
+   BLOQUE DE IMÁGENES MÚLTIPLES EN PC
+   ========================================== */
+@media (min-width: 768px) {
+    .post-images-grid {
+        display: flex !important;           /* Activa el diseño flexible: coloca las imágenes una al lado de otra en fila */
+        gap: 12px !important;               /* Espacio de separación horizontal entre una imagen y otra */
+        width: 100% !important;             /* Ocupa el ancho completo disponible en la zona del post de PC */
+        margin-top: 13px !important;        /* Margen superior sincronizado con tus posts */
+        margin-bottom: 13px !important;     /* Margen inferior para separarlo del contenido posterior */
+        box-sizing: border-box !important;  /* Control estricto del modelo de caja */
+    }
+
+    .post-images-grid .post-image-container {
+        flex: 1 !important;                 /* Reparte el espacio en partes iguales entre las imágenes de la fila */
+        aspect-ratio: 1 / 1 !important;     /* Mantiene el formato cuadrado perfecto 1:1 en cada una de las fotos */
+        max-width: none !important;         /* Sin restricciones para que fluyan libremente lado a lado en PC */
+        margin: 0 !important;               /* Sin márgenes internos extra que descuadren la fila */
+    }
+}
+
+
+/* ==========================================================
+   2. CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas < 768px)
+   ========================================================== */
 @media (max-width: 767px) {
+    /* Imagen individual en móvil */
     .post-image-container {
-        width: 100% !important;            /* Ancho completo: Ocupa todo el espacio disponible en la pantalla del móvil */
-        max-width: 98% !important;        /* Ancho máximo: Evita que el contenedor crezca más de la cuenta y desborde */
-        aspect-ratio: 1 / 1 !important;    /* Cuadrado perfecto 1:1: Mantiene la proporción idéntica de alto y ancho */
-        margin-top: 12px !important;       /* Espacio superior: Separación entre el texto y la foto en móvil */
-        margin-bottom: 12px !important;    /* Espacio inferior: Separación entre la foto y el siguiente post */
-        margin-left: 0 !important;         /* Alineación izquierda: Lo alinea de forma estricta con el texto */
-        margin-right: 0 !important;        /* Alineación derecha: Evita desbordamientos y márgenes automáticos */
-        box-sizing: border-box !important; /* Modelo de caja: Asegura que los anchos respeten los bordes y rellenos */
-        display: block !important;         /* Comportamiento de bloque: Evita huecos extraños de espacio */
+        width: 100% !important;             /* Ancho completo del bloque */
+        max-width: 98% !important;          /* Tu truco maestro: 98% para evitar cortes a la derecha */
+        aspect-ratio: 1 / 1 !important;     /* Cuadrado perfecto 1:1 */
+        margin-top: 12px !important;        /* Espacio superior */
+        margin-bottom: 12px !important;     /* Espacio inferior */
+        margin-left: 0 !important;          /* Alineación izquierda estricta con el texto */
+        margin-right: auto !important;      /* Gestiona el espacio restante hacia la derecha de forma segura */
+        box-sizing: border-box !important;  /* Modelo de caja seguro */
+        display: block !important;          /* Comportamiento de bloque */
     }
 
     .post-uploaded-img {
-        width: 100% !important;            /* Ancho de la imagen: Rellena el 100% del contenedor cuadrado */
-        height: 100% !important;           /* Alto de la imagen: Rellena el 100% del contenedor cuadrado */
-        max-width: 100% !important;        /* Límite de ancho: Impide que la imagen sea más ancha que su caja */
-        max-height: none !important;       /* Sin límite de altura: Permite que mande la proporción cuadrada 1:1 */
-        object-fit: cover !important;      /* Ajuste de imagen: Recorta los excesos de forma limpia y profesional sin deformar */
-        border-radius: 8px !important;     /* Redondeo de esquinas específico para móvil (ligeramente más suave que en PC) */
-        display: block !important;         /* Comportamiento de bloque */
-        margin: 0 !important;              /* Sin márgenes internos adicionales */
-        box-sizing: border-box !important; /* Modelo de caja para la imagen */
+        width: 100% !important;             /* Rellena el 100% de la caja */
+        height: 100% !important;            /* Rellena el alto del contenedor */
+        max-width: 100% !important;         
+        max-height: none !important;       
+        object-fit: cover !important;       /* Recorte limpio sin deformaciones */
+        border-radius: 8px !important;      /* Esquinas ligeramente más suaves en móvil */
+        display: block !important;      
+        margin: 0 !important;              
+        box-sizing: border-box !important;
     }
-}
+
+    /* Imágenes múltiples en móvil (Lado a lado en horizontal, con tu 98%) */
+    .post-images-grid {
+        display: flex !important;           /* Contenedor flexible */
+        flex-direction: row !important;     /* Mantiene las fotos una al lado de otra en horizontal también en móvil */
+        gap: 8px !important;                /* Espacio horizontal ligeramente más ajustado para pantallas pequeñas */
+        width: 98% !important;              /* Mantiene tu ancho de 98% para evitar desbordes */
+        max-width: 98% !important;          
+        margin-top: 12px !important;        
+        margin-bottom: 12px !important;    
+        margin-left: 0 !important;          /* Pegado a la izquierda exacto con el texto */
+        margin-right: auto !important;      
+        box-sizing: border-box !important;  
+    }
+
+    .post-images-grid .post-image-container {
+        flex: 1 !important;                 /* Reparte el espacio por igual para que ambas entren lado a lado */
+        width: auto !important;             
+        max-width: 100% !important;         
+        aspect-ratio: 1 / 1 !important;     /* Cuadrado perfecto 1:1 en cada foto móvil */
+        margin: 0 !important;               
+    }
 
     /* Adaptación del Pop-up / Lightbox para pantallas de móvil */
     .lightbox-overlay {
