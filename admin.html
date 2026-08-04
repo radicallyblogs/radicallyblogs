@@ -227,9 +227,10 @@
             </div>
 
             <div class="form-group">
-                <label for="post-image">Adjuntar imagen (opcional):</label>
-                <input type="file" id="post-image" accept="image/*">
-                <div class="token-hint">Sube una foto en alta calidad, se mantendrá intacta.</div>
+                <!-- AÑADIDO: Atributo 'multiple' para permitir seleccionar varias imágenes a la vez -->
+                <label for="post-image">Adjuntar imágenes (opcional, puedes seleccionar varias):</label>
+                <input type="file" id="post-image" accept="image/*" multiple>
+                <div class="token-hint">Sube fotos en alta calidad, se mantendrán intactas.</div>
             </div>
 
             <button class="btn-publish" id="btn-submit" onclick="guardarPublicacion()">Publicar</button>
@@ -262,7 +263,6 @@
             return new TextDecoder().decode(bytes);
         }
 
-        // Convertir archivo de imagen a Base64 puro para enviarlo a GitHub
         function fileToBase64(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -357,7 +357,10 @@
 
             let html = '';
             postsCache.forEach((post, index) => {
-                let imgIndicator = post.imagen ? ' 🖼️ [Con imagen]' : '';
+                // Comprobamos si tiene imágenes (tanto si usa el formato antiguo .imagen como el nuevo .imagenes)
+                let tieneImgs = (post.imagenes && post.imagenes.length > 0) || post.imagen;
+                let imgIndicator = tieneImgs ? ' 🖼️ [Con imagen(es)]' : '';
+                
                 html += `
                     <div class="post-item-admin">
                         <div class="post-meta-admin">📅 ${post.fechaCortas || 'Sin fecha'} • ${post.hora || ''}${imgIndicator}</div>
@@ -398,7 +401,7 @@
             const imageInput = document.getElementById('post-image');
             
             if (!texto.trim() && imageInput.files.length === 0) {
-                alert('Por favor, escribe algo o añade una imagen.');
+                alert('Por favor, escribe algo o añade al menos una imagen.');
                 return;
             }
 
@@ -410,38 +413,49 @@
 
             const ahora = new Date();
             const fechaLargaActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
-            const fechaCortasActual = now = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+            const fechaCortasActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
             const horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
 
             try {
-                // 1. Subir la imagen a GitHub si el usuario ha seleccionado una
-                let imageName = editandoIndex !== null ? (postsCache[editandoIndex].imagen || "") : "";
-
-                if (imageInput.files.length > 0) {
-                    const file = imageInput.files[0];
-                    const extension = file.name.split('.').pop();
-                    imageName = `post_img_${Date.now()}.${extension}`;
-                    const base64Image = await fileToBase64(file);
-
-                    const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
-                        method: "PUT",
-                        headers: {
-                            "Authorization": `token ${token}`,
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            message: "Subir imagen de post",
-                            content: base64Image
-                        })
-                    });
-
-                    if (!imgRes.ok) {
-                        alert("Error al subir la imagen a GitHub.");
-                        return;
+                // MODIFICADO: Recuperamos o inicializamos el array de imágenes
+                let imageNames = [];
+                if (editandoIndex !== null) {
+                    if (postsCache[editandoIndex].imagenes) {
+                        imageNames = [...postsCache[editandoIndex].imagenes];
+                    } else if (postsCache[editandoIndex].imagen) {
+                        imageNames = [postsCache[editandoIndex].imagen];
                     }
                 }
 
-                // 2. Obtener SHA actual del posts.json
+                // Subir cada nueva imagen seleccionada a GitHub
+                if (imageInput.files.length > 0) {
+                    for (let i = 0; i < imageInput.files.length; i++) {
+                        const file = imageInput.files[i];
+                        const extension = file.name.split('.').pop();
+                        const imageName = `post_img_${Date.now()}_${i}.${extension}`;
+                        const base64Image = await fileToBase64(file);
+
+                        const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
+                            method: "PUT",
+                            headers: {
+                                "Authorization": `token ${token}`,
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                message: "Subir imagen de post",
+                                content: base64Image
+                            })
+                        });
+
+                        if (!imgRes.ok) {
+                            alert(`Error al subir la imagen ${file.name} a GitHub.`);
+                            return;
+                        }
+                        imageNames.push(imageName);
+                    }
+                }
+
+                // Obtener SHA actual del posts.json
                 const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
@@ -458,11 +472,14 @@
 
                 if (editandoIndex !== null) {
                     postsCache[editandoIndex].texto = texto;
-                    postsCache[editandoIndex].imagen = imageName; // Actualiza o mantiene la imagen
+                    if (imageNames.length > 0) {
+                        postsCache[editandoIndex].imagenes = imageNames;
+                        delete postsCache[editandoIndex].imagen; // Limpiamos la propiedad antigua si existía
+                    }
                 } else {
                     const nuevoPost = {
                         "texto": texto,
-                        "imagen": imageName,
+                        "imagenes": imageNames, // Guardamos la lista de imágenes
                         "fechaLarga": fechaLargaActual,
                         "fechaCortas": fechaCortasActual,
                         "hora": horaStr
@@ -470,7 +487,7 @@
                     postsCache.unshift(nuevoPost);
                 }
 
-                // 3. Enviar posts.json actualizado a GitHub
+                // Enviar posts.json actualizado a GitHub
                 const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     method: "PUT",
                     headers: {
