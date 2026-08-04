@@ -36,7 +36,7 @@
                 let postHTML = '';
 
                 // ==========================================
-                // 1. RENDERIZADO PARA PHOTO BLOGGY (Orden correcto: Usuario arriba, Fecha abajo)
+                // 1. PHOTO BLOGGY (Estructura con elementos independientes)
                 // ==========================================
                 if (post.tipo === 'photo_bloggy') {
                     const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
@@ -47,31 +47,26 @@
 
                     postHTML = `
                         <article class="photo-bloggy-post">
-                            <!-- 1. Avatar y nombre arriba -->
-                            <div class="post-header">
+                            <!-- Cabecera: Avatar y dos elementos de texto completamente independientes -->
+                            <div class="pb-header-wix">
                                 <div class="avatar"></div>
-                                <div class="user-info">
-                                    <span class="username">@felipeortegareyes</span>
-                                    <span class="timestamp">• ${post.hora || ''}</span>
+                                <div class="pb-text-container">
+                                    <span class="pb-username">@felipeortegareyes</span>
+                                    <span class="pb-datetime">${post.fechaLarga || 'martes. 4 ago 2026'} • ${post.hora || '8:22 pm'}</span>
                                 </div>
                             </div>
-                            <!-- 2. Fecha y hora debajo del usuario -->
-                            <div class="post-date">
-                                <span class="desktop-date">${post.fechaLarga || ''}</span>
-                                <span class="mobile-date">${post.fechaCortas || ''}</span>
-                            </div>
 
-                            <!-- 3. Foto con bordes redondeados importantes -->
+                            <!-- Imagen con bordes redondeados importantes -->
                             <div class="pb-image-container">
                                 <img src="${imagenUrl}" alt="Photo Bloggy" onclick="abrirLightbox('${imagenUrl}')">
                             </div>
 
-                            <!-- 4. Pie flotante limpio -->
+                            <!-- Pie de página -->
                             <div class="pb-footer-content">
-                                <div class="pb-actions">
-                                    <i class="fa-regular fa-heart"></i>
-                                    <i class="fa-regular fa-comment"></i>
-                                    <i class="fa-regular fa-paper-plane"></i>
+                                <div class="pb-meta-icons">
+                                    <span>👁️ vistas</span>
+                                    <span>📍 GMT/europe</span>
+                                    <span>💻 MacOs</span>
                                 </div>
                                 ${textoCaption}
                             </div>
@@ -79,7 +74,7 @@
                     `;
                 } 
                 // ==========================================
-                // 2. RENDERIZADO PARA BLOGGY CLÁSICO
+                // 2. BLOGGY CLÁSICO (Intacto)
                 // ==========================================
                 else {
                     let imagenHTML = '';
