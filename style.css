@@ -220,8 +220,8 @@ html, body {
     width: 100%;      /* Ancho del contenedor general */
     max-width: 500px; /* Ancho máximo en PC para que el cuadrado no sea gigantesco */
     aspect-ratio: 1 / 1; /* Cuadrado perfecto (1:1) para que las fotos cuadradas se vean enteras */
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;   /* <-- CAMBIADO: Lo alinea a la izquierda de forma estricta */
+    margin-right: 0;  /* <-- CAMBIADO: Evita el centrado automático */
 }
 
 .post-uploaded-img {
