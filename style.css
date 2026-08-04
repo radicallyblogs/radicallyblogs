@@ -218,16 +218,20 @@ html, body {
 .post-image-container {
     margin-top: 16px; /* Espacio superior: separación entre el texto del post y la foto */
     width: 100%;      /* Ancho del contenedor general */
+    max-width: 500px; /* Ancho máximo en PC para que el cuadrado no sea gigantesco */
+    aspect-ratio: 1 / 1; /* Cuadrado perfecto (1:1) para que las fotos cuadradas se vean enteras */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .post-uploaded-img {
-    width: 100%;          /* ANCHO en PC: Pon '100%' para que ocupe todo el ancho, o un valor menor (ej. '80%') si la quieres más estrecha */
-    max-height: 500px;    /* ALTURA MÁXIMA en PC: Limita lo alta que puede ser la foto para que no estire demasiado el post */
-    object-fit: cover;    /* Ajuste de imagen: Recorta los excesos de forma limpia y profesional para que nunca se deforme */
+    width: 100%;          /* ANCHO en PC: Pon '100%' para que ocupe todo el ancho */
+    height: 100%;         /* Llena el contenedor cuadrado por completo */
+    max-height: none;     /* Eliminamos límites para que mande la proporción cuadrada */
+    object-fit: cover;    /* Ajuste de imagen: Recorta los excesos de forma limpia y profesional */
     border-radius: 12px;  /* Redondeo de esquinas: Cuanto mayor sea el número, más curvas serán las esquinas */
     border: 1px solid #eaeaea; /* Borde: Línea sutil que rodea la imagen */
     display: block;       /* Comportamiento de bloque: Evita huecos extraños de espacio debajo de la foto */
-    margin: 0 auto;       /* Centrado: Si decides reducir el ancho (ej. al 80%), esto centra la imagen automáticamente */
 }
 
 
@@ -299,6 +303,8 @@ html, body {
 @media (max-width: 767px) {
     .post-image-container {
         width: 100%;          /* El contenedor ocupa el ancho disponible */
+        max-width: 100%;
+        aspect-ratio: 1 / 1;  /* El contenedor sigue siendo un cuadrado perfecto en el móvil */
         margin-top: 12px;
     }
 
