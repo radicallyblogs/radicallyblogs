@@ -247,7 +247,8 @@ html, body {
    ESTILOS DEL POP-UP / LIGHTBOX: PC vs MÓVIL
    ========================================== */
 .lightbox-overlay {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -255,35 +256,39 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro translúcido */
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease; /* Transición suave del fondo */
+    /* Transición suave para que la animación funcione perfectamente */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .lightbox-overlay.active {
-    display: flex;
+    visibility: visible;
     opacity: 1;
 }
 
-/* --- 1. IMAGEN DEL POP-UP EN PC (Por defecto) --- */
+/* --- 1. IMAGEN DEL POP-UP EN PC --- */
 .lightbox-img {
-    max-width: 85%;       /* Ancho máximo de la foto en PC */
-    max-height: 85vh;     /* Altura máxima de la foto en PC */
-    object-fit: contain;  /* Mantiene la proporción para que no se corte */
-    border-radius: 8px;
+    max-width: 95%;       /* AUMENTADO: Ocupa mucho más ancho para que no se vea pequeña */
+    max-height: 95vh;     /* AUMENTADO: Ocupa más altura */
+    object-fit: contain;  
+    
+    /* CONTROL DE BORDES REDONDEADOS DEL POP-UP */
+    border-radius: 12px;  /* Cambia este número (ej. 0px para esquinas rectas, o 20px para más curva) */
+    
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
     cursor: default; 
     
-    /* Animación de zoom */
+    /* ANIMACIÓN DE ZOOM / APERTURA */
     transform: scale(0.8);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .lightbox-overlay.active .lightbox-img {
-    transform: scale(1);
+    transform: scale(1); /* Se expande suavemente a su tamaño completo */
 }
 
 .lightbox-close {
@@ -305,17 +310,18 @@ html, body {
 /* --- 2. CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas de menos de 768px) --- */
 @media (max-width: 767px) {
     .lightbox-overlay {
-        padding: 10px; /* Margen exterior más estrecho en móvil para aprovechar mejor la pantalla */
+        padding: 10px; 
     }
 
     .lightbox-img {
-        max-width: 95%;   /* Ancho mayor en móvil para que la imagen se vea más grande a lo ancho */
-        max-height: 80vh; /* Altura máxima adaptada para pantallas de teléfono */
+        max-width: 98%;   
+        max-height: 90vh; 
+        border-radius: 8px; /* Bordes redondeados independientes para móvil si lo deseas */
     }
 
     .lightbox-close {
-        top: 15px;        /* Ubicación de la "X" un poco más ajustada arriba en móvil */
+        top: 15px;        
         right: 20px;
-        font-size: 35px;  /* "X" ligeramente más compacta */
+        font-size: 35px;  
     }
 }
