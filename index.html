@@ -28,6 +28,9 @@
                 container.innerHTML = ''; // Limpiar contenedor
 
                 posts.forEach(post => {
+                    // Si el post tiene imagen, creamos su etiqueta HTML correspondiente
+                    const imagenHTML = post.imagen ? `<div class="post-image-container"><img src="${post.imagen}" class="post-uploaded-img"></div>` : '';
+
                     const postHTML = `
                         <div class="post">
                             <div class="post-date">
@@ -42,6 +45,7 @@
                                 </div>
                             </div>
                             <div class="post-content">${post.texto}</div>
+                            ${imagenHTML}
                         </div>
                     `;
                     container.innerHTML += postHTML;
