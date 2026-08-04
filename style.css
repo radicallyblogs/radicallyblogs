@@ -487,7 +487,7 @@ html, body {
         max-width: 70% !important;
     }
 }/* ==========================================================================
-   PHOTO BLOGGY - ELEMENTOS 100% INDEPENDIENTES
+   PHOTO BLOGGY - TIPOGRAFÍAS Y ESTILOS INDEPENDIENTES
    ========================================================================== */
 
 .photo-bloggy-post {
@@ -497,6 +497,7 @@ html, body {
     background: transparent;
     border: none;
     box-shadow: none;
+    font-family: 'Proxima Nova', sans-serif; /* Fuente base general para el post */
 }
 
 /* Cabecera */
@@ -513,16 +514,18 @@ html, body {
     gap: 2px;
 }
 
-/* 1. Nombre de usuario (Independiente, en negro) */
+/* 1. Nombre de usuario: Fuente SF UI Display (o la que uses) y negro */
 .pb-username {
     display: block;
+    font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
     color: #000000;
     font-weight: 600;
 }
 
-/* 2. Fecha y hora (Independiente, en gris) */
+/* 2. Fecha y hora: Fuente Proxima Nova (o la de fecha) y gris */
 .pb-datetime {
     display: block;
+    font-family: 'Proxima Nova', sans-serif;
     color: #666666;
     font-weight: 400;
 }
@@ -551,6 +554,7 @@ html, body {
     flex-direction: column;
     gap: 8px;
     padding: 0 4px;
+    font-family: 'Proxima Nova', sans-serif;
 }
 
 .pb-meta-icons {
@@ -558,16 +562,19 @@ html, body {
     gap: 20px;
     color: #555;
     margin-bottom: 4px;
+    font-size: 14px;
 }
 
 .pb-caption {
     margin: 0;
     line-height: 1.4;
+    font-family: 'Proxima Nova', sans-serif;
 }
 
 .pb-user-inferior {
     font-weight: 600;
     margin-right: 6px;
+    font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 
