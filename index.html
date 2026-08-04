@@ -36,7 +36,7 @@
                 let postHTML = '';
 
                 // ==========================================
-                // 1. PHOTO BLOGGY (Estructura con elementos independientes)
+                // 1. PHOTO BLOGGY (Formato de fecha exacto: "martes. 4 ago 2026")
                 // ==========================================
                 if (post.tipo === 'photo_bloggy') {
                     const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
@@ -45,18 +45,41 @@
                         ? `<p class="pb-caption"><span class="pb-user-inferior">@felipeortegareyes</span>${post.texto}</p>` 
                         : '';
 
+                    // Transformación automática: convierte "mar, 4 ago 2026" en "martes. 4 ago 2026"
+                    let fechaPhoto = post.fechaCortas || '';
+                    const diasMap = {
+                        'lun': 'lunes.',
+                        'mar': 'martes.',
+                        'mié': 'miércoles.',
+                        'mie': 'miércoles.',
+                        'jue': 'jueves.',
+                        'vie': 'viernes.',
+                        'sáb': 'sábado.',
+                        'sab': 'sábado.',
+                        'dom': 'domingo.'
+                    };
+                    
+                    let parts = fechaPhoto.split(',');
+                    if (parts.length >= 2) {
+                        let cortoDia = parts[0].trim().toLowerCase();
+                        let restoFecha = parts.slice(1).join(',').trim();
+                        if (diasMap[cortoDia]) {
+                            fechaPhoto = `${diasMap[cortoDia]} ${restoFecha}`;
+                        }
+                    }
+
                     postHTML = `
                         <article class="photo-bloggy-post">
-                            <!-- Cabecera: Avatar y dos elementos de texto completamente independientes -->
+                            <!-- Cabecera -->
                             <div class="pb-header-wix">
                                 <div class="avatar"></div>
                                 <div class="pb-text-container">
                                     <span class="pb-username">@felipeortegareyes</span>
-                                    <span class="pb-datetime">${post.fechaLarga || 'martes. 4 ago 2026'} • ${post.hora || '8:22 pm'}</span>
+                                    <span class="pb-datetime">${fechaPhoto} • ${post.hora || ''}</span>
                                 </div>
                             </div>
 
-                            <!-- Imagen con bordes redondeados importantes -->
+                            <!-- Imagen con bordes independientes -->
                             <div class="pb-image-container">
                                 <img src="${imagenUrl}" alt="Photo Bloggy" onclick="abrirLightbox('${imagenUrl}')">
                             </div>
