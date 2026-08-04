@@ -1,62 +1,79 @@
-/* Carga de Proxima Nova y SF UI Display */
+/* ==========================================================
+   CARGA DE FUENTES EXTERNAS
+   ========================================================== */
+/* Carga de la fuente Proxima Nova desde el CDN */
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+/* Carga de la fuente SF UI Display desde el CDN */
 @import url('https://fonts.cdnfonts.com/css/sf-ui-display');
 
+/* ==========================================================
+   RESET GLOBAL Y CONFIGURACIÓN BÁSICA
+   ========================================================== */
+/* Aplica box-sizing a todos los elementos para incluir padding y border en el ancho total */
 * {
     box-sizing: border-box;
 }
 
+/* Estilos base para la estructura general de la página html y body */
 html, body {
-    background-color: #ffffff;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    color: #000000;
-    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased;
+    background-color: #ffffff; /* Color de fondo blanco general */
+    margin: 0;                 /* Elimina márgenes por defecto del navegador */
+    padding: 0;                /* Elimina rellenos por defecto del navegador */
+    width: 100%;               /* Ocupa todo el ancho de la pantalla */
+    color: #000000;            /* Color de texto principal negro */
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Tipografía por defecto */
+    -webkit-font-smoothing: antialiased; /* Suavizado de fuentes para navegadores WebKit */
 }
 
-/* Base común del feed */
+/* ==========================================================
+   ESTRUCTURA DEL FEED Y POSTS
+   ========================================================== */
+/* Contenedor principal que envuelve el feed de publicaciones */
 .feed-container {
-    max-width: 580px;
-    margin: 40px auto;
-    padding: 0 20px;
+    max-width: 580px;   /* Ancho máximo estipulado para el feed en escritorio */
+    margin: 40px auto;  /* Centra horizontalmente el feed y añade margen vertical */
+    padding: 0 20px;    /* Relleno lateral interno */
 }
 
 .post {
     /* El margen inferior se ha reubicado en los bloques multimedia de abajo para control independiente */
 }
 
+/* Cabecera de cada post (avatar + usuario/hora) */
 .post-header {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px;
-    margin-bottom: 6px; /* <-- SEPARACIÓN 3: Distancia entre la cabecera (usuario/foto) y el texto del post */
+    display: flex !important;     /* Fuerza diseño flexible en línea */
+    align-items: center !important; /* Alinea verticalmente al centro los elementos de la cabecera */
+    gap: 10px;                    /* Espacio de separación entre el avatar y el bloque de usuario */
+    margin-bottom: 6px;           /* SEPARACIÓN 3: Distancia entre la cabecera (usuario/foto) y el texto del post */
 }
 
+/* Contenedor de la foto de perfil (avatar) */
 .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-image: url('avatar.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
+    width: 40px;                  /* Ancho fijo de la foto de perfil por defecto */
+    height: 40px;                 /* Alto fijo de la foto de perfil por defecto */
+    border-radius: 50%;           /* Hace la imagen completamente redonda */
+    background-image: url('avatar.jpeg'); /* Imagen de fondo para el avatar */
+    background-size: cover;       /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center;  /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    flex-shrink: 0;               /* Evita que el avatar se deforme o encoja en contenedores flexibles */
 }
 
+/* Contenedor que agrupa el nombre de usuario y la marca temporal */
 .user-info {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    display: flex;                /* Diseño flexible */
+    align-items: center;          /* Centrado vertical */
+    gap: 6px;                     /* Espacio entre el nombre y la hora */
 }
 
+/* Enlaces dentro del contenido de los posts */
 .post-content a {
-    color: #3897f0;
-    text-decoration: none;
+    color: #3897f0;               /* Color azul característico para enlaces */
+    text-decoration: none;        /* Elimina el subrayado por defecto del enlace */
 }
+/* Efecto al pasar el cursor sobre los enlaces */
 .post-content a:hover {
-    text-decoration: underline;
+    text-decoration: underline;   /* Muestra subrayado al pasar el ratón por encima */
 }
 
 /* =========================================================
@@ -64,60 +81,68 @@ html, body {
    ========================================================= */
 @media (min-width: 769px) {
     
+    /* Espaciado vertical entre publicaciones en ordenadores */
     .post {
-        margin-bottom: 15px; /* <-- NUEVO: Espacio entre posts en ORDENADOR */
+        margin-bottom: 15px; 
     }
 
+    /* Muestra la fecha adaptada para versión de escritorio */
     .desktop-date {
         display: inline !important;
     }
+    /* Oculta la fecha móvil en pantallas grandes */
     .mobile-date {
         display: none !important;
     }
 
+    /* Título principal del feed ("Actualidad") en PC */
     .feed-title {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-size: 30px;
-        font-weight: 700;
-        color: #000000;
-        margin: 0 0 20px 0;
-        letter-spacing: -0.5px;
+        font-size: 30px;          /* Tamaño de fuente grande para el título en PC */
+        font-weight: 700;         /* Grosor de fuente negrita */
+        color: #000000;           /* Color negro */
+        margin: 0 0 20px 0;       /* Margen inferior para separar del contenido */
+        letter-spacing: -0.5px;   /* Espaciado de letras ligeramente comprimido para mejor estética */
     }
 
+    /* Fecha específica de cada post en PC */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 18px;
-        font-weight: 300;
-        -webkit-text-stroke: 0px #000000;
-        color: #000000;
-        margin-bottom: 6px;
+        font-size: 18px;          /* Tamaño de fuente para la fecha en escritorio */
+        font-weight: 300;         /* Grosor de fuente ligero */
+        -webkit-text-stroke: 0px #000000; /* Sin trazo de texto en PC para esta clase */
+        color: #000000;           /* Color negro */
+        margin-bottom: 6px;       /* Margen inferior */
     }
 
+    /* Nombre de usuario en versión escritorio */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-weight: 300;
-        -webkit-text-stroke: 0.15px #000000;
-        font-size: 20px;
-        color: #000000;
+        font-weight: 300;         /* Grosor ligero */
+        -webkit-text-stroke: 0.15px #000000; /* Ligero trazo de texto para dar cuerpo en pantallas de PC */
+        font-size: 20px;          /* Tamaño de fuente del nombre en PC */
+        color: #000000;           /* Color negro */
     }
 
+    /* Hora de la publicación (timestamp) en PC */
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-weight: 300;
-        -webkit-text-stroke: 0px #777777;
-        color: #777777;
-        font-size: 17px;
+        font-weight: 300;         /* Grosor ligero */
+        -webkit-text-stroke: 0px #777777; /* Sin trazo específico */
+        color: #777777;           /* Color gris atenuado */
+        font-size: 17px;          /* Tamaño de fuente de la hora */
     }
 
+    /* Texto principal del mensaje del post en PC */
     .post-content {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 20px;
-        font-weight: 300;
-        -webkit-text-stroke: 0.10px #000000;
-        line-height: 1.4;
-        color: #000000;
-        margin: 0;
-        padding: 0;
+        font-size: 20px;          /* Tamaño de texto del post en PC */
+        font-weight: 300;         /* Grosor ligero */
+        -webkit-text-stroke: 0.10px #000000; /* Sutil trazo de texto */
+        line-height: 1.4;         /* Interlineado equilibrado */
+        color: #000000;           /* Color negro */
+        margin: 0;                /* Sin márgenes por defecto */
+        padding: 0;               /* Sin relleno por defecto */
     }
 }
 
@@ -126,171 +151,183 @@ html, body {
    ========================================================= */
 @media (max-width: 768px) {
     
+    /* Espaciado vertical entre posts reducido para pantallas móviles */
     .post {
-        margin-bottom: 10px; /* <-- NUEVO: Espacio entre posts en MÓVIL */
+        margin-bottom: 10px; 
     }
 
-    /* CONTENEDOR MÓVIL: Mueve todo a la izquierda (cambia el 10px si quieres más o menos separación del borde izquierdo) */
+    /* CONTENEDOR MÓVIL: Ajusta el ancho y desplaza el feed hacia la izquierda */
     .feed-container {
         width: 100% !important;
         max-width: 100% !important;
         margin: 20px 0 !important;
-        padding: 0 0 0 9px !important;
+        padding: 0 0 0 9px !important; /* Relleno izquierdo específico de 9px */
     }
 
+    /* Oculta la fecha de escritorio en dispositivos móviles */
     .desktop-date {
         display: none !important;
     }
+    /* Muestra la fecha adaptada para móvil */
     .mobile-date {
         display: inline !important;
     }
 
-    /* TÍTULO ACTUALIDAD */
+    /* TÍTULO ACTUALIDAD EN MÓVIL */
     .feed-title {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-size: 35px;
-        font-weight: 700;
+        font-size: 35px;          /* Tamaño de fuente más grande para destacar en pantallas móviles */
+        font-weight: 700;         /* Negrita fuerte */
         color: #000000;
-        margin: 0 0 15px 0; /* <-- SEPARACIÓN 1: El tercer número (15px) controla el espacio debajo de "Actualidad" */
+        margin: 0 0 15px 0;       /* SEPARACIÓN 1: El tercer número (15px) controla el espacio debajo de "Actualidad" */
         letter-spacing: -0.5px;
     }
 
-    /* FECHA DEL POST */
+    /* FECHA DEL POST EN MÓVIL */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 17px;
-        font-weight: 400;
-        -webkit-text-stroke: 0px;
+        font-size: 17px;          /* Tamaño de fuente adaptado a móvil */
+        font-weight: 400;         /* Grosor normal */
+        -webkit-text-stroke: 0px; /* Sin trazo en móvil */
         color: #000000;
-        margin-bottom: 2px; /* <-- SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
+        margin-bottom: 2px;       /* SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
     }
 
-    /* USUARIO */
+    /* USUARIO EN MÓVIL */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-weight: 500;
-        font-size: 17px;
+        font-weight: 500;         /* Grosor medio para mayor legibilidad en móvil */
+        font-size: 17px;          /* Tamaño de fuente del usuario en móvil */
         -webkit-text-stroke: 0px;
         color: #000000;
     }
 
-    /* HORA (Sube el font-size aquí si la ves muy pequeña) */
+    /* HORA EN MÓVIL */
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 400;
-        font-size: 17px; /* <-- TAMAÑO DE LA HORA EN MÓVIL */
+        font-size: 17px;          /* TAMAÑO DE LA HORA EN MÓVIL */
         -webkit-text-stroke: 0px;
-        color: #777777;
+        color: #777777;           /* Color gris secundario */
     }
 
-    /* TEXTO DEL POST */
+    /* TEXTO DEL POST EN MÓVIL */
     .post-content {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 21px;
+        font-size: 21px;          /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
         font-weight: 400;
         -webkit-text-stroke: 0px;
-        line-height: 1.4; /* <-- SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
+        line-height: 1.4;         /* SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
         color: #000000;
         margin: 0;
-        padding-right: 5px; /* <-- CAMBIA ESTO: Aleja el texto del borde derecho (prueba 10px, 15px o 20px) */
+        padding-right: 5px;       /* Aleja el texto del borde derecho de la pantalla móvil */
     }
 
     /* FOTO DE PERFIL (TAMAÑO Y POSICIÓN EN MÓVIL) */
     .avatar {
-        width: 37px !important;        /* Ancho de la foto (cámbialo si quieres encogerla más) */
-        height: 37px !important;       /* Alto de la foto (debe medir lo mismo que el ancho) */
-        position: relative !important; 
-        top: 0px !important;           /* Mueve la foto: positivo baja, negativo sube */
-        left: -3px !important;         /* Mueve la foto: positivo derecha, negativo izquierda */
+        width: 37px !important;         /* Ancho reducido del avatar para móvil */
+        height: 37px !important;        /* Alto reducido para mantener proporción cuadrada */
+        position: relative !important;  
+        top: 0px !important;            /* Desplazamiento vertical (positivo baja, negativo sube) */
+        left: -3px !important;          /* Desplazamiento horizontal (positivo derecha, negativo izquierda) */
     }
 
-    /* MUEVE EL NOMBRE Y LA HORA JUNTOS (ARRIBA / ABAJO, IZQUIERDA / DERECHA) */
+    /* MUEVE EL NOMBRE Y LA HORA JUNTOS EN MÓVIL */
     .username, .timestamp {
         position: relative !important;
-        top: 1px !important;  /* <-- NUEVO: Positivo baja, negativo sube el bloque entero (ej: 1px, -2px) */
-        left: -2px !important; /* <-- YA LO TENÍAS: Positivo derecha, negativo izquierda */
+        top: 1px !important;            /* Desplaza verticalmente el bloque de texto de usuario y hora */
+        left: -2px !important;          /* Desplaza horizontalmente el bloque de texto */
     }
-}/* ==========================================
+}
+
+/* ==========================================
    CONFIGURACIÓN DE IMÁGENES: PC vs MÓVIL
    ========================================== */
 
 /* --- 1. CONFIGURACIÓN PARA PC / ESCRITORIO (GRID MÚLTIPLE) --- */
 
-/* [ANOTACIÓN] Esta clase es EXCLUSIVA para los contenedores del grid de imágenes múltiples. */
+/* Contenedor individual de cada foto dentro del grid de imágenes múltiples */
 .post-images-grid .post-image-container {
-    margin-top: 13px; /* Espacio superior: separación entre el texto del post y la foto */
-    width: 100%;      /* Ancho del contenedor general */
-    max-width: 500px; /* Ancho máximo en PC para que el cuadrado no sea gigantesco */
-    aspect-ratio: 1 / 1; /* Cuadrado perfecto (1:1) para que las fotos cuadradas se vean enteras */
-    margin-left: 0;   /* Alineación izquierda estricta con el texto */
-    margin-right: 0;  /* Evita el centrado automático */
+    margin-top: 13px;       /* Espacio superior: separación entre el texto del post y la foto */
+    width: 100%;            /* Ancho completo del contenedor */
+    max-width: 500px;       /* Ancho máximo en PC para que el cuadrado no sea gigantesco */
+    aspect-ratio: 1 / 1;    /* Cuadrado perfecto (1:1) para que las fotos cuadradas se vean enteras */
+    margin-left: 0;         /* Alineación izquierda estricta con el texto */
+    margin-right: 0;        /* Evita el centrado automático */
 }
 
+/* Estilo de la imagen subida dentro del grid */
 .post-uploaded-img {
-    width: 100%;          /* Ancho del 100% para llenar su caja */
-    height: 100%;         /* Llena el contenedor cuadrado por completo */
-    max-height: none;     /* Sin límites de altura para mantener el formato cuadrado */
-    object-fit: cover;    /* Recorte limpio y profesional sin deformar */
-    border-radius: 12px;  /* Redondeo de esquinas en PC */
-    border: 1px solid #eaeaea; /* Línea sutil de borde */
-    display: block;       /* Comportamiento de bloque para evitar huecos extraños */
+    width: 100%;            /* Ancho del 100% para llenar su caja */
+    height: 100%;           /* Llena el contenedor cuadrado por completo */
+    max-height: none;       /* Sin límites de altura para mantener el formato cuadrado */
+    object-fit: cover;      /* Recorte limpio y profesional sin deformar */
+    border-radius: 12px;    /* Redondeo de esquinas en PC */
+    border: 1px solid #eaeaea; /* Línea sutil de borde perimetral */
+    display: block;         /* Comportamiento de bloque para evitar huecos extraños */
 }
 
 
 /* ==========================================
    ESTILOS DEL POP-UP / LIGHTBOX: PC vs MÓVIL
    ========================================== */
+/* Capa de fondo oscura translúcida para el visor de imágenes amplcritas (lightbox) */
 .lightbox-overlay {
-    visibility: hidden;
-    opacity: 0;
-    position: fixed;
-    z-index: 9999;
+    visibility: hidden;     /* Oculto por defecto */
+    opacity: 0;             /* Completamente transparente por defecto */
+    position: fixed;        /* Posición fija ocupando toda la pantalla */
+    z-index: 9999;          /* Capa superior máxima para superponerse a todo */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro translúcido */
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro oscuro translúcido */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    cursor: pointer;         /* Cursor de clic */
     padding: 20px;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición suave de aparición/desaparición */
 }
 
+/* Estado activo cuando el lightbox se muestra en pantalla */
 .lightbox-overlay.active {
     visibility: visible;
     opacity: 1;
 }
 
+/* Imagen ampliada dentro del visor lightbox */
 .lightbox-img {
     max-width: 95%;        
     max-height: 95vh;      
     object-fit: contain;  
     border-radius: 12px;  
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5); /* Sombra elegante alrededor de la imagen */
     cursor: default; 
-    transform: scale(0.8);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0.8); /* Escala inicial reducida para animación de zoom */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animación elástica de zoom */
 }
 
+/* Aplica la escala completa al activar el lightbox */
 .lightbox-overlay.active .lightbox-img {
     transform: scale(1); 
 }
 
+/* Botón para cerrar el lightbox */
 .lightbox-close {
     position: absolute;
     top: 20px;
     right: 30px;
-    color: #ffffff;
+    color: #ffffff;         /* Color blanco para destacar sobre el fondo oscuro */
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
+/* Efecto hover al pasar el ratón sobre el botón de cierre */
 .lightbox-close:hover {
-    transform: scale(1.1);
+    transform: scale(1.1);  /* Ligero aumento de tamaño al pasar el cursor */
 }
 
 
@@ -298,10 +335,11 @@ html, body {
    BLOG DE IMÁGENES MÚLTIPLES EN PC (Grid ordenado de máx. 2 por fila)
    ========================================================== */
 @media (min-width: 768px) {
+    /* Contenedor principal del grid múltiple en PC */
     .post-images-grid {
         display: flex !important;            /* Activa el diseño flexible */
         flex-wrap: wrap !important;         /* Permite el salto de línea si hay más de 2 imágenes */
-        gap: 3px !important;                /* Espacio de separación entre las fotos */
+        gap: 3px !important;                /* Espacio de separación estrecho entre las fotos */
         width: 100% !important;              
         max-width: 500px !important;         /* CLAVE: Respeta exactamente el mismo límite de ancho del post en PC */
         margin-top: 13px !important;        /* Margen superior alineado con el texto */
@@ -311,6 +349,7 @@ html, body {
         box-sizing: border-box !important;  
     }
 
+    /* Contenedor de cada celda del grid en PC */
     .post-images-grid .post-image-container {
         flex: 0 0 calc(50% - 6px) !important; /* Cada imagen ocupa el 50% restando la mitad del gap (12px / 2 = 6px) */
         width: calc(50% - 6px) !important;     
@@ -325,7 +364,7 @@ html, body {
    CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas < 768px)
    ========================================================== */
 @media (max-width: 767px) {
-    /* Contenedor del grid en móvil */
+    /* Contenedor individual de imagen en móvil */
     .post-images-grid .post-image-container {
         width: 100% !important;              
         max-width: 98% !important;          /* Tu truco maestro del 98% para evitar cortes a la derecha */
@@ -338,6 +377,7 @@ html, body {
         display: block !important;          
     }
 
+    /* Imagen dentro del contenedor en móvil */
     .post-uploaded-img {
         width: 100% !important;             
         height: 100% !important;            
@@ -364,6 +404,7 @@ html, body {
         box-sizing: border-box !important;  
     }
 
+    /* Celdas individuales del grid en móvil */
     .post-images-grid .post-image-container {
         flex: 0 0 calc(50% - 4px) !important; 
         width: calc(50% - 4px) !important;     
@@ -392,7 +433,7 @@ html, body {
 
 
 /* ==========================================================
-   [ANOTACIÓN] BLOQUE AISLADO: IMAGEN ÚNICA (No afecta al grid)
+   BLOQUE AISLADO: IMAGEN ÚNICA (No afecta al grid)
    ========================================================== */
 
 /* --- 1. IMAGEN ÚNICA - VERSIÓN MÓVIL Y BASE --- */
@@ -404,19 +445,19 @@ html, body {
     overflow: hidden;
     background: transparent;
     display: flex !important;
-    /* [ANOTACIÓN] Alinea el contenedor flexible hacia la izquierda exactamente con el texto */
+    /* Alinea el contenedor flexible hacia la izquierda exactamente con el texto */
     justify-content: flex-start !important; 
 }
 
 .post-single-image-container img {
-    /* [ANOTACIÓN] Controla el tamaño general (80%) manteniendo la proporción real sin deformar */
+    /* Controla el tamaño general (80%) manteniendo la proporción real sin deformar */
     max-width: 80% !important; 
     width: auto !important;
     height: auto !important;
     object-fit: contain;
     border-radius: 12px;
     display: block !important;
-    /* [ANOTACIÓN CLAVE] Fuerza absoluta: margen izquierdo a 0 y empuja el resto a la derecha para que no se centre */
+    /* Fuerza absoluta: margen izquierdo a 0 y empuja el resto a la derecha para que no se centre */
     margin-left: 0 !important;     
     margin-right: auto !important; 
 }
@@ -426,13 +467,13 @@ html, body {
     .post-single-image-container {
         margin-top: 12px;
         margin-bottom: 12px;
-        /* [ANOTACIÓN] Reafirma el flex a la izquierda en pantallas grandes de PC */
+        /* Reafirma el flex a la izquierda en pantallas grandes de PC */
         display: flex !important;
         justify-content: flex-start !important;
     }
 
     .post-single-image-container img {
-        /* [ANOTACIÓN] Reafirma el tamaño del 80% y la posición izquierda en PC */
+        /* Reafirma el tamaño del 80% y la posición izquierda en PC */
         max-width: 80% !important;
         margin-left: 0 !important;
         margin-right: auto !important;
@@ -442,7 +483,7 @@ html, body {
 /* --- 3. IMAGEN ÚNICA - VERSIÓN MÓVIL (< 768px) --- */
 @media (max-width: 767px) {
     .post-single-image-container img {
-        /* [ANOTACIÓN] Truco del 98% para evitar cortes a la derecha en pantallas de móvil */
+        /* Truco del 98% para evitar cortes a la derecha en pantallas de móvil */
         max-width: 98% !important;
     }
 }
