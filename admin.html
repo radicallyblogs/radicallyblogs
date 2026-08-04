@@ -61,6 +61,30 @@
             border-bottom: 2px solid #000;
             padding-bottom: 10px;
         }
+
+        /* Selector de Tipo de Publicación */
+        .type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .btn-tab {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #000000;
+            background: #ffffff;
+            color: #000000;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-tab.active {
+            background: #000000;
+            color: #ffffff;
+        }
+
         .form-group {
             margin-bottom: 20px;
             text-align: left;
@@ -189,6 +213,18 @@
             font-size: 13px;
             cursor: pointer;
         }
+
+        .badge-type {
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-left: 5px;
+        }
+        .badge-photo {
+            background: #0284c7;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -215,6 +251,12 @@
         <!-- Formulario de Crear / Editar -->
         <div class="card-style">
             <h1 id="form-title">Nueva Publicación</h1>
+
+            <!-- Pestañas para elegir el tipo de post -->
+            <div class="type-selector">
+                <button type="button" class="btn-tab active" id="tab-clasico" onclick="seleccionarTipoPost('clasico')">Bloggy Clásico</button>
+                <button type="button" class="btn-tab" id="tab-photo" onclick="seleccionarTipoPost('photo_bloggy')">📷 Photo Bloggy</button>
+            </div>
             
             <div class="auto-info">
                 📅 Fecha y hora de publicación: <br>
@@ -227,10 +269,9 @@
             </div>
 
             <div class="form-group">
-                <!-- AÑADIDO: Atributo 'multiple' para permitir seleccionar varias imágenes a la vez -->
-                <label for="post-image">Adjuntar imágenes (opcional, puedes seleccionar varias):</label>
+                <label for="post-image" id="label-image">Adjuntar imágenes (opcional, puedes seleccionar varias):</label>
                 <input type="file" id="post-image" accept="image/*" multiple>
-                <div class="token-hint">Sube fotos en alta calidad, se mantendrán intactas.</div>
+                <div class="token-hint" id="hint-image">Sube fotos en alta calidad, se mantendrán intactas.</div>
             </div>
 
             <button class="btn-publish" id="btn-submit" onclick="guardarPublicacion()">Publicar</button>
@@ -254,8 +295,40 @@
 
         let postsCache = [];
         let editandoIndex = null; 
+        let tipoPostActual = 'clasico'; // 'clasico' o 'photo_bloggy'
         const repo = "radicallyblogs/radicallyblogs";
         const path = "posts.json";
+
+        function seleccionarTipoPost(tipo) {
+            tipoPostActual = tipo;
+            const tabClasico = document.getElementById('tab-clasico');
+            const tabPhoto = document.getElementById('tab-photo');
+            const labelContent = document.getElementById('label-content');
+            const postContent = document.getElementById('post-content');
+            const labelImage = document.getElementById('label-image');
+            const postImage = document.getElementById('post-image');
+            const hintImage = document.getElementById('hint-image');
+
+            if (tipo === 'photo_bloggy') {
+                tabPhoto.classList.add('active');
+                tabClasico.classList.remove('active');
+                
+                labelContent.innerText = "Mensaje del Photo Bloggy (Opcional):";
+                postContent.placeholder = "Escribe una descripción o comentario opcional para tu foto...";
+                labelImage.innerText = "Seleccionar Imagen (OBLIGATORIA):";
+                postImage.removeAttribute('multiple');
+                hintImage.innerText = "Selecciona 1 sola foto para tu Photo Bloggy.";
+            } else {
+                tabClasico.classList.add('active');
+                tabPhoto.classList.remove('active');
+                
+                labelContent.innerText = "¿Qué quieres publicar hoy?";
+                postContent.placeholder = "Escribe tu pensamiento, poema o nota mental aquí...";
+                labelImage.innerText = "Adjuntar imágenes (opcional, puedes seleccionar varias):";
+                postImage.setAttribute('multiple', 'true');
+                hintImage.innerText = "Sube fotos en alta calidad, se mantendrán intactas.";
+            }
+        }
 
         function decodeBase64Utf8(base64Str) {
             const binString = atob(base64Str);
@@ -357,14 +430,15 @@
 
             let html = '';
             postsCache.forEach((post, index) => {
-                // Comprobamos si tiene imágenes (tanto si usa el formato antiguo .imagen como el nuevo .imagenes)
                 let tieneImgs = (post.imagenes && post.imagenes.length > 0) || post.imagen;
                 let imgIndicator = tieneImgs ? ' 🖼️ [Con imagen(es)]' : '';
+                let badgeTipo = post.tipo === 'photo_bloggy' ? '<span class="badge-type badge-photo">📸 PHOTO BLOGGY</span>' : '';
+                let textoPreview = post.texto ? `"${post.texto}"` : '<em>(Sin texto)</em>';
                 
                 html += `
                     <div class="post-item-admin">
-                        <div class="post-meta-admin">📅 ${post.fechaCortas || 'Sin fecha'} • ${post.hora || ''}${imgIndicator}</div>
-                        <div class="post-preview">"${post.texto}"</div>
+                        <div class="post-meta-admin">📅 ${post.fechaCortas || 'Sin fecha'} • ${post.hora || ''}${imgIndicator} ${badgeTipo}</div>
+                        <div class="post-preview">${textoPreview}</div>
                         <div class="post-actions">
                             <button class="btn-edit" onclick="prepararEdicion(${index})">Editar</button>
                             <button class="btn-delete" onclick="borrarPost(${index})">Borrar</button>
@@ -378,7 +452,10 @@
         function prepararEdicion(index) {
             editandoIndex = index;
             const post = postsCache[index];
-            document.getElementById('post-content').value = post.texto;
+            
+            seleccionarTipoPost(post.tipo || 'clasico');
+            
+            document.getElementById('post-content').value = post.texto || "";
             document.getElementById('post-image').value = ""; // Limpiar input file
             document.getElementById('form-title').innerText = "Editar Publicación";
             document.getElementById('btn-submit').innerText = "Guardar Cambios";
@@ -389,6 +466,7 @@
 
         function cancelarEdicion() {
             editandoIndex = null;
+            seleccionarTipoPost('clasico');
             document.getElementById('post-content').value = "";
             document.getElementById('post-image').value = "";
             document.getElementById('form-title').innerText = "Nueva Publicación";
@@ -400,9 +478,20 @@
             const texto = document.getElementById('post-content').value;
             const imageInput = document.getElementById('post-image');
             
-            if (!texto.trim() && imageInput.files.length === 0) {
-                alert('Por favor, escribe algo o añade al menos una imagen.');
-                return;
+            const tieneImágenesNuevas = imageInput.files.length > 0;
+            const tieneImágenesExistentes = editandoIndex !== null && ((postsCache[editandoIndex].imagenes && postsCache[editandoIndex].imagenes.length > 0) || postsCache[editandoIndex].imagen);
+
+            // Validaciones según el tipo de post
+            if (tipoPostActual === 'photo_bloggy') {
+                if (!tieneImágenesNuevas && !tieneImágenesExistentes) {
+                    alert('El Photo Bloggy requiere OBLIGATORIAMENTE subir una imagen.');
+                    return;
+                }
+            } else {
+                if (!texto.trim() && !tieneImágenesNuevas && !tieneImágenesExistentes) {
+                    alert('Por favor, escribe algo o añade al menos una imagen.');
+                    return;
+                }
             }
 
             const token = localStorage.getItem('gh_blog_token');
@@ -417,7 +506,6 @@
             const horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
 
             try {
-                // MODIFICADO: Recuperamos o inicializamos el array de imágenes
                 let imageNames = [];
                 if (editandoIndex !== null) {
                     if (postsCache[editandoIndex].imagenes) {
@@ -471,15 +559,17 @@
                 }
 
                 if (editandoIndex !== null) {
+                    postsCache[editandoIndex].tipo = tipoPostActual;
                     postsCache[editandoIndex].texto = texto;
                     if (imageNames.length > 0) {
                         postsCache[editandoIndex].imagenes = imageNames;
-                        delete postsCache[editandoIndex].imagen; // Limpiamos la propiedad antigua si existía
+                        delete postsCache[editandoIndex].imagen;
                     }
                 } else {
                     const nuevoPost = {
+                        "tipo": tipoPostActual,
                         "texto": texto,
-                        "imagenes": imageNames, // Guardamos la lista de imágenes
+                        "imagenes": imageNames,
                         "fechaLarga": fechaLargaActual,
                         "fechaCortas": fechaCortasActual,
                         "hora": horaStr
