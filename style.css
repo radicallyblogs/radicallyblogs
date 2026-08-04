@@ -396,37 +396,50 @@ html, body {
    [ANOTACIÓN] NUEVO BLOQUE: IMAGEN ÚNICA (Independiente del grid)
    ========================================================== */
 
-/* --- 1. IMAGEN ÚNICA - VERSIÓN MÓVIL (Por defecto) --- */
+/* ==========================================
+   1. IMAGEN ÚNICA - VERSIÓN MÓVIL Y BASE
+   ========================================== */
 .post-single-image-container {
-    width: 100%;
+    width: 100% !important;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 12px;
     overflow: hidden;
     background: transparent;
-    display: flex;
-    /* [CAMBIO PRINCIPAL] Cambiado de 'center' a 'flex-start' para alinearla estrictamente a la izquierda con el texto */
-    justify-content: flex-start; 
+    display: flex !important;
+    /* [ANOTACIÓN] Alinea el contenedor flexible hacia la izquierda */
+    justify-content: flex-start !important; 
 }
 
 .post-single-image-container img {
-    /* [CAMBIO PRINCIPAL] Controla el tamaño general manteniendo la proporción real (vertical u horizontal) sin deformar */
-    max-width: 80%; 
-    width: auto;
-    height: auto;
+    /* [ANOTACIÓN] Controla el tamaño general (80%) manteniendo la proporción real sin deformar */
+    max-width: 80% !important; 
+    width: auto !important;
+    height: auto !important;
     object-fit: contain;
     border-radius: 12px;
-    display: block;
+    display: block !important;
+    /* [ANOTACIÓN CLAVE] Fuerza absoluta: margen izquierdo a 0 y empuja el resto a la derecha para que no se centre */
+    margin-left: 0 !important;     
+    margin-right: auto !important; 
 }
 
-/* --- 2. IMAGEN ÚNICA - VERSIÓN PC (Escritorio) --- */
+/* ==========================================
+   2. IMAGEN ÚNICA - VERSIÓN PC (Escritorio)
+   ========================================== */
 @media (min-width: 768px) {
     .post-single-image-container {
         margin-top: 12px;
         margin-bottom: 12px;
+        /* [ANOTACIÓN] Reafirma el flex a la izquierda en pantallas grandes de PC */
+        display: flex !important;
+        justify-content: flex-start !important;
     }
 
     .post-single-image-container img {
-        /* Hereda el max-width del 80% o puedes ajustarlo aquí específicamente si lo deseas */
+        /* [ANOTACIÓN] Reafirma el tamaño del 80% y la posición izquierda en PC */
+        max-width: 80% !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
     }
 }
