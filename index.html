@@ -36,7 +36,7 @@
                 let postHTML = '';
 
                 // ==========================================
-                // 1. RENDERIZADO PARA PHOTO BLOGGY
+                // 1. RENDERIZADO PARA PHOTO BLOGGY (Orden correcto: Usuario arriba, Fecha abajo)
                 // ==========================================
                 if (post.tipo === 'photo_bloggy') {
                     const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
@@ -47,10 +47,7 @@
 
                     postHTML = `
                         <article class="photo-bloggy-post">
-                            <div class="post-date">
-                                <span class="desktop-date">${post.fechaLarga || ''}</span>
-                                <span class="mobile-date">${post.fechaCortas || ''}</span>
-                            </div>
+                            <!-- 1. Avatar y nombre arriba -->
                             <div class="post-header">
                                 <div class="avatar"></div>
                                 <div class="user-info">
@@ -58,11 +55,18 @@
                                     <span class="timestamp">• ${post.hora || ''}</span>
                                 </div>
                             </div>
+                            <!-- 2. Fecha y hora debajo del usuario -->
+                            <div class="post-date">
+                                <span class="desktop-date">${post.fechaLarga || ''}</span>
+                                <span class="mobile-date">${post.fechaCortas || ''}</span>
+                            </div>
 
+                            <!-- 3. Foto con bordes redondeados importantes -->
                             <div class="pb-image-container">
                                 <img src="${imagenUrl}" alt="Photo Bloggy" onclick="abrirLightbox('${imagenUrl}')">
                             </div>
 
+                            <!-- 4. Pie flotante limpio -->
                             <div class="pb-footer-content">
                                 <div class="pb-actions">
                                     <i class="fa-regular fa-heart"></i>
