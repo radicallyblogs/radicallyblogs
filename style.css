@@ -487,9 +487,12 @@ html, body {
         max-width: 70% !important;
     }
 }/* ==========================================================================
-   PHOTO BLOGGY - TIPOGRAFÍAS Y ESTILOS INDEPENDIENTES
+   MASTER CSS: PHOTO BLOGGY - CONTROL TOTAL ACTIVO (PC Y MÓVIL)
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. CONTENEDOR GENERAL DEL POST (PC)
+   -------------------------------------------------------------------------- */
 .photo-bloggy-post {
     width: 100%;
     max-width: 600px;
@@ -497,132 +500,218 @@ html, body {
     background: transparent;
     border: none;
     box-shadow: none;
-    font-family: 'Proxima Nova', sans-serif; /* Fuente base general para el post */
+    position: relative;
+    left: 0px;                  /* [PC - Posición X General]: Mueve todo el post a izquierda/derecha */
+    top: 0px;                   /* [PC - Posición Y General]: Mueve todo el post arriba/abajo */
 }
 
-/* Cabecera */
+
+/* --------------------------------------------------------------------------
+   2. CABECERA (AVATAR + TEXTOS) - PC
+   -------------------------------------------------------------------------- */
 .pb-header-wix {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 12px;                  /* [PC]: Distancia horizontal entre avatar y bloque de texto */
+    margin-bottom: 12px;        /* [PC]: Distancia vertical hacia la foto */
+    position: relative;
+    left: 0px;                  /* [PC - Posición X de toda la cabecera] */
+    top: 0px;                   /* [PC - Posición Y de toda la cabecera] */
 }
 
+/* 2.1 Foto de Perfil (Avatar) - PC */
+.pb-header-wix .avatar {
+    width: 42px;                /* [PC - Ancho de la foto de perfil] */
+    height: 42px;               /* [PC - Alto de la foto de perfil] */
+    position: relative;
+    left: 0px;                  /* [PC - Posición X específica del Avatar] */
+    top: 0px;                   /* [PC - Posición Y específica del Avatar] */
+}
+
+/* Contenedor de textos de la cabecera */
 .pb-text-container {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 2px;                   /* [PC]: Distancia vertical entre nombre y fecha */
+    position: relative;
+    left: 0px;                  /* [PC - Posición X del bloque de texto] */
+    top: 0px;                   /* [PC - Posición Y del bloque de texto] */
 }
 
-/* 1. Nombre de usuario: Fuente SF UI Display (o la que uses) y negro */
+/* 2.2 Nombre de Usuario (Superior) - PC */
 .pb-username {
     display: block;
-    font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #000000;
-    font-weight: 400;
+    font-family: 'SF UI Display', -apple-system, sans-serif;
+    color: #000000;             /* [PC - Color del Nombre] */
+    font-size: 20px;            /* [PC - Tamaño de fuente del Nombre] */
+    font-weight: 400;           /* [PC - Grosor del Nombre: 300, 400, 500, etc.] */
+    position: relative;
+    left: 0px;                  /* [PC - Posición X específica del Nombre] */
+    top: 0px;                   /* [PC - Posición Y específica del Nombre] */
 }
 
-/* 2. Fecha y hora: Fuente Proxima Nova (o la de fecha) y gris */
+/* 2.3 Fecha y Hora - PC */
 .pb-datetime {
     display: block;
     font-family: 'Proxima Nova', sans-serif;
-    color: #666666;
-    font-weight: 400;
+    color: #666666;             /* [PC - Color de la Fecha/Hora] */
+    font-size: 16px;            /* [PC - Tamaño de fuente de la Fecha] */
+    font-weight: 400;           /* [PC - Grosor de la Fecha] */
+    position: relative;
+    left: 0px;                  /* [PC - Posición X específica de la Fecha] */
+    top: 0px;                   /* [PC - Posición Y específica de la Fecha] */
 }
 
-/* Contenedor de la imagen con esquinas redondeadas importantes */
+
+/* --------------------------------------------------------------------------
+   3. CONTENEDOR Y TAMAÑO DE LA IMAGEN PRINCIPAL - PC
+   -------------------------------------------------------------------------- */
 .pb-image-container {
-    width: 100%;
-    border-radius: 30px;
+    width: 100%;                /* [PC - Ancho de la caja de imagen] */
+    border-radius: 25px;        /* [PC - Bordes Redondeados de la foto] */
     overflow: hidden;
     background: #000;
-    margin-bottom: 12px;
+    margin-bottom: 12px;        /* [PC]: Separación entre la foto y el pie */
+    position: relative;
+    left: 0px;                  /* [PC - Posición X de la foto] */
+    top: 0px;                   /* [PC - Posición Y de la foto] */
 }
 
 .pb-image-container img {
     width: 100%;
     height: auto;
-    max-height: 85vh;
+    max-height: 85vh;           /* [PC - Altura máxima de la foto] */
     object-fit: contain;
     display: block;
     cursor: pointer;
 }
 
-/* Pie de página */
+
+/* --------------------------------------------------------------------------
+   4. PIE DE PÁGINA (ICONOS Y TEXTO DEL POST) - PC
+   -------------------------------------------------------------------------- */
 .pb-footer-content {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 8px;                   /* [PC]: Distancia entre iconos y texto del post */
     padding: 0 4px;
-    font-family: 'Proxima Nova', sans-serif;
+    position: relative;
+    left: 0px;                  /* [PC - Posición X del pie] */
+    top: 0px;                   /* [PC - Posición Y del pie] */
 }
 
 .pb-meta-icons {
     display: flex;
-    gap: 20px;
+    gap: 20px;                  /* [PC]: Espacio horizontal entre iconos */
     color: #555;
+    font-size: 16px;            /* [PC - Tamaño de iconos] */
     margin-bottom: 4px;
-    font-size: 14px;
+    position: relative;
+    left: 0px;                  /* [PC - Posición X de iconos] */
+    top: 0px;                   /* [PC - Posición Y de iconos] */
 }
 
 .pb-caption {
     margin: 0;
     line-height: 1.4;
     font-family: 'Proxima Nova', sans-serif;
+    font-size: 18px;            /* [PC - Tamaño del texto del post] */
+    color: #000000;             /* [PC - Color del texto del post] */
+    font-weight: 400;           /* [PC - Grosor del texto del post] */
+    position: relative;
+    left: 0px;                  /* [PC - Posición X del texto] */
+    top: 0px;                   /* [PC - Posición Y del texto] */
 }
 
 .pb-user-inferior {
-    font-weight: 300;
+    font-weight: 400;
     margin-right: 6px;
-    font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'SF UI Display', -apple-system, sans-serif;
+    font-size: 18px;            /* [PC - Tamaño del usuario en el texto] */
 }
 
 
-/* ==========================================
-   TAMAÑOS PC (Escritorio)
-   ========================================== */
-@media (min-width: 768px) {
-    .pb-username {
-        font-size: 20px;
-    }
-    .pb-datetime {
-        font-size: 16px;
-    }
-    .pb-meta-icons {
-        font-size: 16px;
-    }
-    .pb-caption {
-        font-size: 18px;
-    }
-}
 
-
-/* ==========================================
-   TAMAÑOS MÓVIL
-   ========================================== */
+/* ==========================================================================
+   CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas menores a 767px)
+   ========================================================================== */
 @media (max-width: 767px) {
+
+    /* 1. Contenedor General (Móvil) */
     .photo-bloggy-post {
         width: 100vw;
         max-width: 100vw;
         margin: 20px 0;
+        left: 0px;              /* [Móvil - Posición X General] */
+        top: 0px;               /* [Móvil - Posición Y General] */
     }
 
+    /* 2. Cabecera (Móvil) */
     .pb-header-wix,
     .pb-footer-content {
         padding-left: 15px;
         padding-right: 15px;
     }
 
+    .pb-header-wix {
+        gap: 10px;
+        margin-bottom: 10px;
+        left: 0px;              /* [Móvil - Posición X de cabecera] */
+        top: 0px;               /* [Móvil - Posición Y de cabecera] */
+    }
+
+    /* 2.1 Avatar (Móvil) */
+    .pb-header-wix .avatar {
+        width: 36px;            /* [Móvil - Ancho del avatar] */
+        height: 36px;           /* [Móvil - Alto del avatar] */
+        left: 0px;              /* [Móvil - Posición X del avatar] */
+        top: 0px;               /* [Móvil - Posición Y del avatar] */
+    }
+
+    .pb-text-container {
+        left: 0px;              /* [Móvil - Posición X de textos] */
+        top: 0px;               /* [Móvil - Posición Y de textos] */
+    }
+
+    /* 2.2 Nombre de Usuario (Móvil) */
     .pb-username {
-        font-size: 13px;
+        font-size: 13px;        /* [Móvil - Tamaño del Nombre] */
+        font-weight: 400;       /* [Móvil - Grosor del Nombre] */
+        left: 0px;              /* [Móvil - Posición X del Nombre] */
+        top: 0px;               /* [Móvil - Posición Y del Nombre] */
     }
+
+    /* 2.3 Fecha y Hora (Móvil) */
     .pb-datetime {
-        font-size: 12px;
+        font-size: 12px;        /* [Móvil - Tamaño de la Fecha] */
+        font-weight: 400;       /* [Móvil - Grosor de la Fecha] */
+        left: 0px;              /* [Móvil - Posición X de la Fecha] */
+        top: 0px;               /* [Móvil - Posición Y de la Fecha] */
     }
+
+    /* 3. Contenedor de Imagen (Móvil) */
+    .pb-image-container {
+        border-radius: 20px;     /* [Móvil - Bordes redondeados] */
+        margin-bottom: 10px;
+        left: 0px;              /* [Móvil - Posición X de la foto] */
+        top: 0px;               /* [Móvil - Posición Y de la foto] */
+    }
+
+    /* 4. Pie de página (Móvil) */
     .pb-meta-icons {
         font-size: 13px;
+        gap: 15px;
+        left: 0px;              /* [Móvil - Posición X de iconos] */
+        top: 0px;               /* [Móvil - Posición Y de iconos] */
     }
+
     .pb-caption {
+        font-size: 13px;
+        left: 0px;              /* [Móvil - Posición X del texto] */
+        top: 0px;               /* [Móvil - Posición Y del texto] */
+    }
+
+    .pb-user-inferior {
         font-size: 13px;
     }
 }
