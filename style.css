@@ -384,7 +384,7 @@ html, body {
         max-width: 100% !important;         
         max-height: none !important;        
         object-fit: cover !important;       
-        border-radius: 15px !important;      /* Esquinas más suaves en móvil */
+        border-radius: 25px !important;      /* Esquinas más suaves en móvil */
         display: block !important;      
         margin: 0 !important;               
         box-sizing: border-box !important;
