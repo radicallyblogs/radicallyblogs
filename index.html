@@ -16,6 +16,12 @@
         <div id="feed-posts"></div>
     </div>
 
+    <!-- Lightbox / Pop-up de Imagen -->
+    <div id="imageLightbox" class="lightbox-overlay" onclick="cerrarLightboxAlFondo(event)">
+        <span class="lightbox-close" onclick="cerrarLightbox()">&times;</span>
+        <img class="lightbox-img" id="lightboxImg">
+    </div>
+
     <!-- Script para leer el posts.json y pintar el feed -->
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
@@ -28,8 +34,8 @@
                 container.innerHTML = ''; // Limpiar contenedor
 
                 posts.forEach(post => {
-                    // Si el post tiene imagen, creamos su etiqueta HTML correspondiente
-                    const imagenHTML = post.imagen ? `<div class="post-image-container"><img src="${post.imagen}" class="post-uploaded-img"></div>` : '';
+                    // Si el post tiene imagen, añadimos el evento onclick para abrir el lightbox
+                    const imagenHTML = post.imagen ? `<div class="post-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>` : '';
 
                     const postHTML = `
                         <div class="post">
@@ -54,6 +60,26 @@
                 console.error("Error al cargar los posts:", error);
             }
         });
+
+        // Funciones para el control del Pop-up / Lightbox
+        function abrirLightbox(src) {
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+
+        function cerrarLightbox() {
+            const lightbox = document.getElementById('imageLightbox');
+            lightbox.classList.remove('active');
+        }
+
+        function cerrarLightboxAlFondo(event) {
+            // Cierra únicamente si el clic se hace en el fondo oscuro y no sobre la imagen
+            if (event.target.id === 'imageLightbox') {
+                cerrarLightbox();
+            }
+        }
     </script>
 </body>
 </html>
