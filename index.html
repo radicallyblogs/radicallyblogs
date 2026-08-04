@@ -36,17 +36,24 @@
                 posts.forEach(post => {
                     let imagenHTML = '';
 
-                    // 1. Si el post tiene varias imágenes (nuevo formato con tu CSS .post-images-grid)
+                    // 1. Si el post tiene imágenes en el array
                     if (post.imagenes && post.imagenes.length > 0) {
-                        let imgsString = '';
-                        post.imagenes.forEach(img => {
-                            imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
-                        });
-                        imagenHTML = `<div class="post-images-grid">${imgsString}</div>`;
+                        if (post.imagenes.length === 1) {
+                            // Si solo hay 1 imagen, usamos el contenedor proporcional
+                            const img = post.imagenes[0];
+                            imagenHTML = `<div class="post-single-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
+                        } else {
+                            // Si hay más de 1 imagen, usamos la cuadrícula cuadrada
+                            let imgsString = '';
+                            post.imagenes.forEach(img => {
+                                imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
+                            });
+                            imagenHTML = `<div class="post-images-grid">${imgsString}</div>`;
+                        }
                     } 
-                    // 2. Compatibilidad con posts antiguos que solo tienen una imagen
+                    // 2. Compatibilidad con posts antiguos que solo tienen una imagen suelta (`post.imagen`)
                     else if (post.imagen) {
-                        imagenHTML = `<div class="post-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
+                        imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
                     }
 
                     const postHTML = `
