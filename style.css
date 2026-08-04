@@ -302,24 +302,28 @@ html, body {
 /* --- 2. CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas de menos de 768px) --- */
 @media (max-width: 767px) {
     .post-image-container {
-        width: 100% !important;            /* Ocupa exactamente el 100% del ancho de su caja contenedora */
-        max-width: 100% !important;        /* Evita que crezca más de la cuenta */
+        width: 100% !important;            
+        max-width: 100% !important;        /* Vital para que no rebase el ancho disponible */
         aspect-ratio: 1 / 1 !important;    /* Mantiene el cuadrado perfecto 1:1 */
         margin-top: 12px !important;       
         margin-bottom: 12px !important;    
-        margin-left: 0 !important;         /* <-- CLAVE: Alineado a la izquierda exacto con el texto */
-        margin-right: 0 !important;        /* <-- CLAVE: Sin margen derecho automático que lo mueva */
-        box-sizing: border-box !important; /* Vital para que los bordes y anchos respeten la caja */
+        margin-left: 0 !important;         
+        margin-right: 0 !important;        
+        box-sizing: border-box !important; /* Incluye los bordes/márgenes en el cálculo del ancho */
+        overflow: hidden !important;       /* Corta cualquier desborde interno */
+        display: block !important;
     }
 
     .post-uploaded-img {
-        width: 100% !important;            /* Llena todo el ancho del contenedor cuadrado */
-        height: 100% !important;           /* Llena todo el alto del contenedor cuadrado */
+        width: 100% !important;            
+        height: 100% !important;           
+        max-width: 100% !important;        /* Impide que la imagen sea más ancha que su caja */
         max-height: none !important;       
-        object-fit: cover !important;      /* Rellena el cuadrado limpiamente sin deformar */
+        object-fit: cover !important;      
         border-radius: 8px !important;     
         display: block !important;      
         margin: 0 !important;              
+        box-sizing: border-box !important;
     }
 }
 
