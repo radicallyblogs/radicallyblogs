@@ -299,7 +299,7 @@ html, body {
     .post-images-grid {
         display: flex !important;           /* Activa el diseño flexible */
         flex-wrap: wrap !important;         /* Permite el salto de línea si hay más de 2 imágenes */
-        gap: 12px !important;               /* Espacio de separación entre las fotos */
+        gap: 9px !important;               /* Espacio de separación entre las fotos */
         width: 100% !important;             
         max-width: 500px !important;        /* CLAVE: Respeta exactamente el mismo límite de ancho del post en PC */
         margin-top: 13px !important;        /* Margen superior alineado con el texto */
