@@ -302,28 +302,27 @@ html, body {
 /* --- 2. CONFIGURACIÓN ESPECÍFICA PARA MÓVIL (Pantallas de menos de 768px) --- */
 @media (max-width: 767px) {
     .post-image-container {
-        width: 100% !important;            
-        max-width: 100% !important;        /* Vital para que no rebase el ancho disponible */
-        aspect-ratio: 1 / 1 !important;    /* Mantiene el cuadrado perfecto 1:1 */
-        margin-top: 12px !important;       
-        margin-bottom: 12px !important;    
-        margin-left: 0 !important;         
-        margin-right: 0 !important;        
-        box-sizing: border-box !important; /* Incluye los bordes/márgenes en el cálculo del ancho */
-        overflow: hidden !important;       /* Corta cualquier desborde interno */
-        display: block !important;
+        width: 100% !important;            /* Ancho completo: Ocupa todo el espacio disponible en la pantalla del móvil */
+        max-width: 100% !important;        /* Ancho máximo: Evita que el contenedor crezca más de la cuenta y desborde */
+        aspect-ratio: 1 / 1 !important;    /* Cuadrado perfecto 1:1: Mantiene la proporción idéntica de alto y ancho */
+        margin-top: 12px !important;       /* Espacio superior: Separación entre el texto y la foto en móvil */
+        margin-bottom: 12px !important;    /* Espacio inferior: Separación entre la foto y el siguiente post */
+        margin-left: 0 !important;         /* Alineación izquierda: Lo alinea de forma estricta con el texto */
+        margin-right: 0 !important;        /* Alineación derecha: Evita desbordamientos y márgenes automáticos */
+        box-sizing: border-box !important; /* Modelo de caja: Asegura que los anchos respeten los bordes y rellenos */
+        display: block !important;         /* Comportamiento de bloque: Evita huecos extraños de espacio */
     }
 
     .post-uploaded-img {
-        width: 100% !important;            
-        height: 100% !important;           
-        max-width: 100% !important;        /* Impide que la imagen sea más ancha que su caja */
-        max-height: none !important;       
-        object-fit: cover !important;      
-        border-radius: 8px !important;     
-        display: block !important;      
-        margin: 0 !important;              
-        box-sizing: border-box !important;
+        width: 100% !important;            /* Ancho de la imagen: Rellena el 100% del contenedor cuadrado */
+        height: 100% !important;           /* Alto de la imagen: Rellena el 100% del contenedor cuadrado */
+        max-width: 100% !important;        /* Límite de ancho: Impide que la imagen sea más ancha que su caja */
+        max-height: none !important;       /* Sin límite de altura: Permite que mande la proporción cuadrada 1:1 */
+        object-fit: cover !important;      /* Ajuste de imagen: Recorta los excesos de forma limpia y profesional sin deformar */
+        border-radius: 8px !important;     /* Redondeo de esquinas específico para móvil (ligeramente más suave que en PC) */
+        display: block !important;         /* Comportamiento de bloque */
+        margin: 0 !important;              /* Sin márgenes internos adicionales */
+        box-sizing: border-box !important; /* Modelo de caja para la imagen */
     }
 }
 
