@@ -177,9 +177,9 @@ html, body {
     /* HORA (Sube el font-size aquí si la ves muy pequeña) */
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-weight: 300;
+        font-weight: 400;
         font-size: 17px; /* <-- TAMAÑO DE LA HORA EN MÓVIL */
-        -webkit-text-stroke: 0.30px;
+        -webkit-text-stroke: 0px;
         color: #777777;
     }
 
