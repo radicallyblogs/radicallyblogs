@@ -487,7 +487,7 @@ html, body {
         max-width: 70% !important;
     }
 }/* ==========================================================================
-   MASTER CSS: PHOTO BLOGGY - CONTROL TOTAL ACTIVO (PC Y MÓVIL)
+   MASTER CSS: PHOTO BLOGGY - CONTROL TOTAL SEPARADO (PC Y MÓVIL)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -567,7 +567,8 @@ html, body {
    3. CONTENEDOR Y TAMAÑO DE LA IMAGEN PRINCIPAL - PC
    -------------------------------------------------------------------------- */
 .pb-image-container {
-    width: 90%;                /* [PC - Ancho de la caja de imagen] */
+    width: 100%;                /* [PC - Ancho de la caja de imagen]: Pon 100% para que ocupe todo o un % menor (ej. 90%) */
+    max-width: 100%;            /* [PC - Ancho máximo] */
     border-radius: 30px;        /* [PC - Bordes Redondeados de la foto] */
     overflow: hidden;
     background: #000;
@@ -578,10 +579,10 @@ html, body {
 }
 
 .pb-image-container img {
-    width: 100%;
-    height: auto;
+    width: 100%;                /* [PC - Ancho interno de la foto] */
+    height: auto;               /* [PC - Mantiene la proporción exacta sin deformar] */
     max-height: 85vh;           /* [PC - Altura máxima de la foto] */
-    object-fit: contain;
+    object-fit: contain;        /* [PC - Ajuste de proporción] */
     display: block;
     cursor: pointer;
 }
@@ -689,12 +690,21 @@ html, body {
         top: 0px;               /* [Móvil - Posición Y de la Fecha] */
     }
 
-    /* 3. Contenedor de Imagen (Móvil) */
+    /* 3. Contenedor y Tamaño de la Imagen Principal (Móvil) */
     .pb-image-container {
-        border-radius: 20px;     /* [Móvil - Bordes redondeados] */
+        width: 100%;            /* [Móvil - Ancho de la caja de imagen]: Pon 100% para extremos o un % menor (ej. 95%) */
+        max-width: 100%;        /* [Móvil - Ancho máximo] */
+        border-radius: 30px;    /* [Móvil - Bordes Redondeados] */
         margin-bottom: 10px;
         left: 0px;              /* [Móvil - Posición X de la foto] */
         top: 0px;               /* [Móvil - Posición Y de la foto] */
+    }
+
+    .pb-image-container img {
+        width: 100%;            /* [Móvil - Ancho interno de la foto] */
+        height: auto;           /* [Móvil - Mantiene la proporción exacta sin deformar] */
+        max-height: 75vh;       /* [Móvil - Altura máxima de la foto] */
+        object-fit: contain;    /* [Móvil - Ajuste de proporción] */
     }
 
     /* 4. Pie de página (Móvil) */
