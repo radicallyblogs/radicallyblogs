@@ -72,7 +72,7 @@
             margin-bottom: 8px;
             color: #333;
         }
-        textarea, input[type="password"], input[type="text"] {
+        textarea, input[type="password"], input[type="text"], input[type="file"] {
             width: 100%;
             padding: 14px;
             border: 1px solid #e0e0e0;
@@ -84,6 +84,10 @@
         textarea {
             height: 140px;
             resize: vertical;
+        }
+        input[type="file"] {
+            background: #fafafa;
+            cursor: pointer;
         }
         textarea:focus, input[type="password"]:focus, input[type="text"]:focus {
             outline: none;
@@ -222,6 +226,12 @@
                 <textarea id="post-content" placeholder="Escribe tu pensamiento, poema o nota mental aquí..."></textarea>
             </div>
 
+            <div class="form-group">
+                <label for="post-image">Adjuntar imagen (opcional):</label>
+                <input type="file" id="post-image" accept="image/*">
+                <div class="token-hint">Sube una foto en alta calidad, se mantendrá intacta.</div>
+            </div>
+
             <button class="btn-publish" id="btn-submit" onclick="guardarPublicacion()">Publicar</button>
             <button class="btn-action btn-cancel" id="btn-cancel" onclick="cancelarEdicion()">Cancelar Edición</button>
             <button class="btn-action" onclick="cerrarSesion()" style="background-color: #f1f1f1; color: #000; font-size: 14px; padding: 10px; margin-top: 15px;">Cerrar Sesión / Cambiar Token</button>
@@ -246,11 +256,20 @@
         const repo = "radicallyblogs/radicallyblogs";
         const path = "posts.json";
 
-        // Función segura para decodificar Base64 con tildes, eñes y emojis en UTF-8
         function decodeBase64Utf8(base64Str) {
             const binString = atob(base64Str);
             const bytes = Uint8Array.from(binString, (m) => m.codePointAt(0));
             return new TextDecoder().decode(bytes);
+        }
+
+        // Convertir archivo de imagen a Base64 puro para enviarlo a GitHub
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = error => reject(error);
+            });
         }
 
         window.onload = function() {
@@ -301,7 +320,6 @@
             document.getElementById('live-datetime').innerText = `${fechaStr} • ${horaStr}`;
         }
 
-        // Cargar posts desde GitHub para mostrarlos en el panel
         async function cargarPostsGitHub() {
             const token = localStorage.getItem('gh_blog_token');
             const container = document.getElementById('posts-container');
@@ -339,9 +357,10 @@
 
             let html = '';
             postsCache.forEach((post, index) => {
+                let imgIndicator = post.imagen ? ' 🖼️ [Con imagen]' : '';
                 html += `
                     <div class="post-item-admin">
-                        <div class="post-meta-admin">📅 ${post.fechaCortas || 'Sin fecha'} • ${post.hora || ''}</div>
+                        <div class="post-meta-admin">📅 ${post.fechaCortas || 'Sin fecha'} • ${post.hora || ''}${imgIndicator}</div>
                         <div class="post-preview">"${post.texto}"</div>
                         <div class="post-actions">
                             <button class="btn-edit" onclick="prepararEdicion(${index})">Editar</button>
@@ -357,6 +376,7 @@
             editandoIndex = index;
             const post = postsCache[index];
             document.getElementById('post-content').value = post.texto;
+            document.getElementById('post-image').value = ""; // Limpiar input file
             document.getElementById('form-title').innerText = "Editar Publicación";
             document.getElementById('btn-submit').innerText = "Guardar Cambios";
             document.getElementById('btn-cancel').style.display = "block";
@@ -367,6 +387,7 @@
         function cancelarEdicion() {
             editandoIndex = null;
             document.getElementById('post-content').value = "";
+            document.getElementById('post-image').value = "";
             document.getElementById('form-title').innerText = "Nueva Publicación";
             document.getElementById('btn-submit').innerText = "Publicar";
             document.getElementById('btn-cancel').style.display = "none";
@@ -374,8 +395,10 @@
 
         async function guardarPublicacion() {
             const texto = document.getElementById('post-content').value;
-            if (!texto.trim()) {
-                alert('Por favor, escribe algo.');
+            const imageInput = document.getElementById('post-image');
+            
+            if (!texto.trim() && imageInput.files.length === 0) {
+                alert('Por favor, escribe algo o añade una imagen.');
                 return;
             }
 
@@ -387,11 +410,38 @@
 
             const ahora = new Date();
             const fechaLargaActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
-            const fechaCortasActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+            const fechaCortasActual = now = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
             const horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
 
             try {
-                // 1. Obtener sha actual
+                // 1. Subir la imagen a GitHub si el usuario ha seleccionado una
+                let imageName = editandoIndex !== null ? (postsCache[editandoIndex].imagen || "") : "";
+
+                if (imageInput.files.length > 0) {
+                    const file = imageInput.files[0];
+                    const extension = file.name.split('.').pop();
+                    imageName = `post_img_${Date.now()}.${extension}`;
+                    const base64Image = await fileToBase64(file);
+
+                    const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
+                        method: "PUT",
+                        headers: {
+                            "Authorization": `token ${token}`,
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            message: "Subir imagen de post",
+                            content: base64Image
+                        })
+                    });
+
+                    if (!imgRes.ok) {
+                        alert("Error al subir la imagen a GitHub.");
+                        return;
+                    }
+                }
+
+                // 2. Obtener SHA actual del posts.json
                 const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
@@ -408,9 +458,11 @@
 
                 if (editandoIndex !== null) {
                     postsCache[editandoIndex].texto = texto;
+                    postsCache[editandoIndex].imagen = imageName; // Actualiza o mantiene la imagen
                 } else {
                     const nuevoPost = {
                         "texto": texto,
+                        "imagen": imageName,
                         "fechaLarga": fechaLargaActual,
                         "fechaCortas": fechaCortasActual,
                         "hora": horaStr
@@ -418,7 +470,7 @@
                     postsCache.unshift(nuevoPost);
                 }
 
-                // 2. Enviar actualización a GitHub con codificación UTF-8 blindada
+                // 3. Enviar posts.json actualizado a GitHub
                 const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                     method: "PUT",
                     headers: {
@@ -426,7 +478,7 @@
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        message: editandoIndex !== null ? "Editar post desde panel admin" : "Nuevo post desde panel admin",
+                        message: editandoIndex !== null ? "Editar post desde panel" : "Nuevo post desde panel",
                         content: btoa(unescape(encodeURIComponent(JSON.stringify(postsCache, null, 2)))),
                         sha: sha
                     })
@@ -437,7 +489,7 @@
                     cancelarEdicion();
                     cargarPostsGitHub();
                 } else {
-                    alert("Hubo un error al guardar en GitHub.");
+                    alert("Hubo un error al guardar el JSON en GitHub.");
                 }
 
             } catch (error) {
