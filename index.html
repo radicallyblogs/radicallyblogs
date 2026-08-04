@@ -34,45 +34,88 @@
                 container.innerHTML = ''; // Limpiar contenedor
 
                 posts.forEach(post => {
-                    let imagenHTML = '';
+                    let postHTML = '';
 
-                    // 1. Si el post tiene imágenes en el array
-                    if (post.imagenes && post.imagenes.length > 0) {
-                        if (post.imagenes.length === 1) {
-                            // Si solo hay 1 imagen, usamos el contenedor proporcional
-                            const img = post.imagenes[0];
-                            imagenHTML = `<div class="post-single-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
-                        } else {
-                            // Si hay más de 1 imagen, usamos la cuadrícula cuadrada
-                            let imgsString = '';
-                            post.imagenes.forEach(img => {
-                                imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
-                            });
-                            imagenHTML = `<div class="post-images-grid">${imgsString}</div>`;
-                        }
+                    // ==========================================
+                    // 1. RENDERIZADO PARA PHOTO BLOGGY
+                    // ==========================================
+                    if (post.tipo === 'photo_bloggy') {
+                        // Extraemos la imagen principal del Photo Bloggy
+                        const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
+                        
+                        // Texto/caption opcional del Photo Bloggy
+                        const textoCaption = post.texto 
+                            ? `<p class="pb-caption"><span class="pb-user-inferior">@felipeortegareyes</span>${post.texto}</p>` 
+                            : '';
+
+                        postHTML = `
+                            <article class="photo-bloggy-post">
+                                <!-- Cabecera con Avatar, Usuario y Fecha/Hora -->
+                                <div class="pb-header">
+                                    <div class="pb-user-area">
+                                        <img src="ruta_a_tu_avatar.jpg" alt="Avatar" class="pb-avatar">
+                                        <span class="pb-user-superior">@felipeortegareyes</span>
+                                    </div>
+                                    <span class="pb-date-superior">${post.fechaCortas || ''} • ${post.hora || ''}</span>
+                                </div>
+
+                                <!-- Contenedor de Imagen (Relación libre y soporte para Lightbox) -->
+                                <div class="pb-image-wrapper">
+                                    <img src="${imagenUrl}" alt="Photo Bloggy" onclick="abrirLightbox('${imagenUrl}')">
+                                </div>
+
+                                <!-- Pie de página con Iconos de interacción y Caption -->
+                                <div class="pb-footer">
+                                    <div class="pb-actions">
+                                        <i class="fa-regular fa-heart"></i>
+                                        <i class="fa-regular fa-comment"></i>
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                    </div>
+                                    ${textoCaption}
+                                </div>
+                            </article>
+                        `;
                     } 
-                    // 2. Compatibilidad con posts antiguos que solo tienen una imagen suelta (`post.imagen`)
-                    else if (post.imagen) {
-                        imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
+                    // ==========================================
+                    // 2. RENDERIZADO PARA BLOGGY CLÁSICO
+                    // ==========================================
+                    else {
+                        let imagenHTML = '';
+
+                        if (post.imagenes && post.imagenes.length > 0) {
+                            if (post.imagenes.length === 1) {
+                                const img = post.imagenes[0];
+                                imagenHTML = `<div class="post-single-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
+                            } else {
+                                let imgsString = '';
+                                post.imagenes.forEach(img => {
+                                    imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
+                                });
+                                imagenHTML = `<div class="post-images-grid">${imgsString}</div>`;
+                            }
+                        } else if (post.imagen) {
+                            imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
+                        }
+
+                        postHTML = `
+                            <div class="post">
+                                <div class="post-date">
+                                    <span class="desktop-date">${post.fechaLarga || ''}</span>
+                                    <span class="mobile-date">${post.fechaCortas || ''}</span>
+                                </div>
+                                <div class="post-header">
+                                    <div class="avatar"></div>
+                                    <div class="user-info">
+                                        <span class="username">@felipeortegareyes</span>
+                                        <span class="timestamp">• ${post.hora || ''}</span>
+                                    </div>
+                                </div>
+                                <div class="post-content">${post.texto || ''}</div>
+                                ${imagenHTML}
+                            </div>
+                        `;
                     }
 
-                    const postHTML = `
-                        <div class="post">
-                            <div class="post-date">
-                                <span class="desktop-date">${post.fechaLarga}</span>
-                                <span class="mobile-date">${post.fechaCortas}</span>
-                            </div>
-                            <div class="post-header">
-                                <div class="avatar"></div>
-                                <div class="user-info">
-                                    <span class="username">@felipeortegareyes</span>
-                                    <span class="timestamp">• ${post.hora}</span>
-                                </div>
-                            </div>
-                            <div class="post-content">${post.texto}</div>
-                            ${imagenHTML}
-                        </div>
-                    `;
                     container.innerHTML += postHTML;
                 });
             } catch (error) {
@@ -94,7 +137,6 @@
         }
 
         function cerrarLightboxAlFondo(event) {
-            // Cierra únicamente si el clic se hace en el fondo oscuro y no sobre la imagen
             if (event.target.id === 'imageLightbox') {
                 cerrarLightbox();
             }
