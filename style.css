@@ -567,8 +567,8 @@ html, body {
    3. CONTENEDOR Y TAMAÑO DE LA IMAGEN PRINCIPAL - PC
    -------------------------------------------------------------------------- */
 .pb-image-container {
-    width: 100%;                /* [PC - Ancho de la caja de imagen] */
-    border-radius: 25px;        /* [PC - Bordes Redondeados de la foto] */
+    width: 90%;                /* [PC - Ancho de la caja de imagen] */
+    border-radius: 30px;        /* [PC - Bordes Redondeados de la foto] */
     overflow: hidden;
     background: #000;
     margin-bottom: 12px;        /* [PC]: Separación entre la foto y el pie */
