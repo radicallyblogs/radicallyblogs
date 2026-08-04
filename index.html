@@ -34,8 +34,20 @@
                 container.innerHTML = ''; // Limpiar contenedor
 
                 posts.forEach(post => {
-                    // Si el post tiene imagen, añadimos el evento onclick para abrir el lightbox
-                    const imagenHTML = post.imagen ? `<div class="post-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>` : '';
+                    let imagenHTML = '';
+
+                    // 1. Si el post tiene varias imágenes (nuevo formato)
+                    if (post.imagenes && post.imagenes.length > 0) {
+                        let imgsString = '';
+                        post.imagenes.forEach(img => {
+                            imgsString += `<img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')">`;
+                        });
+                        imagenHTML = `<div class="post-image-container">${imgsString}</div>`;
+                    } 
+                    // 2. Compatibilidad con posts antiguos que solo tienen una imagen
+                    else if (post.imagen) {
+                        imagenHTML = `<div class="post-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
+                    }
 
                     const postHTML = `
                         <div class="post">
