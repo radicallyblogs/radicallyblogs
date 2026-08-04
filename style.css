@@ -210,4 +210,36 @@ html, body {
         top: 1px !important;  /* <-- NUEVO: Positivo baja, negativo sube el bloque entero (ej: 1px, -2px) */
         left: -2px !important; /* <-- YA LO TENÍAS: Positivo derecha, negativo izquierda */
     }
+}/* ==========================================
+   CONFIGURACIÓN DE IMÁGENES: PC vs MÓVIL
+   ========================================== */
+
+/* --- 1. CONFIGURACIÓN PARA PC / ESCRITORIO --- */
+.post-image-container {
+    margin-top: 16px; /* Espacio superior: separación entre el texto del post y la foto */
+    width: 100%;      /* Ancho del contenedor general */
+}
+
+.post-uploaded-img {
+    width: 100%;          /* ANCHO en PC: Pon '100%' para que ocupe todo el ancho, o un valor menor (ej. '80%') si la quieres más estrecha */
+    max-height: 500px;    /* ALTURA MÁXIMA en PC: Limita lo alta que puede ser la foto para que no estire demasiado el post */
+    object-fit: cover;    /* Ajuste de imagen: Recorta los excesos de forma limpia y profesional para que nunca se deforme */
+    border-radius: 12px;  /* Redondeo de esquinas: Cuanto mayor sea el número, más curvas serán las esquinas */
+    border: 1px solid #eaeaea; /* Borde: Línea sutil que rodea la imagen */
+    display: block;       /* Comportamiento de bloque: Evita huecos extraños de espacio debajo de la foto */
+    margin: 0 auto;       /* Centrado: Si decides reducir el ancho (ej. al 80%), esto centra la imagen automáticamente */
+}
+
+
+/* --- 2. CONFIGURACIÓN PARA MÓVIL (Pantallas de menos de 768px) --- */
+@media (max-width: 767px) {
+    .post-image-container {
+        margin-top: 12px; /* Espacio superior específico para cuando se ve en el móvil */
+    }
+
+    .post-uploaded-img {
+        width: 100%;         /* ANCHO en móvil: Puedes ajustarlo aquí de forma independiente al PC */
+        max-height: 350px;   /* ALTURA MÁXIMA en móvil: Más bajita para adaptarse mejor a pantallas pequeñas */
+        border-radius: 8px;  /* Redondeo de esquinas específico para móvil (si lo prefieres más sutil) */
+    }
 }
