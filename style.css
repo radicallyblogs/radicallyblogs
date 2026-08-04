@@ -215,6 +215,9 @@ html, body {
    ========================================== */
 
 /* --- 1. CONFIGURACIÓN PARA PC / ESCRITORIO --- */
+
+/* [ANOTACIÓN] Esta clase ahora es EXCLUSIVA para el GRID de imágenes múltiples. 
+   Se ha separado de la imagen única para que el grid mantenga su formato cuadrado perfecto. */
 .post-image-container {
     margin-top: 13px; /* Espacio superior: separación entre el texto del post y la foto */
     width: 100%;      /* Ancho del contenedor general */
@@ -225,8 +228,8 @@ html, body {
 }
 
 .post-uploaded-img {
-    width: 100%;          /* Ancho del 100% para llenar su caja */
-    height: 100%;         /* Llena el contenedor cuadrado por completo */
+    width: 100%          /* Ancho del 100% para llenar su caja */
+    height: 100%          /* Llena el contenedor cuadrado por completo */
     max-height: none;     /* Sin límites de altura para mantener el formato cuadrado */
     object-fit: cover;    /* Recorte limpio y profesional sin deformar */
     border-radius: 12px;  /* Redondeo de esquinas en PC */
@@ -262,8 +265,8 @@ html, body {
 }
 
 .lightbox-img {
-    max-width: 95%;       
-    max-height: 95vh;     
+    max-width: 95%;        
+    max-height: 95vh;      
     object-fit: contain;  
     border-radius: 12px;  
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
@@ -297,11 +300,11 @@ html, body {
    ========================================================== */
 @media (min-width: 768px) {
     .post-images-grid {
-        display: flex !important;           /* Activa el diseño flexible */
+        display: flex !important;            /* Activa el diseño flexible */
         flex-wrap: wrap !important;         /* Permite el salto de línea si hay más de 2 imágenes */
-        gap: 3px !important;               /* Espacio de separación entre las fotos */
-        width: 100% !important;             
-        max-width: 500px !important;        /* CLAVE: Respeta exactamente el mismo límite de ancho del post en PC */
+        gap: 3px !important;                /* Espacio de separación entre las fotos */
+        width: 100% !important;              
+        max-width: 500px !important;         /* CLAVE: Respeta exactamente el mismo límite de ancho del post en PC */
         margin-top: 13px !important;        /* Margen superior alineado con el texto */
         margin-bottom: 13px !important;     /* Margen inferior */
         margin-left: 0 !important;          /* Pegado estrictamente a la izquierda con el texto */
@@ -312,7 +315,7 @@ html, body {
     .post-images-grid .post-image-container {
         flex: 0 0 calc(50% - 6px) !important; /* Cada imagen ocupa el 50% restando la mitad del gap (12px / 2 = 6px) */
         width: calc(50% - 6px) !important;     
-        max-width: calc(50% - 6px) !important; 
+        max-width: calc(50% - 6px) !important;  
         aspect-ratio: 1 / 1 !important;     /* Mantiene el formato cuadrado perfecto 1:1 */
         margin: 0 !important;               /* Sin márgenes internos que descuadren el grid */
     }
@@ -325,7 +328,7 @@ html, body {
 @media (max-width: 767px) {
     /* Imagen individual en móvil */
     .post-image-container {
-        width: 100% !important;             
+        width: 100% !important;              
         max-width: 98% !important;          /* Tu truco maestro del 98% para evitar cortes a la derecha */
         aspect-ratio: 1 / 1 !important;     
         margin-top: 12px !important;        
@@ -340,30 +343,30 @@ html, body {
         width: 100% !important;             
         height: 100% !important;            
         max-width: 100% !important;         
-        max-height: none !important;       
+        max-height: none !important;        
         object-fit: cover !important;       
         border-radius: 8px !important;      /* Esquinas más suaves en móvil */
         display: block !important;      
-        margin: 0 !important;              
+        margin: 0 !important;               
         box-sizing: border-box !important;
     }
 
     /* Imágenes múltiples en móvil (Grid automático de máx. 2 por fila) */
     .post-images-grid {
-        display: flex !important;           
+        display: flex !important;            
         flex-wrap: wrap !important;         /* Salto de línea automático para que no se amontonen */
         gap: 8px !important;                /* Espacio reducido entre fotos para móvil */
         width: 98% !important;              /* Ancho del 98% para respetar los márgenes del post */
         max-width: 98% !important;          
         margin-top: 12px !important;        
-        margin-bottom: 12px !important;    
+        margin-bottom: 12px !important;     
         margin-left: 0 !important;          /* Alineado a la izquierda exacto */
         margin-right: auto !important;      
         box-sizing: border-box !important;  
     }
 
     .post-images-grid .post-image-container {
-        flex: 0 0 calc(50% - 4px) !important; /* Cada foto ocupa el 50% restando la mitad del gap (8px / 2 = 4px) */
+        flex: 0 0 calc(50% - 4px) !important; 
         width: calc(50% - 4px) !important;     
         max-width: calc(50% - 4px) !important;         
         aspect-ratio: 1 / 1 !important;     /* Cuadrado perfecto 1:1 en cada foto */
@@ -386,9 +389,14 @@ html, body {
         right: 20px;
         font-size: 35px;
     }
-}/* ==========================================
-   1. IMAGEN ÚNICA - VERSIÓN MÓVIL (Por defecto)
-   ========================================== */
+}
+
+
+/* ==========================================================
+   [ANOTACIÓN] NUEVO BLOQUE: IMAGEN ÚNICA (Independiente del grid)
+   ========================================================== */
+
+/* --- 1. IMAGEN ÚNICA - VERSIÓN MÓVIL (Por defecto) --- */
 .post-single-image-container {
     width: 100%;
     margin-top: 10px;
@@ -397,12 +405,13 @@ html, body {
     overflow: hidden;
     background: transparent;
     display: flex;
-    justify-content: center;
+    /* [CAMBIO PRINCIPAL] Cambiado de 'center' a 'flex-start' para alinearla estrictamente a la izquierda con el texto */
+    justify-content: flex-start; 
 }
 
 .post-single-image-container img {
-    max-width: 100%;
-    max-height: 450px; /* Altura máxima contenida para pantallas de móvil */
+    /* [CAMBIO PRINCIPAL] Controla el tamaño general manteniendo la proporción real (vertical u horizontal) sin deformar */
+    max-width: 80%; 
     width: auto;
     height: auto;
     object-fit: contain;
@@ -410,9 +419,7 @@ html, body {
     display: block;
 }
 
-/* ==========================================
-   2. IMAGEN ÚNICA - VERSIÓN PC (Escritorio)
-   ========================================== */
+/* --- 2. IMAGEN ÚNICA - VERSIÓN PC (Escritorio) --- */
 @media (min-width: 768px) {
     .post-single-image-container {
         margin-top: 12px;
@@ -420,6 +427,6 @@ html, body {
     }
 
     .post-single-image-container img {
-        max-height: 650px; /* Altura máxima más generosa para pantallas grandes de PC */
+        /* Hereda el max-width del 80% o puedes ajustarlo aquí específicamente si lo deseas */
     }
 }
