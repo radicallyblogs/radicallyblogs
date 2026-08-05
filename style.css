@@ -721,12 +721,12 @@ html, body {
     .pb-caption {
         font-size: 17px;
         left: -16px;              /* [Móvil - Posición X del texto] */
-        top: 0px;               /* [Móvil - Posición Y del texto] */
+        top: -2px;               /* [Móvil - Posición Y del texto] */
     }
 
     .pb-user-inferior {
         font-size: 17px;
         left: -18px;          /* [Móvil - Posición X del usuario inferior] */
-        top: 0px;           /* [Móvil - Posición Y del usuario inferior] */
+        top: -2px;           /* [Móvil - Posición Y del usuario inferior] */
     }
 }
