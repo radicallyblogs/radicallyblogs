@@ -1,5 +1,18 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "HOLA A TODOS SOSAINAS!!",
+    "imagenes": [
+      "images/post_img_1785953229289_0.jfif",
+      "images/post_img_1785953230831_1.png",
+      "images/post_img_1785953233737_2.png",
+      "images/post_img_1785953236587_3.png"
+    ],
+    "fechaLarga": "mié, 5 de agosto de 2026",
+    "fechaCortas": "mié, 5 ago 2026",
+    "hora": "8:07 p. m."
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Premiere de poemas del frio el día 9 de mayo.",
     "imagenes": [
