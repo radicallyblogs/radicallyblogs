@@ -770,4 +770,46 @@ html, body {
     top: -1px !important;               /* [Móvil - Posición Y del usuario inferior] */
     -webkit-text-stroke: 0px #000000 !important; /* [Móvil - Delineado o borde de la letra] */
 }
+}/* ==========================================================
+   [PC] - Bloque general de iconos (Ordenador)
+   ========================================================== */
+.pb-meta-icons {
+    display: flex;
+    gap: 90px;                 /* [PC - Separación horizontal entre iconos] */
+    color: #000000 !important; /* [PC - Color negro para los iconos y textos] */
+    font-size: 20px;           /* [PC - Tamaño de fuente de iconos] */
+    margin-bottom: 14px;       /* [PC - Margen inferior] */
+    position: relative;        /* [PC - Posición relativa] */
+    left: 0px;                 /* [PC - Posición X] */
+    top: 0px;                  /* [PC - Posición Y] */
+}
+
+.pb-meta-icons svg {
+    width: 20px !important;    /* [PC - Ancho de iconos SVG] */
+    height: 20px !important;   /* [PC - Alto de iconos SVG] */
+}
+
+
+/* ==========================================================
+   [MÓVIL] - Bloque exclusivo (Solo actúa en pantallas pequeñas)
+   ========================================================== */
+@media screen and (max-width: 768px) {
+    .pb-meta-icons {
+        display: flex !important;           /* [Móvil - Forzar diseño en línea para iconos] */
+        flex-wrap: nowrap !important;       /* [Móvil - Impide que los iconos salten de línea] */
+        font-size: 17px !important;         /* [Móvil - Tamaño de fuente de iconos] */
+        font-weight: 400 !important;        /* [Móvil - Grosor de fuente de iconos] */
+        color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
+        gap: 40px !important;               /* [Móvil - Separación entre iconos] */
+        margin-bottom: 0px !important;      /* [Móvil - Margen inferior] */
+        position: relative !important;      /* [Móvil - Posición relativa de iconos] */
+        left: 0px !important;               /* [Móvil - Posición X de iconos] */
+        top: 0px !important;                /* [Móvil - Posición Y de iconos] */
+    }
+
+    .pb-meta-icons svg {
+        width: 17px !important;             /* [Móvil - Ancho de iconos SVG] */
+        height: 17px !important;            /* [Móvil - Alto de iconos SVG] */
+        vertical-align: middle !important;  /* [Móvil - Alineación vertical] */
+    }
 }
