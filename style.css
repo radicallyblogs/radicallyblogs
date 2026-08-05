@@ -572,7 +572,7 @@ html, body {
 .pb-image-container {
     width: 100%;                /* [PC - Ancho de la caja de imagen]: Pon 100% para que ocupe todo o un % menor (ej. 90%) */
     max-width: 100%;            /* [PC - Ancho máximo] */
-    border-radius: 30px;        /* [PC - Bordes Redondeados de la foto] */
+    border-radius: 45px;        /* [PC - Bordes Redondeados de la foto] */
     overflow: hidden;
     background: #000;
     margin-bottom: 12px;        /* [PC]: Separación entre la foto y el pie */
