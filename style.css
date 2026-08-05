@@ -210,7 +210,7 @@ html, body {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 400;
         font-size: 17px;          /* TAMAÑO DE LA HORA EN MÓVIL */
-        -webkit-text-stroke: 0px;
+        -webkit-text-stroke: 0.15px;
         color: #777777;           /* Color gris secundario */
     }
 
@@ -228,8 +228,8 @@ html, body {
 
     /* FOTO DE PERFIL (TAMAÑO Y POSICIÓN EN MÓVIL) */
     .avatar {
-        width: 37px !important;         /* Ancho reducido del avatar para móvil */
-        height: 37px !important;        /* Alto reducido para mantener proporción cuadrada */
+        width: 36px !important;         /* Ancho reducido del avatar para móvil */
+        height: 36px !important;        /* Alto reducido para mantener proporción cuadrada */
         position: relative !important;  
         top: 0px !important;            /* Desplazamiento vertical (positivo baja, negativo sube) */
         left: -3px !important;          /* Desplazamiento horizontal (positivo derecha, negativo izquierda) */
@@ -673,7 +673,7 @@ html, body {
     height: 33px !important;   /* [Móvil - Alto del avatar] */
     position: relative !important; /* [Móvil - Posición relativa] */
     left: -6px !important;      /* [Móvil - Posición X del avatar] */
-    top: 5px !important;       /* [Móvil - Posición Y del avatar] */
+    top: 6px !important;       /* [Móvil - Posición Y del avatar] */
 }
 
     .pb-text-container {
@@ -685,7 +685,7 @@ html, body {
     .pb-username {
         font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
-        left: -10px;              /* [Móvil - Posición X del Nombre] */
+        left: -11px;              /* [Móvil - Posición X del Nombre] */
         top: 7px;               /* [Móvil - Posición Y del Nombre] */
     }
 
@@ -693,7 +693,7 @@ html, body {
     .pb-datetime {
         font-size: 17px;        /* [Móvil - Tamaño de la Fecha] */
         font-weight: 400;       /* [Móvil - Grosor de la Fecha] */
-        left: -8px;              /* [Móvil - Posición X de la Fecha] */
+        left: -9px;              /* [Móvil - Posición X de la Fecha] */
         top: 3px;               /* [Móvil - Posición Y de la Fecha] */
     }
 
