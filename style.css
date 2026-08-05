@@ -550,17 +550,6 @@ html, body {
     position: relative;
     left: 10px;              /* [PC - Posición X específica del Avatar] */
     top: 7px;                /* [PC - Posición Y específica del Avatar] */
-    
-    /* Suavizado seguro que no altera la posición */
-    border-radius: 50% !important;
-    overflow: hidden !important;
-}
-
-/* Asegura que la imagen interior también respete el círculo perfecto */
-.pb-header-wix .avatar img {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 50% !important;
 }
 
 /* Contenedor de textos de la cabecera */
