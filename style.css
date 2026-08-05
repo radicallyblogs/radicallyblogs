@@ -672,7 +672,7 @@ html, body {
     width: 33px !important;    /* [Móvil - Ancho del avatar] */
     height: 33px !important;   /* [Móvil - Alto del avatar] */
     position: relative !important; /* [Móvil - Posición relativa] */
-    left: -4px !important;      /* [Móvil - Posición X del avatar] */
+    left: -6px !important;      /* [Móvil - Posición X del avatar] */
     top: 3px !important;       /* [Móvil - Posición Y del avatar] */
 }
 
@@ -685,15 +685,15 @@ html, body {
     .pb-username {
         font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
-        left: -9px;              /* [Móvil - Posición X del Nombre] */
-        top: 5px;               /* [Móvil - Posición Y del Nombre] */
+        left: -10px;              /* [Móvil - Posición X del Nombre] */
+        top: 7px;               /* [Móvil - Posición Y del Nombre] */
     }
 
     /* 2.3 Fecha y Hora (Móvil) */
     .pb-datetime {
         font-size: 17px;        /* [Móvil - Tamaño de la Fecha] */
         font-weight: 400;       /* [Móvil - Grosor de la Fecha] */
-        left: -7px;              /* [Móvil - Posición X de la Fecha] */
+        left: -8px;              /* [Móvil - Posición X de la Fecha] */
         top: 3px;               /* [Móvil - Posición Y de la Fecha] */
     }
 
@@ -729,7 +729,7 @@ html, body {
     font-weight: 400 !important;   /* [Móvil - Grosor de fuente del texto] */
     position: relative !important; /* [Móvil - Posición relativa del texto] */
     left: -16px !important;        /* [Móvil - Posición X del texto] */
-    top: -2px !important;          /* [Móvil - Posición Y del texto] */
+    top: -3px !important;          /* [Móvil - Posición Y del texto] */
 }
 
 .pb-user-inferior {
