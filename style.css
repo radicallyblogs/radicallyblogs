@@ -637,7 +637,7 @@ html, body {
     font-weight: 300;           /* [PC - Grosor del texto del post] */
     position: relative;
     left: 0px;                  /* [PC - Posición X del texto] */
-    top: -6px;                   /* [PC - Posición Y del texto] */
+    top: -8px;                   /* [PC - Posición Y del texto] */
 }
 
 .pb-user-inferior {
