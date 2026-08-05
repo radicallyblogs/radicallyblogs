@@ -1,5 +1,18 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "HOLAAA",
+    "imagenes": [
+      "post_img_1785949191215_0.png",
+      "post_img_1785949192942_1.png",
+      "post_img_1785949194749_2.png",
+      "post_img_1785949197349_3.jpg"
+    ],
+    "fechaLarga": "mié, 5 de agosto de 2026",
+    "fechaCortas": "mié, 5 ago 2026",
+    "hora": "6:59 p. m."
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Nuevos renders guapos, guapisimos",
     "imagenes": [
