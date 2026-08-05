@@ -673,7 +673,7 @@ html, body {
     height: 33px !important;   /* [Móvil - Alto del avatar] */
     position: relative !important; /* [Móvil - Posición relativa] */
     left: -6px !important;      /* [Móvil - Posición X del avatar] */
-    top: 3px !important;       /* [Móvil - Posición Y del avatar] */
+    top: 5px !important;       /* [Móvil - Posición Y del avatar] */
 }
 
     .pb-text-container {
@@ -729,7 +729,7 @@ html, body {
     font-weight: 400 !important;   /* [Móvil - Grosor de fuente del texto] */
     position: relative !important; /* [Móvil - Posición relativa del texto] */
     left: -16px !important;        /* [Móvil - Posición X del texto] */
-    top: -3px !important;          /* [Móvil - Posición Y del texto] */
+    top: -2px !important;          /* [Móvil - Posición Y del texto] */
 }
 
 .pb-user-inferior {
