@@ -632,6 +632,9 @@ html, body {
     font-family: 'SF UI Display', -apple-system, sans-serif;
     font-size: 20px;            /* [PC - Tamaño del usuario en el texto] */
     -webkit-text-stroke: 0.10px #000000 !important;   /* [PC - Delineado o borde de la letra] */
+    position: relative;                              /* [PC - Posición relativa del usuario inferior] */
+    left: 0px;                                       /* [PC - Posición X del usuario inferior] */
+    top: 0px;                                        /* [PC - Posición Y del usuario inferior] */
 }
 
 
