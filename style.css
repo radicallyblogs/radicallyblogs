@@ -668,7 +668,7 @@ html, body {
     width: 33px !important;    /* [Móvil - Ancho del avatar] */
     height: 33px !important;   /* [Móvil - Alto del avatar] */
     position: relative !important; /* [Móvil - Posición relativa] */
-    left: -2px !important;      /* [Móvil - Posición X del avatar] */
+    left: -3px !important;      /* [Móvil - Posición X del avatar] */
     top: 3px !important;       /* [Móvil - Posición Y del avatar] */
 }
 
@@ -681,7 +681,7 @@ html, body {
     .pb-username {
         font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
-        left: -7px;              /* [Móvil - Posición X del Nombre] */
+        left: -8px;              /* [Móvil - Posición X del Nombre] */
         top: 5px;               /* [Móvil - Posición Y del Nombre] */
     }
 
