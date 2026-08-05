@@ -711,7 +711,7 @@ html, body {
 
     /* 4. Pie de página (Móvil) */
     .pb-meta-icons {
-        font-size: 13px;
+        font-size: 17px;
         gap: 15px;
         left: 0px;              /* [Móvil - Posición X de iconos] */
         top: 0px;               /* [Móvil - Posición Y de iconos] */
