@@ -581,7 +581,6 @@ html, body {
 .pb-image-container img {
     width: 100%;                /* [PC - Ancho interno de la foto] */
     height: auto;               /* [PC - Mantiene la proporción exacta sin deformar] */
-    max-height: 85vh;           /* [PC - Altura máxima de la foto] */
     object-fit: contain;        /* [PC - Ajuste de proporción] */
     display: block;
     cursor: pointer;
