@@ -123,7 +123,14 @@ html, body {
         font-size: 20px;          /* Tamaño de fuente del nombre en PC */
         color: #000000;           /* Color negro */
     }
-
+/* ==========================================================
+   FOTO DE PERFIL (Posición y desplazamiento en PC)
+   ========================================================== */
+.avatar {
+    position: relative !important;   /* Activa el posicionamiento relativo en PC */
+    top: 0px !important;             /* Modifica este valor para subirla o bajarla en PC */
+    left: 0px !important;            /* Modifica este valor para moverla a los lados en PC */
+}
     /* Hora de la publicación (timestamp) en PC */
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -229,7 +236,7 @@ html, body {
 .post-content {
     position: relative;   /* Necesario para que funcionen top y left */
     top: -1px;            /* Modifica la distancia desde la parte superior */
-    left: 0px;           /* Modifica la distancia desde la parte izquierda */
+    left: -1px;           /* Modifica la distancia desde la parte izquierda */
     max-width: 395px;     /* Límite derecho: hasta dónde llega el ancho máximo del texto */
     font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 21px;      /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
@@ -246,7 +253,7 @@ html, body {
         height: 34px !important;        /* Alto reducido para mantener proporción cuadrada */
         position: relative !important;  
         top: 0px !important;            /* Desplazamiento vertical (positivo baja, negativo sube) */
-        left: -3px !important;          /* Desplazamiento horizontal (positivo derecha, negativo izquierda) */
+        left: -2px !important;          /* Desplazamiento horizontal (positivo derecha, negativo izquierda) */
     }
 
     /* MUEVE EL NOMBRE Y LA HORA JUNTOS EN MÓVIL */
