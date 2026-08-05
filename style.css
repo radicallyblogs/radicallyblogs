@@ -695,7 +695,7 @@ html, body {
         max-width: 100%;        /* [Móvil - Ancho máximo] */
         border-radius: 30px;    /* [Móvil - Bordes Redondeados] */
         margin-bottom: 10px;
-        left: 0px;              /* [Móvil - Posición X de la foto] */
+        left: -5px;              /* [Móvil - Posición X de la foto] */
         top: 0px;               /* [Móvil - Posición Y de la foto] */
     }
 
