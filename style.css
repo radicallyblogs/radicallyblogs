@@ -667,7 +667,7 @@ html, body {
         width: 33px;            /* [Móvil - Ancho del avatar] */
         height: 33px;           /* [Móvil - Alto del avatar] */
         left: -2px;              /* [Móvil - Posición X del avatar] */
-        top: 7px;               /* [Móvil - Posición Y del avatar] */
+        top: 10px;               /* [Móvil - Posición Y del avatar] */
     }
 
     .pb-text-container {
