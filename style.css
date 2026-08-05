@@ -527,8 +527,8 @@ html, body {
     width: 42px;                /* [PC - Ancho de la foto de perfil] */
     height: 42px;               /* [PC - Alto de la foto de perfil] */
     position: relative;
-    left: 3px;                  /* [PC - Posición X específica del Avatar] */
-    top: 2px;                   /* [PC - Posición Y específica del Avatar] */
+    left: 5px;                  /* [PC - Posición X específica del Avatar] */
+    top: 5px;                   /* [PC - Posición Y específica del Avatar] */
 }
 
 /* Contenedor de textos de la cabecera */
@@ -550,7 +550,7 @@ html, body {
     font-weight: 300;           /* [PC - Grosor del Nombre: 300, 400, 500, etc.] */
     position: relative;
     left: 2px;                  /* [PC - Posición X específica del Nombre] */
-    top: 5px;                   /* [PC - Posición Y específica del Nombre] */
+    top: 8px;                   /* [PC - Posición Y específica del Nombre] */
 }
 
 /* 2.3 Fecha y Hora - PC */
@@ -562,7 +562,7 @@ html, body {
     font-weight: 400;           /* [PC - Grosor de la Fecha] */
     position: relative;
     left: 2px;                  /* [PC - Posición X específica de la Fecha] */
-    top: 3px;                   /* [PC - Posición Y específica de la Fecha] */
+    top: 5px;                   /* [PC - Posición Y específica de la Fecha] */
 }
 
 
@@ -605,7 +605,7 @@ html, body {
 
 .pb-meta-icons {
     display: flex;
-    gap: 40px;                  /* [PC]: Espacio horizontal entre iconos */
+    gap: 60px;                  /* [PC]: Espacio horizontal entre iconos */
     color: #555;
     font-size: 20px;            /* [PC - Tamaño de iconos] */
     margin-bottom: 4px;
@@ -627,7 +627,7 @@ html, body {
 }
 
 .pb-user-inferior {
-    font-weight: 400;
+    font-weight: 300;
     margin-right: 6px;
     font-family: 'SF UI Display', -apple-system, sans-serif;
     font-size: 20px;            /* [PC - Tamaño del usuario en el texto] */
