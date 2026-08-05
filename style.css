@@ -664,7 +664,7 @@ html, body {
     .pb-header-wix .avatar {
         width: 33px;            /* [Móvil - Ancho del avatar] */
         height: 33px;           /* [Móvil - Alto del avatar] */
-        left: 0px;              /* [Móvil - Posición X del avatar] */
+        left: -2px;              /* [Móvil - Posición X del avatar] */
         top: 0px;               /* [Móvil - Posición Y del avatar] */
     }
 
@@ -677,7 +677,7 @@ html, body {
     .pb-username {
         font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
-        left: 0px;              /* [Móvil - Posición X del Nombre] */
+        left: -2px;              /* [Móvil - Posición X del Nombre] */
         top: 0px;               /* [Móvil - Posición Y del Nombre] */
     }
 
@@ -685,7 +685,7 @@ html, body {
     .pb-datetime {
         font-size: 17px;        /* [Móvil - Tamaño de la Fecha] */
         font-weight: 400;       /* [Móvil - Grosor de la Fecha] */
-        left: 0px;              /* [Móvil - Posición X de la Fecha] */
+        left: -2px;              /* [Móvil - Posición X de la Fecha] */
         top: 0px;               /* [Móvil - Posición Y de la Fecha] */
     }
 
@@ -715,12 +715,12 @@ html, body {
     }
 
     .pb-caption {
-        font-size: 13px;
+        font-size: 17px;
         left: 0px;              /* [Móvil - Posición X del texto] */
         top: 0px;               /* [Móvil - Posición Y del texto] */
     }
 
     .pb-user-inferior {
-        font-size: 13px;
+        font-size: 17px;
     }
 }
