@@ -668,7 +668,7 @@ html, body {
     width: 33px !important;    /* [Móvil - Ancho del avatar] */
     height: 33px !important;   /* [Móvil - Alto del avatar] */
     position: relative !important; /* [Móvil - Posición relativa] */
-    left: 0px !important;      /* [Móvil - Posición X del avatar] */
+    left: -2px !important;      /* [Móvil - Posición X del avatar] */
     top: 4px !important;       /* [Móvil - Posición Y del avatar] */
 }
 
@@ -681,7 +681,7 @@ html, body {
     .pb-username {
         font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
-        left: -5px;              /* [Móvil - Posición X del Nombre] */
+        left: -7px;              /* [Móvil - Posición X del Nombre] */
         top: 6px;               /* [Móvil - Posición Y del Nombre] */
     }
 
@@ -689,7 +689,7 @@ html, body {
     .pb-datetime {
         font-size: 17px;        /* [Móvil - Tamaño de la Fecha] */
         font-weight: 400;       /* [Móvil - Grosor de la Fecha] */
-        left: -5px;              /* [Móvil - Posición X de la Fecha] */
+        left: -7px;              /* [Móvil - Posición X de la Fecha] */
         top: 3px;               /* [Móvil - Posición Y de la Fecha] */
     }
 
@@ -713,7 +713,7 @@ html, body {
     /* 4. Pie de página (Móvil) */
     .pb-meta-icons {
         font-size: 17px;
-        gap: 15px;
+        gap: 25px;
         left: 0px;              /* [Móvil - Posición X de iconos] */
         top: 0px;               /* [Móvil - Posición Y de iconos] */
     }
