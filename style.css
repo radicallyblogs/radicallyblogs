@@ -228,8 +228,8 @@ html, body {
 
     /* FOTO DE PERFIL (TAMAÑO Y POSICIÓN EN MÓVIL) */
     .avatar {
-        width: 36px !important;         /* Ancho reducido del avatar para móvil */
-        height: 36px !important;        /* Alto reducido para mantener proporción cuadrada */
+        width: 34px !important;         /* Ancho reducido del avatar para móvil */
+        height: 34px !important;        /* Alto reducido para mantener proporción cuadrada */
         position: relative !important;  
         top: 0px !important;            /* Desplazamiento vertical (positivo baja, negativo sube) */
         left: -3px !important;          /* Desplazamiento horizontal (positivo derecha, negativo izquierda) */
@@ -669,8 +669,8 @@ html, body {
 
     /* 2.1 Avatar (Móvil) */
 .pb-header-wix .avatar {
-    width: 33px !important;    /* [Móvil - Ancho del avatar] */
-    height: 33px !important;   /* [Móvil - Alto del avatar] */
+    width: 34px !important;    /* [Móvil - Ancho del avatar] */
+    height: 34px !important;   /* [Móvil - Alto del avatar] */
     position: relative !important; /* [Móvil - Posición relativa] */
     left: -6px !important;      /* [Móvil - Posición X del avatar] */
     top: 6px !important;       /* [Móvil - Posición Y del avatar] */
