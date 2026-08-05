@@ -1,16 +1,6 @@
 [
   {
     "tipo": "photo_bloggy",
-    "texto": "Premiere poemas del frio el día 10 de mayo",
-    "imagenes": [
-      "post_img_1785934360733_0.png"
-    ],
-    "fechaLarga": "mié, 5 de agosto de 2026",
-    "fechaCortas": "mié, 5 ago 2026",
-    "hora": "2:52 p. m."
-  },
-  {
-    "tipo": "photo_bloggy",
     "texto": "Premiere de poemas de verano el día 10 de mayo!",
     "imagenes": [
       "post_img_1785867727126_0.png"
