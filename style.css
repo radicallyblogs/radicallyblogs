@@ -662,8 +662,8 @@ html, body {
 
     /* 2.1 Avatar (Móvil) */
     .pb-header-wix .avatar {
-        width: 36px;            /* [Móvil - Ancho del avatar] */
-        height: 36px;           /* [Móvil - Alto del avatar] */
+        width: 33px;            /* [Móvil - Ancho del avatar] */
+        height: 33px;           /* [Móvil - Alto del avatar] */
         left: 0px;              /* [Móvil - Posición X del avatar] */
         top: 0px;               /* [Móvil - Posición Y del avatar] */
     }
@@ -675,7 +675,7 @@ html, body {
 
     /* 2.2 Nombre de Usuario (Móvil) */
     .pb-username {
-        font-size: 13px;        /* [Móvil - Tamaño del Nombre] */
+        font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
         left: 0px;              /* [Móvil - Posición X del Nombre] */
         top: 0px;               /* [Móvil - Posición Y del Nombre] */
@@ -683,7 +683,7 @@ html, body {
 
     /* 2.3 Fecha y Hora (Móvil) */
     .pb-datetime {
-        font-size: 12px;        /* [Móvil - Tamaño de la Fecha] */
+        font-size: 17px;        /* [Móvil - Tamaño de la Fecha] */
         font-weight: 400;       /* [Móvil - Grosor de la Fecha] */
         left: 0px;              /* [Móvil - Posición X de la Fecha] */
         top: 0px;               /* [Móvil - Posición Y de la Fecha] */
