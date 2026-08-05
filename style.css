@@ -545,11 +545,17 @@ html, body {
 
 /* 2.1 Foto de Perfil (Avatar) - PC */
 .pb-header-wix .avatar {
-    width: 42px;                /* [PC - Ancho de la foto de perfil] */
-    height: 42px;               /* [PC - Alto de la foto de perfil] */
+    width: 42px;             /* [PC - Ancho de la foto de perfil] */
+    height: 42px;            /* [PC - Alto de la foto de perfil] */
     position: relative;
-    left: 10px;                  /* [PC - Posición X específica del Avatar] */
-    top: 7px;                   /* [PC - Posición Y específica del Avatar] */
+    left: 10px;              /* [PC - Posición X específica del Avatar] */
+    top: 7px;                /* [PC - Posición Y específica del Avatar] */
+    
+    /* Suavizado y anti-aliasing para la foto de perfil en PC */
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    transform: translateZ(0) !important;
+    outline: 1px solid transparent !important;
 }
 
 /* Contenedor de textos de la cabecera */
