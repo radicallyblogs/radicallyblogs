@@ -759,6 +759,7 @@ html, body {
     position: relative !important;      /* [Móvil - Posición relativa del texto] */
     left: 0px !important;             /* [Móvil - TU VALOR ORIGINAL INTACTO] */
     top: -1px !important;               /* [Móvil - Posición Y del texto] */
+    max-width: 100% !important;         /* [Móvil - Impide que rebase el ancho de la pantalla] */
 }
 
 .pb-user-inferior {
