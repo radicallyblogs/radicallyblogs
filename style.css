@@ -134,16 +134,20 @@ html, body {
     }
 
     /* Texto principal del mensaje del post en PC */
-    .post-content {
-        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 20px;          /* Tamaño de texto del post en PC */
-        font-weight: 300;         /* Grosor ligero */
-        -webkit-text-stroke: 0.10px #000000; /* Sutil trazo de texto */
-        line-height: 1.4;         /* Interlineado equilibrado */
-        color: #000000;           /* Color negro */
-        margin: 0;                /* Sin márgenes por defecto */
-        padding: 0;               /* Sin relleno por defecto */
-    }
+.post-content {
+    position: relative;   /* Necesario para que funcionen top y left en PC de forma independiente */
+    top: 0px;             /* Modifica la distancia vertical en PC */
+    left: 0px;            /* Modifica la distancia horizontal en PC */
+    max-width: 500px;     /* Límite derecho independiente para PC (ajústalo según el ancho de tu contenedor de PC) */
+    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px;      /* Tamaño de texto del post en PC */
+    font-weight: 300;     /* Grosor ligero */
+    -webkit-text-stroke: 0.10px #000000; /* Sutil trazo de texto */
+    line-height: 1.4;     /* Interlineado equilibrado */
+    color: #000000;       /* Color negro */
+    margin: 0;            /* Sin márgenes por defecto */
+    padding: 0;           /* Sin relleno por defecto */
+}
 }
 
 /* =========================================================
@@ -210,21 +214,24 @@ html, body {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 400;
         font-size: 17px;          /* TAMAÑO DE LA HORA EN MÓVIL */
-        -webkit-text-stroke: 0.15px;
+        -webkit-text-stroke: 0.10px;
         color: #777777;           /* Color gris secundario */
     }
 
     /* TEXTO DEL POST EN MÓVIL */
-    .post-content {
-        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 21px;          /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
-        font-weight: 400;
-        -webkit-text-stroke: 0px;
-        line-height: 1;         /* SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
-        color: #000000;
-        margin: 0;
-        padding-right: 5px;       /* Aleja el texto del borde derecho de la pantalla móvil */
-    }
+.post-content {
+    position: relative;   /* Necesario para que funcionen top y left */
+    top: 0px;            /* Modifica la distancia desde la parte superior */
+    left: 0px;           /* Modifica la distancia desde la parte izquierda */
+    max-width: 320px;     /* Límite derecho: hasta dónde llega el ancho máximo del texto */
+    font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 21px;      /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
+    font-weight: 400;
+    -webkit-text-stroke: 0px;
+    line-height: 1;       /* SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
+    color: #000000;
+    margin: 0;
+}
 
     /* FOTO DE PERFIL (TAMAÑO Y POSICIÓN EN MÓVIL) */
     .avatar {
@@ -238,7 +245,7 @@ html, body {
     /* MUEVE EL NOMBRE Y LA HORA JUNTOS EN MÓVIL */
     .username, .timestamp {
         position: relative !important;
-        top: 1px !important;            /* Desplaza verticalmente el bloque de texto de usuario y hora */
+        top: 0px !important;            /* Desplaza verticalmente el bloque de texto de usuario y hora */
         left: -2px !important;          /* Desplaza horizontalmente el bloque de texto */
     }
 }
