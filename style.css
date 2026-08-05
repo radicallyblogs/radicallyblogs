@@ -150,9 +150,10 @@ html, body {
    MUNDO 2: ESTILOS EXCLUSIVOS PARA MÓVIL (PANTALLAS <= 768px)
    ========================================================= */
 @media (max-width: 768px) {
-    body {
-    overflow-x: hidden;
-}
+    html, body {
+        overflow-x: hidden;
+    }
+
     /* Espaciado vertical entre posts reducido para pantallas móviles */
     .post {
         margin-bottom: 10px; 
