@@ -668,7 +668,7 @@ html, body {
         width: 33px;            /* [Móvil - Ancho del avatar] */
         height: 33px;           /* [Móvil - Alto del avatar] */
         left: -2px;              /* [Móvil - Posición X del avatar] */
-        top: 10px;               /* [Móvil - Posición Y del avatar] */
+        top: 0px;               /* [Móvil - Posición Y del avatar] */
     }
 
     .pb-text-container {
@@ -719,13 +719,13 @@ html, body {
 
     .pb-caption {
         font-size: 17px;
-        left: -14px;              /* [Móvil - Posición X del texto] */
+        left: -16px;              /* [Móvil - Posición X del texto] */
         top: 0px;               /* [Móvil - Posición Y del texto] */
     }
 
     .pb-user-inferior {
         font-size: 17px;
-        left: -16px;          /* [Móvil - Posición X del usuario inferior] */
+        left: -18px;          /* [Móvil - Posición X del usuario inferior] */
         top: 0px;           /* [Móvil - Posición Y del usuario inferior] */
     }
 }
