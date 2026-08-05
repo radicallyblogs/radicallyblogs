@@ -547,10 +547,10 @@ html, body {
     font-family: 'SF UI Display', -apple-system, sans-serif;
     color: #000000;             /* [PC - Color del Nombre] */
     font-size: 20px;            /* [PC - Tamaño de fuente del Nombre] */
-    font-weight: 400;           /* [PC - Grosor del Nombre: 300, 400, 500, etc.] */
+    font-weight: 300;           /* [PC - Grosor del Nombre: 300, 400, 500, etc.] */
     position: relative;
     left: 0px;                  /* [PC - Posición X específica del Nombre] */
-    top: 0px;                   /* [PC - Posición Y específica del Nombre] */
+    top: 5px;                   /* [PC - Posición Y específica del Nombre] */
 }
 
 /* 2.3 Fecha y Hora - PC */
@@ -558,11 +558,11 @@ html, body {
     display: block;
     font-family: 'Proxima Nova', sans-serif;
     color: #666666;             /* [PC - Color de la Fecha/Hora] */
-    font-size: 16px;            /* [PC - Tamaño de fuente de la Fecha] */
+    font-size: 20px;            /* [PC - Tamaño de fuente de la Fecha] */
     font-weight: 400;           /* [PC - Grosor de la Fecha] */
     position: relative;
     left: 0px;                  /* [PC - Posición X específica de la Fecha] */
-    top: 0px;                   /* [PC - Posición Y específica de la Fecha] */
+    top: 3px;                   /* [PC - Posición Y específica de la Fecha] */
 }
 
 
@@ -607,7 +607,7 @@ html, body {
     display: flex;
     gap: 20px;                  /* [PC]: Espacio horizontal entre iconos */
     color: #555;
-    font-size: 16px;            /* [PC - Tamaño de iconos] */
+    font-size: 20px;            /* [PC - Tamaño de iconos] */
     margin-bottom: 4px;
     position: relative;
     left: 0px;                  /* [PC - Posición X de iconos] */
