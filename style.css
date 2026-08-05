@@ -569,6 +569,7 @@ html, body {
     color: #000000;             /* [PC - Color del Nombre] */
     font-size: 20px;            /* [PC - Tamaño de fuente del Nombre] */
     font-weight: 300;           /* [PC - Grosor del Nombre: 300, 400, 500, etc.] */
+    -webkit-text-stroke: 0.15px #000000 !important;   /* [PC - Delineado o borde de la letra] */
     position: relative;
     left: 6px;                  /* [PC - Posición X específica del Nombre] */
     top: 8px;                   /* [PC - Posición Y específica del Nombre] */
