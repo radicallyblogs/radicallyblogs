@@ -245,8 +245,8 @@ html, body {
     /* MUEVE EL NOMBRE Y LA HORA JUNTOS EN MÓVIL */
     .username, .timestamp {
         position: relative !important;
-        top: 0px !important;            /* Desplaza verticalmente el bloque de texto de usuario y hora */
-        left: -2px !important;          /* Desplaza horizontalmente el bloque de texto */
+        top: -1px !important;            /* Desplaza verticalmente el bloque de texto de usuario y hora */
+        left: -4px !important;          /* Desplaza horizontalmente el bloque de texto */
     }
 }
 
