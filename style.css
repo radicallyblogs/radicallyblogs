@@ -130,7 +130,7 @@ html, body {
         font-weight: 300;         /* Grosor ligero */
         -webkit-text-stroke: 0px #777777; /* Sin trazo específico */
         color: #777777;           /* Color gris atenuado */
-        font-size: 17px;          /* Tamaño de fuente de la hora */
+        font-size: 20px;          /* Tamaño de fuente de la hora */
     }
 /* ==========================================================
    IMPORTANTE: Bloque conjunto para mover Usuario y Hora en PC
