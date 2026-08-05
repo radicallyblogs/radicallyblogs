@@ -737,7 +737,7 @@ html, body {
     font-weight: 400 !important;   /* [Móvil - Grosor de fuente del usuario inferior] */
     position: relative !important; /* [Móvil - Posición relativa del usuario inferior] */
     left: 0px !important;        /* [Móvil - Posición X del usuario inferior] */
-    top: -2px !important;          /* [Móvil - Posición Y del usuario inferior] */
+    top: -1px !important;          /* [Móvil - Posición Y del usuario inferior] */
     -webkit-text-stroke: 0px #000000 !important;  /* [Móvil - Delineado o borde de la letra] */
 }
 }
