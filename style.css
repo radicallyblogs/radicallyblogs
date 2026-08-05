@@ -738,20 +738,20 @@ html, body {
 
     /* 4. Pie de página (Móvil) */
 .pb-meta-icons {
+    display: flex !important;           /* [Móvil - Forzar diseño en línea para iconos] */
+    flex-wrap: nowrap !important;       /* [Móvil - Impide que los iconos salten de línea] */
     font-size: 17px !important;         /* [Móvil - Tamaño de fuente de iconos] */
     font-weight: 400 !important;        /* [Móvil - Grosor de fuente de iconos] */
     color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
-    gap: 25px !important;               /* [Móvil - Separación entre iconos (bájalo un poco si ves que apretbi)] */
+    gap: 20px !important;               /* [Móvil - Separación entre iconos] */
     position: relative !important;      /* [Móvil - Posición relativa de iconos] */
     left: 0px !important;               /* [Móvil - Posición X de iconos] */
     top: 0px !important;                /* [Móvil - Posición Y de iconos] */
-    flex-wrap: nowrap !important;       /* [Móvil - IMPIDE que los iconos salten de línea] */
 }
 
-/* Control de tamaño para los SVG en móvil */
 .pb-meta-icons svg {
-    width: 16px !important;
-    height: 16px !important;
+    width: 17px !important;             /* [Móvil - Ancho de iconos SVG] */
+    height: 17px !important;            /* [Móvil - Alto de iconos SVG] */
 }
 
 .pb-caption {
