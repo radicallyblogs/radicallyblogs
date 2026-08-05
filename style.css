@@ -711,22 +711,28 @@ html, body {
     }
 
     /* 4. Pie de página (Móvil) */
-    .pb-meta-icons {
-        font-size: 17px;
-        gap: 40px;
-        left: 0px;              /* [Móvil - Posición X de iconos] */
-        top: 0px;               /* [Móvil - Posición Y de iconos] */
-    }
+.pb-meta-icons {
+    font-size: 17px !important;    /* [Móvil - Tamaño de fuente de iconos] */
+    font-weight: 400 !important;   /* [Móvil - Grosor de fuente de iconos] */
+    gap: 40px !important;          /* [Móvil - Separación entre iconos] */
+    position: relative !important; /* [Móvil - Posición relativa de iconos] */
+    left: 0px !important;          /* [Móvil - Posición X de iconos] */
+    top: 0px !important;           /* [Móvil - Posición Y de iconos] */
+}
 
-    .pb-caption {
-        font-size: 17px;
-        left: -16px;              /* [Móvil - Posición X del texto] */
-        top: -2px;               /* [Móvil - Posición Y del texto] */
-    }
+.pb-caption {
+    font-size: 17px !important;    /* [Móvil - Tamaño de fuente del texto] */
+    font-weight: 400 !important;   /* [Móvil - Grosor de fuente del texto] */
+    position: relative !important; /* [Móvil - Posición relativa del texto] */
+    left: -16px !important;        /* [Móvil - Posición X del texto] */
+    top: -2px !important;          /* [Móvil - Posición Y del texto] */
+}
 
-    .pb-user-inferior {
-        font-size: 17px;
-        left: -18px;          /* [Móvil - Posición X del usuario inferior] */
-        top: -2px;           /* [Móvil - Posición Y del usuario inferior] */
-    }
+.pb-user-inferior {
+    font-size: 17px !important;    /* [Móvil - Tamaño de fuente del usuario inferior] */
+    font-weight: 400 !important;   /* [Móvil - Grosor de fuente del usuario inferior] */
+    position: relative !important; /* [Móvil - Posición relativa del usuario inferior] */
+    left: -18px !important;        /* [Móvil - Posición X del usuario inferior] */
+    top: -2px !important;          /* [Móvil - Posición Y del usuario inferior] */
+}
 }
