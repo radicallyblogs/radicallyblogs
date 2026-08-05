@@ -515,12 +515,12 @@
                     }
                 }
 
-                // Subir cada nueva imagen seleccionada a GitHub
+                // Subir cada nueva imagen seleccionada a la carpeta images/ en GitHub
                 if (imageInput.files.length > 0) {
                     for (let i = 0; i < imageInput.files.length; i++) {
                         const file = imageInput.files[i];
                         const extension = file.name.split('.').pop();
-                        const imageName = `post_img_${Date.now()}_${i}.${extension}`;
+                        const imageName = `images/post_img_${Date.now()}_${i}.${extension}`;
                         const base64Image = await fileToBase64(file);
 
                         const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
@@ -530,7 +530,7 @@
                                 "Content-Type": "application/json",
                             },
                             body: JSON.stringify({
-                                message: "Subir imagen de post",
+                                message: "Subir imagen de post a carpeta images",
                                 content: base64Image
                             })
                         });
@@ -626,6 +626,40 @@
                     postsCache = JSON.parse(decodeBase64Utf8(getData.content));
                 }
 
+                const postToDelete = postsCache[index];
+
+                // Borrar automáticamente las imágenes asociadas de la carpeta images/
+                let imgsToDelete = [];
+                if (postToDelete.imagenes) {
+                    imgsToDelete = postToDelete.imagenes;
+                } else if (postToDelete.imagen) {
+                    imgsToDelete = [postToDelete.imagen];
+                }
+
+                for (const imgPath of imgsToDelete) {
+                    try {
+                        const imgCheckRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imgPath}`, {
+                            headers: { "Authorization": `token ${token}` }
+                        });
+                        if (imgCheckRes.ok) {
+                            const imgData = await imgCheckRes.json();
+                            await fetch(`https://api.github.com/repos/${repo}/contents/${imgPath}`, {
+                                method: "DELETE",
+                                headers: {
+                                    "Authorization": `token ${token}`,
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    message: "Borrar imagen de post eliminado",
+                                    sha: imgData.sha
+                                })
+                            });
+                        }
+                    } catch (err) {
+                        console.error("Error al borrar la imagen física:", imgPath, err);
+                    }
+                }
+
                 postsCache.splice(index, 1);
 
                 const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
@@ -642,7 +676,7 @@
                 });
 
                 if (putRes.ok) {
-                    alert("¡Publicación borrada con éxito!");
+                    alert("¡Publicación y sus imágenes borradas con éxito!");
                     cancelarEdicion();
                     cargarPostsGitHub();
                 } else {
