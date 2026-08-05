@@ -230,7 +230,7 @@ html, body {
     position: relative;   /* Necesario para que funcionen top y left */
     top: -1px;            /* Modifica la distancia desde la parte superior */
     left: 0px;           /* Modifica la distancia desde la parte izquierda */
-    max-width: 380px;     /* Límite derecho: hasta dónde llega el ancho máximo del texto */
+    max-width: 395px;     /* Límite derecho: hasta dónde llega el ancho máximo del texto */
     font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 21px;      /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
     font-weight: 400;
