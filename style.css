@@ -729,7 +729,7 @@ html, body {
     font-weight: 400 !important;   /* [Móvil - Grosor de fuente del texto] */
     position: relative !important; /* [Móvil - Posición relativa del texto] */
     left: -16px !important;        /* [Móvil - Posición X del texto] */
-    top: -2px !important;          /* [Móvil - Posición Y del texto] */
+    top: -1px !important;          /* [Móvil - Posición Y del texto] */
 }
 
 .pb-user-inferior {
