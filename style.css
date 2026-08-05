@@ -627,7 +627,7 @@ html, body {
 
 .pb-meta-icons {
     display: flex;
-    gap: 90px;                  /* [PC]: Espacio horizontal entre iconos */
+    gap: 110px;                  /* [PC]: Espacio horizontal entre iconos */
     color: #000000 !important; /* [PC] - Color negro para los iconos y textos */
     font-size: 20px;            /* [PC - Tamaño de iconos] */
     margin-bottom: 4px;
@@ -747,7 +747,7 @@ html, body {
     font-size: 17px !important;         /* [Móvil - Tamaño de fuente de iconos] */
     font-weight: 400 !important;        /* [Móvil - Grosor de fuente de iconos] */
     color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
-    gap: 40px !important;               /* [Móvil - Separación entre iconos] */
+    gap: 60px !important;               /* [Móvil - Separación entre iconos] */
     position: relative !important;      /* [Móvil - Posición relativa de iconos] */
     left: 0px !important;               /* [Móvil - Posición X de iconos] */
     top: 0px !important;                /* [Móvil - Posición Y de iconos] */
@@ -775,7 +775,7 @@ html, body {
    ========================================================== */
 .pb-meta-icons {
     display: flex;
-    gap: 90px;                 /* [PC - Separación horizontal entre iconos] */
+    gap: 110px;                 /* [PC - Separación horizontal entre iconos] */
     color: #000000 !important; /* [PC - Color negro para los iconos y textos] */
     font-size: 20px;           /* [PC - Tamaño de fuente de iconos] */
     margin-bottom: 14px;       /* [PC - Margen inferior] */
@@ -800,7 +800,7 @@ html, body {
         font-size: 17px !important;         /* [Móvil - Tamaño de fuente de iconos] */
         font-weight: 400 !important;        /* [Móvil - Grosor de fuente de iconos] */
         color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
-        gap: 40px !important;               /* [Móvil - Separación entre iconos] */
+        gap: 60px !important;               /* [Móvil - Separación entre iconos] */
         margin-bottom: 0px !important;      /* [Móvil - Margen inferior] */
         position: relative !important;      /* [Móvil - Posición relativa de iconos] */
         left: 0px !important;               /* [Móvil - Posición X de iconos] */
