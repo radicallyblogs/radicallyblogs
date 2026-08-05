@@ -648,7 +648,7 @@ html, body {
     -webkit-text-stroke: 0.20px #000000 !important;   /* [PC - Delineado o borde de la letra] */
     position: relative;                              /* [PC - Posición relativa del usuario inferior] */
     left: 0px;                                       /* [PC - Posición X del usuario inferior] */
-    top: -3px;                                        /* [PC - Posición Y del usuario inferior] */
+    top: 0px;                                        /* [PC - Posición Y del usuario inferior] */
 }
 
 
