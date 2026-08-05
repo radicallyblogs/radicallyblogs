@@ -150,7 +150,7 @@ html, body {
     /* Texto principal del mensaje del post en PC */
 .post-content {
     position: relative;   /* Necesario para que funcionen top y left en PC de forma independiente */
-    top: 0px;             /* Modifica la distancia vertical en PC */
+    top: -2px;             /* Modifica la distancia vertical en PC */
     left: 0px;            /* Modifica la distancia horizontal en PC */
     max-width: 500px;     /* Límite derecho independiente para PC (ajústalo según el ancho de tu contenedor de PC) */
     font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
