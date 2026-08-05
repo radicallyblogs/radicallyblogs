@@ -677,7 +677,7 @@ html, body {
     .pb-username {
         font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
-        left: -3px;              /* [Móvil - Posición X del Nombre] */
+        left: -5px;              /* [Móvil - Posición X del Nombre] */
         top: 2px;               /* [Móvil - Posición Y del Nombre] */
     }
 
@@ -685,7 +685,7 @@ html, body {
     .pb-datetime {
         font-size: 17px;        /* [Móvil - Tamaño de la Fecha] */
         font-weight: 400;       /* [Móvil - Grosor de la Fecha] */
-        left: -3px;              /* [Móvil - Posición X de la Fecha] */
+        left: -5px;              /* [Móvil - Posición X de la Fecha] */
         top: 0px;               /* [Móvil - Posición Y de la Fecha] */
     }
 
@@ -722,7 +722,7 @@ html, body {
 
     .pb-user-inferior {
         font-size: 17px;
-        left: -4px;          /* [Móvil - Posición X del usuario inferior] */
+        left: -8px;          /* [Móvil - Posición X del usuario inferior] */
         top: 0px;           /* [Móvil - Posición Y del usuario inferior] */
     }
 }
