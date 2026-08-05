@@ -667,6 +667,7 @@ html, body {
     .pb-header-wix .avatar {
         width: 33px;            /* [Móvil - Ancho del avatar] */
         height: 33px;           /* [Móvil - Alto del avatar] */
+        position: relative; /* <--- ¡Añade esto para que cobre vida! */
         left: 0px;              /* [Móvil - Posición X del avatar] */
         top: 4px;               /* [Móvil - Posición Y del avatar] */
     }
