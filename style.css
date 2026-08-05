@@ -605,7 +605,7 @@ html, body {
 
 .pb-meta-icons {
     display: flex;
-    gap: 60px;                  /* [PC]: Espacio horizontal entre iconos */
+    gap: 90px;                  /* [PC]: Espacio horizontal entre iconos */
     color: #555;
     font-size: 20px;            /* [PC - Tamaño de iconos] */
     margin-bottom: 4px;
@@ -631,6 +631,7 @@ html, body {
     margin-right: 6px;
     font-family: 'SF UI Display', -apple-system, sans-serif;
     font-size: 20px;            /* [PC - Tamaño del usuario en el texto] */
+    -webkit-text-stroke: 0.10px #000000 !important;   /* [PC - Delineado o borde de la letra] */
 }
 
 
@@ -732,7 +733,8 @@ html, body {
     font-size: 17px !important;    /* [Móvil - Tamaño de fuente del usuario inferior] */
     font-weight: 400 !important;   /* [Móvil - Grosor de fuente del usuario inferior] */
     position: relative !important; /* [Móvil - Posición relativa del usuario inferior] */
-    left: -18px !important;        /* [Móvil - Posición X del usuario inferior] */
+    left: -13px !important;        /* [Móvil - Posición X del usuario inferior] */
     top: -2px !important;          /* [Móvil - Posición Y del usuario inferior] */
+    -webkit-text-stroke: 0px #000000 !important;  /* [Móvil - Delineado o borde de la letra] */
 }
 }
