@@ -548,8 +548,8 @@ html, body {
     width: 42px;             /* [PC - Ancho de la foto de perfil] */
     height: 42px;            /* [PC - Alto de la foto de perfil] */
     position: relative;
-    left: 10px;              /* [PC - Posición X específica del Avatar] */
-    top: 7px;                /* [PC - Posición Y específica del Avatar] */
+    left: 0px;              /* [PC - Posición X específica del Avatar] */
+    top: 0px;                /* [PC - Posición Y específica del Avatar] */
 }
 
 /* Contenedor de textos de la cabecera */
