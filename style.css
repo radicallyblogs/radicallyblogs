@@ -668,7 +668,7 @@ html, body {
         width: 33px;            /* [Móvil - Ancho del avatar] */
         height: 33px;           /* [Móvil - Alto del avatar] */
         left: 0px;              /* [Móvil - Posición X del avatar] */
-        top: 0px;               /* [Móvil - Posición Y del avatar] */
+        top: 4px;               /* [Móvil - Posición Y del avatar] */
     }
 
     .pb-text-container {
@@ -696,7 +696,7 @@ html, body {
     .pb-image-container {
         width: 100%;            /* [Móvil - Ancho de la caja de imagen]: Pon 100% para extremos o un % menor (ej. 95%) */
         max-width: 100%;        /* [Móvil - Ancho máximo] */
-        border-radius: 30px;    /* [Móvil - Bordes Redondeados] */
+        border-radius: 35px;    /* [Móvil - Bordes Redondeados] */
         margin-bottom: 10px;
         left: -9px;              /* [Móvil - Posición X de la foto] */
         top: 0px;               /* [Móvil - Posición Y de la foto] */
