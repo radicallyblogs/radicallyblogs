@@ -518,7 +518,7 @@ html, body {
    1. CONTENEDOR GENERAL DEL POST (PC)
    -------------------------------------------------------------------------- */
 .photo-bloggy-post {
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     margin: 40px 0;
     background: transparent;
