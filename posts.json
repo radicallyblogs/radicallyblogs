@@ -1,6 +1,14 @@
 [
   {
     "tipo": "clasico",
+    "texto": "ahaahhaha",
+    "imagenes": [],
+    "fechaLarga": "jue, 6 de agosto de 2026",
+    "fechaCortas": "jue, 6 ago 2026",
+    "hora": "6:53 p. m."
+  },
+  {
+    "tipo": "clasico",
     "texto": "Hola",
     "imagenes": [],
     "fechaLarga": "jue, 6 de agosto de 2026",
