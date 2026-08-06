@@ -708,7 +708,7 @@ html, body {
         font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
         left: -11px;              /* [Móvil - Posición X del Nombre] */
-        top: 7px;               /* [Móvil - Posición Y del Nombre] */
+        top: 6px;               /* [Móvil - Posición Y del Nombre] */
     }
 
     /* 2.3 Fecha y Hora (Móvil) */
@@ -758,7 +758,7 @@ html, body {
     font-weight: 400 !important;        /* [Móvil - Grosor de fuente del texto] */
     position: relative !important;      /* [Móvil - Posición relativa del texto] */
     left: 0px !important;             /* [Móvil - TU VALOR ORIGINAL INTACTO] */
-    top: 3px !important;               /* [Móvil - Posición Y del texto] */
+    top: 6px !important;               /* [Móvil - Posición Y del texto] */
     max-width: 95% !important;         /* [Móvil - Impide que rebase el ancho de la pantalla] */
 }
 
@@ -767,7 +767,7 @@ html, body {
     font-weight: 400 !important;        /* [Móvil - Grosor de fuente del usuario inferior] */
     position: relative !important;      /* [Móvil - Posición relativa del usuario inferior] */
     left: 0px !important;               /* [Móvil - Posición X del usuario inferior] */
-    top: -1px !important;               /* [Móvil - Posición Y del usuario inferior] */
+    top: 0px !important;               /* [Móvil - Posición Y del usuario inferior] */
     -webkit-text-stroke: 0px #000000 !important; /* [Móvil - Delineado o borde de la letra] */
 }
 }/* ==========================================================
@@ -785,8 +785,11 @@ html, body {
 }
 
 .pb-meta-icons svg {
-    width: 20px !important;    /* [PC - Ancho de iconos SVG] */
-    height: 20px !important;   /* [PC - Alto de iconos SVG] */
+    width: 30px !important;    /* [PC - Ancho de iconos SVG] */
+    height: 30px !important;   /* [PC - Alto de iconos SVG] */
+    position: relative;        /* [PC - Posición relativa del icono SVG] */
+    left: 0px;                 /* [PC - Posición X del icono SVG] */
+    top: 0px;                  /* [PC - Posición Y del icono SVG] */
 }
 
 
@@ -808,8 +811,11 @@ html, body {
     }
 
     .pb-meta-icons svg {
-        width: 20px !important;             /* [Móvil - Ancho de iconos SVG] */
-        height: 20px !important;            /* [Móvil - Alto de iconos SVG] */
+        width: 30px !important;             /* [Móvil - Ancho de iconos SVG] */
+        height: 30px !important;            /* [Móvil - Alto de iconos SVG] */
         vertical-align: middle !important;  /* [Móvil - Alineación vertical] */
+        position: relative !important;      /* [Móvil - Posición relativa del icono SVG] */
+        left: 0px !important;               /* [Móvil - Posición X del icono SVG (Modifícalo si necesitas moverlos)] */
+        top: 0px !important;                /* [Móvil - Posición Y del icono SVG (Modifícalo si necesitas subirlos/bajarlos)] */
     }
 }
