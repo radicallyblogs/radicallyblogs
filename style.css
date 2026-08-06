@@ -748,9 +748,9 @@ html, body {
     font-size: 17px !important;         /* [Móvil - Tamaño de fuente de iconos] */
     font-weight: 400 !important;        /* [Móvil - Grosor de fuente de iconos] */
     color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
-    gap: 60px !important;               /* [Móvil - Separación entre iconos] */
+    gap: 40px !important;               /* [Móvil - Separación entre iconos] */
     position: relative !important;      /* [Móvil - Posición relativa de iconos] */
-    left: 0px !important;               /* [Móvil - Posición X de iconos] */
+    left: 5px !important;               /* [Móvil - Posición X de iconos] */
     top: 0px !important;                /* [Móvil - Posición Y de iconos] */
 }
 
@@ -804,16 +804,16 @@ html, body {
         font-size: 17px !important;         /* [Móvil - Tamaño de fuente de iconos] */
         font-weight: 400 !important;        /* [Móvil - Grosor de fuente de iconos] */
         color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
-        gap: 60px !important;               /* [Móvil - Separación entre iconos] */
+        gap: 40px !important;               /* [Móvil - Separación entre iconos] */
         margin-bottom: 0px !important;      /* [Móvil - Margen inferior] */
         position: relative !important;      /* [Móvil - Posición relativa de iconos] */
-        left: 0px !important;               /* [Móvil - Posición X de iconos] */
+        left: 5px !important;               /* [Móvil - Posición X de iconos] */
         top: 0px !important;                /* [Móvil - Posición Y de iconos] */
     }
 
     .pb-meta-icons svg {
-        width: 15px !important;             /* [Móvil - Ancho de iconos SVG] */
-        height: 15px !important;            /* [Móvil - Alto de iconos SVG] */
+        width: 20px !important;             /* [Móvil - Ancho de iconos SVG] */
+        height: 20px !important;            /* [Móvil - Alto de iconos SVG] */
         vertical-align: middle !important;  /* [Móvil - Alineación vertical] */
         position: relative !important;      /* [Móvil - Posición relativa del icono SVG] */
         left: 0px !important;               /* [Móvil - Posición X del icono SVG (Modifícalo si necesitas moverlos)] */
