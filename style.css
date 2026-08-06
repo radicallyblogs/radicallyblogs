@@ -785,8 +785,8 @@ html, body {
 }
 
 .pb-meta-icons svg {
-    width: 30px !important;    /* [PC - Ancho de iconos SVG] */
-    height: 30px !important;   /* [PC - Alto de iconos SVG] */
+    width: 25px !important;    /* [PC - Ancho de iconos SVG] */
+    height: 25px !important;   /* [PC - Alto de iconos SVG] */
     position: relative;        /* [PC - Posición relativa del icono SVG] */
     left: 0px;                 /* [PC - Posición X del icono SVG] */
     top: 0px;                  /* [PC - Posición Y del icono SVG] */
