@@ -776,12 +776,12 @@ html, body {
    ========================================================== */
 .pb-meta-icons {
     display: flex;
-    gap: 110px;                 /* [PC - Separación horizontal entre iconos] */
+    gap: 90px;                 /* [PC - Separación horizontal entre iconos] */
     color: #000000 !important; /* [PC - Color negro para los iconos y textos] */
     font-size: 20px;           /* [PC - Tamaño de fuente de iconos] */
     margin-bottom: 14px;       /* [PC - Margen inferior] */
     position: relative;        /* [PC - Posición relativa] */
-    left: 0px;                 /* [PC - Posición X] */
+    left: 5px;                 /* [PC - Posición X] */
     top: 0px;                  /* [PC - Posición Y] */
 }
 
@@ -789,7 +789,7 @@ html, body {
     width: 20px !important;    /* [PC - Ancho de iconos SVG] */
     height: 20px !important;   /* [PC - Alto de iconos SVG] */
     position: relative;        /* [PC - Posición relativa del icono SVG] */
-    left: 0px;                 /* [PC - Posición X del icono SVG] */
+    left: 5px;                 /* [PC - Posición X del icono SVG] */
     top: 0px;                  /* [PC - Posición Y del icono SVG] */
 }
 
