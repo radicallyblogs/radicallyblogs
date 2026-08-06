@@ -525,7 +525,7 @@ html, body {
     border: none;
     box-shadow: none;
     position: relative;
-    left: 30px;                  /* [PC - Posición X General]: Mueve todo el post a izquierda/derecha */
+    left: 20px;                  /* [PC - Posición X General]: Mueve todo el post a izquierda/derecha */
     top: 0px;                   /* [PC - Posición Y General]: Mueve todo el post arriba/abajo */
 }
 
