@@ -724,7 +724,7 @@ html, body {
     .pb-image-container {
         width: 100%;            /* [Móvil - Ancho de la caja de imagen]: Pon 100% para extremos o un % menor (ej. 95%) */
         max-width: 100%;        /* [Móvil - Ancho máximo] */
-        height: 350px;                /* [Móvil - Altura fija del contenedor] */
+        height: 500px;                /* [Móvil - Altura fija del contenedor] */
         border-radius: 35px;    /* [Móvil - Bordes Redondeados] */
         margin-bottom: 10px;
         left: -9px;              /* [Móvil - Posición X de la foto] */
