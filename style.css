@@ -785,8 +785,8 @@ html, body {
 }
 
 .pb-meta-icons svg {
-    width: 25px !important;    /* [PC - Ancho de iconos SVG] */
-    height: 25px !important;   /* [PC - Alto de iconos SVG] */
+    width: 20px !important;    /* [PC - Ancho de iconos SVG] */
+    height: 20px !important;   /* [PC - Alto de iconos SVG] */
     position: relative;        /* [PC - Posición relativa del icono SVG] */
     left: 0px;                 /* [PC - Posición X del icono SVG] */
     top: 0px;                  /* [PC - Posición Y del icono SVG] */
@@ -811,8 +811,8 @@ html, body {
     }
 
     .pb-meta-icons svg {
-        width: 25px !important;             /* [Móvil - Ancho de iconos SVG] */
-        height: 25px !important;            /* [Móvil - Alto de iconos SVG] */
+        width: 20px !important;             /* [Móvil - Ancho de iconos SVG] */
+        height: 20px !important;            /* [Móvil - Alto de iconos SVG] */
         vertical-align: middle !important;  /* [Móvil - Alineación vertical] */
         position: relative !important;      /* [Móvil - Posición relativa del icono SVG] */
         left: 0px !important;               /* [Móvil - Posición X del icono SVG (Modifícalo si necesitas moverlos)] */
