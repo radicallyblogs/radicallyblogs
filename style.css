@@ -781,7 +781,7 @@ html, body {
     font-size: 20px;           /* [PC - Tamaño de fuente de iconos] */
     margin-bottom: 14px;       /* [PC - Margen inferior] */
     position: relative;        /* [PC - Posición relativa] */
-    left: 5px;                 /* [PC - Posición X] */
+    left: 15px;                 /* [PC - Posición X] */
     top: 0px;                  /* [PC - Posición Y] */
 }
 
