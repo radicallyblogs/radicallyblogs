@@ -607,7 +607,7 @@ html, body {
 .pb-image-container img {
     width: 100%;                /* [PC - Ancho interno de la foto] */
     height: 100%;               /* [PC - Mantiene la proporción exacta sin deformar] */
-    object-fit: contain;        /* [PC - Ajuste de proporción] */
+    object-fit: cover;        /* [PC - Ajuste de proporción] */
     display: block;
     cursor: pointer;
 }
@@ -724,6 +724,7 @@ html, body {
     .pb-image-container {
         width: 100%;            /* [Móvil - Ancho de la caja de imagen]: Pon 100% para extremos o un % menor (ej. 95%) */
         max-width: 100%;        /* [Móvil - Ancho máximo] */
+        height: 350px;                /* [Móvil - Altura fija del contenedor] */
         border-radius: 35px;    /* [Móvil - Bordes Redondeados] */
         margin-bottom: 10px;
         left: -9px;              /* [Móvil - Posición X de la foto] */
@@ -732,9 +733,8 @@ html, body {
 
     .pb-image-container img {
         width: 100%;            /* [Móvil - Ancho interno de la foto] */
-        height: auto;           /* [Móvil - Mantiene la proporción exacta sin deformar] */
-        max-height: 75vh;       /* [Móvil - Altura máxima de la foto] */
-        object-fit: contain;    /* [Móvil - Ajuste de proporción] */
+        height: 100%;           /* [Móvil - Mantiene la proporción exacta sin deformar] */
+        object-fit: cover;    /* [Móvil - Ajuste de proporción] */
     }
 
     /* 1. Contenedor general del pie de página (Móvil) - Crea el margen seguro para que el -16px no se salga */
