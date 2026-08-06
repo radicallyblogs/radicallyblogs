@@ -592,8 +592,8 @@ html, body {
    3. CONTENEDOR Y TAMAÑO DE LA IMAGEN PRINCIPAL - PC
    -------------------------------------------------------------------------- */
 .pb-image-container {
-    width: 100%;                /* [PC - Ancho de la caja de imagen]: Pon 100% para que ocupe todo o un % menor (ej. 90%) */
-    max-width: 100%;            /* [PC - Ancho máximo] */
+    width: 70%;                /* [PC - Ancho de la caja de imagen]: Pon 100% para que ocupe todo o un % menor (ej. 90%) */
+    max-width: 70%;            /* [PC - Ancho máximo] */
     border-radius: 45px;        /* [PC - Bordes Redondeados de la foto] */
     overflow: hidden;
     background: #000;
