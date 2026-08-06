@@ -1,18 +1,5 @@
 [
   {
-    "tipo": "clasico",
-    "texto": "",
-    "imagenes": [
-      "images/post_img_1786007872384_0.png",
-      "images/post_img_1786007875327_1.png",
-      "images/post_img_1786007878249_2.png",
-      "images/post_img_1786007880884_3.png"
-    ],
-    "fechaLarga": "jue, 6 de agosto de 2026",
-    "fechaCortas": "jue, 6 ago 2026",
-    "hora": "11:17 a. m."
-  },
-  {
     "tipo": "photo_bloggy",
     "texto": "Paseando a mi ronda de prosas.",
     "imagenes": [
