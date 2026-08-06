@@ -593,7 +593,7 @@ html, body {
    -------------------------------------------------------------------------- */
 .pb-image-container {
     width: 100%;                /* [PC - Ancho de la caja de imagen]: Pon 100% para que ocupe todo o un % menor (ej. 90%) */
-    height: 450px;                     /* [Altura fija para el contenedor] */
+    height: 550px;                     /* [Altura fija para el contenedor] */
     max-width: 100%;            /* [PC - Ancho máximo] */
     border-radius: 45px;        /* [PC - Bordes Redondeados de la foto] */
     overflow: hidden;
