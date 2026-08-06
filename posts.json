@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "PSICODELLY SETTINGS",
+    "imagenes": [
+      "images/post_img_1785975932201_0.png"
+    ],
+    "fechaLarga": "jue, 6 de agosto de 2026",
+    "fechaCortas": "jue, 6 ago 2026",
+    "hora": "2:25 a. m."
+  },
+  {
     "tipo": "clasico",
     "texto": "HOLA A TODOS SOSAINAS!!",
     "imagenes": [
