@@ -593,7 +593,7 @@ html, body {
    -------------------------------------------------------------------------- */
 .pb-image-container {
     width: 100%;                /* [PC - Ancho de la caja de imagen]: Pon 100% para que ocupe todo o un % menor (ej. 90%) */
-    height: 550px;                     /* [Altura fija para el contenedor] */
+    height: 550px !important;                     /* [Altura fija para el contenedor] */
     max-width: 100%;            /* [PC - Ancho máximo] */
     border-radius: 45px;        /* [PC - Bordes Redondeados de la foto] */
     overflow: hidden;
@@ -724,7 +724,7 @@ html, body {
     .pb-image-container {
         width: 100%;            /* [Móvil - Ancho de la caja de imagen]: Pon 100% para extremos o un % menor (ej. 95%) */
         max-width: 100%;        /* [Móvil - Ancho máximo] */
-        height: 500px;                /* [Móvil - Altura fija del contenedor] */
+        height: 500px !important;                /* [Móvil - Altura fija del contenedor] */
         border-radius: 35px;    /* [Móvil - Bordes Redondeados] */
         margin-bottom: 10px;
         left: -9px;              /* [Móvil - Posición X de la foto] */
@@ -733,7 +733,7 @@ html, body {
 
     .pb-image-container img {
         width: 100%;            /* [Móvil - Ancho interno de la foto] */
-        height: 100%;           /* [Móvil - Mantiene la proporción exacta sin deformar] */
+        height: 100% !important;           /* [Móvil - Mantiene la proporción exacta sin deformar] */
         object-fit: cover;    /* [Móvil - Ajuste de proporción] */
     }
 
@@ -781,7 +781,7 @@ html, body {
     font-size: 20px;           /* [PC - Tamaño de fuente de iconos] */
     margin-bottom: 14px;       /* [PC - Margen inferior] */
     position: relative;        /* [PC - Posición relativa] */
-    left: 15px;                 /* [PC - Posición X] */
+    left: 15px !important;                 /* [PC - Posición X] */
     top: 0px;                  /* [PC - Posición Y] */
 }
 
@@ -789,8 +789,8 @@ html, body {
     width: 20px !important;    /* [PC - Ancho de iconos SVG] */
     height: 20px !important;   /* [PC - Alto de iconos SVG] */
     position: relative;        /* [PC - Posición relativa del icono SVG] */
-    left: 5px;                 /* [PC - Posición X del icono SVG] */
-    top: 2px;                  /* [PC - Posición Y del icono SVG] */
+    left: 5px !important;                 /* [PC - Posición X del icono SVG] */
+    top: 2px !important;                  /* [PC - Posición Y del icono SVG] */
 }
 
 
