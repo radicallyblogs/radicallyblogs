@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "Paseando a mi ronda de prosas.",
+    "imagenes": [
+      "images/post_img_1785977296696_0.jpg"
+    ],
+    "fechaLarga": "jue, 6 de agosto de 2026",
+    "fechaCortas": "jue, 6 ago 2026",
+    "hora": "2:48 a. m."
+  },
+  {
     "tipo": "clasico",
     "texto": "HOLA A TODOS SOSAINAS!!",
     "imagenes": [
