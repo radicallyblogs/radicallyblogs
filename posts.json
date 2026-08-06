@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "Hola",
+    "imagenes": [
+      "images/post_img_1785976093490_0.jpg"
+    ],
+    "fechaLarga": "jue, 6 de agosto de 2026",
+    "fechaCortas": "jue, 6 ago 2026",
+    "hora": "2:28 a. m."
+  },
+  {
     "tipo": "clasico",
     "texto": "HOLA A TODOS SOSAINAS!!",
     "imagenes": [
