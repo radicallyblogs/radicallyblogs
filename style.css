@@ -758,7 +758,7 @@ html, body {
     font-weight: 400 !important;        /* [Móvil - Grosor de fuente del texto] */
     position: relative !important;      /* [Móvil - Posición relativa del texto] */
     left: 0px !important;             /* [Móvil - TU VALOR ORIGINAL INTACTO] */
-    top: -1px !important;               /* [Móvil - Posición Y del texto] */
+    top: 3px !important;               /* [Móvil - Posición Y del texto] */
     max-width: 95% !important;         /* [Móvil - Impide que rebase el ancho de la pantalla] */
 }
 
@@ -808,8 +808,8 @@ html, body {
     }
 
     .pb-meta-icons svg {
-        width: 17px !important;             /* [Móvil - Ancho de iconos SVG] */
-        height: 17px !important;            /* [Móvil - Alto de iconos SVG] */
+        width: 20px !important;             /* [Móvil - Ancho de iconos SVG] */
+        height: 20px !important;            /* [Móvil - Alto de iconos SVG] */
         vertical-align: middle !important;  /* [Móvil - Alineación vertical] */
     }
 }
