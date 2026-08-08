@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Antes me refugiaba en el alcohol, tanto hasta el punto que me atrapo, pero con el tiempo me fuiste enseñando que existe otro mundo además de reprimir el dolor. Ahora intento ser mejor, pero esta claro que no voy a convencer a nadie",
+    "imagenes": [],
+    "fechaLarga": "sáb, 27 de abril de 2024",
+    "fechaCortas": "sáb. 27 abr 2024",
+    "hora": "1:15 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-04-26T23:15:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Ya estoy empezando con la actualización para la versión 1.0 del blog, que traerá un nuevo formato para los artículos, el apartado media pero además de eso, será la versión oficial que aparecerá en las búsquedas",
     "imagenes": [],
     "fechaLarga": "mié, 24 de abril de 2024",
