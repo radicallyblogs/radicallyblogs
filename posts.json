@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Perfecto para recordar el diciembre pasado y ver el contraste 🤘🏼",
+    "imagenes": [
+      "images/post_img_1786212693586_new_0.jpg"
+    ],
+    "fechaLarga": "mar, 24 de diciembre de 2024",
+    "fechaCortas": "mar. 24 dic 2024",
+    "hora": "11:44 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-12-24T22:44:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Cuando me pongo Bass grull heavy growl capper shapper gutural, es por que claramente me he venido muy arriba.",
     "imagenes": [],
     "fechaLarga": "mar, 24 de diciembre de 2024",
