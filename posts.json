@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "La idea de presentar poemas como títulos desde la emisora me ha estado rondando la cabeza, de esa manera podría llegar a sentirme mas cómodo sin seguir un ritmo. Pero para explicarme mejor, tambien me veo presentando un programa que tenga una duración de 1 hora o como mucho media hora de cierre además para un solo poema.",
+    "imagenes": [],
+    "fechaLarga": "sáb, 13 de junio de 2026",
+    "fechaCortas": "sáb. 13 jun 2026",
+    "hora": "12:43 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-06-12T22:43:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Soy un desastre de fierabrás.",
     "imagenes": [],
     "fechaLarga": "jue, 11 de junio de 2026",
