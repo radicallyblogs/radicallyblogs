@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Es que de su deseo es asustadiza... Vaya chica.",
+    "imagenes": [],
+    "fechaLarga": "dom, 25 de enero de 2026",
+    "fechaCortas": "dom. 25 ene 2026",
+    "hora": "4:45 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-01-25T15:45:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Este álbum es con diferencia el mas poético en cuanto al lenguaje. Lastima que sea el último.",
     "imagenes": [],
     "fechaLarga": "dom, 25 de enero de 2026",
