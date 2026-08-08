@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "ESTA NOCHE SALIMOS DE CUENTAS!!! Por cierto, el álbum ira adicionando mas escritos en el transcurso del mes, oBviamente este tambien vino de imprevisto... y si, ya voy un poco pimplado de la piripación...aun que quiero aclarar que no escribí el álbum en ningún estado, solamente mi tristeza longeva.",
+    "imagenes": [],
+    "fechaLarga": "mié, 31 de diciembre de 2025",
+    "fechaCortas": "mié. 31 dic 2025",
+    "hora": "11:08 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-12-31T22:08:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Disculparme si llego tarde, he tenido un vuelo muy largo.",
     "imagenes": [],
     "fechaLarga": "mié, 31 de diciembre de 2025",
