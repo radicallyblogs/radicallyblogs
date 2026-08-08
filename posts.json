@@ -103,16 +103,6 @@
   },
   {
     "tipo": "clasico",
-    "texto": "Estoy estúpido con lo de rememorar cosas de hace un año.",
-    "imagenes": [],
-    "fechaLarga": "mié, 21 de febrero de 2024",
-    "fechaCortas": "mié. 21 feb 2024",
-    "hora": "4:28 p. m.",
-    "fijado": false,
-    "fechaCreacion": "2024-02-21T15:28:00.000Z"
-  },
-  {
-    "tipo": "clasico",
     "texto": "Cuando nos estábamos conociendo hace un año.",
     "imagenes": [
       "images/post_img_1786213626144_new_0.png"
