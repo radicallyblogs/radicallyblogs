@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "<a href=\"https://etlqradio.wixsite.com/radiofm\" target=\"_blank\">etlqradio.com</a>",
+    "imagenes": [],
+    "fechaLarga": "mar, 9 de junio de 2026",
+    "fechaCortas": "mar. 9 jun 2026",
+    "hora": "12:56 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-06-08T22:56:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Pronto voy a anunciar algo que marcará una nueva etapa en el proyecto Lonermorejourney para este verano.",
     "imagenes": [],
     "fechaLarga": "dom, 7 de junio de 2026",
