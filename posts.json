@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Y disfrutar de todo que yo me alegro por vosotros.",
+    "imagenes": [],
+    "fechaLarga": "dom, 16 de marzo de 2025",
+    "fechaCortas": "dom. 16 mar 2025",
+    "hora": "7:30 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-03-16T18:30:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Cuando la decisión supera a la imaginación, la creatividad no tiene limites.",
     "imagenes": [],
     "fechaLarga": "sáb, 15 de marzo de 2025",
