@@ -131,14 +131,7 @@
             const indicadorPin = post.fijado ? iconoPinSvg : '';
 
             const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
-            let fechaCortasLimpia = limpiarFecha(post.fechaCortas);
-
-            if (fechaCortasLimpia.toLowerCase() === 'hoy') {
-                const now = new Date();
-                const dias = ['dom.', 'lun.', 'mar.', 'mié.', 'jue.', 'vie.', 'sáb.'];
-                const meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-                fechaCortasLimpia = `${dias[now.getDay()]} ${now.getDate()} ${meses[now.getMonth()]} ${now.getFullYear()}`;
-            }
+            const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
 
             if (post.tipo === 'photo_bloggy') {
                 const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
