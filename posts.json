@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "",
+    "imagenes": [
+      "images/post_img_1786180695684_0.jpg"
+    ],
+    "fechaLarga": "sábado. 8 de agosto de 2026",
+    "fechaCortas": "sábado. 8 de agosto de 2026",
+    "hora": "11:18 am",
+    "fijado": false,
+    "fechaCreacion": "2026-08-08T09:18:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "PRUEBA",
     "imagenes": [
