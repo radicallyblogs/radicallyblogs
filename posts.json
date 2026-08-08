@@ -30,18 +30,6 @@
     "fechaCreacion": "2026-04-21T17:09:00.000Z"
   },
   {
-    "tipo": "photo_bloggy",
-    "texto": "Intentando pasear.",
-    "imagenes": [
-      "images/post_img_1786228585680_0.jpeg"
-    ],
-    "fechaLarga": "jue, 30 de abril de 2026",
-    "fechaCortas": "jue. 30 abr 2026",
-    "hora": "11:18 p. m.",
-    "fijado": false,
-    "fechaCreacion": "2026-04-30T21:18:00.000Z"
-  },
-  {
     "tipo": "clasico",
     "texto": "La verdad es que para mi proyecto de artes escénicas debo decir que tengo mucha poesía preparada, pero eso no significa que por ende haya que ponerle un lazo a todo lo nuevo, tambien hay ideas que se tienen que descartar.",
     "imagenes": [],
