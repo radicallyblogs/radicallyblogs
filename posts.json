@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Cuando nos estábamos conociendo hace un año",
+    "imagenes": [
+      "images/post_img_1786216436105_new_0.png"
+    ],
+    "fechaLarga": "vie, 21 de febrero de 2025",
+    "fechaCortas": "vie. 21 feb 2025",
+    "hora": "3:41 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-02-21T14:41:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Estoy estúpido con lo de rememorar cosas de hace un año",
     "imagenes": [],
     "fechaLarga": "vie, 21 de febrero de 2025",
