@@ -9,155 +9,392 @@
 </head>
 <body>
 
+    <!-- CABECERA NEGRA CON EL LOGO -->
+    <header class="header-banner">
+        <div class="header-logo">
+            <img src="logo.png" alt="Logo Radically">
+        </div>
+        <!-- Interruptor de modo oscuro integrado -->
+        <div class="theme-switch-wrapper">
+            <input type="checkbox" id="dark-mode-switch" />
+            <label for="dark-mode-switch" class="switch-label">
+                <!-- Icono de Sol -->
+                <svg class="switch-icon sun-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <!-- Icono de Luna -->
+                <svg class="switch-icon moon-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </label>
+        </div>
+    </header>
+
     <div class="feed-container">
         <h2 class="feed-title">Actualidad</h2>
+
+        <!-- SECCIÓN DE HISTORIAS (Se oculta automáticamente si no hay historias) -->
+        <div class="stories-section" id="storiesSection" style="display: none;">
+            <h3 class="stories-title">Historias</h3>
+            <div class="stories-container" id="stories-container">
+                <!-- Las historias se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- 📌 TÍTULO DE POSTS RECIENTES                                -->
+        <!-- ========================================================== -->
+        <h2 class="posts-heading">Posts recientes</h2>
 
         <!-- Aquí se cargarán automáticamente los posts desde el archivo posts.json -->
         <div id="feed-posts"></div>
     </div>
 
-    <!-- Lightbox / Pop-up de Imagen -->
+    <!-- Lightbox / Pop-up de Imagen para Posts -->
     <div id="imageLightbox" class="lightbox-overlay" onclick="cerrarLightboxAlFondo(event)">
         <span class="lightbox-close" onclick="cerrarLightbox()">&times;</span>
         <img class="lightbox-img" id="lightboxImg">
     </div>
 
-    <!-- Script para leer el posts.json y pintar el feed -->
-    <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-        try {
-            const response = await fetch('posts.json?t=' + new Date().getTime());
-            const posts = await response.json();
-            const container = document.getElementById('feed-posts');
+    <!-- ========================================================== -->
+    <!-- 📱 VISOR MODAL DE HISTORIAS                                -->
+    <!-- ========================================================== -->
+    <div id="storyModal" class="story-modal">
+        <div class="story-modal-content">
             
-            container.innerHTML = '';
+            <!-- Barras de progreso superiores -->
+            <div class="story-progress-bars" id="storyProgressBars"></div>
+            
+            <!-- CABECERA -->
+            <div class="story-top-header">
+                <!-- Izquierda: Foto y Botón de pausa/reproducción juntos -->
+                <div class="story-author-controls">
+                    <img src="avatar.jpeg" alt="Perfil" class="story-profile-pic">
+                    <button id="storyPauseBtn" class="story-pause-btn-top" onclick="togglePausarHistoria()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                    </button>
+                </div>
+                
+                <!-- Derecha: Botón de cerrar -->
+                <span class="story-close" onclick="cerrarHistoria()">&times;</span>
+            </div>
 
-            // Función para limpiar formato de hora ("p. m." a "pm")
-            function limpiarHora(hora) {
-                if (!hora) return '';
-                return hora.replace(/p\.\s*m\./gi, 'pm').replace(/a\.\s*m\./gi, 'am').trim();
+            <!-- Imagen de la historia -->
+            <div class="story-image-wrapper">
+                <div class="story-nav-left" onclick="historiaAnterior()"></div>
+                <img id="storyModalImg" src="" alt="Historia de Radically">
+                <div class="story-nav-right" onclick="historiaSiguiente()"></div>
+            </div>
+            
+            <!-- Fecha abajo -->
+            <div class="story-timestamp-modal" id="storyModalTimestamp"></div>
+        </div>
+    </div>
+
+    <!-- Script principal para posts y gestión automática de historias -->
+    <script>
+        let postsGlobal = [];
+        let postsMostradosCount = 15; // Lote inicial de 15 posts
+
+        // Array de historias (vacío por defecto, al añadir elementos aparecerá la sección sola)
+        let historiasData = [];
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Inicializar la sección de historias según haya o no contenido
+            inicializarSeccionHistorias();
+
+            try {
+                const response = await fetch('posts.json?t=' + new Date().getTime());
+                postsGlobal = await response.json();
+                
+                renderizarFeedParcial();
+                window.addEventListener('scroll', comprobarScrollInfinito);
+
+            } catch (error) {
+                console.error("Error al cargar los posts:", error);
             }
+        });
 
-            // Función para cambiar la coma por punto en fechas clásicas
-            function limpiarFecha(fecha) {
-                if (!fecha) return '';
-                return fecha.replace(',', '.');
-            }
+        function inicializarSeccionHistorias() {
+            const section = document.getElementById('storiesSection');
+            const container = document.getElementById('stories-container');
+            if (!section || !container) return;
 
-            posts.forEach(post => {
-                let postHTML = '';
-                const horaLimpia = limpiarHora(post.hora);
-
-                // ==========================================
-                // 1. PHOTO BLOGGY
-                // ==========================================
-                if (post.tipo === 'photo_bloggy') {
-                    const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
-                    
-                    const textoCaption = post.texto 
-                        ? `<p class="pb-caption"><span class="pb-user-inferior">@felipeortegareyes</span>${post.texto}</p>` 
-                        : '';
-
-                    let fechaPhoto = post.fechaCortas || '';
-                    const diasMap = {
-                        'lun': 'lunes.',
-                        'mar': 'martes.',
-                        'mié': 'miércoles.',
-                        'mie': 'miércoles.',
-                        'jue': 'jueves.',
-                        'vie': 'viernes.',
-                        'sáb': 'sábado.',
-                        'sab': 'sábado.',
-                        'dom': 'domingo.'
-                    };
-                    
-                    let parts = fechaPhoto.split(',');
-                    if (parts.length >= 2) {
-                        let cortoDia = parts[0].trim().toLowerCase();
-                        let restoFecha = parts.slice(1).join(',').trim();
-                        if (diasMap[cortoDia]) {
-                            fechaPhoto = `${diasMap[cortoDia]} ${restoFecha}`;
-                        }
-                    }
-
-                    postHTML = `
-                        <article class="photo-bloggy-post">
-                            <div class="pb-header-wix">
-                                <div class="avatar"></div>
-                                <div class="pb-text-container">
-                                    <span class="pb-username">@felipeortegareyes</span>
-                                    <span class="pb-datetime">${fechaPhoto} • ${horaLimpia}</span>
-                                </div>
-                            </div>
-                            <div class="pb-image-container">
-                                <img src="${imagenUrl}" alt="Photo Bloggy" onclick="abrirLightbox('${imagenUrl}')">
-                            </div>
-                            <div class="pb-meta-icons">
-    <span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>vistas
-    </span>
-    <span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>GMT/europe
-    </span>
-    <span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>MacOs
-    </span>
-</div>
-                                ${textoCaption}
-                            </div>
-                        </article>
-                    `;
-                } 
-                // ==========================================
-                // 2. BLOGGY CLÁSICO
-                // ==========================================
-                else {
-                    let imagenHTML = '';
-
-                    if (post.imagenes && post.imagenes.length > 0) {
-                        if (post.imagenes.length === 1) {
-                            const img = post.imagenes[0];
-                            imagenHTML = `<div class="post-single-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
-                        } else {
-                            let imgsString = '';
-                            post.imagenes.forEach(img => {
-                                imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
-                            });
-                            imagenHTML = `<div class="post-images-grid">${imgsString}</div>`;
-                        }
-                    } else if (post.imagen) {
-                        imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
-                    }
-
-                    const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
-                    const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
-
-                    postHTML = `
-                        <div class="post">
-                            <div class="post-date">
-                                <span class="desktop-date">${fechaLargaLimpia}</span>
-                                <span class="mobile-date">${fechaCortasLimpia}</span>
-                            </div>
-                            <div class="post-header">
-                                <div class="avatar"></div>
-                                <div class="user-info">
-                                    <span class="username">@felipeortegareyes</span>
-                                    <span class="timestamp">• ${horaLimpia}</span>
-                                </div>
-                            </div>
-                            <div class="post-content">${post.texto || ''}</div>
-                            ${imagenHTML}
+            if (historiasData.length === 0) {
+                section.style.display = 'none';
+            } else {
+                section.style.display = 'block';
+                container.innerHTML = '';
+                historiasData.forEach((historia, i) => {
+                    container.innerHTML += `
+                        <div class="story-card" onclick="abrirHistoria(${i})">
+                            <img src="${historia.imagen}" alt="Historia ${i + 1}">
+                            <div class="story-timestamp">${historia.timestamp}</div>
                         </div>
                     `;
+                });
+            }
+        }
+
+        function limpiarHora(hora) {
+            if (!hora) return '';
+            return hora.replace(/p\.\s*m\./gi, 'pm').replace(/a\.\s*m\./gi, 'am').trim();
+        }
+
+        function limpiarFecha(fecha) {
+            if (!fecha) return '';
+            return fecha.replace(',', '.');
+        }
+
+        function procesarTextoConEnlaces(texto) {
+            if (!texto) return '';
+            const urlRegex = /(https?:\/\/[^\s<]+)/g;
+            return texto.replace(urlRegex, (url) => {
+                if (texto.includes(`href="${url}"`) || texto.includes(`href='${url}'`)) {
+                    return url;
+                }
+                return `<a href="${url}" target="_blank">${url}</a>`;
+            });
+        }
+
+        const iconoPinSvg = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align: middle; margin-left: 4px;" title="Fijado"><path d="M16 12V4H17V2H7V4H8V12L4 16V18H11V22H13V18H20V16L16 12Z"/></svg>`;
+
+        function generarHtmlPost(post) {
+            let postHTML = '';
+            const horaLimpia = limpiarHora(post.hora);
+            const indicadorPin = post.fijado ? iconoPinSvg : '';
+
+            if (post.tipo === 'photo_bloggy') {
+                const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
+                const textoCaption = post.texto ? `<p class="pb-caption"><span class="pb-user-inferior">@felipeortegareyes</span>${procesarTextoConEnlaces(post.texto)}</p>` : '';
+
+                let fechaPhoto = post.fechaCortas || '';
+                const diasMap = {
+                    'lun': 'lunes.', 'mar': 'martes.', 'mié': 'miércoles.', 'mie': 'miércoles.',
+                    'jue': 'jueves.', 'vie': 'viernes.', 'sáb': 'sábado.', 'sab': 'sábado.', 'dom': 'domingo.'
+                };
+                
+                let parts = fechaPhoto.split(',');
+                if (parts.length >= 2) {
+                    let cortoDia = parts[0].trim().toLowerCase();
+                    let restoFecha = parts.slice(1).join(',').trim();
+                    if (diasMap[cortoDia]) {
+                        fechaPhoto = `${diasMap[cortoDia]} ${restoFecha}`;
+                    }
                 }
 
-                container.innerHTML += postHTML;
-            });
-        } catch (error) {
-            console.error("Error al cargar los posts:", error);
-        }
-    });
+                postHTML = `
+                    <article class="photo-bloggy-post">
+                        <div class="pb-header-wix">
+                            <div class="avatar"></div>
+                            <div class="pb-text-container">
+                                <span class="pb-username">@felipeortegareyes</span>
+                                <span class="pb-datetime">${fechaPhoto} • ${horaLimpia} ${indicadorPin}</span>
+                            </div>
+                        </div>
+                        <div class="pb-image-container">
+                            <img src="${imagenUrl}" alt="Photo Bloggy" onclick="abrirLightbox('${imagenUrl}')">
+                        </div>
+                        <div class="pb-meta-icons">
+                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>vistas</span>
+                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>GMT/europe</span>
+                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>MacOs</span>
+                        </div>
+                        ${textoCaption}
+                    </article>
+                `;
+            } else {
+                let imagenHTML = '';
+                if (post.imagenes && post.imagenes.length > 0) {
+                    if (post.imagenes.length === 1) {
+                        const img = post.imagenes[0];
+                        imagenHTML = `<div class="post-single-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
+                    } else {
+                        let imgsString = '';
+                        post.imagenes.forEach(img => {
+                            imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
+                        });
+                        imagenHTML = `<div class="post-images-grid">${imgsString}</div>`;
+                    }
+                } else if (post.imagen) {
+                    imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
+                }
 
+                const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
+                const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
+
+                postHTML = `
+                    <div class="post">
+                        <div class="post-date">
+                            <span class="desktop-date">${fechaLargaLimpia}</span>
+                            <span class="mobile-date">${fechaCortasLimpia}</span>
+                        </div>
+                        <div class="post-header">
+                            <div class="avatar"></div>
+                            <div class="user-info">
+                                <span class="username">@felipeortegareyes</span>
+                                <span class="timestamp">• ${horaLimpia} ${indicadorPin}</span>
+                            </div>
+                        </div>
+                        <div class="post-content">${procesarTextoConEnlaces(post.texto || '')}</div>
+                        ${imagenHTML}
+                    </div>
+                `;
+            }
+            return postHTML;
+        }
+
+        function renderizarFeedParcial() {
+            const container = document.getElementById('feed-posts');
+            container.innerHTML = '';
+
+            // Mantener lógica original de fijados arriba
+            const postsFijados = postsGlobal.filter(post => post.fijado === true);
+            postsFijados.forEach(post => {
+                container.innerHTML += generarHtmlPost(post);
+            });
+
+            // Mostrar por lotes según postsMostradosCount
+            const postsParaMostrar = postsGlobal.slice(0, postsMostradosCount);
+            postsParaMostrar.forEach(post => {
+                container.innerHTML += generarHtmlPost(post);
+            });
+        }
+
+        function comprobarScrollInfinito() {
+            if (postsMostradosCount >= postsGlobal.length) return;
+
+            // Cuando falten 300px para llegar al final de la página, carga 15 más
+            if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 300) {
+                postsMostradosCount += 15;
+                renderizarFeedParcial();
+            }
+        }
+    </script>
+
+    <!-- --- LÓGICA DEL VISOR DE HISTORIAS --- -->
+    <script>
+    let indiceHistoriaActual = 0;
+    let temporizadorHistoria = null;
+    let historiaPausada = false;
+    let tiempoInicio = 0;
+    let tiempoRestante = 5000;
+
+    function abrirHistoria(index) {
+        if (historiasData.length === 0) return;
+        indiceHistoriaActual = index;
+        const modal = document.getElementById('storyModal');
+        modal.classList.add('active');
+        renderizarBarrasProgreso();
+        mostrarHistoriaActual();
+    }
+
+    function cerrarHistoria() {
+        const modal = document.getElementById('storyModal');
+        modal.classList.remove('active');
+        clearTimeout(temporizadorHistoria);
+        historiaPausada = false;
+    }
+
+    function mostrarHistoriaActual() {
+        clearTimeout(temporizadorHistoria);
+        historiaPausada = false;
+        tiempoRestante = 5000;
+        tiempoInicio = Date.now();
+        
+        const btn = document.getElementById('storyPauseBtn');
+        if (btn) {
+            btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+        }
+        
+        const historia = historiasData[indiceHistoriaActual];
+        if (historia) {
+            document.getElementById('storyModalImg').src = historia.imagen;
+            document.getElementById('storyModalTimestamp').innerText = historia.timestamp;
+        }
+        
+        actualizarBarrasVisuales();
+
+        temporizadorHistoria = setTimeout(() => {
+            historiaSiguiente();
+        }, tiempoRestante);
+    }
+
+    function togglePausarHistoria() {
+        const barraActiva = document.querySelector(`#p-bar-${indiceHistoriaActual} .fill`);
+        const btn = document.getElementById('storyPauseBtn');
+
+        if (!historiaPausada) {
+            clearTimeout(temporizadorHistoria);
+            tiempoRestante -= (Date.now() - tiempoInicio);
+            if (tiempoRestante < 0) tiempoRestante = 0;
+            historiaPausada = true;
+
+            if (barraActiva) {
+                barraActiva.style.animationPlayState = 'paused';
+            }
+            if (btn) {
+                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            }
+        } else {
+            tiempoInicio = Date.now();
+            historiaPausada = false;
+
+            if (barraActiva) {
+                barraActiva.style.animationPlayState = 'running';
+            }
+            if (btn) {
+                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+            }
+
+            temporizadorHistoria = setTimeout(() => {
+                historiaSiguiente();
+            }, tiempoRestante);
+        }
+    }
+
+    function historiaSiguiente() {
+        if (indiceHistoriaActual < historiasData.length - 1) {
+            indiceHistoriaActual++;
+            mostrarHistoriaActual();
+        } else {
+            cerrarHistoria();
+        }
+    }
+
+    function historiaAnterior() {
+        if (indiceHistoriaActual > 0) {
+            indiceHistoriaActual--;
+            mostrarHistoriaActual();
+        }
+    }
+
+    function renderizarBarrasProgreso() {
+        const container = document.getElementById('storyProgressBars');
+        container.innerHTML = '';
+        historiasData.forEach((_, i) => {
+            container.innerHTML += `
+                <div class="story-progress-bar" id="p-bar-${i}">
+                    <div class="fill"></div>
+                </div>
+            `;
+        });
+    }
+
+    function actualizarBarrasVisuales() {
+        historiasData.forEach((_, i) => {
+            const bar = document.getElementById(`p-bar-${i}`);
+            if (!bar) return;
+            bar.classList.remove('active', 'completed');
+            const fill = bar.querySelector('.fill');
+            if (fill) {
+                fill.style.animationPlayState = 'running';
+            }
+            if (i < indiceHistoriaActual) {
+                bar.classList.add('completed');
+            } else if (i === indiceHistoriaActual) {
+                bar.classList.add('active');
+            }
+        });
+    }
+
+    // --- FUNCIONES LIGHTBOX POSTS ---
     function abrirLightbox(src) {
         const lightbox = document.getElementById('imageLightbox');
         const lightboxImg = document.getElementById('lightboxImg');
@@ -175,6 +412,15 @@
             cerrarLightbox();
         }
     }
-</script>
+    </script>
+
+    <!-- MODO OSCURO -->
+    <script>
+    const darkModeSwitch = document.getElementById('dark-mode-switch');
+    darkModeSwitch.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+    </script>
 </body>
 </html>
+
