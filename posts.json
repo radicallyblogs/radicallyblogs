@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy se cumple un año de esta bestialidad.",
+    "imagenes": [
+      "images/post_img_1786213315569_new_0.jpeg"
+    ],
+    "fechaLarga": "dom, 19 de enero de 2025",
+    "fechaCortas": "dom. 19 ene 2025",
+    "hora": "10:58 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-01-19T09:58:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "En el 2050 yo tendre tan solo 47 años. 😬",
     "imagenes": [],
     "fechaLarga": "vie, 17 de enero de 2025",
