@@ -13,16 +13,27 @@
 * {
     box-sizing: border-box;
 }
+body {
+    margin: 0;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
-/* Estilos base para la estructura general de la página html y body */
-html, body {
-    background-color: #ffffff; /* Color de fondo blanco general */
-    margin: 0;                 /* Elimina márgenes por defecto del navegador */
-    padding: 0;                /* Elimina rellenos por defecto del navegador */
-    width: 100%;               /* Ocupa todo el ancho de la pantalla */
-    color: #000000;            /* Color de texto principal negro */
-    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Tipografía por defecto */
-    -webkit-font-smoothing: antialiased; /* Suavizado de fuentes para navegadores WebKit */
+/* 1. Las estrellas solo en la cabecera */
+.header-banner {
+    width: 100%;
+    background-image: url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Congela la imagen de estrellas al deslizar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0 22px 0;
+}
+
+/* 2. Tu contenedor del feed con su fondo blanco normal */
+.feed-container {
+    background-color: #ffffff;
 }
 
 /* ==========================================================
@@ -98,7 +109,7 @@ html, body {
     /* Título principal del feed ("Actualidad") en PC */
     .feed-title {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-size: 30px;          /* Tamaño de fuente grande para el título en PC */
+        font-size: 33px;          /* Tamaño de fuente grande para el título en PC */
         font-weight: 700;         /* Grosor de fuente negrita */
         color: #000000;           /* Color negro */
         margin: 0 0 20px 0;       /* Margen inferior para separar del contenido */
@@ -182,7 +193,7 @@ html, body {
         width: 100% !important;
         max-width: 100% !important;
         margin: 20px 0 !important;
-        padding: 0 0 0 9px !important; /* Relleno izquierdo específico de 9px */
+        padding: 25px 0 0 9px !important; /* Relleno izquierdo específico de 9px */
     }
 
     /* Oculta la fecha de escritorio en dispositivos móviles */
@@ -286,9 +297,12 @@ html, body {
     height: 100%;           /* Llena el contenedor cuadrado por completo */
     max-height: none;       /* Sin límites de altura para mantener el formato cuadrado */
     object-fit: cover;      /* Recorte limpio y profesional sin deformar */
-    border-radius: 12px;    /* Redondeo de esquinas en PC */
-    border: 1px solid #eaeaea; /* Línea sutil de borde perimetral */
+    border-radius: 30px;    /* Redondeo de esquinas en PC */
+    border: 0px solid #eaeaea; /* Línea sutil de borde perimetral */
     display: block;         /* Comportamiento de bloque para evitar huecos extraños */
+
+    /* Sombra suave y limpia que respeta los 30px de radio de la foto */
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.50));
 }
 
 
@@ -520,12 +534,12 @@ html, body {
 .photo-bloggy-post {
     width: 100%;
     max-width: 650px;
-    margin: 40px 0;
+    margin: 10px 0;
     background: transparent;
     border: none;
     box-shadow: none;
     position: relative;
-    left: 20px;                  /* [PC - Posición X General]: Mueve todo el post a izquierda/derecha */
+    left: 0px;                  /* [PC - Posición X General]: Mueve todo el post a izquierda/derecha */
     top: 0px;                   /* [PC - Posición Y General]: Mueve todo el post arriba/abajo */
 }
 
@@ -545,11 +559,11 @@ html, body {
 
 /* 2.1 Foto de Perfil (Avatar) - PC */
 .pb-header-wix .avatar {
-    width: 42px !important;        /* Ancho fijo de la foto en PC */
-    height: 42px !important;       /* Alto fijo de la foto en PC */
+    width: 40px !important;        /* Ancho fijo de la foto en PC */
+    height: 40px !important;       /* Alto fijo de la foto en PC */
     position: relative !important; /* Activa el desplazamiento por coordenadas */
-    left: 10px !important;         /* Posición horizontal (positivo = derecha, negativo = izquierda) */
-    top: 7px !important;           /* Posición vertical (positivo = baja, negativo = sube) */
+    left: 12px !important;         /* Posición horizontal (positivo = derecha, negativo = izquierda) */
+    top: 9px !important;           /* Posición vertical (positivo = baja, negativo = sube) */
 }
 
 /* Contenedor de textos de la cabecera */
@@ -567,12 +581,12 @@ html, body {
     display: block;
     font-family: 'SF UI Display', -apple-system, sans-serif;
     color: #000000;             /* [PC - Color del Nombre] */
-    font-size: 20px;            /* [PC - Tamaño de fuente del Nombre] */
+    font-size: 18px;            /* [PC - Tamaño de fuente del Nombre] */
     font-weight: 300;           /* [PC - Grosor del Nombre: 300, 400, 500, etc.] */
     -webkit-text-stroke: 0.15px #000000 !important;   /* [PC - Delineado o borde de la letra] */
     position: relative;
-    left: 6px;                  /* [PC - Posición X específica del Nombre] */
-    top: 8px;                   /* [PC - Posición Y específica del Nombre] */
+    left: 4px;                  /* [PC - Posición X específica del Nombre] */
+    top: 7px;                   /* [PC - Posición Y específica del Nombre] */
 }
 
 /* 2.3 Fecha y Hora - PC */
@@ -580,10 +594,10 @@ html, body {
     display: block;
     font-family: 'Proxima Nova', sans-serif;
     color: #666666;             /* [PC - Color de la Fecha/Hora] */
-    font-size: 20px;            /* [PC - Tamaño de fuente de la Fecha] */
-    font-weight: 400;           /* [PC - Grosor de la Fecha] */
+    font-size: 18px;            /* [PC - Tamaño de fuente de la Fecha] */
+    font-weight: 300;           /* [PC - Grosor de la Fecha] */
     position: relative;
-    left: 6px;                  /* [PC - Posición X específica de la Fecha] */
+    left: 8px;                  /* [PC - Posición X específica de la Fecha] */
     top: 5px;                   /* [PC - Posición Y específica de la Fecha] */
 }
 
@@ -593,7 +607,7 @@ html, body {
    -------------------------------------------------------------------------- */
 .pb-image-container {
     width: 100%;                /* [PC - Ancho de la caja de imagen]: Pon 100% para que ocupe todo o un % menor (ej. 90%) */
-    height: 550px !important;                     /* [Altura fija para el contenedor] */
+    height: 570px !important;                     /* [Altura fija para el contenedor] */
     max-width: 100%;            /* [PC - Ancho máximo] */
     border-radius: 45px;        /* [PC - Bordes Redondeados de la foto] */
     overflow: hidden;
@@ -602,6 +616,9 @@ html, body {
     position: relative;
     left: 0px;                  /* [PC - Posición X de la foto] */
     top: 0px;                   /* [PC - Posición Y de la foto] */
+
+    /* Sombra suave y limpia que respeta los 30px de radio de la foto */
+    filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.50));
 }
 
 .pb-image-container img {
@@ -641,7 +658,7 @@ html, body {
     margin: 0;
     line-height: 1.2;
     font-family: 'Proxima Nova', sans-serif;
-    font-size: 20px;            /* [PC - Tamaño del texto del post] */
+    font-size: 19px;            /* [PC - Tamaño del texto del post] */
     color: #000000;             /* [PC - Color del texto del post] */
     font-weight: 300;           /* [PC - Grosor del texto del post] */
     position: relative;
@@ -653,7 +670,7 @@ html, body {
     font-weight: 300;
     margin-right: 6px;
     font-family: 'SF UI Display', -apple-system, sans-serif;
-    font-size: 20px;            /* [PC - Tamaño del usuario en el texto] */
+    font-size: 19px;            /* [PC - Tamaño del usuario en el texto] */
     -webkit-text-stroke: 0.20px #000000 !important;   /* [PC - Delineado o borde de la letra] */
     position: relative;                              /* [PC - Posición relativa del usuario inferior] */
     left: 0px;                                       /* [PC - Posición X del usuario inferior] */
@@ -724,11 +741,14 @@ html, body {
     .pb-image-container {
         width: 100%;            /* [Móvil - Ancho de la caja de imagen]: Pon 100% para extremos o un % menor (ej. 95%) */
         max-width: 100%;        /* [Móvil - Ancho máximo] */
-        height: 600px !important;                /* [Móvil - Altura fija del contenedor] */
+        height: 480px !important;                /* [Móvil - Altura fija del contenedor] */
         border-radius: 35px;    /* [Móvil - Bordes Redondeados] */
         margin-bottom: 10px;
         left: -9px;              /* [Móvil - Posición X de la foto] */
         top: 0px;               /* [Móvil - Posición Y de la foto] */
+
+        /* Sombra suave y limpia que respeta los 30px de radio de la foto */
+        filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.50));
     }
 
     .pb-image-container img {
@@ -750,7 +770,7 @@ html, body {
     color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
     gap: 40px !important;               /* [Móvil - Separación entre iconos] */
     position: relative !important;      /* [Móvil - Posición relativa de iconos] */
-    left: 5px !important;               /* [Móvil - Posición X de iconos] */
+    left: 15px !important;               /* [Móvil - Posición X de iconos] */
     top: 0px !important;                /* [Móvil - Posición Y de iconos] */
 }
 
@@ -776,21 +796,22 @@ html, body {
    ========================================================== */
 .pb-meta-icons {
     display: flex;
-    gap: 90px;                 /* [PC - Separación horizontal entre iconos] */
+    gap: 50px;                 /* [PC - Separación horizontal entre iconos] */
     color: #000000 !important; /* [PC - Color negro para los iconos y textos] */
     font-size: 20px;           /* [PC - Tamaño de fuente de iconos] */
     margin-bottom: 14px;       /* [PC - Margen inferior] */
     position: relative;        /* [PC - Posición relativa] */
-    left: 15px !important;                 /* [PC - Posición X] */
+    left: 50px !important;                 /* [PC - Posición X] */
     top: 0px;                  /* [PC - Posición Y] */
 }
 
 .pb-meta-icons svg {
-    width: 20px !important;    /* [PC - Ancho de iconos SVG] */
-    height: 20px !important;   /* [PC - Alto de iconos SVG] */
+    width: 25px !important;    /* [PC - Ancho de iconos SVG] */
+    height: 25px !important;   /* [PC - Alto de iconos SVG] */
     position: relative;        /* [PC - Posición relativa del icono SVG] */
-    left: 5px !important;                 /* [PC - Posición X del icono SVG] */
-    top: 2px !important;                  /* [PC - Posición Y del icono SVG] */
+    left: 0px !important;                 /* [PC - Posición X del icono SVG] */
+    top: -2px !important;                  /* [PC - Posición Y del icono SVG] */
+    stroke-width: 1.15px !important; /* [Móvil - Grosor del trazo del icono] */
 }
 
 
@@ -804,10 +825,10 @@ html, body {
         font-size: 17px !important;         /* [Móvil - Tamaño de fuente de iconos] */
         font-weight: 400 !important;        /* [Móvil - Grosor de fuente de iconos] */
         color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
-        gap: 40px !important;               /* [Móvil - Separación entre iconos] */
+        gap: 30px !important;               /* [Móvil - Separación entre iconos] */
         margin-bottom: 0px !important;      /* [Móvil - Margen inferior] */
         position: relative !important;      /* [Móvil - Posición relativa de iconos] */
-        left: 5px !important;               /* [Móvil - Posición X de iconos] */
+        left: 22px !important;               /* [Móvil - Posición X de iconos] */
         top: 0px !important;                /* [Móvil - Posición Y de iconos] */
     }
 
@@ -816,7 +837,722 @@ html, body {
         height: 23px !important;            /* [Móvil - Alto de iconos SVG] */
         vertical-align: middle !important;  /* [Móvil - Alineación vertical] */
         position: relative !important;      /* [Móvil - Posición relativa del icono SVG] */
-        left: 0px !important;               /* [Móvil - Posición X del icono SVG (Modifícalo si necesitas moverlos)] */
-        top: 0px !important;                /* [Móvil - Posición Y del icono SVG (Modifícalo si necesitas subirlos/bajarlos)] */
+        left: -3px !important;               /* [Móvil - Posición X del icono SVG (Modifícalo si necesitas moverlos)] */
+        top: -3px !important;                /* [Móvil - Posición Y del icono SVG (Modifícalo si necesitas subirlos/bajarlos)] */
+        stroke-width: 1.15px !important; /* [Móvil - Grosor del trazo del icono] */
     }
+}/* ========================================== */
+/* CABECERA / LOGO (PC y Móvil)               */
+/* ========================================== */
+.header-banner {
+    width: 100%;
+    background-color: #000000; /* Fondo negro de la cabecera */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* ========================================================================== */
+/* CABECERA / LOGO (PC y Móvil)                                               */
+/* ========================================================================== */
+.header-banner {
+    width: 100%;
+    background-color: #000000; /* [Color de Fondo]: Cambia el color de la franja superior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* ========================================== */
+/* 1. ESTILOS PARA PC                         */
+/* ========================================== */
+.header-banner {
+    padding: 12px 0 35px 0; /* [PC - Altura Superior/Inferior]: Aumenta o reduce el grosor de la franja negra */
+}
+
+.header-logo img {
+    max-height: 16px; /* [PC - Tamaño del Logo]: Cambia este valor para hacer el logo más grande o pequeño */
+    width: auto;
+
+    position: relative; /* Permite mover el logo con top y left */
+    top: 15px;           /* [Mover Arriba/Abajo]: Valores positivos (ej: 5px) bajan el logo; negativos (-5px) lo suben */
+    left: 0px;          /* [Mover Izquierda/Derecha]: Valores positivos (ej: 10px) lo mueven a la derecha; negativos (-10px) a la izquierda */
+}
+
+/* ========================================== */
+/* 2. ESTILOS PARA MÓVIL (Pantallas < 768px)  */
+/* ========================================== */
+@media (max-width: 768px) {
+    .header-banner {
+        padding: 8px 0 20px 0; /* [Móvil - Altura Superior/Inferior]: Grosor de la franja en móviles */
+    }
+
+    .header-logo img {
+        max-height: 15px; /* [Móvil - Tamaño del Logo]: Tamaño adaptado para pantallas pequeñas */
+        width: auto;
+
+        position: relative; /* Permite mover el logo con top y left */
+        top: 14px;           /* [Mover Arriba/Abajo]: Valores positivos (ej: 5px) bajan el logo; negativos (-5px) lo suben */
+        left: 0px;          /* [Mover Izquierda/Derecha]: Valores positivos (ej: 10px) lo mueven a la derecha; negativos (-10px) a la izquierda */
+    }
+}/* ========================================== */
+/* MODO OSCURO Y TRANSICIONES SUAVES          */
+/* ========================================== */
+
+body, 
+.feed-container,
+.post, 
+.photo-bloggy-post {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+    background-image: url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+}
+
+/* Contenedor central con efecto de vidrio polarizado oscuro */
+body.dark-mode .feed-container {
+    background-color: rgba(10, 10, 15, 0.55);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+/* Textos principales, títulos, usuarios y photo bloggy en blanco */
+body.dark-mode .feed-title,
+body.dark-mode .post,
+body.dark-mode .photo-bloggy-post,
+body.dark-mode .post-content,
+body.dark-mode .username,
+body.dark-mode .pb-username,
+body.dark-mode .pb-caption,
+body.dark-mode .pb-meta-icons {
+    color: #ffffff !important;
+}
+
+/* Iconos SVG del Photo Bloggy en blanco */
+body.dark-mode .pb-meta-icons svg {
+    stroke: #ffffff !important;
+}
+
+/* Únicamente fechas y horas en gris */
+body.dark-mode .timestamp,
+body.dark-mode .pb-datetime,
+body.dark-mode .desktop-date,
+body.dark-mode .mobile-date {
+    color: #cccccc !important;
+}/* ========================================== */
+/* INTERRUPTOR DE MODO OSCURO (TOGGLE SWITCH) */
+/* ========================================== */
+
+/* 1. CONTENEDOR GENERAL (Posición en Escritorio) */
+.theme-switch-wrapper {
+    position: absolute;
+    top: 15px;      /* [Mover Arriba/Abajo - Escritorio]: Valores positivos bajan el interruptor */
+    right: 20px;    /* [Mover Izquierda/Derecha - Escritorio]: Valores más altos lo alejan de la derecha */
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Ocultar el checkbox nativo */
+#dark-mode-switch {
+    display: none;
+}
+
+/* 2. LA PISTA DEL INTERRUPTOR (Tamaño y Estilo) */
+.switch-label {
+    background-color: #1a1a1a;
+    width: 60px;    /* [Ancho del interruptor]: Modifícalo si lo quieres más largo o corto */
+    height: 30px;   /* [Alto del interruptor] */
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6px;
+    border: 1px solid #444;
+}
+
+/* 3. ICONOS (Sol y Luna en blanco y negro) */
+.switch-icon {
+    width: 15px;    /* [Tamaño del icono] */
+    height: 15px;
+    transition: color 0.3s ease;
+}
+
+.sun-icon {
+    color: #ffffff;
+}
+
+.moon-icon {
+    color: #777777;
+}
+
+/* 4. EL CÍRCULO QUE SE DESLIZA */
+.switch-label::after {
+    content: '';
+    position: absolute;
+    width: 22px;    /* [Tamaño del círculo deslizante] */
+    height: 22px;
+    border-radius: 50%;
+    left: 4px;
+    top: 3px;
+    background-color: #ffffff;
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), width 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Efecto al presionar (clic sostenido) */
+.switch-label:active::after {
+    width: 27px;
+}
+
+/* 5. ESTADO ACTIVO (Cuando el Modo Oscuro está ENCENDIDO) */
+#dark-mode-switch:checked + .switch-label {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}
+
+#dark-mode-switch:checked + .switch-label::after {
+    transform: translateX(30px); /* Distancia que se desplaza el círculo hacia la derecha */
+    background-color: #111111;
+}
+
+#dark-mode-switch:checked + .switch-label .sun-icon {
+    color: #888888;
+}
+
+#dark-mode-switch:checked + .switch-label .moon-icon {
+    color: #000000;
+}
+
+/* ========================================== */
+/* ADAPTACIÓN PARA MÓVIL (Pantallas pequeñas)  */
+/* ========================================== */
+@media (max-width: 768px) {
+    .theme-switch-wrapper {
+        top: 12px;     /* [Mover Arriba/Abajo - Móvil] */
+        right: 15px;   /* [Mover Izquierda/Derecha - Móvil] */
+    }
+
+    /* Si quieres que el interruptor sea más pequeño en móvil, */
+    /* borra las barras (/* y */) de las líneas de abajo y ajusta los valores: */
+    
+    .switch-label {
+        width: 52px;   /* [Ancho del interruptor en móvil] */
+        height: 26px;  /* [Alto del interruptor en móvil] */
+    }
+    
+    .switch-icon {
+        width: 13px;   /* [Tamaño de los iconos en móvil] */
+        height: 13px;
+    }
+    
+    .switch-label::after {
+        width: 22px;   /* [Tamaño del círculo deslizante en móvil] */
+        height: 22px;
+    }
+    
+    #dark-mode-switch:checked + .switch-label::after {
+        transform: translateX(26px); /* [Distancia de desplazamiento del círculo en móvil] */
+    }
+}/* ========================================== */
+/* BLOQUE MAESTRO CENTRAL (VIDRIO POLARIZADO) */
+/* ========================================== */
+
+body.dark-mode .feed-container {
+    /* Tinte oscuro al 55% para atenuar las estrellas detrás y proteger la lectura */
+    background-color: rgba(24, 24, 24, 0.75); 
+    
+    /* Sin desenfoque (las estrellas se ven nítidas, pero oscurecidas por el polarizado) */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    
+    /* Sin bordes */
+    border: none;
+}/* ========================================== */
+/* ADAPTACIÓN EXCLUSIVA PARA MÓVIL (SIN ENCOGER) */
+/* ========================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Fondo de estrellas activo en el body del móvil */
+    body {
+        background-image: url('fondo.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
+    }
+
+    /* 2. El contenedor mantiene su tamaño original, solo se redondean los bordes */
+    .feed-container {
+        border-radius: 30px !important;    /* Añade los bordes redondeados */
+        overflow: hidden !important;        /* Respeta los bordes en los elementos internos */
+        margin-top: 50px !important;       /* <-- AQUÍ: Sube o baja este número (ej. 20px, 30px) para separarlo del logo */
+    }
+}/* Eliminar el destello azul al tocar cualquier elemento en móviles (global) */
+*, *::before, *::after {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}/* ========================================== */
+/* CURSOR NORMAL (FLECHA) EN TODO EL TEXTO (PC) */
+/* ========================================== */
+body {
+    cursor: default;
+}
+
+/* Asegurar que los campos donde se escribe mantengan el cursor de texto */
+input, textarea {
+    cursor: text;
+}//* ========================================================== */
+/* SECCIÓN DE HISTORIAS - CONTROL TOTAL (PC Y MÓVIL)          */
+/* ========================================================== */
+
+/* --- 1. CONTENEDOR PRINCIPAL (.stories-section) --- */
+.stories-section {
+    /* PC */
+    margin-top: 35px;         /* 🎛️ PC: Margen superior */
+    margin-bottom: 30px !important;      /* 🎛️ PC: Margen inferior */
+    width: 100%;              /* 🎛️ PC: Ancho */
+    margin-left: 0px;         /* 🎛️ PC: Mover BLOQUE ENTERO a los lados (+ der, - izq) */
+    transform: translateX(0px); /* 🎛️ PC: Desplazar BLOQUE ENTERO libremente */
+    overflow: visible;        /* 🎛️ PC: Evita que se corten las tarjetas al subirlas */
+}
+
+/* --- 2. TÍTULO (.stories-title) --- */
+.stories-title {
+    /* PC */
+    font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* 🎛️ PC: Fuente título */
+    font-size: 1.5rem;        /* 🎛️ PC: Tamaño letra título */
+    font-weight: 700;         /* 🎛️ PC: Grosor letra título */
+    margin-bottom: 15px;      /* 🎛️ PC: Espaciado inferior título */
+    color: var(--text-color); /* 🎛️ PC: Color título */
+    margin-left: 0px;         /* 🎛️ PC: Mover TÍTULO a los lados (+ der, - izq) */
+    transform: translateX(0px); /* 🎛️ PC: Desplazar TÍTULO libremente */
+}
+
+/* --- 3. CONTENEDOR DEL CARRUSEL (.stories-container) --- */
+.stories-container {
+    /* PC */
+    display: flex;            /* 🎛️ PC: Tipo de display */
+    gap: 9px;                /* 🎛️ PC: Separación entre tarjetas */
+    overflow-x: auto;         /* 🎛️ PC: Desplazamiento horizontal */
+    scrollbar-width: none;    /* 🎛️ PC: Ocultar barra scroll Firefox */
+    -ms-overflow-style: none; /* 🎛️ PC: Ocultar barra scroll Edge */
+    padding: 10px 4px 40px 10px; /* 🎛️ PC: El tercer valor (60px) abre el espacio por abajo */
+}
+
+.stories-container::-webkit-scrollbar {
+    display: none; /* 🎛️ PC: Ocultar barra scroll Chrome/Safari */
+}
+
+/* --- 4. TARJETA DE HISTORIA (.story-card) --- */
+.story-card {
+    /* PC */
+    position: relative;       /* 🎛️ PC: Posicionamiento necesario para mover con top/left */
+    top: -5px;                 /* 🎛️ PC: Mover TARJETAS Arriba (-) o Abajo (+) */
+    left: -5px;                /* 🎛️ PC: Mover TARJETAS Izquierda (-) o Derecha (+) */
+    flex-shrink: 0;           /* 🎛️ PC: Evitar compresión flex */
+    width: 135px;             /* 🎛️ PC: Ancho tarjeta */
+    height: 195px;            /* 🎛️ PC: Alto tarjeta */
+    border-radius: 25px;      /* 🎛️ PC: Redondeo esquinas */
+    overflow: hidden;         /* 🎛️ PC: Desbordamiento oculto */
+    cursor: pointer;          /* 🎛️ PC: Tipo de cursor */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 🎛️ PC: Sombra tarjeta */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 🎛️ PC: Transición hover */
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 🎛️ PC: Fuente interna */
+}
+
+.story-card:hover {
+    transform: scale(1.03); /* 🎛️ PC: Efecto zoom al pasar ratón */
+}
+
+/* --- 5. IMAGEN DE LA TARJETA (.story-card img) --- */
+.story-card img {
+    /* PC */
+    width: 100%;              /* 🎛️ PC: Ancho imagen */
+    height: 100%;             /* 🎛️ PC: Alto imagen */
+    object-fit: cover;        /* 🎛️ PC: Ajuste de imagen */
+}
+
+/* --- 6. TEXTO FECHA/HORA (.story-timestamp) --- */
+.story-timestamp {
+    /* PC */
+    position: absolute;       /* 🎛️ PC: Posicionamiento */
+    top: 15px;                /* 🎛️ PC: Distancia superior */
+    left: 10px;               /* 🎛️ PC: Distancia izquierda */
+    right: 10px;              /* 🎛️ PC: Distancia derecha */
+    font-size: 0.80rem;       /* 🎛️ PC: Tamaño letra fecha */
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 🎛️ PC: Fuente fecha */
+    color: #afaeae;           /* 🎛️ PC: Color texto fecha */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.822); /* 🎛️ PC: Sombra texto fecha */
+    font-weight: 600;         /* 🎛️ PC: Grosor letra fecha */
+}
+
+
+/* ========================================================== */
+/* 📱 AJUSTES ESPECÍFICOS PARA MÓVIL (CONTROL TOTAL Y ESPEJO)  */
+/* ========================================================== */
+@media (max-width: 768px) {
+    
+    /* --- 1. CONTENEDOR PRINCIPAL (.stories-section) --- */
+    .stories-section {
+        margin-top: 20px;         /* 🎛️ MÓVIL: Margen superior */
+        margin-bottom: 20px;      /* 🎛️ MÓVIL: Margen inferior */
+        width: 100%;              /* 🎛️ MÓVIL: Ancho */
+        margin-left: 0px;         /* 🎛️ MÓVIL: Mover BLOQUE ENTERO a los lados (+ der, - izq) */
+        transform: translateX(0px); /* 🎛️ MÓVIL: Desplazar BLOQUE ENTERO libremente */
+    }
+
+    /* --- 2. TÍTULO (.stories-title) --- */
+    .stories-title {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* 🎛️ MÓVIL: Fuente título */
+        font-size: 1.60rem;       /* 🎛️ MÓVIL: Tamaño letra título */
+        font-weight: 700;         /* 🎛️ MÓVIL: Grosor letra título */
+        margin-bottom: 10px;      /* 🎛️ MÓVIL: Espaciado inferior título */
+        color: var(--text-color); /* 🎛️ MÓVIL: Color título */
+        margin-left: 0px;         /* 🎛️ MÓVIL: Mover TÍTULO a los lados (+ der, - izq) */
+        transform: translateX(0px); /* 🎛️ MÓVIL: Desplazar TÍTULO libremente */
+    }
+
+    /* --- 3. CONTENEDOR DEL CARRUSEL (.stories-container) --- */
+    .stories-container {
+        display: flex;            /* 🎛️ MÓVIL: Tipo de display */
+        gap: 10px;                /* 🎛️ MÓVIL: Separación entre tarjetas */
+        overflow-x: auto;         /* 🎛️ MÓVIL: Desplazamiento horizontal */
+        scrollbar-width: none;    /* 🎛️ MÓVIL: Ocultar barra scroll Firefox */
+        -ms-overflow-style: none; /* 🎛️ MÓVIL: Ocultar barra scroll Edge */
+        padding: 10px 4px;        /* 🎛️ MÓVIL: Padding clave para que el zoom y la sombra no se corten */
+    }
+
+    .stories-container::-webkit-scrollbar {
+        display: none; /* 🎛️ MÓVIL: Ocultar barra scroll Chrome/Safari */
+    }
+
+    /* --- 4. TARJETA DE HISTORIA (.story-card) --- */
+    .story-card {
+        position: relative;       /* 🎛️ MÓVIL: Posicionamiento necesario para mover con top/left */
+        top: 0px;                 /* 🎛️ MÓVIL: Mover TARJETAS Arriba (-) o Abajo (+) */
+        left: 0px;                /* 🎛️ MÓVIL: Mover TARJETAS Izquierda (-) o Derecha (+) */
+        flex-shrink: 0;           /* 🎛️ MÓVIL: Evitar compresión flex */
+        width: 160px;             /* 🎛️ MÓVIL: Ancho tarjeta */
+        height: 240px;            /* 🎛️ MÓVIL: Alto tarjeta */
+        border-radius: 30px;      /* 🎛️ MÓVIL: Redondeo esquinas */
+        overflow: hidden;         /* 🎛️ MÓVIL: Desbordamiento oculto */
+        cursor: pointer;          /* 🎛️ MÓVIL: Tipo de cursor */
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* 🎛️ MÓVIL: Sombra tarjeta */
+        transition: transform 0.2s ease, box-shadow 0.2s ease; /* 🎛️ MÓVIL: Transición hover */
+        font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 🎛️ MÓVIL: Fuente interna */
+    }
+
+    .story-card:hover {
+        transform: scale(1.03); /* 🎛️ MÓVIL: Efecto zoom al pasar ratón */
+    }
+
+    /* --- 5. IMAGEN DE LA TARJETA (.story-card img) --- */
+    .story-card img {
+        width: 100%;              /* 🎛️ MÓVIL: Ancho imagen */
+        height: 100%;             /* 🎛️ MÓVIL: Alto imagen */
+        object-fit: cover;        /* 🎛️ MÓVIL: Ajuste de imagen */
+    }
+
+    /* --- 6. TEXTO FECHA/HORA (.story-timestamp) --- */
+    .story-timestamp {
+        position: absolute;       /* 🎛️ MÓVIL: Posicionamiento */
+        top: 15px;                /* 🎛️ MÓVIL: Distancia superior */
+        left: 8px;                /* 🎛️ MÓVIL: Distancia izquierda */
+        right: 8px;               /* 🎛️ MÓVIL: Distancia derecha */
+        font-size: 0.90rem;       /* 🎛️ MÓVIL: Tamaño letra fecha */
+        font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 🎛️ MÓVIL: Fuente fecha */
+        color: #afadad;           /* 🎛️ MÓVIL: Color texto fecha */
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85); /* 🎛️ MÓVIL: Sombra texto fecha */
+        font-weight: 400;         /* 🎛️ MÓVIL: Grosor letra fecha */
+    }
+}/* ========================================================== */
+/* 🖥️ BLOQUE EXCLUSIVO PARA PC: BAJAR FEED MAESTRO            */
+/* ========================================================== */
+@media (min-width: 768px) {
+    .feed-container {
+        margin-top: 65px !important; /* 🎛️ Sube o baja este valor a tu gusto solo para PC */
+    }
+}/* ========================================================== */
+/* 🖥️ UNIFICAR ESPACIADO INTERIOR EN PC (MODO CLARO Y OSCURO) */
+/* ========================================================== */
+@media (min-width: 768px) {
+    .feed-container {
+        padding-top: 20px !important; /* 🎛️ Espacio superior fijo por dentro para los dos modos */
+    }
+    .feed-container > *:first-child {
+        margin-top: 0 !important; /* Evita que el primer elemento de dentro se despegue */
+    }
+}/* ========================================================== */
+/* 🏷️ TÍTULO: "POSTS RECIENTES" (ADAPTADO A MODO OSCURO)      */
+/* ========================================================== */
+
+/* Estilo base para MÓVIL (Modo Claro) */
+.posts-heading {
+    font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 35px;  /* Tamaño compacto para móvil */
+    margin-top: 25px; 
+    margin-bottom: 17px;
+    padding-left: 0; 
+    color: #000000;   /* Color negro para el modo claro */
+}
+
+/* Color para el MODO OSCURO */
+body.dark-mode .posts-heading {
+    color: #ffffff;   /* Color blanco para el modo oscuro */
+}
+
+/* Estilo exclusivo para PC */
+@media (min-width: 768px) {
+    .posts-heading {
+        font-size: 30px;  /* Tamaño más grande en escritorio */
+        margin-top: -10px; 
+        margin-bottom: 20px;
+    }
+}/* ========================================================== */
+/* MODAL DE HISTORIAS - DISEÑO LIMPIO Y FÁCIL DE EDITAR     */
+/* ========================================================== */
+
+.story-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 25, 25, 0.705); /* <-- 1. TRANSPARENCIA DEL FONDO GENERAL (Cambia el 0.95) */
+    justify-content: center;
+    align-items: center;
+}
+
+.story-modal.active {
+    display: flex;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.story-modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #0c0c0cde; /* <-- 2. COLOR NEGRO DEL CONTENEDOR */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px; /* <-- AÑADE ESTO AQUÍ (cambia los píxeles a tu gusto) */
+}
+
+/* TAMAÑO Y FORMA EN PC (En móvil ocupa el 100% de la pantalla) */
+@media (min-width: 768px) {
+    .story-modal-content {
+        width: 380px;
+        height: 700px;
+        border-radius: 24px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9); /* <-- TRANSPARENCIA DE LA SOMBRA EN PC */
+    }
+}
+
+/* POSICIÓN DE LA CABECERA (Foto de perfil y botón de pausa juntos) */
+.story-top-header {
+    position: absolute;
+    top: 25px;  /* <-- 3. POSICIÓN VERTICAL DESDE ARRIBA */
+    left: 15px; /* <-- POSICIÓN DESDE LA IZQUIERDA */
+    right: 15px;/* <-- POSICIÓN DESDE LA DERECHA */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 25;
+}
+
+.story-author-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre la foto y el botón de pausa */
+}
+
+/* FOTO DE PERFIL */
+.story-profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* <-- TRANSPARENCIA DEL BORDE DE LA FOTO */
+}
+
+/* BOTÓN DE PAUSA */
+.story-pause-btn-top {
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.15); /* <-- 4. TRANSPARENCIA DEL BOTÓN DE PAUSA (Cambia el 0.15) */
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CRUZ DE CERRAR */
+.story-close {
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* BARRAS DE PROGRESO SUPERIORES */
+.story-progress-bars {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    gap: 4px;
+    z-index: 25;
+}
+
+.story-progress-bar {
+    flex: 1;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2); /* <-- TRANSPARENCIA DE LA BARRA INACTIVA */
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.story-progress-bar .fill {
+    width: 0%;
+    height: 100%;
+    background: #ffffff;
+}
+
+@keyframes fillProgress {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+
+.story-progress-bar.active .fill {
+    animation: fillProgress 5s linear forwards;
+}
+
+.story-progress-bar.active.paused .fill {
+    animation-play-state: paused;
+}
+
+.story-progress-bar.completed .fill {
+    width: 100%;
+}
+
+/* ZONAS TÁCTILES PARA CAMBIAR DE HISTORIA */
+.story-nav-left, .story-nav-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+}
+.story-nav-left { left: 0; }
+.story-nav-right { right: 0; }
+
+/* IMAGEN DE LA HISTORIA */
+.story-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.story-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Evita que la imagen se corte y mantiene su proporción */
+}
+
+/* ETIQUETA DE TIEMPO (FECHA) INFERIOR */
+.story-timestamp-modal {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;                  /* Lo empuja al 50% del ancho */
+    transform: translateX(-50%); /* Lo retrocede exactamente la mitad de su propio ancho para centrarlo */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;           /* <-- AÑADE ESTA LÍNEA */
+    background: rgba(0, 0, 0, 0); /* <-- TRANSPARENCIA DEL FONDO DE LA FECHA */
+    padding: 5px 12px;
+    border-radius: 20px;
+    z-index: 20;
+}/* ========================================================== */
+/* 🎬 ANIMACIÓN SUAVE DE APERTURA Y CIERRE                    */
+/* ========================================================== */
+
+.story-modal {
+    display: flex !important; /* Siempre flex para permitir la transición */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    
+    /* Estados iniciales (Cerrado / Invisible) */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.story-modal.active {
+    /* Estados al abrir (Visible) */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Efecto de zoom suave en el contenido al abrir/cerrar */
+.story-modal-content {
+    transform: scale(0.92); /* Empieza un poquito más pequeño */
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-modal.active .story-modal-content {
+    transform: scale(1); /* Se expande a su tamaño real con suavidad */
 }
