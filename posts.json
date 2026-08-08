@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Cuando nos estábamos conociendo hace un año.",
+    "imagenes": [
+      "images/post_img_1786213626144_new_0.png"
+    ],
+    "fechaLarga": "mié, 21 de febrero de 2024",
+    "fechaCortas": "mié. 21 feb 2024",
+    "hora": "3:41 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-02-21T14:41:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Aun, orgulloso por el aniversario de Motionless el cual llevaba esperando mucho tiempo, por no decir exactamente un año, ahora tengo que agradecer mas que festejar, agradecer por el orden que le estoy dando a las cosas. Solo quiero deciros que hago esto por el crecimiento enriquecedor, sin embargo, en lo mas personal he tenido algunos inconvenientes, sobre todo puntuales que no han intervenido para nada en mi camino para con lo que tengo pensado llevar a cabo, simplemente se ha hecho puntillas con el tiempo, cosa que para mi es solo un imprevisto por mas proyectado que estuviese.",
     "imagenes": [],
     "fechaLarga": "mié, 5 de febrero de 2025",
