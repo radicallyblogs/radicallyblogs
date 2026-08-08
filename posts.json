@@ -1,6 +1,21 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Nada mejor como salir por la mañana y hacer fotos!",
+    "imagenes": [
+      "images/post_img_1786211262323_new_0.jpg",
+      "images/post_img_1786211264042_new_1.jpg",
+      "images/post_img_1786211265575_new_2.jpg",
+      "images/post_img_1786211267157_new_3.jpg"
+    ],
+    "fechaLarga": "mié, 4 de diciembre de 2024",
+    "fechaCortas": "mié. 4 dic 2024",
+    "hora": "3:50 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-12-04T14:50:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Yo no soy un tio chill de cojones, yo soy un tarado de las narices",
     "imagenes": [],
     "fechaLarga": "mar, 3 de diciembre de 2024",
