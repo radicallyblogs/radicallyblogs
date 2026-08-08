@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Ya sabes que yo seria ese loco al que le daría igual no salir ileso",
+    "imagenes": [],
+    "fechaLarga": "mié, 21 de febrero de 2024",
+    "fechaCortas": "mié. 21 feb 2024",
+    "hora": "9:35 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-02-21T20:35:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Llevo todo el día escuchando metal. Necesito una ducha.",
     "imagenes": [],
     "fechaLarga": "mié, 21 de febrero de 2024",
