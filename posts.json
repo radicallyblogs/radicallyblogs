@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Una pagina en blanco y una botella de vodka, asi se rota el acerdor mas voluble.",
+    "imagenes": [],
+    "fechaLarga": "dom, 3 de marzo de 2024",
+    "fechaCortas": "dom. 3 mar 2024",
+    "hora": "12:20 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-03-03T11:20:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Hoy es viernes de negro.",
     "imagenes": [],
     "fechaLarga": "vie, 1 de marzo de 2024",
