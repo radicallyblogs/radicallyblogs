@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "No bajes la meta, aumenta el esfuerzo.",
+    "imagenes": [],
+    "fechaLarga": "lun, 19 de agosto de 2024",
+    "fechaCortas": "lun. 19 ago 2024",
+    "hora": "9:38 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-08-19T19:38:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "¿Habéis notado alguna vez como el silencio se vuelve tan fuerte? aqui grita, trate de ahogarlo golpeando las paredes creando mi propio ritmo, pero el silencio se traga el sonido, lo devora como si no fuera nada.",
     "imagenes": [],
     "fechaLarga": "dom, 18 de agosto de 2024",
