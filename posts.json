@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Estoy encabezando la carrera bien fenomeno",
+    "imagenes": [],
+    "fechaLarga": "sáb, 15 de marzo de 2025",
+    "fechaCortas": "sáb. 15 mar 2025",
+    "hora": "12:35 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-03-14T23:35:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Cuando nos estábamos conociendo hace un año",
     "imagenes": [
       "images/post_img_1786216436105_new_0.png"
