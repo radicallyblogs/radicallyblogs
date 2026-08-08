@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "Vaya glu glu",
+    "imagenes": [
+      "images/post_img_1786232198644_0.jpg"
+    ],
+    "fechaLarga": "dom, 9 de agosto de 2026",
+    "fechaCortas": "dom. 9 ago 2026",
+    "hora": "1:34 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-08T23:34:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "En cuanto al proyecto ELTQ Radio ya tengo planeado un primer programa, pero no se trata de la fecha. Es como sentirte ilusionado por algo que en el fondo sabes que te aterra, y tomármelo con calma esta siéndome de ayuda personalmente.",
     "imagenes": [],
