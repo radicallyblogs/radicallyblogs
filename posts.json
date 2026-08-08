@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "Encuentra el mensaje oculto.",
+    "imagenes": [
+      "images/post_img_1786218401228_0.jpg"
+    ],
+    "fechaLarga": "mar, 29 de julio de 2025",
+    "fechaCortas": "mar. 29 jul 2025",
+    "hora": "11:58 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-07-29T21:58:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Me esta bajando una filtración como la regla",
     "imagenes": [],
