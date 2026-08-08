@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "No se vosotros, pero la suspensión del EPO no es lo que pensáis.",
+    "imagenes": [],
+    "fechaLarga": "sáb, 29 de noviembre de 2025",
+    "fechaCortas": "sáb. 29 nov 2025",
+    "hora": "10:41 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-11-29T21:41:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Mis problemas los soluciono solo a mi manera, y solo así se han solucionado. De ninguna otra.",
     "imagenes": [],
     "fechaLarga": "sáb, 29 de noviembre de 2025",
