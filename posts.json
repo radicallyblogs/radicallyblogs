@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy volvi a jugar nun massacre y por poco me cago encima, pero no pasó por que me dio tiempo a llegar al baño.",
+    "imagenes": [
+      "images/post_img_1786203741779_new_0.png"
+    ],
+    "fechaLarga": "dom, 25 de febrero de 2024",
+    "fechaCortas": "dom. 25 feb 2024",
+    "hora": "8:19 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-02-25T19:19:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Blogueros masters de internet, aqui estamos <3",
     "imagenes": [],
     "fechaLarga": "dom, 25 de febrero de 2024",
