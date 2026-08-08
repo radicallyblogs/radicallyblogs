@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy es viernes 13, y se supone que es un mal presagio, pero a mi me ha ido bastante bien 🤷🏼‍♂️",
+    "imagenes": [],
+    "fechaLarga": "vie, 13 de diciembre de 2024",
+    "fechaCortas": "vie. 13 dic 2024",
+    "hora": "8:51 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-12-13T19:51:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "De un momento a otro me levante agolpado por las ideas, y cuando eso ocurrió, pude darme cuenta de que cayendo tambien se puede ascender. Un vacio en el que no había oscuridad, un vacio en el que se veían reflejos de soles y parajes irídicos",
     "imagenes": [],
     "fechaLarga": "mié, 11 de diciembre de 2024",
