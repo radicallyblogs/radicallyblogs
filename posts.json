@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "29.5",
+    "imagenes": [
+      "images/post_img_1786216830230_new_0.png"
+    ],
+    "fechaLarga": "sáb, 10 de mayo de 2025",
+    "fechaCortas": "sáb. 10 may 2025",
+    "hora": "1:03 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-05-09T23:03:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "¡Esta noche voy a anunciar algo muy grande!",
     "imagenes": [],
     "fechaLarga": "vie, 9 de mayo de 2025",
