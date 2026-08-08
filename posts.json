@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Comienzo el año con la delantera asegurada.",
+    "imagenes": [],
+    "fechaLarga": "jue, 1 de enero de 2026",
+    "fechaCortas": "jue. 1 ene 2026",
+    "hora": "4:35 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-01-01T03:35:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "TE PERDÍ PARA NAVIDAD YA ESTÁ DISPONIBLE EN TODO EL MUNDO!\nhttps://lonermorejourney.wixsite.com/historys/te-perdí-para-navidad",
     "imagenes": [
       "images/post_img_1786226637760_new_0.png",
