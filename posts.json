@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Solo un mes y un día me costo para volver a recuperar el blog ¿Ahora tengo dos?",
+    "imagenes": [],
+    "fechaLarga": "mié, 14 de agosto de 2024",
+    "fechaCortas": "mié. 14 ago 2024",
+    "hora": "3:57 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-08-14T13:57:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Subir dos relatos y un tráiler en menos de 3 días es salvaje.",
     "imagenes": [],
     "fechaLarga": "sáb, 13 de julio de 2024",
