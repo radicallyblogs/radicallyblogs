@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "No estoy para mi.",
+    "imagenes": [],
+    "fechaLarga": "mar, 7 de julio de 2026",
+    "fechaCortas": "mar. 7 jul 2026",
+    "hora": "2:17 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-07-07T12:17:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Otra noche más...",
     "imagenes": [],
     "fechaLarga": "vie, 3 de julio de 2026",
