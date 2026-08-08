@@ -784,7 +784,7 @@
     "fechaLarga": "jue, 25 de diciembre de 2025",
     "fechaCortas": "jue. 25 dic 2025",
     "hora": "12:15 a. m.",
-    "fijado": false,
+    "fijado": true,
     "fechaCreacion": "2025-12-24T23:15:00.000Z"
   },
   {
