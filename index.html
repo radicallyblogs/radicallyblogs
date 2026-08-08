@@ -114,11 +114,14 @@
 
         function procesarTextoConEnlaces(texto) {
             if (!texto) return '';
+            
+            // Si el texto ya contiene etiquetas HTML de enlaces, lo devolvemos tal cual para evitar roturas
+            if (texto.includes('<a href=')) {
+                return texto;
+            }
+
             const urlRegex = /(https?:\/\/[^\s<]+)/g;
             return texto.replace(urlRegex, (url) => {
-                if (texto.includes(`href="${url}"`) || texto.includes(`href='${url}'`)) {
-                    return url;
-                }
                 return `<a href="${url}" target="_blank">${url}</a>`;
             });
         }
