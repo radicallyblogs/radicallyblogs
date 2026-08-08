@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Esta si que tiene vistas 😪🎄",
+    "imagenes": [
+      "images/post_img_1786211324832_new_0.jpg"
+    ],
+    "fechaLarga": "dom, 8 de diciembre de 2024",
+    "fechaCortas": "dom. 8 dic 2024",
+    "hora": "8:28 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-12-08T19:28:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Nada mejor como salir por la mañana y hacer fotos!",
     "imagenes": [
       "images/post_img_1786211262323_new_0.jpg",
