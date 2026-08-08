@@ -1,6 +1,19 @@
 [
   {
     "tipo": "clasico",
+    "texto": "TE PERDÍ PARA NAVIDAD YA ESTA DISPONIBLE EN TODO EL MUNDO!\nhttps://lonermorejourney.wixsite.com/historys/te-perdí-para-navidad",
+    "imagenes": [
+      "images/post_img_1786226637760_new_0.png",
+      "images/post_img_1786226645526_new_1.jpg"
+    ],
+    "fechaLarga": "jue, 1 de enero de 2026",
+    "fechaCortas": "jue. 1 ene 2026",
+    "hora": "1:54 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-01-01T00:54:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "¡¡¡FELIZ AÑO A TODOS!!!!",
     "imagenes": [],
     "fechaLarga": "jue, 1 de enero de 2026",
