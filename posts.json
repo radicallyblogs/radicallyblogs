@@ -1,18 +1,6 @@
 [
   {
     "tipo": "clasico",
-    "texto": "Algo de esto.",
-    "imagenes": [
-      "images/post_img_1786215691081_new_0.png"
-    ],
-    "fechaLarga": "sáb, 8 de agosto de 2026",
-    "fechaCortas": "sáb. 8 ago 2026",
-    "hora": "9:01 p. m.",
-    "fijado": false,
-    "fechaCreacion": "2026-08-08T19:01:31.080Z"
-  },
-  {
-    "tipo": "clasico",
     "texto": "Las cosas pueden estar cada vez mas cerca. o cada vez mas lejos.",
     "imagenes": [],
     "fechaLarga": "mié, 26 de febrero de 2025",
