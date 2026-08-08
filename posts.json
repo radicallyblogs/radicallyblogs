@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "FALTAN SOLO 4 DÍAS!!!",
+    "imagenes": [],
+    "fechaLarga": "mar, 5 de mayo de 2026",
+    "fechaCortas": "mar. 5 may 2026",
+    "hora": "11:30 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-05-05T09:30:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Ahora mirando por la ventana quiero rutitas pero sin lo malo.",
     "imagenes": [],
     "fechaLarga": "dom, 3 de mayo de 2026",
