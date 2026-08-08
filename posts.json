@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Por que bloguear ahora es un rollo para mi, esta claro que alguien me falta, digoo, algo.",
+    "imagenes": [],
+    "fechaLarga": "jue, 11 de abril de 2024",
+    "fechaCortas": "jue. 11 abr 2024",
+    "hora": "6:15 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-04-11T16:15:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "El tiempo pasa muy rapido, pero cuando se trata de esperar, te cagas en la puta.",
     "imagenes": [],
     "fechaLarga": "dom, 24 de marzo de 2024",
