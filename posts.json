@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "¿Se puede saber a que puta hora vamos a comer?",
+    "imagenes": [],
+    "fechaLarga": "dom, 20 de julio de 2025",
+    "fechaCortas": "dom. 20 jul 2025",
+    "hora": "3:16 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-07-20T13:16:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Mi cabeza me pide una vida de excesos, mas mi corazón solo necesita compresión.",
     "imagenes": [],
     "fechaLarga": "sáb, 19 de julio de 2025",
