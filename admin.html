@@ -6,8 +6,10 @@
     <title>RADICALLYBLOGS - Panel de Administración</title>
     <style>
         *, *::before, *::after {
-            box-sizing: border-box;
-        }
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
@@ -62,112 +64,100 @@
             padding-bottom: 10px;
         }
 
-        /* Selector de Tipo de Publicación */
-        .type-selector {
+        /* Cabecera de Perfil */
+        .admin-profile-header {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
         }
-        .btn-tab {
-            flex: 1;
-            padding: 12px;
-            border: 1px solid #000000;
-            background: #ffffff;
-            color: #000000;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 14px;
+        .profile-pic-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            overflow: hidden;
             cursor: pointer;
-            transition: all 0.2s ease;
+            border: 3px solid #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .btn-tab.active {
-            background: #000000;
-            color: #ffffff;
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.2s ease;
+        }
+        .profile-pic-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            text-align: center;
+            padding: 4px;
+        }
+        .profile-pic-container:hover .profile-pic-overlay {
+            opacity: 1;
+        }
+        .profile-pic-container:hover img {
+            filter: brightness(0.7);
         }
 
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        label {
-            display: block;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        textarea, input[type="password"], input[type="text"], input[type="file"] {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 16px;
-            font-family: inherit;
-            transition: border-color 0.2s;
-        }
-        textarea {
-            height: 140px;
-            resize: vertical;
-        }
-        input[type="file"] {
-            background: #fafafa;
-            cursor: pointer;
-        }
-        textarea:focus, input[type="password"]:focus, input[type="text"]:focus {
-            outline: none;
-            border-color: #000000;
-        }
-        .auto-info {
-            background: #f9f9f9;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 14px;
-            color: #555;
-            border: 1px solid #eee;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .auto-info span {
-            font-weight: bold;
-            color: #000;
-        }
-        .btn-publish, .btn-login, .btn-action {
-            background-color: #000000;
-            color: #ffffff;
+        .profile-info h1 {
+            margin: 0;
+            font-size: 22px;
             border: none;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            width: 100%;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-            margin-top: 10px;
+            padding: 0;
         }
-        .btn-publish:hover, .btn-login:hover, .btn-action:hover {
-            background-color: #212121;
-        }
-        .btn-cancel {
-            background-color: #e0e0e0;
-            color: #000;
-            display: none;
-        }
-        .error-msg {
-            color: red;
-            font-size: 13px;
-            margin-top: 12px;
-            display: none;
-        }
-        .token-hint {
-            font-size: 12px;
+        .profile-info h2 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
             color: #666;
-            margin-top: 6px;
+            font-weight: 600;
         }
 
-        /* Lista de gestión de posts */
+        /* Lista de Gestión y Filtro */
         .posts-manager {
             text-align: left;
         }
+        .admin-filter-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .admin-filter-input:focus {
+            border-color: #000000;
+        }
+
+        #posts-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 4px;
+            margin-bottom: 15px;
+        }
+        #posts-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        #posts-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
         .post-item-admin {
             background: #fafafa;
             border: 1px solid #eee;
@@ -190,40 +180,338 @@
         .post-meta-admin {
             font-size: 12px;
             color: #777;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
         .post-actions {
             display: flex;
             gap: 8px;
+            margin-top: 4px;
         }
         .btn-edit {
-            background-color: #2b6cb0;
-            color: #fff;
+            background-color: #000000;
+            color: #ffffff;
             border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
+            padding: 8px 14px;
+            border-radius: 8px;
             font-size: 13px;
+            font-weight: 600;
             cursor: pointer;
+        }
+        .btn-edit:hover {
+            background-color: #333333;
+        }
+        .btn-pin {
+            background-color: #f1f1f1;
+            color: #000000;
+            border: 1px solid #ccc;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-pin:hover {
+            background-color: #e2e2e2;
         }
         .btn-delete {
-            background-color: #c53030;
-            color: #fff;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 8px 14px;
+            border-radius: 8px;
             font-size: 13px;
+            font-weight: 600;
             cursor: pointer;
         }
-
+        .btn-delete:hover {
+            background-color: #f1f1f1;
+        }
         .badge-type {
-            font-weight: bold;
+            font-weight: 700;
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 11px;
-            margin-left: 5px;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: 1px solid #000;
+            background: #000;
+            color: #fff;
         }
-        .badge-photo {
-            background: #0284c7;
-            color: white;
+        .badge-pinned {
+            background: #ffcc00;
+            color: #000;
+            border-color: #cc9900;
+        }
+        .admin-thumb-container {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+        .admin-thumb {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        /* Modal / Formulario Oculto con Animación Suave */
+        .form-modal-overlay {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .form-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .form-modal-content {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: left;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .form-modal-overlay.active .form-modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .label-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .label-header-row label {
+            margin-bottom: 0;
+        }
+        .btn-link-helper {
+            background: #f1f1f1;
+            border: 1px solid #ccc;
+            color: #000;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-link-helper:hover {
+            background: #e2e2e2;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        textarea, input[type="password"], input[type="text"], input[type="file"], input[type="datetime-local"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            background: #fff;
+        }
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        input[type="file"] {
+            background: #fafafa;
+            cursor: pointer;
+        }
+        textarea:focus, input[type="password"]:focus, input[type="text"]:focus, input[type="datetime-local"]:focus {
+            outline: none;
+            border-color: #000000;
+        }
+        .auto-info {
+            background: #f9f9f9;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #555;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        .auto-info span {
+            font-weight: bold;
+            color: #000;
+        }
+        .btn-publish, .btn-login, .btn-action {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+        .btn-publish:hover, .btn-login:hover, .btn-action:hover {
+            background-color: #212121;
+        }
+        .btn-cancel {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+        .token-hint {
+            font-size: 12px;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        /* Botón flotante "+" con menú desplegable hacia arriba */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+        .fab-btn {
+            width: 60px;
+            height: 60px;
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 300;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+            border: none;
+            transition: transform 0.2s ease, background-color 0.2s;
+            user-select: none;
+        }
+        .fab-btn:hover {
+            background-color: #222222;
+            transform: scale(1.05);
+        }
+        .fab-menu {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            border-radius: 14px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fab-container.active .fab-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .fab-option {
+            background: transparent;
+            border: none;
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #000000;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .fab-option:hover {
+            background: #f4f4f4;
+        }
+
+        /* Contenedores de miniaturas y reemplazo */
+        .preview-thumb-container, .existing-thumb-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .thumb-wrapper {
+            position: relative;
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 6px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .preview-thumb, .existing-thumb {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .thumb-actions {
+            display: flex;
+            gap: 4px;
+            width: 100%;
+        }
+        .thumb-btn-action {
+            flex: 1;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 10px;
+            padding: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+        .thumb-btn-action:hover {
+            background: #333;
+        }
+        .thumb-btn-delete {
+            background: #fff;
+            color: #000;
+            border: 1px solid #000;
+        }
+        .thumb-btn-delete:hover {
+            background: #f1f1f1;
         }
     </style>
 </head>
@@ -242,51 +530,91 @@
             <div class="token-hint">Se guardará en tu navegador de forma segura.</div>
         </div>
         <button class="btn-login" onclick="verificarPassword()">Entrar</button>
-        <div class="error-msg" id="errorMsg">Contraseña incorrecta. Inténtalo de nuevo.</div>
+        <div class="error-msg" id="errorMsg" style="color: red; font-size: 13px; margin-top: 12px; display: none;">Contraseña incorrecta. Inténtalo de nuevo.</div>
     </div>
 
-    <!-- Panel de Administración y Gestor -->
+    <!-- Panel de Administración -->
     <div class="main-wrapper admin-container" id="adminContainer">
         
-        <!-- Formulario de Crear / Editar -->
+        <!-- Tarjeta de Perfil -->
         <div class="card-style">
-            <h1 id="form-title">Nueva Publicación</h1>
-
-            <!-- Pestañas para elegir el tipo de post -->
-            <div class="type-selector">
-                <button type="button" class="btn-tab active" id="tab-clasico" onclick="seleccionarTipoPost('clasico')">Bloggy Clásico</button>
-                <button type="button" class="btn-tab" id="tab-photo" onclick="seleccionarTipoPost('photo_bloggy')">📷 Photo Bloggy</button>
+            <div class="admin-profile-header">
+                <div class="profile-pic-container" onclick="document.getElementById('avatarFileInput').click()" title="Cambiar foto de perfil">
+                    <img src="avatar.jpeg" id="avatarImage" alt="Perfil">
+                    <div class="profile-pic-overlay">Cambiar foto</div>
+                </div>
+                <input type="file" id="avatarFileInput" accept="image/*" style="display: none;" onchange="subirNuevoAvatar(event)">
+                <div class="profile-info">
+                    <h2>Bienvenido de nuevo,</h2>
+                    <h1>felipeortegareyes</h1>
+                </div>
             </div>
+        </div>
+
+        <!-- Lista de Gestión de Publicaciones con Filtro y Scroll -->
+        <div class="card-style posts-manager">
+            <h1>Gestionar Publicaciones Existentes</h1>
+            <input type="text" id="adminFilterInput" class="admin-filter-input" placeholder="Filtrar por texto, fecha o tipo..." oninput="filtrarPostsAdmin()">
+            <div id="posts-container">
+                <p style="color: #666; font-size: 14px; text-align: center;">Cargando publicaciones...</p>
+            </div>
+            <button class="btn-action" onclick="cerrarSesion()" style="background-color: #f1f1f1; color: #000; font-size: 14px; padding: 10px; margin-top: 10px;">Cerrar Sesión / Cambiar Token</button>
+        </div>
+
+    </div>
+
+    <!-- Botón Flotante con Desplegable hacia arriba -->
+    <div class="fab-container" id="fabContainer" style="display: none;">
+        <div class="fab-menu" id="fabMenu">
+            <button class="fab-option" onclick="abrirCreacion('clasico')">Bloggy</button>
+            <button class="fab-option" onclick="abrirCreacion('photo_bloggy')">Photo Bloggy</button>
+            <button class="fab-option" onclick="abrirCreacion('story')">Historia</button>
+        </div>
+        <button class="fab-btn" onclick="toggleFabMenu()">+</button>
+    </div>
+
+    <!-- Modal Formulario de Crear / Editar Publicación con Animación -->
+    <div class="form-modal-overlay" id="formModalOverlay">
+        <div class="form-modal-content">
+            <h1 id="form-title">Nueva Publicación</h1>
             
-            <div class="auto-info">
-                📅 Fecha y hora de publicación: <br>
+            <div class="auto-info" id="infoAutoBox">
+                Fecha y hora de publicación: <br>
                 <span id="live-datetime">Calculando...</span>
             </div>
 
-            <div class="form-group">
-                <label for="post-content" id="label-content">¿Qué quieres publicar hoy?</label>
-                <textarea id="post-content" placeholder="Escribe tu pensamiento, poema o nota mental aquí..."></textarea>
+            <!-- Selector de Fecha y Hora Personalizada (Solo Creación de Bloggy / Photo Bloggy) -->
+            <div class="form-group" id="customDateGroup" style="display: none;">
+                <label for="customDatetimeInput">Fecha y hora personalizada (Wix / Importación):</label>
+                <input type="datetime-local" id="customDatetimeInput">
+                <div class="token-hint">Modifica esto si estás subiendo un post antiguo de otro blog.</div>
+            </div>
+
+            <div class="form-group" id="contentGroup">
+                <div class="label-header-row">
+                    <label for="post-content" id="label-content">Escribe un mensaje o pensamiento...</label>
+                    <button type="button" class="btn-link-helper" onclick="insertarEnlaceFacil()">🔗 Añadir enlace</button>
+                </div>
+                <textarea id="post-content" placeholder="Escribe un mensaje o pensamiento..."></textarea>
+                <div class="token-hint">También puedes pegar URLs directas y se convertirán en enlaces automáticamente.</div>
+            </div>
+
+            <!-- Gestión de Imágenes Actuales (Edición) -->
+            <div class="form-group" id="existingImagesGroup" style="display: none;">
+                <label id="existingImagesLabel">Imágenes actuales:</label>
+                <div class="existing-thumb-container" id="existingImagesContainer"></div>
             </div>
 
             <div class="form-group">
                 <label for="post-image" id="label-image">Adjuntar imágenes (opcional, puedes seleccionar varias):</label>
-                <input type="file" id="post-image" accept="image/*" multiple>
+                <input type="file" id="post-image" accept="image/*" multiple onchange="manejarSeleccionArchivo(event)">
                 <div class="token-hint" id="hint-image">Sube fotos en alta calidad, se mantendrán intactas.</div>
+                <div class="preview-thumb-container" id="previewContainer"></div>
             </div>
 
             <button class="btn-publish" id="btn-submit" onclick="guardarPublicacion()">Publicar</button>
-            <button class="btn-action btn-cancel" id="btn-cancel" onclick="cancelarEdicion()">Cancelar Edición</button>
-            <button class="btn-action" onclick="cerrarSesion()" style="background-color: #f1f1f1; color: #000; font-size: 14px; padding: 10px; margin-top: 15px;">Cerrar Sesión / Cambiar Token</button>
+            <button class="btn-action btn-cancel" onclick="cerrarModalForm()">Cancelar</button>
         </div>
-
-        <!-- Lista para Gestionar Posts Existentes -->
-        <div class="card-style posts-manager">
-            <h1>Gestionar Publicaciones Existentes</h1>
-            <div id="posts-container">
-                <p style="color: #666; font-size: 14px; text-align: center;">Cargando publicaciones...</p>
-            </div>
-        </div>
-
     </div>
 
     <script>
@@ -294,39 +622,226 @@
         document.getElementById('passwordInput').focus();
 
         let postsCache = [];
+        let storiesCache = [];
         let editandoIndex = null; 
-        let tipoPostActual = 'clasico'; // 'clasico' o 'photo_bloggy'
+        let tipoPostActual = 'clasico';
+        let imagenesEditandoActuales = []; 
+        let reemplazosMap = {}; 
+        let imagenesAEliminarDeGithub = []; 
+        
         const repo = "radicallyblogs/radicallyblogs";
-        const path = "posts.json";
+        const postsPath = "posts.json";
+        const storiesPath = "stories.json";
 
-        function seleccionarTipoPost(tipo) {
+        function toggleFabMenu() {
+            const container = document.getElementById('fabContainer');
+            container.classList.toggle('active');
+        }
+
+        window.onclick = function(event) {
+            const fab = document.getElementById('fabContainer');
+            if (!fab.contains(event.target)) {
+                fab.classList.remove('active');
+            }
+        }
+
+        function insertarEnlaceFacil() {
+            const url = prompt("Introduce la URL del enlace (ej: https://etlqradio.com):");
+            if (!url) return;
+            const texto = prompt("Introduce el texto que quieres que se vea (ej: etlqradio.com):", url);
+            if (!texto) return;
+
+            const textarea = document.getElementById('post-content');
+            const enlaceHtml = `<a href="${url}" target="_blank">${texto}</a>`;
+            
+            const startPos = textarea.selectionStart;
+            const endPos = textarea.selectionEnd;
+            textarea.value = textarea.value.substring(0, startPos) + enlaceHtml + textarea.value.substring(endPos, textarea.value.length);
+            textarea.focus();
+        }
+
+        function abrirCreacion(tipo) {
+            document.getElementById('fabContainer').classList.remove('active');
+            editandoIndex = null;
             tipoPostActual = tipo;
-            const tabClasico = document.getElementById('tab-clasico');
-            const tabPhoto = document.getElementById('tab-photo');
-            const labelContent = document.getElementById('label-content');
-            const postContent = document.getElementById('post-content');
-            const labelImage = document.getElementById('label-image');
-            const postImage = document.getElementById('post-image');
-            const hintImage = document.getElementById('hint-image');
+            imagenesEditandoActuales = [];
+            reemplazosMap = {};
+            imagenesAEliminarDeGithub = [];
 
-            if (tipo === 'photo_bloggy') {
-                tabPhoto.classList.add('active');
-                tabClasico.classList.remove('active');
-                
-                labelContent.innerText = "Mensaje del Photo Bloggy (Opcional):";
-                postContent.placeholder = "Escribe una descripción o comentario opcional para tu foto...";
-                labelImage.innerText = "Seleccionar Imagen (OBLIGATORIA):";
+            const contentGroup = document.getElementById('contentGroup');
+            const titleEl = document.getElementById('form-title');
+            const postContent = document.getElementById('post-content');
+            const postImage = document.getElementById('post-image');
+            const labelImage = document.getElementById('label-image');
+            const hintImage = document.getElementById('hint-image');
+            const customDateGroup = document.getElementById('customDateGroup');
+            const infoAutoBox = document.getElementById('infoAutoBox');
+
+            postContent.value = '';
+            postImage.value = '';
+            document.getElementById('previewContainer').innerHTML = '';
+            document.getElementById('existingImagesGroup').style.display = 'none';
+            document.getElementById('btn-submit').innerText = 'Publicar';
+
+            if (tipo === 'story') {
+                titleEl.innerText = 'Nueva Historia';
+                contentGroup.style.display = 'none';
+                customDateGroup.style.display = 'none';
+                infoAutoBox.style.display = 'block';
+                labelImage.innerText = "Seleccionar Imagen de la Historia (OBLIGATORIA):";
                 postImage.removeAttribute('multiple');
-                hintImage.innerText = "Selecciona 1 sola foto para tu Photo Bloggy.";
+                hintImage.innerText = "Sube la imagen para tu historia (caduca en 24 horas).";
             } else {
-                tabClasico.classList.add('active');
-                tabPhoto.classList.remove('active');
+                // Creación de Bloggy o Photo Bloggy: Mostrar campo de fecha personalizada
+                customDateGroup.style.display = 'block';
+                infoAutoBox.style.display = 'none'; // Se oculta el texto estático para dar protagonismo al input personalizable
                 
-                labelContent.innerText = "¿Qué quieres publicar hoy?";
-                postContent.placeholder = "Escribe tu pensamiento, poema o nota mental aquí...";
-                labelImage.innerText = "Adjuntar imágenes (opcional, puedes seleccionar varias):";
-                postImage.setAttribute('multiple', 'true');
-                hintImage.innerText = "Sube fotos en alta calidad, se mantendrán intactas.";
+                // Prellenar con fecha y hora actual en formato datetime-local
+                const ahora = new Date();
+                const year = ahora.getFullYear();
+                const month = String(ahora.getMonth() + 1).padStart(2, '0');
+                const day = String(ahora.getDate()).padStart(2, '0');
+                const hours = String(ahora.getHours()).padStart(2, '0');
+                const minutes = String(ahora.getMinutes()).padStart(2, '0');
+                document.getElementById('customDatetimeInput').value = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+                if (tipo === 'photo_bloggy') {
+                    titleEl.innerText = 'Nuevo Photo Bloggy';
+                    contentGroup.style.display = 'block';
+                    document.getElementById('label-content').innerText = "Mensaje (Opcional):";
+                    postContent.placeholder = "Escribe una descripción opcional...";
+                    labelImage.innerText = "Seleccionar Imagen (OBLIGATORIA):";
+                    postImage.removeAttribute('multiple');
+                    hintImage.innerText = "Selecciona 1 sola foto para tu Photo Bloggy.";
+                } else {
+                    titleEl.innerText = 'Nuevo Bloggy';
+                    contentGroup.style.display = 'block';
+                    document.getElementById('label-content').innerText = "Escribe un mensaje o pensamiento...";
+                    postContent.placeholder = "Escribe un mensaje o pensamiento...";
+                    labelImage.innerText = "Adjuntar imágenes (opcional, puedes seleccionar varias):";
+                    postImage.setAttribute('multiple', 'true');
+                    hintImage.innerText = "Sube fotos en alta calidad, se mantendrán intactas.";
+                }
+            }
+
+            document.getElementById('formModalOverlay').classList.add('active');
+        }
+
+        function cerrarModalForm() {
+            document.getElementById('formModalOverlay').classList.remove('active');
+        }
+
+        function manejarSeleccionArchivo(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) return;
+
+            if ((tipoPostActual === 'photo_bloggy' || tipoPostActual === 'story') && editandoIndex !== null && imagenesEditandoActuales.length > 0) {
+                imagenesAEliminarDeGithub.push(imagenesEditandoActuales[0]);
+                reemplazosMap[0] = files[0];
+                renderizarImágenesExistentesEdicion();
+                document.getElementById('previewContainer').innerHTML = '';
+                return;
+            }
+
+            const container = document.getElementById('previewContainer');
+            container.innerHTML = '';
+
+            for (let i = 0; i < files.length; i++) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'thumb-wrapper';
+
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'preview-thumb';
+                    wrapper.appendChild(img);
+                    container.appendChild(wrapper);
+                }
+                reader.readAsDataURL(files[i]);
+            }
+        }
+
+        function renderizarImágenesExistentesEdicion() {
+            const group = document.getElementById('existingImagesGroup');
+            const label = document.getElementById('existingImagesLabel');
+            const container = document.getElementById('existingImagesContainer');
+            container.innerHTML = '';
+
+            if (tipoPostActual === 'photo_bloggy' || tipoPostActual === 'story') {
+                label.innerText = "Imagen actual (Solo se puede reemplazar):";
+            } else {
+                label.innerText = "Imágenes actuales (puedes eliminarlas o reemplazarlas individualmente):";
+            }
+
+            if (imagenesEditandoActuales.length > 0) {
+                group.style.display = 'block';
+                imagenesEditandoActuales.forEach((imgPath, index) => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'thumb-wrapper';
+
+                    const img = document.createElement('img');
+                    if (reemplazosMap[index]) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) { img.src = e.target.result; }
+                        reader.readAsDataURL(reemplazosMap[index]);
+                    } else {
+                        img.src = `https://raw.githubusercontent.com/${repo}/main/${imgPath}`;
+                    }
+                    img.className = 'existing-thumb';
+                    wrapper.appendChild(img);
+
+                    const actionsDiv = document.createElement('div');
+                    actionsDiv.className = 'thumb-actions';
+
+                    const btnReplace = document.createElement('button');
+                    btnReplace.type = 'button';
+                    btnReplace.className = 'thumb-btn-action';
+                    btnReplace.innerText = 'Reemplazar';
+                    btnReplace.onclick = function() {
+                        const fileInput = document.createElement('input');
+                        fileInput.type = 'file';
+                        fileInput.accept = 'image/*';
+                        fileInput.onchange = function(e) {
+                            if (e.target.files && e.target.files[0]) {
+                                imagenesAEliminarDeGithub.push(imagenesEditandoActuales[index]);
+                                reemplazosMap[index] = e.target.files[0];
+                                renderizarImágenesExistentesEdicion();
+                            }
+                        };
+                        fileInput.click();
+                    };
+                    actionsDiv.appendChild(btnReplace);
+
+                    if (tipoPostActual !== 'photo_bloggy' && tipoPostActual !== 'story') {
+                        const btnDel = document.createElement('button');
+                        btnDel.type = 'button';
+                        btnDel.className = 'thumb-btn-action thumb-btn-delete';
+                        btnDel.innerText = 'Eliminar';
+                        btnDel.onclick = function() {
+                            imagenesAEliminarDeGithub.push(imagenesEditandoActuales[index]);
+                            imagenesEditandoActuales.splice(index, 1);
+                            delete reemplazosMap[index];
+                            let nuevoMapa = {};
+                            Object.keys(reemplazosMap).forEach(key => {
+                                let k = parseInt(key);
+                                if (k > index) {
+                                    nuevoMapa[k - 1] = reemplazosMap[k];
+                                } else if (k < index) {
+                                    nuevoMapa[k] = reemplazosMap[k];
+                                }
+                            });
+                            reemplazosMap = nuevoMapa;
+                            renderizarImágenesExistentesEdicion();
+                        };
+                        actionsDiv.appendChild(btnDel);
+                    }
+
+                    wrapper.appendChild(actionsDiv);
+                    container.appendChild(wrapper);
+                });
+            } else {
+                group.style.display = 'none';
             }
         }
 
@@ -350,7 +865,58 @@
             if (savedToken) {
                 document.getElementById('tokenInput').value = savedToken;
             }
+            const avatarImg = document.getElementById('avatarImage');
+            if(avatarImg) {
+                avatarImg.src = "avatar.jpeg?t=" + new Date().getTime();
+            }
         };
+
+        async function subirNuevoAvatar(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('avatarImage').src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+
+            const token = localStorage.getItem('gh_blog_token');
+            if (!token) {
+                alert('Falta el token de GitHub.');
+                return;
+            }
+
+            try {
+                let sha = null;
+                const checkRes = await fetch(`https://api.github.com/repos/${repo}/contents/avatar.jpeg`, {
+                    headers: { "Authorization": `token ${token}` }
+                });
+                if (checkRes.ok) {
+                    const checkData = await checkRes.json();
+                    sha = checkData.sha;
+                }
+
+                const base64Image = await fileToBase64(file);
+                const bodyData = { message: "Actualizar foto de perfil", content: base64Image };
+                if (sha) bodyData.sha = sha;
+
+                const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/avatar.jpeg`, {
+                    method: "PUT",
+                    headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                    body: JSON.stringify(bodyData)
+                });
+
+                if (putRes.ok) {
+                    alert("¡Foto de perfil actualizada con éxito!");
+                } else {
+                    alert("GitHub ha rechazado la foto.");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Error de conexión al subir la foto.");
+            }
+        }
 
         function verificarPassword() {
             const pass = document.getElementById('passwordInput').value;
@@ -362,10 +928,9 @@
                     return;
                 }
                 localStorage.setItem('gh_blog_token', tokenVal);
-
                 document.getElementById('loginScreen').style.display = 'none';
                 document.body.classList.remove('login-active');
-                actualizarFechaHora();
+                document.getElementById('fabContainer').style.display = 'block';
                 cargarPostsGitHub();
             } else {
                 const errorMsg = document.getElementById('errorMsg');
@@ -385,12 +950,11 @@
             }
         });
 
-        function actualizarFechaHora() {
-            const ahora = new Date();
-            const opcionesFecha = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
-            let fechaStr = ahora.toLocaleDateString('es-ES', opcionesFecha);
-            let horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
-            document.getElementById('live-datetime').innerText = `${fechaStr} • ${horaStr}`;
+        function formatearDatosFecha(dateObj) {
+            const fechaLarga = dateObj.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
+            const fechaCortas = dateObj.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+            const hora = dateObj.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
+            return { fechaLarga, fechaCortas, hora };
         }
 
         async function cargarPostsGitHub() {
@@ -398,20 +962,26 @@
             const container = document.getElementById('posts-container');
 
             try {
-                const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                // Cargar posts normales
+                const resPosts = await fetch(`https://api.github.com/repos/${repo}/contents/${postsPath}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
-
-                if (!res.ok) {
-                    container.innerHTML = '<p style="color: red; font-size: 14px;">Error al cargar los posts. Token inválido o sin permisos.</p>';
-                    return;
-                }
-
-                const data = await res.json();
-                if (data.content) {
-                    postsCache = JSON.parse(decodeBase64Utf8(data.content));
+                if (resPosts.ok) {
+                    const data = await resPosts.json();
+                    postsCache = data.content ? JSON.parse(decodeBase64Utf8(data.content)) : [];
                 } else {
                     postsCache = [];
+                }
+
+                // Cargar historias
+                const resStories = await fetch(`https://api.github.com/repos/${repo}/contents/${storiesPath}`, {
+                    headers: { "Authorization": `token ${token}` }
+                });
+                if (resStories.ok) {
+                    const data = await resStories.json();
+                    storiesCache = data.content ? JSON.parse(decodeBase64Utf8(data.content)) : [];
+                } else {
+                    storiesCache = [];
                 }
 
                 renderizarListaAdmin();
@@ -421,27 +991,105 @@
             }
         }
 
+        function filtrarPostsAdmin() {
+            const query = document.getElementById('adminFilterInput').value.toLowerCase().trim();
+            if (!query) {
+                renderizarListaAdmin();
+                return;
+            }
+            const filtradosPosts = postsCache.filter(post => {
+                const texto = (post.texto || '').toLowerCase();
+                const fechaLarga = (post.fechaLarga || '').toLowerCase();
+                const fechaCortas = (post.fechaCortas || '').toLowerCase();
+                const tipo = (post.tipo || '').toLowerCase();
+                return texto.includes(query) || fechaLarga.includes(query) || fechaCortas.includes(query) || tipo.includes(query);
+            });
+            const filtradosStories = storiesCache.filter(story => {
+                return 'historia'.includes(query) || 'story'.includes(query) || (story.fechaCreacion || '').toLowerCase().includes(query);
+            });
+            renderizarListaAdminFiltrada(filtradosPosts, filtradosStories);
+        }
+
         function renderizarListaAdmin() {
+            renderizarListaAdminFiltrada(postsCache, storiesCache);
+        }
+
+        function renderizarListaAdminFiltrada(postsList, storiesList) {
             const container = document.getElementById('posts-container');
-            if (postsCache.length === 0) {
-                container.innerHTML = '<p style="color: #666; font-size: 14px; text-align: center;">No hay publicaciones todavía.</p>';
+            
+            let items = [];
+            postsList.forEach(p => {
+                items.push({ item: p, source: 'posts', originalIndex: postsCache.indexOf(p) });
+            });
+            storiesList.forEach(s => {
+                items.push({ item: s, source: 'stories', originalIndex: storiesCache.indexOf(s) });
+            });
+
+            if (items.length === 0) {
+                container.innerHTML = '<p style="color: #666; font-size: 14px; text-align: center;">No se encontraron publicaciones ni historias.</p>';
                 return;
             }
 
+            let itemsOrdenados = [...items].sort((a, b) => {
+                if (a.item.fijado && !b.item.fijado) return -1;
+                if (!a.item.fijado && b.item.fijado) return 1;
+                const dateA = new Date(a.item.fechaCreacion || a.item.hora || 0);
+                const dateB = new Date(b.item.fechaCreacion || b.item.hora || 0);
+                return dateB - dateA;
+            });
+
             let html = '';
-            postsCache.forEach((post, index) => {
-                let tieneImgs = (post.imagenes && post.imagenes.length > 0) || post.imagen;
-                let imgIndicator = tieneImgs ? ' 🖼️ [Con imagen(es)]' : '';
-                let badgeTipo = post.tipo === 'photo_bloggy' ? '<span class="badge-type badge-photo">📸 PHOTO BLOGGY</span>' : '';
-                let textoPreview = post.texto ? `"${post.texto}"` : '<em>(Sin texto)</em>';
+            itemsOrdenados.forEach(({ item, source, originalIndex }) => {
+                let badgeTipo = '';
+                if (item.tipo === 'photo_bloggy') {
+                    badgeTipo = '<span class="badge-type">PHOTO BLOGGY</span>';
+                } else if (source === 'stories' || item.tipo === 'story') {
+                    badgeTipo = '<span class="badge-type" style="background: #e67e22; border-color: #d35400;">HISTORIA</span>';
+                }
+                
+                let badgeFijado = item.fijado ? '<span class="badge-type badge-pinned">FIJADO</span>' : '';
+                let textoPreview = item.texto ? `"${item.texto}"` : (source === 'stories' ? '<em>(Historia visual)</em>' : '<em>(Sin texto)</em>');
+                let textoBtnPin = item.fijado ? 'Desfijar' : 'Fijar';
+                let btnPinHtml = source === 'posts' ? `<button class="btn-pin" onclick="toggleFijar(${originalIndex})" style="background-color: #fff; color: #000; border: 1px solid #000; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 500;">${textoBtnPin}</button>` : '';
+
+                let fechaMeta = '';
+                if (source === 'stories') {
+                    let d = new Date(item.fechaCreacion);
+                    fechaMeta = `Creada: ${d.toLocaleDateString()} - ${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+                } else {
+                    fechaMeta = `Fecha: ${item.fechaCortas || 'Sin fecha'} - ${item.hora || ''}`;
+                }
+                
+                let imagenesPost = [];
+                if (item.imagenes && Array.isArray(item.imagenes)) {
+                    imagenesPost = item.imagenes;
+                } else if (item.imagen) {
+                    imagenesPost = [item.imagen];
+                }
+
+                let thumbsHtml = '';
+                if (imagenesPost.length > 0) {
+                    thumbsHtml = '<div class="admin-thumb-container">';
+                    imagenesPost.forEach(img => {
+                        const imgUrl = `https://raw.githubusercontent.com/${repo}/main/${img}`;
+                        thumbsHtml += `<img src="${imgUrl}" class="admin-thumb" alt="Miniatura">`;
+                    });
+                    thumbsHtml += '</div>';
+                }
                 
                 html += `
                     <div class="post-item-admin">
-                        <div class="post-meta-admin">📅 ${post.fechaCortas || 'Sin fecha'} • ${post.hora || ''}${imgIndicator} ${badgeTipo}</div>
+                        <div class="post-meta-admin">
+                            <span>${fechaMeta}</span>
+                            ${badgeTipo}
+                            ${badgeFijado}
+                        </div>
                         <div class="post-preview">${textoPreview}</div>
+                        ${thumbsHtml}
                         <div class="post-actions">
-                            <button class="btn-edit" onclick="prepararEdicion(${index})">Editar</button>
-                            <button class="btn-delete" onclick="borrarPost(${index})">Borrar</button>
+                            <button class="btn-edit" onclick="prepararEdicion('${source}', ${originalIndex})">Editar</button>
+                            <button class="btn-delete" onclick="borrarPost('${source}', ${originalIndex})">Borrar</button>
+                            ${btnPinHtml}
                         </div>
                     </div>
                 `;
@@ -449,46 +1097,143 @@
             container.innerHTML = html;
         }
 
-        function prepararEdicion(index) {
-            editandoIndex = index;
-            const post = postsCache[index];
-            
-            seleccionarTipoPost(post.tipo || 'clasico');
-            
-            document.getElementById('post-content').value = post.texto || "";
-            document.getElementById('post-image').value = ""; // Limpiar input file
-            document.getElementById('form-title').innerText = "Editar Publicación";
-            document.getElementById('btn-submit').innerText = "Guardar Cambios";
-            document.getElementById('btn-cancel').style.display = "block";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.getElementById('post-content').focus();
+        async function toggleFijar(index) {
+            const token = localStorage.getItem('gh_blog_token');
+            if (!token) {
+                alert('Falta el token.');
+                return;
+            }
+
+            postsCache[index].fijado = !postsCache[index].fijado;
+
+            try {
+                const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${postsPath}`, {
+                    headers: { "Authorization": `token ${token}` }
+                });
+                if (!getRes.ok) {
+                    alert("Error al conectar con GitHub.");
+                    return;
+                }
+                const getData = await getRes.json();
+                const sha = getData.sha;
+
+                const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${postsPath}`, {
+                    method: "PUT",
+                    headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        message: postsCache[index].fijado ? "Fijar post" : "Desfijar post",
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(postsCache, null, 2)))),
+                        sha: sha
+                    })
+                });
+
+                if (putRes.ok) {
+                    cargarPostsGitHub();
+                } else {
+                    alert("Hubo un error al actualizar en GitHub.");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Error de conexión al fijar.");
+            }
         }
 
-        function cancelarEdicion() {
-            editandoIndex = null;
-            seleccionarTipoPost('clasico');
-            document.getElementById('post-content').value = "";
-            document.getElementById('post-image').value = "";
-            document.getElementById('form-title').innerText = "Nueva Publicación";
-            document.getElementById('btn-submit').innerText = "Publicar";
-            document.getElementById('btn-cancel').style.display = "none";
+        function prepararEdicion(source, index) {
+            editandoIndex = index;
+            const item = (source === 'stories') ? storiesCache[index] : postsCache[index];
+            
+            tipoPostActual = item.tipo || (source === 'stories' ? 'story' : 'clasico');
+            
+            const titleEl = document.getElementById('form-title');
+            const contentGroup = document.getElementById('contentGroup');
+            const postContent = document.getElementById('post-content');
+            const postImage = document.getElementById('post-image');
+            const labelImage = document.getElementById('label-image');
+            const hintImage = document.getElementById('hint-image');
+            const customDateGroup = document.getElementById('customDateGroup');
+            const infoAutoBox = document.getElementById('infoAutoBox');
+
+            // OCULTAR EL SELECTOR DE FECHA PERSONALIZADA EN EDICIÓN
+            customDateGroup.style.display = 'none';
+            infoAutoBox.style.display = 'block';
+
+            if (tipoPostActual === 'story') {
+                titleEl.innerText = 'Editar Historia';
+                contentGroup.style.display = 'none';
+                postContent.value = '';
+                labelImage.innerText = "Imagen actual de la Historia (Reemplazar):";
+                postImage.removeAttribute('multiple');
+                hintImage.innerText = "Selecciona una nueva foto para reemplazar la actual.";
+            } else if (tipoPostActual === 'photo_bloggy') {
+                titleEl.innerText = 'Editar Photo Bloggy';
+                contentGroup.style.display = 'block';
+                postContent.value = item.texto || "";
+                document.getElementById('label-content').innerText = "Mensaje (Opcional):";
+                postContent.placeholder = "Escribe una descripción opcional...";
+                labelImage.innerText = "Seleccionar Imagen (Reemplaza la actual automáticamente):";
+                postImage.removeAttribute('multiple');
+                hintImage.innerText = "Selecciona una nueva foto para reemplazar la actual en tu Photo Bloggy.";
+            } else {
+                titleEl.innerText = 'Editar Bloggy';
+                contentGroup.style.display = 'block';
+                postContent.value = item.texto || "";
+                document.getElementById('label-content').innerText = "Escribe un mensaje o pensamiento...";
+                postContent.placeholder = "Escribe un mensaje o pensamiento...";
+                labelImage.innerText = "Adjuntar nuevas imágenes (opcional, puedes seleccionar varias):";
+                postImage.setAttribute('multiple', 'true');
+                hintImage.innerText = "Sube fotos en alta calidad, se mantendrán intactas.";
+            }
+
+            postImage.value = "";
+            document.getElementById('previewContainer').innerHTML = "";
+            document.getElementById('btn-submit').innerText = "Guardar Cambios";
+
+            // MOSTRAR LA FECHA ORIGINAL EN EL CUADRO INFORMATIVO EN EDICIÓN
+            if (source === 'stories') {
+                let d = new Date(item.fechaCreacion);
+                let fechaStr = d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+                let horaStr = d.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
+                document.getElementById('live-datetime').innerText = `${fechaStr} - ${horaStr} (Original)`;
+            } else {
+                let fechaOriginal = item.fechaCortas || item.fechaLarga || 'Fecha desconocida';
+                let horaOriginal = item.hora || '';
+                document.getElementById('live-datetime').innerText = `${fechaOriginal} - ${horaOriginal} (Original)`;
+            }
+
+            imagenesEditandoActuales = [];
+            reemplazosMap = {};
+            imagenesAEliminarDeGithub = [];
+
+            if (item.imagenes && Array.isArray(item.imagenes)) {
+                imagenesEditandoActuales = [...item.imagenes];
+            } else if (item.imagen) {
+                imagenesEditandoActuales = [item.imagen];
+            }
+
+            renderizarImágenesExistentesEdicion();
+            document.getElementById('formModalOverlay').classList.add('active');
         }
 
         async function guardarPublicacion() {
             const texto = document.getElementById('post-content').value;
             const imageInput = document.getElementById('post-image');
             
-            const tieneImágenesNuevas = imageInput.files.length > 0;
-            const tieneImágenesExistentes = editandoIndex !== null && ((postsCache[editandoIndex].imagenes && postsCache[editandoIndex].imagenes.length > 0) || postsCache[editandoIndex].imagen);
+            if ((tipoPostActual === 'photo_bloggy' || tipoPostActual === 'story') && imageInput.files.length > 0 && !reemplazosMap[0]) {
+                if (imagenesEditandoActuales.length > 0) {
+                    imagenesAEliminarDeGithub.push(imagenesEditandoActuales[0]);
+                }
+                reemplazosMap[0] = imageInput.files[0];
+            }
 
-            // Validaciones según el tipo de post
-            if (tipoPostActual === 'photo_bloggy') {
-                if (!tieneImágenesNuevas && !tieneImágenesExistentes) {
-                    alert('El Photo Bloggy requiere OBLIGATORIAMENTE subir una imagen.');
+            const totalImagenesFinales = imagenesEditandoActuales.length + imageInput.files.length;
+
+            if (tipoPostActual === 'photo_bloggy' || tipoPostActual === 'story') {
+                if (totalImagenesFinales === 0 && Object.keys(reemplazosMap).length === 0) {
+                    alert('Este formato requiere OBLIGATORIAMENTE una imagen.');
                     return;
                 }
             } else {
-                if (!texto.trim() && !tieneImágenesNuevas && !tieneImágenesExistentes) {
+                if (!texto.trim() && totalImagenesFinales === 0) {
                     alert('Por favor, escribe algo o añade al menos una imagen.');
                     return;
                 }
@@ -500,103 +1245,164 @@
                 return;
             }
 
-            const ahora = new Date();
-            const fechaLargaActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
-            const fechaCortasActual = ahora.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
-            const horaStr = ahora.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
+            // OBTENER FECHA Y HORA (Personalizada en Creación, Original/Actual según corresponda)
+            let fechaBaseObj = new Date();
+            if (editandoIndex === null && tipoPostActual !== 'story') {
+                const customVal = document.getElementById('customDatetimeInput').value;
+                if (customVal) {
+                    fechaBaseObj = new Date(customVal);
+                }
+            }
+            const { fechaLarga: fechaLargaActual, fechaCortas: fechaCortasActual, hora: horaStr } = formatearDatosFecha(fechaBaseObj);
+
+            const targetPath = (tipoPostActual === 'story') ? storiesPath : postsPath;
 
             try {
-                let imageNames = [];
-                if (editandoIndex !== null) {
-                    if (postsCache[editandoIndex].imagenes) {
-                        imageNames = [...postsCache[editandoIndex].imagenes];
-                    } else if (postsCache[editandoIndex].imagen) {
-                        imageNames = [postsCache[editandoIndex].imagen];
+                let finalImageNames = [...imagenesEditandoActuales];
+
+                for (const idxStr in reemplazosMap) {
+                    const idx = parseInt(idxStr);
+                    const file = reemplazosMap[idx];
+                    const extension = file.name.split('.').pop();
+                    const imageName = (tipoPostActual === 'story') ? `images/story_${Date.now()}_${idx}.${extension}` : `images/post_img_${Date.now()}_${idx}.${extension}`;
+                    const base64Image = await fileToBase64(file);
+
+                    const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
+                        method: "PUT",
+                        headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                        body: JSON.stringify({ message: "Reemplazar imagen", content: base64Image })
+                    });
+
+                    if (!imgRes.ok) {
+                        alert(`Error al subir la imagen reemplazada a GitHub.`);
+                        return;
                     }
+                    finalImageNames[idx] = imageName;
                 }
 
-                // Subir cada nueva imagen seleccionada a la carpeta images/ en GitHub
-                if (imageInput.files.length > 0) {
+                if (tipoPostActual !== 'photo_bloggy' && tipoPostActual !== 'story' && imageInput.files.length > 0) {
                     for (let i = 0; i < imageInput.files.length; i++) {
                         const file = imageInput.files[i];
                         const extension = file.name.split('.').pop();
-                        const imageName = `images/post_img_${Date.now()}_${i}.${extension}`;
+                        const imageName = `images/post_img_${Date.now()}_new_${i}.${extension}`;
                         const base64Image = await fileToBase64(file);
 
                         const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
                             method: "PUT",
-                            headers: {
-                                "Authorization": `token ${token}`,
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({
-                                message: "Subir imagen de post a carpeta images",
-                                content: base64Image
-                            })
+                            headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                            body: JSON.stringify({ message: "Subir nueva imagen", content: base64Image })
                         });
 
                         if (!imgRes.ok) {
                             alert(`Error al subir la imagen ${file.name} a GitHub.`);
                             return;
                         }
-                        imageNames.push(imageName);
+                        finalImageNames.push(imageName);
+                    }
+                } else if ((tipoPostActual === 'photo_bloggy' || tipoPostActual === 'story') && editandoIndex === null && imageInput.files.length > 0) {
+                    const file = imageInput.files[0];
+                    const extension = file.name.split('.').pop();
+                    const prefix = tipoPostActual === 'story' ? 'story' : 'post_img';
+                    const imageName = `images/${prefix}_${Date.now()}_0.${extension}`;
+                    const base64Image = await fileToBase64(file);
+
+                    const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
+                        method: "PUT",
+                        headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                        body: JSON.stringify({ message: "Subir imagen", content: base64Image })
+                    });
+
+                    if (!imgRes.ok) {
+                        alert(`Error al subir la imagen a GitHub.`);
+                        return;
+                    }
+                    finalImageNames = [imageName];
+                }
+
+                for (const oldImgPath of imagenesAEliminarDeGithub) {
+                    try {
+                        const checkRes = await fetch(`https://api.github.com/repos/${repo}/contents/${oldImgPath}`, {
+                            headers: { "Authorization": `token ${token}` }
+                        });
+                        if (checkRes.ok) {
+                            const checkData = await checkRes.json();
+                            await fetch(`https://api.github.com/repos/${repo}/contents/${oldImgPath}`, {
+                                method: "DELETE",
+                                headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                                body: JSON.stringify({ message: "Borrar imagen antigua", sha: checkData.sha })
+                            });
+                        }
+                    } catch (e) {
+                        console.error("No se pudo eliminar la imagen vieja de GitHub:", oldImgPath);
                     }
                 }
 
-                // Obtener SHA actual del posts.json
-                const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
-                if (!getRes.ok) {
-                    alert("Error al conectar con GitHub.");
-                    return;
-                }
-                const getData = await getRes.json();
-                const sha = getData.sha;
-
-                if (getData.content) {
-                    postsCache = JSON.parse(decodeBase64Utf8(getData.content));
+                
+                let sha = null;
+                let currentCache = [];
+                if (getRes.ok) {
+                    const getData = await getRes.json();
+                    sha = getData.sha;
+                    if (getData.content) {
+                        currentCache = JSON.parse(decodeBase64Utf8(getData.content));
+                    }
                 }
 
                 if (editandoIndex !== null) {
-                    postsCache[editandoIndex].tipo = tipoPostActual;
-                    postsCache[editandoIndex].texto = texto;
-                    if (imageNames.length > 0) {
-                        postsCache[editandoIndex].imagenes = imageNames;
+                    if (tipoPostActual === 'story') {
+                        storiesCache[editandoIndex].tipo = 'story';
+                        storiesCache[editandoIndex].imagen = finalImageNames[0];
+                        currentCache = storiesCache;
+                    } else {
+                        postsCache[editandoIndex].tipo = tipoPostActual;
+                        postsCache[editandoIndex].texto = texto;
+                        postsCache[editandoIndex].imagenes = finalImageNames;
                         delete postsCache[editandoIndex].imagen;
+                        currentCache = postsCache;
                     }
                 } else {
-                    const nuevoPost = {
-                        "tipo": tipoPostActual,
-                        "texto": texto,
-                        "imagenes": imageNames,
-                        "fechaLarga": fechaLargaActual,
-                        "fechaCortas": fechaCortasActual,
-                        "hora": horaStr
-                    };
-                    postsCache.unshift(nuevoPost);
+                    if (tipoPostActual === 'story') {
+                        const nuevaHistoria = {
+                            "tipo": "story",
+                            "imagen": finalImageNames[0],
+                            "fechaCreacion": new Date().toISOString()
+                        };
+                        storiesCache.unshift(nuevaHistoria);
+                        currentCache = storiesCache;
+                    } else {
+                        const nuevoPost = {
+                            "tipo": tipoPostActual,
+                            "texto": texto,
+                            "imagenes": finalImageNames,
+                            "fechaLarga": fechaLargaActual,
+                            "fechaCortas": fechaCortasActual,
+                            "hora": horaStr,
+                            "fijado": false
+                        };
+                        postsCache.unshift(nuevoPost);
+                        currentCache = postsCache;
+                    }
                 }
 
-                // Enviar posts.json actualizado a GitHub
-                const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}`, {
                     method: "PUT",
-                    headers: {
-                        "Authorization": `token ${token}`,
-                        "Content-Type": "application/json",
-                    },
+                    headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        message: editandoIndex !== null ? "Editar post desde panel" : "Nuevo post desde panel",
-                        content: btoa(unescape(encodeURIComponent(JSON.stringify(postsCache, null, 2)))),
+                        message: editandoIndex !== null ? "Editar elemento" : "Nuevo elemento",
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(currentCache, null, 2)))),
                         sha: sha
                     })
                 });
 
                 if (putRes.ok) {
-                    alert(editandoIndex !== null ? "¡Cambios guardados con éxito!" : "¡Publicado con éxito en tu blog!");
-                    cancelarEdicion();
+                    alert(editandoIndex !== null ? "¡Cambios guardados con éxito!" : "¡Publicado con éxito!");
+                    cerrarModalForm();
                     cargarPostsGitHub();
                 } else {
-                    alert("Hubo un error al guardar el JSON en GitHub.");
+                    alert("Hubo un error al guardar en GitHub.");
                 }
 
             } catch (error) {
@@ -605,14 +1411,16 @@
             }
         }
 
-        async function borrarPost(index) {
-            if (!confirm("¿Estás seguro de que quieres borrar esta publicación?")) {
+        async function borrarPost(source, index) {
+            if (!confirm("¿Estás seguro de que quieres borrar este elemento?")) {
                 return;
             }
 
             const token = localStorage.getItem('gh_blog_token');
+            const targetPath = (source === 'stories') ? storiesPath : postsPath;
+
             try {
-                const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
                 if (!getRes.ok) {
@@ -621,19 +1429,14 @@
                 }
                 const getData = await getRes.json();
                 const sha = getData.sha;
+                let currentCache = getData.content ? JSON.parse(decodeBase64Utf8(getData.content)) : [];
 
-                if (getData.content) {
-                    postsCache = JSON.parse(decodeBase64Utf8(getData.content));
-                }
-
-                const postToDelete = postsCache[index];
-
-                // Borrar automáticamente las imágenes asociadas de la carpeta images/
+                const itemToDelete = currentCache[index];
                 let imgsToDelete = [];
-                if (postToDelete.imagenes) {
-                    imgsToDelete = postToDelete.imagenes;
-                } else if (postToDelete.imagen) {
-                    imgsToDelete = [postToDelete.imagen];
+                if (itemToDelete.imagenes) {
+                    imgsToDelete = itemToDelete.imagenes;
+                } else if (itemToDelete.imagen) {
+                    imgsToDelete = [itemToDelete.imagen];
                 }
 
                 for (const imgPath of imgsToDelete) {
@@ -645,14 +1448,8 @@
                             const imgData = await imgCheckRes.json();
                             await fetch(`https://api.github.com/repos/${repo}/contents/${imgPath}`, {
                                 method: "DELETE",
-                                headers: {
-                                    "Authorization": `token ${token}`,
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify({
-                                    message: "Borrar imagen de post eliminado",
-                                    sha: imgData.sha
-                                })
+                                headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                                body: JSON.stringify({ message: "Borrar imagen de elemento eliminado", sha: imgData.sha })
                             });
                         }
                     } catch (err) {
@@ -660,24 +1457,25 @@
                     }
                 }
 
-                postsCache.splice(index, 1);
+                currentCache.splice(index, 1);
+                if (source === 'stories') {
+                    storiesCache = currentCache;
+                } else {
+                    postsCache = currentCache;
+                }
 
-                const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}`, {
                     method: "PUT",
-                    headers: {
-                        "Authorization": `token ${token}`,
-                        "Content-Type": "application/json",
-                    },
+                    headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        message: "Borrar post desde panel admin",
-                        content: btoa(unescape(encodeURIComponent(JSON.stringify(postsCache, null, 2)))),
+                        message: "Borrar elemento",
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(currentCache, null, 2)))),
                         sha: sha
                     })
                 });
 
                 if (putRes.ok) {
-                    alert("¡Publicación y sus imágenes borradas con éxito!");
-                    cancelarEdicion();
+                    alert("¡Borrado con éxito!");
                     cargarPostsGitHub();
                 } else {
                     alert("Hubo un error al borrar en GitHub.");
@@ -689,6 +1487,7 @@
             }
         }
     </script>
-
 </body>
 </html>
+
+
