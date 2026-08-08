@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "YEEE! 40/40",
+    "imagenes": [],
+    "fechaLarga": "mar, 27 de mayo de 2025",
+    "fechaCortas": "mar. 27 may 2025",
+    "hora": "1:25 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-05-27T11:25:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "¡LOS CLASICOS Y MAS NUEVOS!",
     "imagenes": [
       "images/post_img_1786217284960_new_0.jpg"
