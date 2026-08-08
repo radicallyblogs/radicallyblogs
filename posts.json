@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Tengo preparadas letras muy fuertes y otras mas nacientes en camino. Unas por habérmelas grabado de tanto recitarlas y otras que tendrán el mismo destino.",
+    "imagenes": [],
+    "fechaLarga": "sáb, 1 de agosto de 2026",
+    "fechaCortas": "sáb. 1 ago 2026",
+    "hora": "7:24 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-01T17:24:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Estoy teniendo paranoias de destiempo.",
     "imagenes": [],
     "fechaLarga": "dom, 26 de julio de 2026",
