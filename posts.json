@@ -1,17 +1,5 @@
 [
   {
-    "tipo": "clasico",
-    "texto": "PRUEBA",
-    "imagenes": [
-      "images/post_img_1786180585313_new_0.png"
-    ],
-    "fechaLarga": "sábado. 8 de agosto de 2026",
-    "fechaCortas": "sáb 8 ago 2026",
-    "hora": "11:16 am",
-    "fijado": false,
-    "fechaCreacion": "2026-08-08T09:16:00.000Z"
-  },
-  {
     "tipo": "photo_bloggy",
     "texto": "ADIOS",
     "imagenes": [
