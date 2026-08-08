@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "He actualizado el blog para el ordenador, y en un apartado voy a subir una canción diferente cada día, me gustaría escuchar vuestros gustos. Podéis hacerme bailar o vomitar.",
+    "imagenes": [],
+    "fechaLarga": "mar, 15 de abril de 2025",
+    "fechaCortas": "mar. 15 abr 2025",
+    "hora": "9:10 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-04-15T19:10:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Te echo muchísimo de menos, emborracharme no te saca de mi cabeza.",
     "imagenes": [],
     "fechaLarga": "vie, 4 de abril de 2025",
