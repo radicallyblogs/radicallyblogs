@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Los veganos son imbéciles, pero tienen razón en muchas cosas",
+    "imagenes": [],
+    "fechaLarga": "vie, 20 de junio de 2025",
+    "fechaCortas": "vie. 20 jun 2025",
+    "hora": "5:10 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-06-20T15:10:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Ahora me siento solo.",
     "imagenes": [],
     "fechaLarga": "dom, 15 de junio de 2025",
