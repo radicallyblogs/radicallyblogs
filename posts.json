@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Las cosas pueden estar cada vez mas cerca. o cada vez mas lejos.",
+    "imagenes": [],
+    "fechaLarga": "mié, 26 de febrero de 2025",
+    "fechaCortas": "mié. 26 feb 2025",
+    "hora": "4:18 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-02-26T15:18:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Si estas leyendo algo y te parece tedioso o muy cargado, simplemente léelo con voz de narrador empoderado.",
     "imagenes": [],
     "fechaLarga": "sáb, 22 de febrero de 2025",
