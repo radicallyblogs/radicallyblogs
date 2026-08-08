@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Mi cabeza esta inquieta y sobrepensadora.",
+    "imagenes": [],
+    "fechaLarga": "mié, 1 de enero de 2025",
+    "fechaCortas": "mié. 1 ene 2025",
+    "hora": "10:58 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-01-01T09:58:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Escribir dentro de lo personal ha logrado reunir mi destreza en un ejercicio de alcance interno, algo asi no tan como la superación, pero el mantenerme en el presente ha provocado que todos mis escritos por asi decirlo antiguos o de meses atras, ahora los guarde bajo llave, ya que siento como si solo fuesen parte del camino, centrándome en los mas actuales y pulidos, cuando en realidad de ellos puedo sacar mucho al ser claramente mi parte mas creativa de ese camino. Aun que ahora me sienta mas fuerte en cuanto a ideas se refiere, sin ser tan inclinado y modesto.",
     "imagenes": [],
     "fechaLarga": "lun, 30 de diciembre de 2024",
