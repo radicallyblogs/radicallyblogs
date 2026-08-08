@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy me levante con ganas de arriarme. No, arrearme no, gran putos.",
+    "imagenes": [],
+    "fechaLarga": "mar, 5 de agosto de 2025",
+    "fechaCortas": "mar. 5 ago 2025",
+    "hora": "11:39 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-08-05T09:39:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Puedo leer esta imagen.",
     "imagenes": [
       "images/post_img_1786218458185_new_0.jpg"
