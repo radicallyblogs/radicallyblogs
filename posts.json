@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "HOLA",
+    "imagenes": [
+      "images/post_img_1786182753487_new_0.png"
+    ],
+    "fechaLarga": "sáb, 8 de agosto de 2026",
+    "fechaCortas": "sáb",
+    "hora": "11:52 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-08T09:52:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "ADIOS",
     "imagenes": [
