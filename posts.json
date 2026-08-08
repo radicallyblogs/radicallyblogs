@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy cumple dos añitos <33",
+    "imagenes": [
+      "images/post_img_1786228387694_new_0.jpeg"
+    ],
+    "fechaLarga": "vie, 13 de marzo de 2026",
+    "fechaCortas": "vie. 13 mar 2026",
+    "hora": "9:59 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-03-13T20:59:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Un álbum no es cuestión de meses, no es cuestión de tiempo. Si se trata de arte verdadero, un álbum nace del momento, de una proyección que en ti respira fuera de brazos cruzados ciegos a la espera de estirar la mano y echar en el carro lo primero que toman de la estantería. El arte no se vende, se exhibe sin dejar que lo toquen, y si mas valor propio tiene, tampoco se comparte.",
     "imagenes": [],
     "fechaLarga": "lun, 9 de marzo de 2026",
