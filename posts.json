@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hace ya un tiempo que deje de creer en casi todo lo relacionado con el universo y el espacio, siendo sincero eso me llego a deprimir en su momento ya que siempre a sido un tema de interés en el que quería seguir aprendiendo, prácticamente volcar mi tiempo en ello y hacerlo mas parte de mi. Pero las cosas han cambiado mucho, y en mi vida sobre todo, el pensamiento que tenia se a convertido en algo con lo que tengo que luchar últimamente. Solo me quedo con la incertidumbre de si algo en este mundo podría volver a hacerme creer en eso tan hermoso que hay fuera de el.",
+    "imagenes": [
+      "images/post_img_1786207399703_new_0.jpeg"
+    ],
+    "fechaLarga": "mar, 7 de mayo de 2024",
+    "fechaCortas": "mar. 7 may 2024",
+    "hora": "8:40 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-05-07T18:40:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Mi fin de semana\n🥂❌\n✍🏼✅",
     "imagenes": [],
     "fechaLarga": "dom, 5 de mayo de 2024",
