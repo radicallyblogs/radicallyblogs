@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "WOW",
+    "imagenes": [
+      "images/post_img_1786179907860_new_0.png"
+    ],
+    "fechaLarga": "sáb, 8 de agosto de 2026",
+    "fechaCortas": "sáb",
+    "hora": "11:04 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-08T09:04:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "ADIOS",
     "imagenes": [
