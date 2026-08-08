@@ -249,6 +249,8 @@ body {
     top: -1px;            /* Modifica la distancia desde la parte superior */
     left: -1px;           /* Modifica la distancia desde la parte izquierda */
     max-width: 395px;     /* Límite derecho: hasta dónde llega el ancho máximo del texto */
+    word-break: break-word !important;       /* <-- Obliga a las URLs largas a romperse dentro de tu límite */
+    overflow-wrap: break-word !important;    /* <-- Refuerza para que ningún enlace se escape */
     font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 21px;      /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
     font-weight: 400;
