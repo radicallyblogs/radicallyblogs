@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy se cumple un año de La fruición se toca, el primer relato y de los mas queridos en su momento de cuando volvi a escribir casi dos años después. Para mi es muy importante, pero ahora espero traeros cosas mas definidas y duraderas",
+    "imagenes": [],
+    "fechaLarga": "lun, 20 de enero de 2025",
+    "fechaCortas": "lun. 20 ene 2025",
+    "hora": "8:03 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-01-20T19:03:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "He ocultado a formato layout las estadísticas expuestas del blog media, debido a la inestable audiencia causada obviamente por el algoritmo",
     "imagenes": [],
     "fechaLarga": "dom, 19 de enero de 2025",
