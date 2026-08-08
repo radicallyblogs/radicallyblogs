@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Escribiendo como chasquear los dedos en un tambor.",
+    "imagenes": [],
+    "fechaLarga": "dom, 17 de agosto de 2025",
+    "fechaCortas": "dom. 17 ago 2025",
+    "hora": "4:35 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-08-17T14:35:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Es estrella de luz y rastro, amante dócil, por el silencio de su mirada.",
     "imagenes": [],
     "fechaLarga": "mié, 13 de agosto de 2025",
