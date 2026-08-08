@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Algo de estilo ligero y con mi pesada esencia*?*!*!*",
+    "imagenes": [],
+    "fechaLarga": "mié, 25 de febrero de 2026",
+    "fechaCortas": "mié. 25 feb 2026",
+    "hora": "11:53 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-02-25T22:53:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Mi única meta ahora es poder llegar a esta talla.",
     "imagenes": [
       "images/post_img_1786228305483_new_0.jpeg"
