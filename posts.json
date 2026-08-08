@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "De un momento a otro me levante agolpado por las ideas, y cuando eso ocurrió, pude darme cuenta de que cayendo tambien se puede ascender. Un vacio en el que no había oscuridad, un vacio en el que se veían reflejos de soles y parajes irídicos",
+    "imagenes": [],
+    "fechaLarga": "mié, 11 de diciembre de 2024",
+    "fechaCortas": "mié. 11 dic 2024",
+    "hora": "3:59 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-12-11T14:59:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Esta si que tiene vistas 😪🎄",
     "imagenes": [
       "images/post_img_1786211324832_new_0.jpg"
