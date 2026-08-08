@@ -1083,7 +1083,7 @@ if (source === 'stories') {
         const ahora = new Date();
         const fechaCreacion = new Date(item.fechaCreacion);
         const diferenciaHoras = (ahora - fechaCreacion) / (1000 * 60 * 60);
-        const horaStr = fechaCreacion.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const horaStr = fechaCreacion.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
 
         const esHoy = fechaCreacion.toDateString() === ahora.toDateString();
         const ayerObj = new Date(ahora);
@@ -1092,12 +1092,12 @@ if (source === 'stories') {
 
         if (diferenciaHoras <= 24) {
             if (esHoy) {
-                fechaMeta = `Creada: hoy a las ${horaStr}`;
-            } else if (esAyer) {
-                fechaMeta = `Creada: ayer a las ${horaStr}`;
-            } else {
-                fechaMeta = `Creada: hace ${Math.floor(diferenciaHoras)} horas`;
-            }
+            fechaMeta = `hoy • ${horaStr}`;
+        } else if (esAyer) {
+            fechaMeta = `ayer • ${horaStr}`;
+        } else {
+            fechaMeta = `Hace ${Math.floor(diferenciaHoras)}h`;
+        }
         } else {
             fechaMeta = `Expirada (> 24h) - ${fechaCreacion.toLocaleDateString()} ${horaStr}`;
         }
