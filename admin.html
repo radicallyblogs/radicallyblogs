@@ -1078,15 +1078,36 @@
                 let btnPinHtml = source === 'posts' ? `<button class="btn-pin" onclick="toggleFijar(${originalIndex})" style="background-color: #fff; color: #000; border: 1px solid #000; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 500;">${textoBtnPin}</button>` : '';
 
                 let fechaMeta = '';
-                if (source === 'stories') {
-                    if (item.timestamp) {
-                        fechaMeta = `Creada: ${item.timestamp}`;
-                    } else if (item.fechaCreacion) {
-                        let d = new Date(item.fechaCreacion);
-                        fechaMeta = `Creada: ${d.toLocaleDateString()} - ${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-                    } else {
-                        fechaMeta = `Creada: Reciente`;
-                    }
+if (source === 'stories') {
+    if (item.fechaCreacion) {
+        const ahora = new Date();
+        const fechaCreacion = new Date(item.fechaCreacion);
+        const diferenciaHoras = (ahora - fechaCreacion) / (1000 * 60 * 60);
+        const horaStr = fechaCreacion.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        // Comprobamos si es el mismo día calendario o el día anterior para Hoy / Ayer
+        const esHoy = fechaCreacion.toDateString() === ahora.toDateString();
+        const ayerObj = new Date(ahora);
+        ayerObj.setDate(ahora.getDate() - 1);
+        const esAyer = fechaCreacion.toDateString() === ayerObj.toDateString();
+
+        if (diferenciaHoras <= 24) {
+            if (esHoy) {
+                fechaMeta = `Creada: hoy a las ${horaStr}`;
+            } else if (esAyer) {
+                fechaMeta = `Creada: ayer a las ${horaStr}`;
+            } else {
+                fechaMeta = `Creada: hace ${Math.floor(diferenciaHoras)} horas`;
+            }
+        } else {
+            fechaMeta = `Expirada (> 24h) - ${fechaCreacion.toLocaleDateString()} ${horaStr}`;
+        }
+    } else if (item.timestamp) {
+        fechaMeta = `Creada: ${item.timestamp}`;
+    } else {
+        fechaMeta = `Creada: Reciente`;
+    }
+}
                 } else {
                     fechaMeta = `Fecha: ${item.fechaCortas || 'Sin fecha'} - ${item.hora || ''}`;
                 }
@@ -1290,7 +1311,7 @@
                     const idx = parseInt(idxStr);
                     const file = reemplazosMap[idx];
                     const extension = file.name.split('.').pop();
-                    const imageName = (tipoPostActual === 'story') ? `images/story_${Date.now()}_${idx}.${extension}` : `images/post_img_${Date.now()}_${idx}.${extension}`;
+                    const imageName = (tipoPostActual === 'story') ? `stories-images/story_${Date.now()}_${idx}.${extension}` : `images/post_img_${Date.now()}_${idx}.${extension}`;
                     const base64Image = await fileToBase64(file);
 
                     const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
@@ -1329,7 +1350,8 @@
                     const file = imageInput.files[0];
                     const extension = file.name.split('.').pop();
                     const prefix = tipoPostActual === 'story' ? 'story' : 'post_img';
-                    const imageName = `images/${prefix}_${Date.now()}_0.${extension}`;
+const folder = (tipoPostActual === 'story') ? 'stories-images' : 'images';
+const imageName = `${folder}/${prefix}_${Date.now()}_0.${extension}`;
                     const base64Image = await fileToBase64(file);
 
                     const imgRes = await fetch(`https://api.github.com/repos/${repo}/contents/${imageName}`, {
