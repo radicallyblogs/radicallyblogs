@@ -1,18 +1,6 @@
 [
   {
     "tipo": "photo_bloggy",
-    "texto": "",
-    "imagenes": [
-      "images/post_img_1786181844629_0.jpg"
-    ],
-    "fechaLarga": "sáb, 8 de agosto de 2026",
-    "fechaCortas": "sáb",
-    "hora": "11:37 a. m.",
-    "fijado": false,
-    "fechaCreacion": "2026-08-08T09:37:00.000Z"
-  },
-  {
-    "tipo": "photo_bloggy",
     "texto": "ADIOS",
     "imagenes": [
       "images/post_img_1786178059241_0.jfif"
