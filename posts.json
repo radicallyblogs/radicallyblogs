@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "He gafado a España :,D",
+    "imagenes": [],
+    "fechaLarga": "vie, 10 de julio de 2026",
+    "fechaCortas": "vie. 10 jul 2026",
+    "hora": "9:52 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-07-10T19:52:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Que España sea la única selección en el mundial que todavía no ha recibido ningún gol en contra es aterrador.",
     "imagenes": [],
     "fechaLarga": "vie, 10 de julio de 2026",
