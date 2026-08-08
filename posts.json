@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "La nueva ilustración del libro solo es una nueva adaptación que corrige algunos errores de formato los cuales desde el editor no pude resolver, las ediciones del texto ya son cosa de mi desconfianza típica. El disco ira cambiando, es algo que siempre digo, tampoco se trata de un simple lanzamiento.",
+    "imagenes": [],
+    "fechaLarga": "dom, 22 de junio de 2025",
+    "fechaCortas": "dom. 22 jun 2025",
+    "hora": "5:27 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-06-22T15:27:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Los veganos son imbéciles, pero tienen razón en muchas cosas",
     "imagenes": [],
     "fechaLarga": "vie, 20 de junio de 2025",
