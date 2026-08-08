@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "La pagina de lonermorejourney va a cambiar definitivamente, es algo que tenia que habérseme ocurrido hace mucho tiempo",
+    "imagenes": [],
+    "fechaLarga": "sáb, 6 de septiembre de 2025",
+    "fechaCortas": "sáb. 6 sep 2025",
+    "hora": "7:15 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-09-06T17:15:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Felipe, a veces pierde la cabeza, pero siempre la recupera.",
     "imagenes": [],
     "fechaLarga": "mar, 2 de septiembre de 2025",
