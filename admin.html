@@ -948,13 +948,11 @@
             }
         });
 
-        // FORMATEADOR DE FECHA CON DÍA DE LA SEMANA
+        // FORMATEADOR DE FECHA RESTAURADO CORRECTAMENTE
         function formatearDatosFecha(dateObj) {
             const horaStr = dateObj.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
-            
-            // Mostrar siempre el día de la semana (ej. "sáb") en lugar de "hoy"
-            const fechaCortas = dateObj.toLocaleDateString('es-ES', { weekday: 'short' });
-            const fechaLarga = dateObj.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
+            const fechaCortas = dateObj.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
+            const fechaLarga = dateObj.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
             
             return { fechaLarga, fechaCortas, hora: horaStr };
         }
