@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RADICALLYBLOGS</title>
-    <!-- v=6 para aplicar las fuentes y tamaños exactos de Wix -->
     <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
@@ -14,13 +13,10 @@
         <div class="header-logo">
             <img src="logo.png" alt="Logo Radically">
         </div>
-        <!-- Interruptor de modo oscuro integrado -->
         <div class="theme-switch-wrapper">
             <input type="checkbox" id="dark-mode-switch" />
             <label for="dark-mode-switch" class="switch-label">
-                <!-- Icono de Sol -->
                 <svg class="switch-icon sun-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <!-- Icono de Luna -->
                 <svg class="switch-icon moon-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
             </label>
         </div>
@@ -29,127 +25,83 @@
     <div class="feed-container">
         <h2 class="feed-title">Actualidad</h2>
 
-        <!-- SECCIÓN DE HISTORIAS (Se oculta automáticamente si no hay historias vigentes) -->
+        <!-- SECCIÓN DE HISTORIAS -->
         <div class="stories-section" id="storiesSection" style="display: none;">
             <h3 class="stories-title">Historias</h3>
-            <div class="stories-container" id="stories-container">
-                <!-- Las historias se cargarán aquí dinámicamente -->
-            </div>
+            <div class="stories-container" id="stories-container"></div>
         </div>
 
-        <!-- ========================================================== -->
-        <!-- 📌 TÍTULO DE POSTS RECIENTES                                -->
-        <!-- ========================================================== -->
+        <!-- SECCIÓN DE POSTS -->
         <h2 class="posts-heading">Posts recientes</h2>
-
-        <!-- Aquí se cargarán automáticamente los posts desde el archivo posts.json -->
         <div id="feed-posts"></div>
     </div>
 
-    <!-- Lightbox / Pop-up de Imagen para Posts -->
+    <!-- Lightbox de Posts -->
     <div id="imageLightbox" class="lightbox-overlay" onclick="cerrarLightboxAlFondo(event)">
         <span class="lightbox-close" onclick="cerrarLightbox()">&times;</span>
         <img class="lightbox-img" id="lightboxImg">
     </div>
 
-    <!-- ========================================================== -->
-    <!-- 📱 VISOR MODAL DE HISTORIAS                                -->
-    <!-- ========================================================== -->
+    <!-- MODAL DE HISTORIAS -->
     <div id="storyModal" class="story-modal">
         <div class="story-modal-content">
-            
-            <!-- Barras de progreso superiores -->
             <div class="story-progress-bars" id="storyProgressBars"></div>
-            
-            <!-- CABECERA -->
             <div class="story-top-header">
-                <!-- Izquierda: Foto y Botón de pausa/reproducción juntos -->
                 <div class="story-author-controls">
                     <img src="avatar.jpeg" alt="Perfil" class="story-profile-pic">
                     <button id="storyPauseBtn" class="story-pause-btn-top" onclick="togglePausarHistoria()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
                     </button>
                 </div>
-                
-                <!-- Derecha: Botón de cerrar -->
                 <span class="story-close" onclick="cerrarHistoria()">&times;</span>
             </div>
-
-            <!-- Imagen de la historia -->
             <div class="story-image-wrapper">
                 <div class="story-nav-left" onclick="historiaAnterior()"></div>
-                <img id="storyModalImg" src="" alt="Historia de Radically">
+                <img id="storyModalImg" src="" alt="Historia">
                 <div class="story-nav-right" onclick="historiaSiguiente()"></div>
             </div>
-            
-            <!-- Fecha abajo -->
             <div class="story-timestamp-modal" id="storyModalTimestamp"></div>
         </div>
     </div>
 
-    <!-- Script principal para posts y gestión automática de historias -->
+    <!-- 1. BLOQUE DE DATOS Y CARGA -->
     <script>
         let postsGlobal = [];
-        let postsMostradosCount = 15; // Lote inicial de 15 posts
         let historiasData = [];
+        let postsMostradosCount = 15;
 
         document.addEventListener("DOMContentLoaded", async () => {
-            // 1. Cargar las historias desde stories.json aplicando filtro de 24 horas
+            // Cargar historias con filtro de 24 horas
             try {
                 const resStories = await fetch('stories.json?t=' + new Date().getTime());
                 const dataBruta = await resStories.json();
-                
                 const ahora = Date.now();
-                const limiteTiempo = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
-
-                // Filtrar solo las historias con menos de 24 horas de vigencia
-                historiasData = dataBruta.filter(historia => {
-                    if (historia.createdAt) {
-                        return (ahora - historia.createdAt) < limiteTiempo;
+                historiasData = dataBruta.filter(h => {
+                    if (h.createdAt) {
+                        return (ahora - h.createdAt) < (24 * 60 * 60 * 1000);
                     }
-                    return true; // Por compatibilidad si carece del campo exacto
+                    return true;
                 });
             } catch (e) {
                 historiasData = [];
             }
-
-            // Inicializar la sección de historias según haya o no contenido vigente
+            
             inicializarSeccionHistorias();
 
-            // 2. Cargar los posts normales
+            // Cargar posts
             try {
                 const response = await fetch('posts.json?t=' + new Date().getTime());
                 postsGlobal = await response.json();
-                
-                renderizarFeedParcial();
+                renderizarFeedPosts();
                 window.addEventListener('scroll', comprobarScrollInfinito);
-
             } catch (error) {
-                console.error("Error al cargar los posts:", error);
+                console.error("Error al cargar posts:", error);
             }
         });
+    </script>
 
-        function inicializarSeccionHistorias() {
-            const section = document.getElementById('storiesSection');
-            const container = document.getElementById('stories-container');
-            if (!section || !container) return;
-
-            if (historiasData.length === 0) {
-                section.style.display = 'none';
-            } else {
-                section.style.display = 'block';
-                container.innerHTML = '';
-                historiasData.forEach((historia, i) => {
-                    container.innerHTML += `
-                        <div class="story-card" onclick="abrirHistoria(${i})">
-                            <img src="${historia.imagen}" alt="Historia ${i + 1}">
-                            <div class="story-timestamp">${historia.timestamp}</div>
-                        </div>
-                    `;
-                });
-            }
-        }
-
+    <!-- 2. BLOQUE DE POSTS (Separado) -->
+    <script>
         function limpiarHora(hora) {
             if (!hora) return '';
             return hora.replace(/p\.\s*m\./gi, 'pm').replace(/a\.\s*m\./gi, 'am').trim();
@@ -178,11 +130,19 @@
             const horaLimpia = limpiarHora(post.hora);
             const indicadorPin = post.fijado ? iconoPinSvg : '';
 
+            const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
+            let fechaCortasLimpia = limpiarFecha(post.fechaCortas);
+
+            // Corrección: Forzar fecha larga si móvil dice "hoy"
+            if (fechaCortasLimpia.toLowerCase() === 'hoy') {
+                fechaCortasLimpia = fechaLargaLimpia;
+            }
+
             if (post.tipo === 'photo_bloggy') {
                 const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
                 const textoCaption = post.texto ? `<p class="pb-caption"><span class="pb-user-inferior">@felipeortegareyes</span>${procesarTextoConEnlaces(post.texto)}</p>` : '';
 
-                let fechaPhoto = post.fechaCortas || '';
+                let fechaPhoto = fechaCortasLimpia;
                 const diasMap = {
                     'lun': 'lunes.', 'mar': 'martes.', 'mié': 'miércoles.', 'mie': 'miércoles.',
                     'jue': 'jueves.', 'vie': 'viernes.', 'sáb': 'sábado.', 'sab': 'sábado.', 'dom': 'domingo.'
@@ -234,9 +194,6 @@
                     imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
                 }
 
-                const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
-                const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
-
                 postHTML = `
                     <div class="post">
                         <div class="post-date">
@@ -258,17 +215,15 @@
             return postHTML;
         }
 
-        function renderizarFeedParcial() {
+        function renderizarFeedPosts() {
             const container = document.getElementById('feed-posts');
             container.innerHTML = '';
 
-            // Mantener lógica original de fijados arriba
             const postsFijados = postsGlobal.filter(post => post.fijado === true);
             postsFijados.forEach(post => {
                 container.innerHTML += generarHtmlPost(post);
             });
 
-            // Mostrar por lotes según postsMostradosCount
             const postsParaMostrar = postsGlobal.slice(0, postsMostradosCount);
             postsParaMostrar.forEach(post => {
                 container.innerHTML += generarHtmlPost(post);
@@ -278,166 +233,185 @@
         function comprobarScrollInfinito() {
             if (postsMostradosCount >= postsGlobal.length) return;
 
-            // Cuando falten 300px para llegar al final de la página, carga 15 más
             if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 300) {
                 postsMostradosCount += 15;
-                renderizarFeedParcial();
+                renderizarFeedPosts();
             }
         }
     </script>
 
-    <!-- --- LÓGICA DEL VISOR DE HISTORIAS --- -->
+    <!-- 3. BLOQUE DE HISTORIAS (Separado e independiente) -->
     <script>
-    let indiceHistoriaActual = 0;
-    let temporizadorHistoria = null;
-    let historiaPausada = false;
-    let tiempoInicio = 0;
-    let tiempoRestante = 5000;
+        let indiceHistoriaActual = 0;
+        let temporizadorHistoria = null;
+        let historiaPausada = false;
+        let tiempoInicio = 0;
+        let tiempoRestante = 5000;
 
-    function abrirHistoria(index) {
-        if (historiasData.length === 0) return;
-        indiceHistoriaActual = index;
-        const modal = document.getElementById('storyModal');
-        modal.classList.add('active');
-        renderizarBarrasProgreso();
-        mostrarHistoriaActual();
-    }
+        function inicializarSeccionHistorias() {
+            const section = document.getElementById('storiesSection');
+            const container = document.getElementById('stories-container');
+            if (!section || !container) return;
 
-    function cerrarHistoria() {
-        const modal = document.getElementById('storyModal');
-        modal.classList.remove('active');
-        clearTimeout(temporizadorHistoria);
-        historiaPausada = false;
-    }
-
-    function mostrarHistoriaActual() {
-        clearTimeout(temporizadorHistoria);
-        historiaPausada = false;
-        tiempoRestante = 5000;
-        tiempoInicio = Date.now();
-        
-        const btn = document.getElementById('storyPauseBtn');
-        if (btn) {
-            btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+            if (historiasData.length === 0) {
+                section.style.display = 'none';
+            } else {
+                section.style.display = 'block';
+                container.innerHTML = '';
+                historiasData.forEach((historia, i) => {
+                    container.innerHTML += `
+                        <div class="story-card" onclick="abrirHistoria(${i})">
+                            <img src="${historia.imagen}" alt="Historia ${i + 1}">
+                            <div class="story-timestamp">${historia.timestamp}</div>
+                        </div>
+                    `;
+                });
+            }
         }
-        
-        const historia = historiasData[indiceHistoriaActual];
-        if (historia) {
-            document.getElementById('storyModalImg').src = historia.imagen;
-            document.getElementById('storyModalTimestamp').innerText = historia.timestamp;
+
+        function abrirHistoria(index) {
+            if (historiasData.length === 0) return;
+            indiceHistoriaActual = index;
+            const modal = document.getElementById('storyModal');
+            modal.classList.add('active');
+            renderizarBarrasProgreso();
+            mostrarHistoriaActual();
         }
-        
-        actualizarBarrasVisuales();
 
-        temporizadorHistoria = setTimeout(() => {
-            historiaSiguiente();
-        }, tiempoRestante);
-    }
-
-    function togglePausarHistoria() {
-        const barraActiva = document.querySelector(`#p-bar-${indiceHistoriaActual} .fill`);
-        const btn = document.getElementById('storyPauseBtn');
-
-        if (!historiaPausada) {
+        function cerrarHistoria() {
+            const modal = document.getElementById('storyModal');
+            modal.classList.remove('active');
             clearTimeout(temporizadorHistoria);
-            tiempoRestante -= (Date.now() - tiempoInicio);
-            if (tiempoRestante < 0) tiempoRestante = 0;
-            historiaPausada = true;
-
-            if (barraActiva) {
-                barraActiva.style.animationPlayState = 'paused';
-            }
-            if (btn) {
-                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
-            }
-        } else {
-            tiempoInicio = Date.now();
             historiaPausada = false;
+        }
 
-            if (barraActiva) {
-                barraActiva.style.animationPlayState = 'running';
-            }
+        function mostrarHistoriaActual() {
+            clearTimeout(temporizadorHistoria);
+            historiaPausada = false;
+            tiempoRestante = 5000;
+            tiempoInicio = Date.now();
+            
+            const btn = document.getElementById('storyPauseBtn');
             if (btn) {
                 btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
             }
+            
+            const historia = historiasData[indiceHistoriaActual];
+            if (historia) {
+                document.getElementById('storyModalImg').src = historia.imagen;
+                document.getElementById('storyModalTimestamp').innerText = historia.timestamp;
+            }
+            
+            actualizarBarrasVisuales();
 
             temporizadorHistoria = setTimeout(() => {
                 historiaSiguiente();
             }, tiempoRestante);
         }
-    }
 
-    function historiaSiguiente() {
-        if (indiceHistoriaActual < historiasData.length - 1) {
-            indiceHistoriaActual++;
-            mostrarHistoriaActual();
-        } else {
-            cerrarHistoria();
-        }
-    }
+        function togglePausarHistoria() {
+            const barraActiva = document.querySelector(`#p-bar-${indiceHistoriaActual} .fill`);
+            const btn = document.getElementById('storyPauseBtn');
 
-    function historiaAnterior() {
-        if (indiceHistoriaActual > 0) {
-            indiceHistoriaActual--;
-            mostrarHistoriaActual();
-        }
-    }
+            if (!historiaPausada) {
+                clearTimeout(temporizadorHistoria);
+                tiempoRestante -= (Date.now() - tiempoInicio);
+                if (tiempoRestante < 0) tiempoRestante = 0;
+                historiaPausada = true;
 
-    function renderizarBarrasProgreso() {
-        const container = document.getElementById('storyProgressBars');
-        container.innerHTML = '';
-        historiasData.forEach((_, i) => {
-            container.innerHTML += `
-                <div class="story-progress-bar" id="p-bar-${i}">
-                    <div class="fill"></div>
-                </div>
-            `;
-        });
-    }
+                if (barraActiva) {
+                    barraActiva.style.animationPlayState = 'paused';
+                }
+                if (btn) {
+                    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+                }
+            } else {
+                tiempoInicio = Date.now();
+                historiaPausada = false;
 
-    function actualizarBarrasVisuales() {
-        historiasData.forEach((_, i) => {
-            const bar = document.getElementById(`p-bar-${i}`);
-            if (!bar) return;
-            bar.classList.remove('active', 'completed');
-            const fill = bar.querySelector('.fill');
-            if (fill) {
-                fill.style.animationPlayState = 'running';
+                if (barraActiva) {
+                    barraActiva.style.animationPlayState = 'running';
+                }
+                if (btn) {
+                    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+                }
+
+                temporizadorHistoria = setTimeout(() => {
+                    historiaSiguiente();
+                }, tiempoRestante);
             }
-            if (i < indiceHistoriaActual) {
-                bar.classList.add('completed');
-            } else if (i === indiceHistoriaActual) {
-                bar.classList.add('active');
-            }
-        });
-    }
-
-    // --- FUNCIONES LIGHTBOX POSTS ---
-    function abrirLightbox(src) {
-        const lightbox = document.getElementById('imageLightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        lightboxImg.src = src;
-        lightbox.classList.add('active');
-    }
-
-    function cerrarLightbox() {
-        const lightbox = document.getElementById('imageLightbox');
-        lightbox.classList.remove('active');
-    }
-
-    function cerrarLightboxAlFondo(event) {
-        if (event.target.id === 'imageLightbox') {
-            cerrarLightbox();
         }
-    }
+
+        function historiaSiguiente() {
+            if (indiceHistoriaActual < historiasData.length - 1) {
+                indiceHistoriaActual++;
+                mostrarHistoriaActual();
+            } else {
+                cerrarHistoria();
+            }
+        }
+
+        function historiaAnterior() {
+            if (indiceHistoriaActual > 0) {
+                indiceHistoriaActual--;
+                mostrarHistoriaActual();
+            }
+        }
+
+        function renderizarBarrasProgreso() {
+            const container = document.getElementById('storyProgressBars');
+            container.innerHTML = '';
+            historiasData.forEach((_, i) => {
+                container.innerHTML += `
+                    <div class="story-progress-bar" id="p-bar-${i}">
+                        <div class="fill"></div>
+                    </div>
+                `;
+            });
+        }
+
+        function actualizarBarrasVisuales() {
+            historiasData.forEach((_, i) => {
+                const bar = document.getElementById(`p-bar-${i}`);
+                if (!bar) return;
+                bar.classList.remove('active', 'completed');
+                const fill = bar.querySelector('.fill');
+                if (fill) {
+                    fill.style.animationPlayState = 'running';
+                }
+                if (i < indiceHistoriaActual) {
+                    bar.classList.add('completed');
+                } else if (i === indiceHistoriaActual) {
+                    bar.classList.add('active');
+                }
+            });
+        }
     </script>
 
-    <!-- MODO OSCURO -->
+    <!-- 4. UTILS Y MODO OSCURO -->
     <script>
-    const darkModeSwitch = document.getElementById('dark-mode-switch');
-    darkModeSwitch.addEventListener('change', () => {
-        document.body.classList.toggle('dark-mode');
-    });
+        function abrirLightbox(src) {
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+
+        function cerrarLightbox() {
+            const lightbox = document.getElementById('imageLightbox');
+            lightbox.classList.remove('active');
+        }
+
+        function cerrarLightboxAlFondo(event) {
+            if (event.target.id === 'imageLightbox') {
+                cerrarLightbox();
+            }
+        }
+
+        const darkModeSwitch = document.getElementById('dark-mode-switch');
+        darkModeSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+        });
     </script>
 </body>
 </html>
