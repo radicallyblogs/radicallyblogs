@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Soy un desastre de fierabrás.",
+    "imagenes": [],
+    "fechaLarga": "jue, 11 de junio de 2026",
+    "fechaCortas": "jue. 11 jun 2026",
+    "hora": "7:20 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-06-11T17:20:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "No tengo todavía una fecha establecida para la primera emisión, pero no por que no me haya decidido, si no por que estoy ahí con unos temas escritectonicos que ni fu ni fa, de hecho, estoy pensando en lanzarlo ya para julio.\n\nEsto no significa que vayamos a perder programación, habrán muchos mas hasta por lo menos mediados de septiembre, siendo \"muchos\" un eufemismo.",
     "imagenes": [],
     "fechaLarga": "mar, 9 de junio de 2026",
