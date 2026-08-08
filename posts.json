@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "WALL-E",
+    "imagenes": [],
+    "fechaLarga": "sáb, 8 de agosto de 2026",
+    "fechaCortas": "sáb. 8 ago 2026",
+    "hora": "1:23 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-08T11:23:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "PRUEBA",
     "imagenes": [
