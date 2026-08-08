@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Este año 2026 cae mi fecha dorada, lastima que no vaya a celebrarlo de manera \"especial\"",
+    "imagenes": [],
+    "fechaLarga": "sáb, 21 de marzo de 2026",
+    "fechaCortas": "sáb. 21 mar 2026",
+    "hora": "9:50 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-03-21T20:50:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Buscar sudaderas de cuello redondo para comprar por internet que sean de buena confección y de material orgánico es una putada de mucho cuidado.",
     "imagenes": [],
     "fechaLarga": "jue, 19 de marzo de 2026",
