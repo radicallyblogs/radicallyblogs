@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Quiero hacer un featuring de poesía con alguien en el que nos amemos con cada letra.",
+    "imagenes": [],
+    "fechaLarga": "mar, 27 de enero de 2026",
+    "fechaCortas": "mar. 27 ene 2026",
+    "hora": "6:20 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-01-27T17:20:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Es que de su deseo es asustadiza... Vaya chica.",
     "imagenes": [],
     "fechaLarga": "dom, 25 de enero de 2026",
