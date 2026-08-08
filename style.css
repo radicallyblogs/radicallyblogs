@@ -302,7 +302,7 @@ body {
     display: block;         /* Comportamiento de bloque para evitar huecos extraños */
 
     /* Sombra suave y limpia que respeta los 30px de radio de la foto */
-    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.50));
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.253));
 }
 
 
@@ -380,8 +380,8 @@ body {
         gap: 3px !important;                /* Espacio de separación estrecho entre las fotos */
         width: 100% !important;              
         max-width: 500px !important;         /* CLAVE: Respeta exactamente el mismo límite de ancho del post en PC */
-        margin-top: 13px !important;        /* Margen superior alineado con el texto */
-        margin-bottom: 13px !important;     /* Margen inferior */
+        margin-top: 5px !important;        /* Margen superior alineado con el texto */
+        margin-bottom: 20px !important;     /* Margen inferior */
         margin-left: 0 !important;          /* Pegado estrictamente a la izquierda con el texto */
         margin-right: 0 !important;         
         box-sizing: border-box !important;  
@@ -422,7 +422,7 @@ body {
         max-width: 100% !important;         
         max-height: none !important;        
         object-fit: cover !important;       
-        border-radius: 25px !important;      /* Esquinas más suaves en móvil */
+        border-radius: 30px !important;      /* Esquinas más suaves en móvil */
         display: block !important;      
         margin: 0 !important;               
         box-sizing: border-box !important;
@@ -436,7 +436,7 @@ body {
         width: 98% !important;              /* Ancho del 98% para respetar los márgenes del post */
         max-width: 98% !important;          
         margin-top: 12px !important;        
-        margin-bottom: 12px !important;     
+        margin-bottom: 19px !important;     
         margin-left: 0 !important;          /* Alineado a la izquierda exacto */
         margin-right: auto !important;      
         box-sizing: border-box !important;  
@@ -470,41 +470,37 @@ body {
 }
 
 
-/* ==========================================================
-   BLOQUE AISLADO: IMAGEN ÚNICA (No afecta al grid)
-   ========================================================== */
+/* ===============================================
+   BLOQUE AISLADO: IMAGEN ÚNICA (Estilo idéntico al grid)
+   =============================================== */
 
-/* --- 1. IMAGEN ÚNICA - VERSIÓN MÓVIL Y BASE --- */
 .post-single-image-container {
     width: 100% !important;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: transparent;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    background: transparent !important;
     display: flex !important;
-    /* Alinea el contenedor flexible hacia la izquierda exactamente con el texto */
-    justify-content: flex-start !important; 
+    justify-content: flex-start !important;
+    overflow: visible !important; /* Evita cualquier corte en la sombra */
 }
 
 .post-single-image-container img {
-    /* Controla el tamaño general (80%) manteniendo la proporción real sin deformar */
-    max-width: 80% !important; 
+    max-width: 80% !important;
     width: auto !important;
     height: auto !important;
-    object-fit: contain;
-    border-radius: 12px;
+    object-fit: contain !important;
+    border-radius: 40px !important; /* Esquinas redondeadas perfectas */
+    box-shadow: 0 5px 12px rgba(26, 26, 26, 0.11) !important; /* Sombra idéntica a la del grid */
     display: block !important;
-    /* Fuerza absoluta: margen izquierdo a 0 y empuja el resto a la derecha para que no se centre */
-    margin-left: 0 !important;     
-    margin-right: auto !important; 
+    margin-left: 0 !important;
+    margin-right: auto !important;
 }
 
 /* --- 2. IMAGEN ÚNICA - VERSIÓN PC (Escritorio) --- */
 @media (min-width: 768px) {
     .post-single-image-container {
-        margin-top: 12px;
-        margin-bottom: 12px;
+        margin-top: 5px;
+        margin-bottom: 20px;
         /* Reafirma el flex a la izquierda en pantallas grandes de PC */
         display: flex !important;
         justify-content: flex-start !important;
@@ -521,6 +517,7 @@ body {
 /* --- 3. IMAGEN ÚNICA - VERSIÓN MÓVIL (< 768px) --- */
 @media (max-width: 767px) {
     .post-single-image-container img {
+        margin-top: -4px !important;    /* <-- Cámbialo al valor que más te guste para móvil */
         /* Truco del 98% para evitar cortes a la derecha en pantallas de móvil */
         max-width: 70% !important;
     }
@@ -534,7 +531,8 @@ body {
 .photo-bloggy-post {
     width: 100%;
     max-width: 650px;
-    margin: 10px 0;
+    margin-top: -15px !important;    /* <-- Cambia este valor para ajustar SOLO la distancia de arriba en PC */
+    margin-bottom: 10px; /* <-- Deja este con el valor que ya tenías perfecto abajo */
     background: transparent;
     border: none;
     box-shadow: none;
@@ -593,7 +591,7 @@ body {
 .pb-datetime {
     display: block;
     font-family: 'Proxima Nova', sans-serif;
-    color: #666666;             /* [PC - Color de la Fecha/Hora] */
+    color: #6e6e6e;             /* [PC - Color de la Fecha/Hora] */
     font-size: 18px;            /* [PC - Tamaño de fuente de la Fecha] */
     font-weight: 300;           /* [PC - Grosor de la Fecha] */
     position: relative;
@@ -618,7 +616,7 @@ body {
     top: 0px;                   /* [PC - Posición Y de la foto] */
 
     /* Sombra suave y limpia que respeta los 30px de radio de la foto */
-    filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.50));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.199));
 }
 
 .pb-image-container img {
@@ -688,7 +686,8 @@ body {
     .photo-bloggy-post {
         width: 100vw;
         max-width: 100vw;
-        margin: 20px 0;
+        margin-top: -3px !important;    /* <-- Cambia este valor para ajustar SOLO la distancia de arriba en móvil */
+        margin-bottom: 16px; /* <-- Deja este con el valor perfecto de abajo en móvil */
         left: 0px;              /* [Móvil - Posición X General] */
         top: 0px;               /* [Móvil - Posición Y General] */
     }
@@ -748,7 +747,7 @@ body {
         top: 0px;               /* [Móvil - Posición Y de la foto] */
 
         /* Sombra suave y limpia que respeta los 30px de radio de la foto */
-        filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.50));
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.37));
     }
 
     .pb-image-container img {
@@ -1153,7 +1152,7 @@ input, textarea {
 .stories-title {
     /* PC */
     font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* 🎛️ PC: Fuente título */
-    font-size: 1.5rem;        /* 🎛️ PC: Tamaño letra título */
+    font-size: 1.80rem;        /* 🎛️ PC: Tamaño letra título */
     font-weight: 700;         /* 🎛️ PC: Grosor letra título */
     margin-bottom: 15px;      /* 🎛️ PC: Espaciado inferior título */
     color: var(--text-color); /* 🎛️ PC: Color título */
@@ -1237,7 +1236,7 @@ input, textarea {
     /* --- 2. TÍTULO (.stories-title) --- */
     .stories-title {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* 🎛️ MÓVIL: Fuente título */
-        font-size: 1.60rem;       /* 🎛️ MÓVIL: Tamaño letra título */
+        font-size: 1.90rem;       /* 🎛️ MÓVIL: Tamaño letra título */
         font-weight: 700;         /* 🎛️ MÓVIL: Grosor letra título */
         margin-bottom: 10px;      /* 🎛️ MÓVIL: Espaciado inferior título */
         color: var(--text-color); /* 🎛️ MÓVIL: Color título */
