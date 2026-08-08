@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "ÁRBOL DESDECORADO - ESTA NOCHE PRIMER VISTAZO!!!",
+    "imagenes": [
+      "images/post_img_1786222737483_new_0.png"
+    ],
+    "fechaLarga": "vie, 26 de diciembre de 2025",
+    "fechaCortas": "vie. 26 dic 2025",
+    "hora": "11:53 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-12-26T22:53:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Estas navidades fueron hasta en pijamas.. Es coña, me voy a pegar una para recogerme con cuchara.",
     "imagenes": [],
     "fechaLarga": "jue, 25 de diciembre de 2025",
