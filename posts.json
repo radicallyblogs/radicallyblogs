@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "En el 2050 yo tendre tan solo 47 años. 😬",
+    "imagenes": [],
+    "fechaLarga": "vie, 17 de enero de 2025",
+    "fechaCortas": "vie. 17 ene 2025",
+    "hora": "4:08 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-01-17T15:08:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Mi cabeza esta inquieta y sobrepensadora.",
     "imagenes": [],
     "fechaLarga": "mié, 1 de enero de 2025",
