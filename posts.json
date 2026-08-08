@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "El tiempo pasa muy rapido, pero cuando se trata de esperar, te cagas en la puta.",
+    "imagenes": [],
+    "fechaLarga": "dom, 24 de marzo de 2024",
+    "fechaCortas": "dom. 24 mar 2024",
+    "hora": "6:20 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-03-24T17:20:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Siempre que estoy a punto de dejarlo todo, tu vienes a salvarme \"V\"",
     "imagenes": [],
     "fechaLarga": "dom, 24 de marzo de 2024",
