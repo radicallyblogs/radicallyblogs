@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "PRUEBA NUEVA",
+    "imagenes": [
+      "images/post_img_1786190954990_new_0.png"
+    ],
+    "fechaLarga": "sáb, 8 de agosto de 2026",
+    "fechaCortas": "sáb. 8 ago 2026",
+    "hora": "2:08 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-08T12:08:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "WALL-E",
     "imagenes": [],
     "fechaLarga": "sáb, 8 de agosto de 2026",
