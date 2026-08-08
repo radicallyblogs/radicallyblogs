@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Subir dos relatos y un tráiler en menos de 3 días es salvaje.",
+    "imagenes": [],
+    "fechaLarga": "sáb, 13 de julio de 2024",
+    "fechaCortas": "sáb. 13 jul 2024",
+    "hora": "2:30 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-07-13T12:30:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Por cierto, ya tenéis disponible la pagina de Lonermorejourney en ordenador y la versión actualizada para movil, con todos los escritos corregidos!",
     "imagenes": [],
     "fechaLarga": "mié, 10 de julio de 2024",
