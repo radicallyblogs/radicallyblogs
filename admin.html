@@ -692,11 +692,9 @@
                 postImage.removeAttribute('multiple');
                 hintImage.innerText = "Sube la imagen para tu historia (caduca en 24 horas).";
             } else {
-                // Creación de Bloggy o Photo Bloggy: Mostrar campo de fecha personalizada
                 customDateGroup.style.display = 'block';
-                infoAutoBox.style.display = 'none'; // Se oculta el texto estático para dar protagonismo al input personalizable
+                infoAutoBox.style.display = 'none';
                 
-                // Prellenar con fecha y hora actual en formato datetime-local
                 const ahora = new Date();
                 const year = ahora.getFullYear();
                 const month = String(ahora.getMonth() + 1).padStart(2, '0');
@@ -962,7 +960,6 @@
             const container = document.getElementById('posts-container');
 
             try {
-                // Cargar posts normales
                 const resPosts = await fetch(`https://api.github.com/repos/${repo}/contents/${postsPath}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
@@ -973,7 +970,6 @@
                     postsCache = [];
                 }
 
-                // Cargar historias
                 const resStories = await fetch(`https://api.github.com/repos/${repo}/contents/${storiesPath}`, {
                     headers: { "Authorization": `token ${token}` }
                 });
@@ -1005,7 +1001,7 @@
                 return texto.includes(query) || fechaLarga.includes(query) || fechaCortas.includes(query) || tipo.includes(query);
             });
             const filtradosStories = storiesCache.filter(story => {
-                return 'historia'.includes(query) || 'story'.includes(query) || (story.fechaCreacion || '').toLowerCase().includes(query);
+                return 'historia'.includes(query) || 'story'.includes(query) || (story.fechaCreacion || '').toLowerCase().includes(query) || (story.timestamp || '').toLowerCase().includes(query);
             });
             renderizarListaAdminFiltrada(filtradosPosts, filtradosStories);
         }
@@ -1030,11 +1026,25 @@
                 return;
             }
 
+            // ORDENACIÓN ROBUSTA: Lo más reciente siempre arriba (incluyendo historias)
             let itemsOrdenados = [...items].sort((a, b) => {
                 if (a.item.fijado && !b.item.fijado) return -1;
                 if (!a.item.fijado && b.item.fijado) return 1;
-                const dateA = new Date(a.item.fechaCreacion || a.item.hora || 0);
-                const dateB = new Date(b.item.fechaCreacion || b.item.hora || 0);
+
+                const getTimestamp = (item) => {
+                    if (item.fechaCreacion) {
+                        const t = new Date(item.fechaCreacion).getTime();
+                        if (!isNaN(t)) return t;
+                    }
+                    if (item.hora) {
+                        // fallback auxiliar si tuviera hora formateada
+                        return 0;
+                    }
+                    return 0;
+                };
+
+                const dateA = getTimestamp(a.item);
+                const dateB = getTimestamp(b.item);
                 return dateB - dateA;
             });
 
@@ -1054,8 +1064,14 @@
 
                 let fechaMeta = '';
                 if (source === 'stories') {
-                    let d = new Date(item.fechaCreacion);
-                    fechaMeta = `Creada: ${d.toLocaleDateString()} - ${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+                    if (item.timestamp) {
+                        fechaMeta = `Creada: ${item.timestamp}`;
+                    } else if (item.fechaCreacion) {
+                        let d = new Date(item.fechaCreacion);
+                        fechaMeta = `Creada: ${d.toLocaleDateString()} - ${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+                    } else {
+                        fechaMeta = `Creada: Reciente`;
+                    }
                 } else {
                     fechaMeta = `Fecha: ${item.fechaCortas || 'Sin fecha'} - ${item.hora || ''}`;
                 }
@@ -1153,7 +1169,6 @@
             const customDateGroup = document.getElementById('customDateGroup');
             const infoAutoBox = document.getElementById('infoAutoBox');
 
-            // OCULTAR EL SELECTOR DE FECHA PERSONALIZADA EN EDICIÓN
             customDateGroup.style.display = 'none';
             infoAutoBox.style.display = 'block';
 
@@ -1188,12 +1203,8 @@
             document.getElementById('previewContainer').innerHTML = "";
             document.getElementById('btn-submit').innerText = "Guardar Cambios";
 
-            // MOSTRAR LA FECHA ORIGINAL EN EL CUADRO INFORMATIVO EN EDICIÓN
             if (source === 'stories') {
-                let d = new Date(item.fechaCreacion);
-                let fechaStr = d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
-                let horaStr = d.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
-                document.getElementById('live-datetime').innerText = `${fechaStr} - ${horaStr} (Original)`;
+                document.getElementById('live-datetime').innerText = item.timestamp ? `${item.timestamp} (Original)` : 'Fecha original';
             } else {
                 let fechaOriginal = item.fechaCortas || item.fechaLarga || 'Fecha desconocida';
                 let horaOriginal = item.hora || '';
@@ -1245,7 +1256,6 @@
                 return;
             }
 
-            // OBTENER FECHA Y HORA (Personalizada en Creación, Original/Actual según corresponda)
             let fechaBaseObj = new Date();
             if (editandoIndex === null && tipoPostActual !== 'story') {
                 const customVal = document.getElementById('customDatetimeInput').value;
@@ -1254,6 +1264,7 @@
                 }
             }
             const { fechaLarga: fechaLargaActual, fechaCortas: fechaCortasActual, hora: horaStr } = formatearDatosFecha(fechaBaseObj);
+            const timestampFormateado = `${fechaCortasActual} • ${horaStr}`;
 
             const targetPath = (tipoPostActual === 'story') ? storiesPath : postsPath;
 
@@ -1355,6 +1366,10 @@
                     if (tipoPostActual === 'story') {
                         storiesCache[editandoIndex].tipo = 'story';
                         storiesCache[editandoIndex].imagen = finalImageNames[0];
+                        storiesCache[editandoIndex].timestamp = timestampFormateado;
+                        if (!storiesCache[editandoIndex].fechaCreacion) {
+                            storiesCache[editandoIndex].fechaCreacion = fechaBaseObj.toISOString();
+                        }
                         currentCache = storiesCache;
                     } else {
                         postsCache[editandoIndex].tipo = tipoPostActual;
@@ -1368,7 +1383,8 @@
                         const nuevaHistoria = {
                             "tipo": "story",
                             "imagen": finalImageNames[0],
-                            "fechaCreacion": new Date().toISOString()
+                            "timestamp": timestampFormateado,
+                            "fechaCreacion": fechaBaseObj.toISOString()
                         };
                         storiesCache.unshift(nuevaHistoria);
                         currentCache = storiesCache;
@@ -1380,7 +1396,8 @@
                             "fechaLarga": fechaLargaActual,
                             "fechaCortas": fechaCortasActual,
                             "hora": horaStr,
-                            "fijado": false
+                            "fijado": false,
+                            "fechaCreacion": fechaBaseObj.toISOString()
                         };
                         postsCache.unshift(nuevoPost);
                         currentCache = postsCache;
