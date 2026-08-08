@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "En cuanto al proyecto ELTQ Radio ya tengo planeado un primer programa, pero no se trata de la fecha. Es como sentirte ilusionado por algo que en el fondo sabes que te aterra, y tomármelo con calma esta siéndome de ayuda personalmente.",
+    "imagenes": [],
+    "fechaLarga": "dom, 2 de agosto de 2026",
+    "fechaCortas": "dom. 2 ago 2026",
+    "hora": "5:40 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-02T15:40:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Y para mi son tan solo.",
     "imagenes": [],
     "fechaLarga": "sáb, 1 de agosto de 2026",
