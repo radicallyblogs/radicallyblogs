@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Mi única meta ahora es poder llegar a esta talla.",
+    "imagenes": [
+      "images/post_img_1786228305483_new_0.jpeg"
+    ],
+    "fechaLarga": "sáb, 21 de febrero de 2026",
+    "fechaCortas": "sáb. 21 feb 2026",
+    "hora": "8:30 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-02-21T19:30:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "He hecho un arte digital para árbol desdecorado a mano alzada.\nhttps://lonermorejourney.wixsite.com/historys/árbol-desdecorado",
     "imagenes": [
       "images/post_img_1786228229067_new_0.png"
