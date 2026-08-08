@@ -1085,7 +1085,6 @@ if (source === 'stories') {
         const diferenciaHoras = (ahora - fechaCreacion) / (1000 * 60 * 60);
         const horaStr = fechaCreacion.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        // Comprobamos si es el mismo día calendario o el día anterior para Hoy / Ayer
         const esHoy = fechaCreacion.toDateString() === ahora.toDateString();
         const ayerObj = new Date(ahora);
         ayerObj.setDate(ahora.getDate() - 1);
@@ -1107,10 +1106,9 @@ if (source === 'stories') {
     } else {
         fechaMeta = `Creada: Reciente`;
     }
+} else {
+    fechaMeta = `Fecha: ${item.fechaCortas || 'Sin fecha'} - ${item.hora || ''}`;
 }
-                } else {
-                    fechaMeta = `Fecha: ${item.fechaCortas || 'Sin fecha'} - ${item.hora || ''}`;
-                }
                 
                 let imagenesPost = [];
                 if (item.imagenes && Array.isArray(item.imagenes)) {
