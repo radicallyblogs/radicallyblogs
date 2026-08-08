@@ -6,10 +6,10 @@
     <title>RADICALLYBLOGS - Panel de Administración</title>
     <style>
         *, *::before, *::after {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-}
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
@@ -948,11 +948,34 @@
             }
         });
 
+        // FORMATEADOR DE FECHA CON "hoy" / "ayer" EN MINÚSCULAS
         function formatearDatosFecha(dateObj) {
+            const ahora = new Date();
+            
+            const esHoy = dateObj.getDate() === ahora.getDate() && 
+                          dateObj.getMonth() === ahora.getMonth() && 
+                          dateObj.getFullYear() === ahora.getFullYear();
+
+            const ayer = new Date(ahora);
+            ayer.setDate(ahora.getDate() - 1);
+            const esAyer = dateObj.getDate() === ayer.getDate() && 
+                           dateObj.getMonth() === ayer.getMonth() && 
+                           dateObj.getFullYear() === ayer.getFullYear();
+
+            const horaStr = dateObj.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
+            
+            let fechaCortas = '';
+            if (esHoy) {
+                fechaCortas = 'hoy';
+            } else if (esAyer) {
+                fechaCortas = 'ayer';
+            } else {
+                fechaCortas = dateObj.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+            }
+
             const fechaLarga = dateObj.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
-            const fechaCortas = dateObj.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
-            const hora = dateObj.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
-            return { fechaLarga, fechaCortas, hora };
+            
+            return { fechaLarga, fechaCortas, hora: horaStr };
         }
 
         async function cargarPostsGitHub() {
@@ -1035,10 +1058,6 @@
                     if (item.fechaCreacion) {
                         const t = new Date(item.fechaCreacion).getTime();
                         if (!isNaN(t)) return t;
-                    }
-                    if (item.hora) {
-                        // fallback auxiliar si tuviera hora formateada
-                        return 0;
                     }
                     return 0;
                 };
@@ -1506,5 +1525,3 @@
     </script>
 </body>
 </html>
-
-
