@@ -1,16 +1,6 @@
 [
   {
     "tipo": "clasico",
-    "texto": "Hola ",
-    "imagenes": [],
-    "fechaLarga": "sáb, 8 de agosto de 2026",
-    "fechaCortas": "hoy",
-    "hora": "9:49 a. m.",
-    "fijado": false,
-    "fechaCreacion": "2026-08-08T07:49:00.000Z"
-  },
-  {
-    "tipo": "clasico",
     "texto": "Hola",
     "imagenes": [],
     "fechaLarga": "jue, 6 de agosto de 2026",
