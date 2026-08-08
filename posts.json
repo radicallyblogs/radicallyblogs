@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "No se vosotros pero la segunda temporada de The end of the fucking world, la hicieron demasiado Voyd hasta para mi gusto",
+    "imagenes": [
+      "images/post_img_1786207045694_new_0.jpeg"
+    ],
+    "fechaLarga": "dom, 28 de abril de 2024",
+    "fechaCortas": "dom. 28 abr 2024",
+    "hora": "7:31 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-04-28T17:31:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Antes me refugiaba en el alcohol, tanto hasta el punto que me atrapo, pero con el tiempo me fuiste enseñando que existe otro mundo además de reprimir el dolor. Ahora intento ser mejor, pero esta claro que no voy a convencer a nadie",
     "imagenes": [],
     "fechaLarga": "sáb, 27 de abril de 2024",
