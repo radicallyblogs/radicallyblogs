@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Yo no me alejé de todos, es que yo nunca he tenido a nadie.",
+    "imagenes": [],
+    "fechaLarga": "dom, 21 de junio de 2026",
+    "fechaCortas": "dom. 21 jun 2026",
+    "hora": "12:30 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-06-21T10:30:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "La idea de presentar poemas como títulos desde la emisora me ha estado rondando la cabeza, de esa manera podría llegar a sentirme mas cómodo sin seguir un ritmo. Pero para explicarme mejor, tambien me veo presentando un programa que tenga una duración de 1 hora o como mucho media hora de cierre además para un solo poema.",
     "imagenes": [],
     "fechaLarga": "sáb, 13 de junio de 2026",
