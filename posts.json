@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "La poesía como escritura creativa se siente mucho mas viva que simplemente tener algo que contar.",
+    "imagenes": [],
+    "fechaLarga": "jue, 7 de agosto de 2025",
+    "fechaCortas": "jue. 7 ago 2025",
+    "hora": "9:38 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-08-07T19:38:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Hoy me levante con ganas de arriarme. No, arrearme no, gran putos.",
     "imagenes": [],
     "fechaLarga": "mar, 5 de agosto de 2025",
