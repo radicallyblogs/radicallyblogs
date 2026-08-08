@@ -248,6 +248,28 @@
 
     <!-- 3. BLOQUE DE HISTORIAS (Separado e independiente) -->
     <script>
+        function obtenerTextoHistoria(historia) {
+            if (!historia.fechaCreacion) return historia.timestamp || '';
+            const fecha = new Date(historia.fechaCreacion);
+            const hoy = new Date();
+            const ayer = new Date();
+            ayer.setDate(hoy.getDate() - 1);
+
+            const horaStr = fecha.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit', 
+                hour12: true 
+            }).toLowerCase();
+
+            if (fecha.toDateString() === hoy.toDateString()) {
+                return `hoy • ${horaStr}`;
+            } else if (fecha.toDateString() === ayer.toDateString()) {
+                return `ayer • ${horaStr}`;
+            } else {
+                const diffH = Math.floor((hoy - fecha) / (1000 * 60 * 60));
+                return `hace ${diffH}h`;
+            }
+        }
         let indiceHistoriaActual = 0;
         let temporizadorHistoria = null;
         let historiaPausada = false;
@@ -268,7 +290,7 @@
                     container.innerHTML += `
                         <div class="story-card" onclick="abrirHistoria(${i})">
                             <img src="${historia.imagen}" alt="Historia ${i + 1}">
-                            <div class="story-timestamp">${historia.timestamp}</div>
+                            <div class="story-timestamp">${obtenerTextoHistoria(historia)}</div>
                         </div>
                     `;
                 });
@@ -305,7 +327,7 @@
             const historia = historiasData[indiceHistoriaActual];
             if (historia) {
                 document.getElementById('storyModalImg').src = historia.imagen;
-                document.getElementById('storyModalTimestamp').innerText = historia.timestamp;
+                document.getElementById('storyModalTimestamp').innerText = obtenerTextoHistoria(historia);
             }
             
             actualizarBarrasVisuales();
