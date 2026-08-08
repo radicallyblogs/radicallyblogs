@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "https://lonermorejourney.wixsite.com/historys/poemas-de-verano",
+    "imagenes": [
+      "images/post_img_1786229678278_new_0.jpg"
+    ],
+    "fechaLarga": "dom, 10 de mayo de 2026",
+    "fechaCortas": "dom. 10 may 2026",
+    "hora": "9:45 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-05-10T19:45:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Tantas mayúsculas para un álbum que ni es nuevo jajajaj",
     "imagenes": [],
     "fechaLarga": "dom, 10 de mayo de 2026",
