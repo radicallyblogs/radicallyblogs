@@ -1,18 +1,6 @@
 [
   {
     "tipo": "clasico",
-    "texto": "NUEVO ÁLBUM!",
-    "imagenes": [
-      "images/post_img_1786190996298_new_0.png"
-    ],
-    "fechaLarga": "sáb, 8 de agosto de 2026",
-    "fechaCortas": "sáb. 8 ago 2026",
-    "hora": "2:09 p. m.",
-    "fijado": false,
-    "fechaCreacion": "2026-08-08T12:09:00.000Z"
-  },
-  {
-    "tipo": "clasico",
     "texto": "PRUEBA NUEVA",
     "imagenes": [
       "images/post_img_1786190954990_new_0.png"
