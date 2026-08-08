@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Estoy estúpido con lo de rememorar cosas de hace un año",
+    "imagenes": [],
+    "fechaLarga": "vie, 21 de febrero de 2025",
+    "fechaCortas": "vie. 21 feb 2025",
+    "hora": "4:28 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-02-21T15:28:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Estoy encabezando la carrera bien fenomeno",
     "imagenes": [],
     "fechaLarga": "sáb, 1 de marzo de 2025",
