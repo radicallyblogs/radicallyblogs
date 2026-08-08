@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "QUEDA TAN SOLO 1 HORA!!!",
+    "imagenes": [],
+    "fechaLarga": "vie, 8 de mayo de 2026",
+    "fechaCortas": "vie. 8 may 2026",
+    "hora": "11:10 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-05-08T21:10:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "ESTA NOCHE A LAS 12 LE DAMOS AL REPLAY",
     "imagenes": [],
     "fechaLarga": "mar, 8 de septiembre de 2026",
