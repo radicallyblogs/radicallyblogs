@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hasta Instagram sabe de que va la cosa",
+    "imagenes": [
+      "images/post_img_1786207847073_new_0.jpeg"
+    ],
+    "fechaLarga": "mié, 19 de junio de 2024",
+    "fechaCortas": "mié. 19 jun 2024",
+    "hora": "11:42 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-06-19T09:42:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Como estamos en verano y menos mal este no esta siendo tan arduo como el año pasado, he actualizado el blog a una versión beta a la ultima, y algunos de los cambios son, que en vez de quedarme en casa jalándomela, ahora me quedo jalándomela y escribiendo, en cuanto al blog, detalles mínimos que ni se notan.",
     "imagenes": [],
     "fechaLarga": "mar, 18 de junio de 2024",
