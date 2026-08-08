@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy son las Geminidas y por culpa de unos hijos de la gran puta me las voy a perder. Ya me ocupare yo de que ellos también pierdan el acceso.",
+    "imagenes": [],
+    "fechaLarga": "mar, 16 de diciembre de 2025",
+    "fechaCortas": "mar. 16 dic 2025",
+    "hora": "12:05 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-12-16T11:05:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Me llego esto de amazon a mi dirección. Ya puedo intuir lo que será",
     "imagenes": [
       "images/post_img_1786222479029_new_0.jpg"
