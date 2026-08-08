@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Me llego esto de amazon a mi dirección. Ya puedo intuir lo que será",
+    "imagenes": [
+      "images/post_img_1786222479029_new_0.jpg"
+    ],
+    "fechaLarga": "jue, 11 de diciembre de 2025",
+    "fechaCortas": "jue. 11 dic 2025",
+    "hora": "4:45 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-12-11T15:45:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Compartirnos de mano a mano sin un asomo de súplica.",
     "imagenes": [],
     "fechaLarga": "lun, 8 de diciembre de 2025",
