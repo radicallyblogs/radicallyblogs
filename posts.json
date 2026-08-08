@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Al final si se dio ese featuring de poesía donde con cada letra nos amamos apasionadamente.",
+    "imagenes": [],
+    "fechaLarga": "mar, 21 de abril de 2026",
+    "fechaCortas": "mar. 21 abr 2026",
+    "hora": "7:09 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-04-21T17:09:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Intentando pasear",
     "imagenes": [
