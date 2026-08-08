@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "POST PRUEBA",
+    "imagenes": [],
+    "fechaLarga": "sáb, 8 de agosto de 2026",
+    "fechaCortas": "sáb. 8 ago 2026",
+    "hora": "12:08 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-08T10:08:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Hola",
     "imagenes": [],
     "fechaLarga": "jue, 6 de agosto de 2026",
