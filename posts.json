@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Tengo que tratar mi mal comportamiento.",
+    "imagenes": [],
+    "fechaLarga": "mar, 11 de marzo de 2025",
+    "fechaCortas": "mar. 11 mar 2025",
+    "hora": "1:28 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-03-11T00:28:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "La opinión del lector furioso necesita respirar antes de mostrarse.",
     "imagenes": [],
     "fechaLarga": "dom, 9 de marzo de 2025",
