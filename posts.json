@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hace un rato pase El Zurgenmather a borrador en la pagina, asi como algunos mas que tambien han estado publicados anteriormente y con los que no pienso dejar de tratar, pero posteriormente de abril al paso de ahora, he tenido una combustión cerebral espontanea que se a convertido en una aceleración subatómica de ideas acatadas con un gran botín incomprensible para las mentes mas audaces ",
+    "imagenes": [],
+    "fechaLarga": "lun, 24 de junio de 2024",
+    "fechaCortas": "lun. 24 jun 2024",
+    "hora": "10:45 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-06-24T20:45:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Hasta Instagram sabe de que va la cosa",
     "imagenes": [
       "images/post_img_1786207847073_new_0.jpeg"
