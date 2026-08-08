@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "La verdad es que para mi proyecto de artes escénicas debo decir que tengo mucha poesía preparada, pero eso no significa que por ende haya que ponerle un lazo a todo lo nuevo, tambien hay ideas que se tienen que descartar.",
+    "imagenes": [],
+    "fechaLarga": "vie, 3 de abril de 2026",
+    "fechaCortas": "vie. 3 abr 2026",
+    "hora": "10:49 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-04-03T20:49:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Este año 2026 cae mi fecha dorada, lastima que no vaya a celebrarlo de manera \"especial\"",
     "imagenes": [],
     "fechaLarga": "sáb, 21 de marzo de 2026",
