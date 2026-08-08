@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy no se podrán ver las Geminidas por el temporal, me reconforta sabiendo que no puedo subir",
+    "imagenes": [],
+    "fechaLarga": "mar, 16 de diciembre de 2025",
+    "fechaCortas": "mar. 16 dic 2025",
+    "hora": "9:47 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-12-16T20:47:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Hoy son las Geminidas y por culpa de unos hijos de la gran puta me las voy a perder. Ya me ocupare yo de que ellos también pierdan el acceso.",
     "imagenes": [],
     "fechaLarga": "mar, 16 de diciembre de 2025",
