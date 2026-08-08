@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "He hecho un arte digital para árbol desdecorado a mano alzada.\nhttps://lonermorejourney.wixsite.com/historys/árbol-desdecorado",
+    "imagenes": [
+      "images/post_img_1786228229067_new_0.png"
+    ],
+    "fechaLarga": "dom, 15 de febrero de 2026",
+    "fechaCortas": "dom. 15 feb 2026",
+    "hora": "7:10 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-02-15T18:10:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Solo es de sentarme y hacerlo mas creativo (Aún más todavía)",
     "imagenes": [],
     "fechaLarga": "mar, 10 de febrero de 2026",
