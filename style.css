@@ -164,6 +164,7 @@ body {
     top: -2px;             /* Modifica la distancia vertical en PC */
     left: 0px;            /* Modifica la distancia horizontal en PC */
     max-width: 500px;     /* Límite derecho independiente para PC (ajústalo según el ancho de tu contenedor de PC) */
+    white-space: pre-line !important; /* <--- AÑADE ESTA LÍNEA AQUÍ */
     font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 20px;      /* Tamaño de texto del post en PC */
     font-weight: 300;     /* Grosor ligero */
@@ -251,6 +252,7 @@ body {
     max-width: 395px;     /* Límite derecho: hasta dónde llega el ancho máximo del texto */
     word-break: break-word !important;       /* <-- Obliga a las URLs largas a romperse dentro de tu límite */
     overflow-wrap: break-word !important;    /* <-- Refuerza para que ningún enlace se escape */
+    white-space: pre-line !important;      /* <-- AÑADE ESTA LÍNEA AQUÍ */
     font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 21px;      /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
     font-weight: 400;
@@ -661,6 +663,7 @@ body {
     font-size: 19px;            /* [PC - Tamaño del texto del post] */
     color: #000000;             /* [PC - Color del texto del post] */
     font-weight: 300;           /* [PC - Grosor del texto del post] */
+    white-space: pre-line !important; /* <--- AÑADE ESTA LÍNEA AQUÍ */
     position: relative;
     left: 0px;                  /* [PC - Posición X del texto] */
     top: -8px;                   /* [PC - Posición Y del texto] */
@@ -782,6 +785,7 @@ body {
     left: 0px !important;             /* [Móvil - TU VALOR ORIGINAL INTACTO] */
     top: 6px !important;               /* [Móvil - Posición Y del texto] */
     max-width: 95% !important;         /* [Móvil - Impide que rebase el ancho de la pantalla] */
+    white-space: pre-line !important;   /* <--- AÑADE ESTA LÍNEA AQUÍ */
 }
 
 .pb-user-inferior {
