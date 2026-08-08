@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Cuando te conocí, me conocí",
+    "imagenes": [],
+    "fechaLarga": "sáb, 18 de octubre de 2025",
+    "fechaCortas": "sáb. 18 oct 2025",
+    "hora": "8:42 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-10-18T18:42:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Tengo ya elaboradas algunas obras, entre esas aparte del gran acontecimiento. Mi percepción del tiempo no pierde su valor y sobre todo por ese arte que hace a todos decir \"Este tio lo mata\" y así me odian, estoy en el alpinismo de serlo.",
     "imagenes": [],
     "fechaLarga": "mar, 30 de septiembre de 2025",
