@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Últimamente he estado pasando por algunos problemas personales, digamos un tanto severos, que me han afectado en mayor parte y como tambien de salud sobre todo. Pero eso por mas que me este siendo presente, no va a detenerme o dificultarme en cuanto a la producción del disco 2 se refiere, el cual puedo decir que esta tomando muy buena forma. Estare como siempre informando sobre el y su nueva fecha que parece, va a ser pospuesta, aun que nunca digamos nunca, eso he oído por ahí.",
+    "imagenes": [],
+    "fechaLarga": "dom, 31 de agosto de 2025",
+    "fechaCortas": "dom. 31 ago 2025",
+    "hora": "3:05 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-08-31T13:05:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "EN PRODUCCIÓN!!!",
     "imagenes": [
       "images/post_img_1786219257472_new_0.jpg"
