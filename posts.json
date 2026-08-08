@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Estoy diseñando el port de PC para la pagina de Loonermorejourney utilizando mi mas sentido trato por los formatos curvados y plegados",
+    "imagenes": [],
+    "fechaLarga": "mié, 5 de junio de 2024",
+    "fechaCortas": "mié. 5 jun 2024",
+    "hora": "6:20 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-06-05T16:20:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Al final me decidí por usar mi ultimo relato para un EP intermedio, podéis haceros una idea de que va a tratar mas o menos. Por ahora solo es una idea que estoy moldeando",
     "imagenes": [
       "images/post_img_1786207472053_new_0.jpeg"
