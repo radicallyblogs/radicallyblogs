@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Asi de rico le gusta a Sabrina",
+    "imagenes": [
+      "images/post_img_1786152138236_new_0.gif"
+    ],
+    "fechaLarga": "sáb, 8 de agosto de 2026",
+    "fechaCortas": "hoy",
+    "hora": "3:21 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-08T01:21:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Hola",
     "imagenes": [],
     "fechaLarga": "jue, 6 de agosto de 2026",
