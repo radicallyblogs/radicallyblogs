@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Ahora me siento solo",
+    "imagenes": [],
+    "fechaLarga": "dom, 15 de junio de 2025",
+    "fechaCortas": "dom. 15 jun 2025",
+    "hora": "1:53 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-06-14T23:53:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Como prácticamente toda la información sobre los escritos y otras cosas las subo desde aquí, he decidido crear un pequeño espacio para hablar sobre ellos desde una fuente mas directa, ya que la mayoría de mi audiencia es muy variada. Lo que significa que a algunos les puede interesar, a otros puede que solo les importe ver el blog sin mas por consumir, y a otros hasta se las sude completamente lo que haga. Entonces para el publico que si le interesa la lectura o esa parte de mi contenido, en la pagina de Lonermorejourney tenéis pequeños artículos donde hablo sobre el avance del disco y otras cosas que vaya haciendo.",
     "imagenes": [],
     "fechaLarga": "sáb, 7 de junio de 2025",
