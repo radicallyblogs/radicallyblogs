@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Cuando la decisión supera a la imaginación, la creatividad no tiene limites.",
+    "imagenes": [],
+    "fechaLarga": "sáb, 15 de marzo de 2025",
+    "fechaCortas": "sáb. 15 mar 2025",
+    "hora": "5:12 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-03-15T16:12:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Esta solo seria una parte de lo nuevo, mas no todo lo que hay.",
     "imagenes": [
       "images/post_img_1786216515653_new_0.jpg"
