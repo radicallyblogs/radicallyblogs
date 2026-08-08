@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Los bulos me los paso por los huevos, la información acreditada me la paso por los huevos, las fuentes oficiales me las paso por los huevos, y lo que tú digas opinando de algo, me lo paso por los huevos, ¿Habéis visto cuantas cosas me paso por los huevos? Eso es peligroso, se me pueden poner rojitos y después tendré que aplicarme una crema de, \"igualmente me importa una puta mierda\"",
+    "imagenes": [],
+    "fechaLarga": "jue, 7 de noviembre de 2024",
+    "fechaCortas": "jue. 7 nov 2024",
+    "hora": "2:50 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-11-07T13:50:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Por la falta de apoyo y ganas de no tenerlo tampoco, he estado pensando en hacer que mi contenido sea solo descargable.",
     "imagenes": [
       "images/post_img_1786210106057_new_0.jpg"
