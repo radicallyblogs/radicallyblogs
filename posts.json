@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Mi fin de semana\n🥂❌\n✍🏼✅",
+    "imagenes": [],
+    "fechaLarga": "dom, 5 de mayo de 2024",
+    "fechaCortas": "dom. 5 may 2024",
+    "hora": "12:18 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-05-04T22:18:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Cuando todo empieza sin tener ni una sola pieza, puedes pensar y hasta sentir que volar, es medir el miedo en referencia al crudo cuero que avanzaba por martirios y desdichas, de solo querer terminar, llegar, o como sea que veamos el poder calmar, por lo tanto no huir de azotar, un amor tan voraz",
     "imagenes": [],
     "fechaLarga": "mié, 1 de mayo de 2024",
