@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "¿Salir un sábado de fiesta con la estirpe que hay por ahí? pero si eso seria ir para atras en la vida",
+    "imagenes": [],
+    "fechaLarga": "mar, 7 de mayo de 2024",
+    "fechaCortas": "mar. 7 may 2024",
+    "hora": "11:25 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-05-07T21:25:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Estoy diseñando el port de PC para la pagina de Loonermorejourney utilizando mi mas sentido trato por los formatos curvados y plegados",
     "imagenes": [],
     "fechaLarga": "mié, 5 de junio de 2024",
