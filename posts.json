@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "No se, pero para mi este mes se me ha hecho muy largo, y no por que lo este pasando mal como tal..",
+    "imagenes": [],
+    "fechaLarga": "dom, 25 de enero de 2026",
+    "fechaCortas": "dom. 25 ene 2026",
+    "hora": "1:39 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-01-25T12:39:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Te perdí para navidad ha alcanzado una audiencia tan grande en las pocas semanas que lleva de publicación que me siento jodidamente impresionado. En cuanto al contenido de sus letras han sido inequívocas, amadas, y con su mas dicho sentir de ese añoro que no se pierde por alguien. Como claro es, su expresión es propia pero al momento de identificar a quienes hayan pasado por algo similar, entonces en ese momento si somos todos. (La intención no fue comercial aun siendo una producción completa)",
     "imagenes": [],
     "fechaLarga": "vie, 23 de enero de 2026",
