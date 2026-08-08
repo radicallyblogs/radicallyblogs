@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "2025",
+    "imagenes": [
+      "images/post_img_1786211037285_new_0.png"
+    ],
+    "fechaLarga": "mar, 3 de diciembre de 2024",
+    "fechaCortas": "mar. 3 dic 2024",
+    "hora": "11:09 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-12-03T22:09:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Yo no soy un tio chill de cojones, yo soy un tarado de las narices.",
     "imagenes": [],
     "fechaLarga": "mar, 31 de diciembre de 2024",
