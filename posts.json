@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Una desnavidad",
+    "imagenes": [
+      "images/post_img_1786222381979_new_0.jpg"
+    ],
+    "fechaLarga": "lun, 8 de diciembre de 2025",
+    "fechaCortas": "lun. 8 dic 2025",
+    "hora": "7:59 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-12-08T18:59:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "No se vosotros, pero la suspensión del EPO no es lo que pensáis.",
     "imagenes": [],
     "fechaLarga": "sáb, 29 de noviembre de 2025",
