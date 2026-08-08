@@ -91,14 +91,21 @@
     <script>
         let postsGlobal = [];
         let postsMostradosCount = 15; // Lote inicial de 15 posts
-
-        // Array de historias (vacío por defecto, al añadir elementos aparecerá la sección sola)
         let historiasData = [];
 
         document.addEventListener("DOMContentLoaded", async () => {
+            // 1. Cargar las historias reales desde stories.json
+            try {
+                const resStories = await fetch('stories.json?t=' + new Date().getTime());
+                historiasData = await resStories.json();
+            } catch (e) {
+                historiasData = [];
+            }
+
             // Inicializar la sección de historias según haya o no contenido
             inicializarSeccionHistorias();
 
+            // 2. Cargar los posts normales
             try {
                 const response = await fetch('posts.json?t=' + new Date().getTime());
                 postsGlobal = await response.json();
