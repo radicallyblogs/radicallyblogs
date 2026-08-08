@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Puedo leer esta imagen.",
+    "imagenes": [
+      "images/post_img_1786218458185_new_0.jpg"
+    ],
+    "fechaLarga": "sáb, 2 de agosto de 2025",
+    "fechaCortas": "sáb. 2 ago 2025",
+    "hora": "5:05 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-08-02T15:05:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Poesía para el cerebelo.",
     "imagenes": [],
     "fechaLarga": "jue, 31 de julio de 2025",
