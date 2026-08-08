@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Nunca había pasado por un altercado tan devorador en mi vida, y solo se debe a que ahora si me importa lo que sienten los demás, no su propio pensamiento individual, eso es diferente.",
+    "imagenes": [],
+    "fechaLarga": "mar, 18 de noviembre de 2025",
+    "fechaCortas": "mar. 18 nov 2025",
+    "hora": "12:00 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-11-18T11:00:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Esto no me esta ayudando a proseguir, es acorralante.",
     "imagenes": [],
     "fechaLarga": "dom, 9 de noviembre de 2025",
