@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Poesía para el cerebelo.",
+    "imagenes": [],
+    "fechaLarga": "jue, 31 de julio de 2025",
+    "fechaCortas": "jue. 31 jul 2025",
+    "hora": "11:09 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-07-31T21:09:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Encuentra el mensaje oculto.",
     "imagenes": [
