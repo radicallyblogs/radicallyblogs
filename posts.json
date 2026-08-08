@@ -1,16 +1,6 @@
 [
   {
     "tipo": "clasico",
-    "texto": "Si mañana no se de ti, ya no se que será de mi.",
-    "imagenes": [],
-    "fechaLarga": "mar, 30 de diciembre de 2025",
-    "fechaCortas": "mar. 30 dic 2025",
-    "hora": "6:35 p. m.",
-    "fijado": false,
-    "fechaCreacion": "2025-12-30T17:35:00.000Z"
-  },
-  {
-    "tipo": "clasico",
     "texto": "<a href=\"https://teperdiparanavidad.wixsite.com/home\" target=\"_blank\">teperdiparanavidad.com</a>",
     "imagenes": [],
     "fechaLarga": "jue, 25 de diciembre de 2025",
