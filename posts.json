@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Y con eso bastara, para dejar constancia alguna de dos corazones ennegrecidos que pudieron tocarse desde tan lejos.",
+    "imagenes": [],
+    "fechaLarga": "sáb, 22 de febrero de 2025",
+    "fechaCortas": "sáb. 22 feb 2025",
+    "hora": "6:53 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-02-22T17:53:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Estoy estúpido con lo de rememorar cosas de hace un año.",
     "imagenes": [],
     "fechaLarga": "mié, 21 de febrero de 2024",
