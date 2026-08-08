@@ -948,31 +948,12 @@
             }
         });
 
-        // FORMATEADOR DE FECHA CON "hoy" / "ayer" EN MINÚSCULAS
+        // FORMATEADOR DE FECHA CON DÍA DE LA SEMANA
         function formatearDatosFecha(dateObj) {
-            const ahora = new Date();
-            
-            const esHoy = dateObj.getDate() === ahora.getDate() && 
-                          dateObj.getMonth() === ahora.getMonth() && 
-                          dateObj.getFullYear() === ahora.getFullYear();
-
-            const ayer = new Date(ahora);
-            ayer.setDate(ahora.getDate() - 1);
-            const esAyer = dateObj.getDate() === ayer.getDate() && 
-                           dateObj.getMonth() === ayer.getMonth() && 
-                           dateObj.getFullYear() === ayer.getFullYear();
-
             const horaStr = dateObj.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
             
-            let fechaCortas = '';
-            if (esHoy) {
-                fechaCortas = 'hoy';
-            } else if (esAyer) {
-                fechaCortas = 'ayer';
-            } else {
-                fechaCortas = dateObj.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
-            }
-
+            // Mostrar siempre el día de la semana (ej. "sáb") en lugar de "hoy"
+            const fechaCortas = dateObj.toLocaleDateString('es-ES', { weekday: 'short' });
             const fechaLarga = dateObj.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
             
             return { fechaLarga, fechaCortas, hora: horaStr };
@@ -1049,8 +1030,13 @@
                 return;
             }
 
-            // ORDENACIÓN ROBUSTA: Lo más reciente siempre arriba (incluyendo historias)
+            // ORDENACIÓN: Historias siempre arriba del todo, luego posts fijados y por fecha reciente
             let itemsOrdenados = [...items].sort((a, b) => {
+                const isStoryA = (a.source === 'stories' || a.item.tipo === 'story');
+                const isStoryB = (b.source === 'stories' || b.item.tipo === 'story');
+                if (isStoryA && !isStoryB) return -1;
+                if (!isStoryA && isStoryB) return 1;
+
                 if (a.item.fijado && !b.item.fijado) return -1;
                 if (!a.item.fijado && b.item.fijado) return 1;
 
