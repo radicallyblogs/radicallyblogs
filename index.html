@@ -133,9 +133,12 @@
             const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
             let fechaCortasLimpia = limpiarFecha(post.fechaCortas);
 
-            // Corrección: Forzar fecha larga si móvil dice "hoy"
+            // CORRECCIÓN EXACTA: Si fechaCortas dice "hoy", generamos el formato corto correcto: "sáb. 8 ago 2026"
             if (fechaCortasLimpia.toLowerCase() === 'hoy') {
-                fechaCortasLimpia = fechaLargaLimpia;
+                const now = new Date();
+                const dias = ['dom.', 'lun.', 'mar.', 'mié.', 'jue.', 'vie.', 'sáb.'];
+                const meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+                fechaCortasLimpia = `${dias[now.getDay()]} ${now.getDate()} ${meses[now.getMonth()]} ${now.getFullYear()}`;
             }
 
             if (post.tipo === 'photo_bloggy') {
