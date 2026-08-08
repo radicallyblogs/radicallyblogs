@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Yo tengo mi propio puto enfoque, a mi nadie me la da.",
+    "imagenes": [],
+    "fechaLarga": "vie, 21 de marzo de 2025",
+    "fechaCortas": "vie. 21 mar 2025",
+    "hora": "8:54 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-03-21T19:54:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Y disfrutar de todo que yo me alegro por vosotros.",
     "imagenes": [],
     "fechaLarga": "dom, 16 de marzo de 2025",
