@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "La paciencia es la clave?!",
+    "imagenes": [],
+    "fechaLarga": "sáb, 31 de enero de 2026",
+    "fechaCortas": "sáb. 31 ene 2026",
+    "hora": "9:56 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-01-31T20:56:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Quiero hacer un featuring de poesía con alguien en el que nos amemos con cada letra.",
     "imagenes": [],
     "fechaLarga": "mar, 27 de enero de 2026",
