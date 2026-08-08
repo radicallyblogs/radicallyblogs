@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Poco a poco voy dándole forma a algo brutal.",
+    "imagenes": [],
+    "fechaLarga": "jue, 14 de mayo de 2026",
+    "fechaCortas": "jue. 14 may 2026",
+    "hora": "12:15 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-05-14T10:15:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "https://lonermorejourney.wixsite.com/historys/poemas-de-verano",
     "imagenes": [
       "images/post_img_1786229678278_new_0.jpg"
