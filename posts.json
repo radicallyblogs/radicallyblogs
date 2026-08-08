@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "EN PRODUCCIÓN!!!",
+    "imagenes": [
+      "images/post_img_1786219257472_new_0.jpg"
+    ],
+    "fechaLarga": "jue, 21 de agosto de 2025",
+    "fechaCortas": "jue. 21 ago 2025",
+    "hora": "9:54 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-08-21T19:54:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Escribiendo como chasquear los dedos en un tambor.",
     "imagenes": [],
     "fechaLarga": "dom, 17 de agosto de 2025",
