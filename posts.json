@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Un día mas de buen festejo.",
+    "imagenes": [],
+    "fechaLarga": "jue, 1 de enero de 2026",
+    "fechaCortas": "jue. 1 ene 2026",
+    "hora": "6:09 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-01-01T17:09:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Comienzo el año con la delantera asegurada.",
     "imagenes": [],
     "fechaLarga": "jue, 1 de enero de 2026",
