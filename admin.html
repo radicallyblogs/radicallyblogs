@@ -948,62 +948,15 @@
             }
         });
 
-        // FORMATEADOR DE FECHA INDEPENDIENTE CON PUNTO EN VEZ DE COMA
-        function formatearDatosFecha(dateObj, tipo = 'clasico') {
-            const diasCortos = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
-            const diasLargos = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
-            const mesesCortos = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-            const mesesLargos = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+        // FORMATEADOR DE FECHA CON DÍA DE LA SEMANA
+        function formatearDatosFecha(dateObj) {
+            const horaStr = dateObj.toLocaleTimeString('es-ES', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
             
-            const diaSemanaLargo = diasLargos[dateObj.getDay()];
-            const diaSemanaCorto = diasCortos[dateObj.getDay()];
-            
-            const diaMes = dateObj.getDate();
-            const mesCorto = mesesCortos[dateObj.getMonth()];
-            const mesLargo = mesesLargos[dateObj.getMonth()];
-            const anio = dateObj.getFullYear();
-            
-            const fechaCortas = (tipo === 'photo_bloggy') 
-                ? `${diaSemanaLargo}. ${diaMes} de ${mesLargo} de ${anio}` 
-                : `${diaSemanaCorto} ${diaMes} ${mesCorto} ${anio}`;
-            
-            const fechaLarga = `${diaSemanaLargo}. ${diaMes} de ${mesLargo} de ${anio}`;
-            
-            const hours = dateObj.getHours();
-            const minutes = dateObj.getMinutes();
-            const ampm = hours >= 12 ? 'pm' : 'am';
-            const formattedHours = hours % 12 || 12;
-            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-            const horaStr = `${formattedHours}:${formattedMinutes} ${ampm}`;
+            // Mostrar siempre el día de la semana (ej. "sáb") en lugar de "hoy"
+            const fechaCortas = dateObj.toLocaleDateString('es-ES', { weekday: 'short' });
+            const fechaLarga = dateObj.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
             
             return { fechaLarga, fechaCortas, hora: horaStr };
-        }
-
-        // GESTOR DE POSTS EN EL PANEL CON PUNTO
-        function obtenerFechaAdmin(item) {
-            if (item.fechaCreacion) {
-                const d = new Date(item.fechaCreacion);
-                if (!isNaN(d.getTime())) {
-                    const diasCortos = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
-                    const mesesCortos = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-                    return `${diasCortos[d.getDay()]} ${d.getDate()} ${mesesCortos[d.getMonth()]} ${d.getFullYear()}`;
-                }
-            }
-            if (item.fechaCortas) {
-                let f = item.fechaCortas;
-                const mapFullToShort = {
-                    'domingo': 'dom', 'lunes': 'lun', 'martes': 'mar', 'miércoles': 'mié', 
-                    'jueves': 'jue', 'viernes': 'vie', 'sábado': 'sáb'
-                };
-                for (const [largo, corto] of Object.entries(mapFullToShort)) {
-                    if (f.startsWith(largo)) {
-                        f = f.replace(largo, corto);
-                        break;
-                    }
-                }
-                return f;
-            }
-            return 'Sin fecha';
         }
 
         async function cargarPostsGitHub() {
@@ -1077,6 +1030,7 @@
                 return;
             }
 
+            // ORDENACIÓN: Historias siempre arriba del todo, luego posts fijados y por fecha reciente
             let itemsOrdenados = [...items].sort((a, b) => {
                 const isStoryA = (a.source === 'stories' || a.item.tipo === 'story');
                 const isStoryB = (b.source === 'stories' || b.item.tipo === 'story');
@@ -1124,8 +1078,7 @@
                         fechaMeta = `Creada: Reciente`;
                     }
                 } else {
-                    let fechaAdminStr = obtenerFechaAdmin(item);
-                    fechaMeta = `Fecha: ${fechaAdminStr} - ${item.hora || ''}`;
+                    fechaMeta = `Fecha: ${item.fechaCortas || 'Sin fecha'} - ${item.hora || ''}`;
                 }
                 
                 let imagenesPost = [];
@@ -1315,7 +1268,7 @@
                     fechaBaseObj = new Date(customVal);
                 }
             }
-            const { fechaLarga: fechaLargaActual, fechaCortas: fechaCortasActual, hora: horaStr } = formatearDatosFecha(fechaBaseObj, tipoPostActual);
+            const { fechaLarga: fechaLargaActual, fechaCortas: fechaCortasActual, hora: horaStr } = formatearDatosFecha(fechaBaseObj);
             const timestampFormateado = `${fechaCortasActual} • ${horaStr}`;
 
             const targetPath = (tipoPostActual === 'story') ? storiesPath : postsPath;
@@ -1427,9 +1380,6 @@
                         postsCache[editandoIndex].tipo = tipoPostActual;
                         postsCache[editandoIndex].texto = texto;
                         postsCache[editandoIndex].imagenes = finalImageNames;
-                        postsCache[editandoIndex].fechaCortas = fechaCortasActual;
-                        postsCache[editandoIndex].fechaLarga = fechaLargaActual;
-                        postsCache[editandoIndex].hora = horaStr;
                         delete postsCache[editandoIndex].imagen;
                         currentCache = postsCache;
                     }
