@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Por la falta de apoyo y ganas de no tenerlo tampoco, he estado pensando en hacer que mi contenido sea solo descargable.",
+    "imagenes": [
+      "images/post_img_1786210106057_new_0.jpg"
+    ],
+    "fechaLarga": "mié, 6 de noviembre de 2024",
+    "fechaCortas": "mié. 6 nov 2024",
+    "hora": "5:01 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-11-06T16:01:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Yo me voy a liminalizar un poco, que cojones.",
     "imagenes": [],
     "fechaLarga": "mié, 6 de noviembre de 2024",
