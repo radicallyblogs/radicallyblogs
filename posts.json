@@ -1,18 +1,6 @@
 [
   {
     "tipo": "clasico",
-    "texto": "Premiere horarios zona.",
-    "imagenes": [
-      "images/post_img_1786224183165_new_0.png"
-    ],
-    "fechaLarga": "mié, 31 de diciembre de 2025",
-    "fechaCortas": "mié. 31 dic 2025",
-    "hora": "12:08 a. m.",
-    "fijado": false,
-    "fechaCreacion": "2025-12-30T23:08:00.000Z"
-  },
-  {
-    "tipo": "clasico",
     "texto": "TE PERDÍ PARA NAVIDAD 12.31",
     "imagenes": [
       "images/post_img_1786224112898_new_0.png"
