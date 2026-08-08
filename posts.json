@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Estas navidades fueron hasta en pijamas.. Es coña, me voy a pegar una para recogerme con cuchara.",
+    "imagenes": [],
+    "fechaLarga": "jue, 25 de diciembre de 2025",
+    "fechaCortas": "jue. 25 dic 2025",
+    "hora": "3:51 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-12-25T14:51:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "<a href=\"https://teperdiparanavidad.wixsite.com/home\" target=\"_blank\">teperdiparanavidad.com</a>",
     "imagenes": [],
     "fechaLarga": "jue, 25 de diciembre de 2025",
