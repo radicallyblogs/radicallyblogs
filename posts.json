@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Por cierto, os voy a traer una sorpresa con ello (nada nuevo)",
+    "imagenes": [],
+    "fechaLarga": "sáb, 6 de septiembre de 2025",
+    "fechaCortas": "sáb. 6 sep 2025",
+    "hora": "7:32 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-09-06T17:32:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "La pagina de lonermorejourney va a cambiar definitivamente, es algo que tenia que habérseme ocurrido hace mucho tiempo",
     "imagenes": [],
     "fechaLarga": "sáb, 6 de septiembre de 2025",
