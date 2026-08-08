@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "¡LOS CLASICOS Y MAS NUEVOS!",
+    "imagenes": [
+      "images/post_img_1786217284960_new_0.jpg"
+    ],
+    "fechaLarga": "sáb, 17 de mayo de 2025",
+    "fechaCortas": "sáb. 17 may 2025",
+    "hora": "12:39 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-05-16T22:39:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Estoy tan emocionado de poder volver a compartir con vosotros todo eso que llevo dentro de mi y además después de tanto tiempo. Por ahora no voy a publicar el índice, ya que estoy constantemente escribiendo, puliendo, editando, es un no parar, básicamente, mantener la completa concentración de mi expresión, yo no creo en la perfección, creo en el esfuerzo.",
     "imagenes": [],
     "fechaLarga": "sáb, 10 de mayo de 2025",
