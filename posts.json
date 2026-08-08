@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Otra noche más...",
+    "imagenes": [],
+    "fechaLarga": "vie, 3 de julio de 2026",
+    "fechaCortas": "vie. 3 jul 2026",
+    "hora": "11:35 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-07-03T21:35:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Yo no me alejé de todos, es que yo nunca he tenido a nadie.",
     "imagenes": [],
     "fechaLarga": "dom, 21 de junio de 2026",
