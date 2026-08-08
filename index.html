@@ -133,7 +133,6 @@
             const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
             let fechaCortasLimpia = limpiarFecha(post.fechaCortas);
 
-            // CORRECCIÓN EXACTA: Si fechaCortas dice "hoy", generamos el formato corto correcto: "sáb. 8 ago 2026"
             if (fechaCortasLimpia.toLowerCase() === 'hoy') {
                 const now = new Date();
                 const dias = ['dom.', 'lun.', 'mar.', 'mié.', 'jue.', 'vie.', 'sáb.'];
@@ -147,16 +146,27 @@
 
                 let fechaPhoto = fechaCortasLimpia;
                 const diasMap = {
-                    'lun': 'lunes.', 'mar': 'martes.', 'mié': 'miércoles.', 'mie': 'miércoles.',
-                    'jue': 'jueves.', 'vie': 'viernes.', 'sáb': 'sábado.', 'sab': 'sábado.', 'dom': 'domingo.'
+                    'sáb.': 'sábado.', 'sab.': 'sábado.', 'sáb': 'sábado.', 'sab': 'sábado.',
+                    'lun.': 'lunes.', 'lun': 'lunes.',
+                    'mar.': 'martes.', 'mar': 'martes.',
+                    'mié.': 'miércoles.', 'mie.': 'miércoles.', 'mié': 'miércoles.', 'mie': 'miércoles.',
+                    'jue.': 'jueves.', 'jue': 'jueves.',
+                    'vie.': 'viernes.', 'vie': 'viernes.',
+                    'dom.': 'domingo.', 'dom': 'domingo.'
                 };
                 
-                let parts = fechaPhoto.split(',');
-                if (parts.length >= 2) {
-                    let cortoDia = parts[0].trim().toLowerCase();
-                    let restoFecha = parts.slice(1).join(',').trim();
-                    if (diasMap[cortoDia]) {
-                        fechaPhoto = `${diasMap[cortoDia]} ${restoFecha}`;
+                let partsSpace = fechaPhoto.split(' ');
+                if (partsSpace.length > 0 && diasMap[partsSpace[0].toLowerCase()]) {
+                    partsSpace[0] = diasMap[partsSpace[0].toLowerCase()];
+                    fechaPhoto = partsSpace.join(' ');
+                } else {
+                    let parts = fechaPhoto.split(',');
+                    if (parts.length >= 2) {
+                        let cortoDia = parts[0].trim().toLowerCase();
+                        let restoFecha = parts.slice(1).join(',').trim();
+                        if (diasMap[cortoDia]) {
+                            fechaPhoto = `${diasMap[cortoDia]} ${restoFecha}`;
+                        }
                     }
                 }
 
