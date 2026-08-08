@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Tantas mayúsculas para un álbum que ni es nuevo jajajaj",
+    "imagenes": [],
+    "fechaLarga": "dom, 10 de mayo de 2026",
+    "fechaCortas": "dom. 10 may 2026",
+    "hora": "3:54 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-05-10T01:54:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "YA ESTÁ DISPONIBLE EL REPLAY DE POEMAS DE VERANO PARA LA PAGINA CON TODOS LOS POEMAS INCLUIDOS!!!\nhttps://lonermorejourney.wixsite.com/historys/poemas-de-verano",
     "imagenes": [],
     "fechaLarga": "sáb, 9 de mayo de 2026",
