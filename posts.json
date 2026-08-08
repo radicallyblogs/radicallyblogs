@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Hoy te perdí para navidad cumple un mes de su lanzamiento y la verdad ha sido un corto camino mas que agradable solo por su recibimiento. En cuanto a lo personal, de eso ya andamos serviditos.",
+    "imagenes": [],
+    "fechaLarga": "mar, 10 de febrero de 2026",
+    "fechaCortas": "mar. 10 feb 2026",
+    "hora": "5:36 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-02-10T16:36:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "La paciencia es la clave?!",
     "imagenes": [],
     "fechaLarga": "sáb, 31 de enero de 2026",
