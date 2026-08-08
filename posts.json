@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Algo de esto",
+    "imagenes": [
+      "images/post_img_1786216034636_new_0.png"
+    ],
+    "fechaLarga": "vie, 28 de febrero de 2025",
+    "fechaCortas": "vie. 28 feb 2025",
+    "hora": "8:05 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2025-02-28T07:05:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Las cosas pueden estar cada vez mas cerca. o cada vez mas lejos.",
     "imagenes": [],
     "fechaLarga": "mié, 26 de febrero de 2025",
