@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "El nuevo reproductor de Spotify para el blog es una puta caca asquerosa, tan, pero tan asquerosa, que no lo vais ni a ver",
+    "imagenes": [],
+    "fechaLarga": "mar, 17 de diciembre de 2024",
+    "fechaCortas": "mar. 17 dic 2024",
+    "hora": "11:45 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-12-17T22:45:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Millie Bobby Brown y Sadie Sink, hechas por IA generativa.",
     "imagenes": [
       "images/post_img_1786212456152_0.jpeg",
