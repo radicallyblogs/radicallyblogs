@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Ahora escribo episodios mucho mas largos, aqui sigo creando.",
+    "imagenes": [
+      "images/post_img_1786205305393_new_0.png"
+    ],
+    "fechaLarga": "jue, 18 de abril de 2024",
+    "fechaCortas": "jue. 18 abr 2024",
+    "hora": "9:40 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2024-04-18T19:40:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Haber imbéciles de mierda, nose va a desatar ninguna guerra, por que si eso pasara, no podrían seguir sacando pasta de las marcas que controlan el mercado, asi que dejar de decir tonterias, siempre con la misma gilipollez de verdad.",
     "imagenes": [],
     "fechaLarga": "dom, 14 de abril de 2024",
