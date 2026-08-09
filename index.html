@@ -226,8 +226,10 @@
 
         function renderizarFeedPosts() {
     const container = document.getElementById('feed-posts');
-    const btnCargarMas = document.getElementById('btn-load-more');
+    if (!container) return;
     container.innerHTML = '';
+
+    if (!postsGlobal || !Array.isArray(postsGlobal)) return;
 
     const postsFijados = postsGlobal.filter(post => post.fijado === true);
     postsFijados.forEach(post => {
@@ -239,11 +241,13 @@
         container.innerHTML += generarHtmlPost(post);
     });
 
-    // Controlar si se muestra u oculta el botón "Cargar más"
-    if (postsMostradosCount < postsGlobal.length) {
-        btnCargarMas.style.display = 'block';
-    } else {
-        btnCargarMas.style.display = 'none';
+    const btnCargarMas = document.getElementById('btn-load-more');
+    if (btnCargarMas) {
+        if (postsMostradosCount < postsGlobal.length) {
+            btnCargarMas.style.display = 'block';
+        } else {
+            btnCargarMas.style.display = 'none';
+        }
     }
 }
 
@@ -251,7 +255,6 @@ function cargarMas() {
     postsMostradosCount += 10;
     renderizarFeedPosts();
 }
-        }
     </script>
 
     <!-- 3. BLOQUE DE HISTORIAS (Separado e independiente) -->
