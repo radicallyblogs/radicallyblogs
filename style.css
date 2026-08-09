@@ -1560,4 +1560,11 @@ body.dark-mode .posts-heading {
 
 .story-modal.active .story-modal-content {
     transform: scale(1); /* Se expande a su tamaño real con suavidad */
+}/* ====================================================
+   CONGELAR TAMAÑO DE TEXTO (EVITAR CAMBIOS DEL MÓVIL)
+   ==================================================== */
+html, body {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
