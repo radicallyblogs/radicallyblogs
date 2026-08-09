@@ -73,7 +73,7 @@
         document.addEventListener("DOMContentLoaded", async () => {
             // Cargar historias con filtro de 24 horas
             try {
-                const resStories = await fetch('stories.json?t=' + new Date().getTime());
+                const resStories = await fetch('stories.json');
                 const dataBruta = await resStories.json();
                 const ahora = Date.now();
                 historiasData = dataBruta.filter(h => {
@@ -90,7 +90,7 @@
 
             // Cargar posts
             try {
-                const response = await fetch('posts.json?t=' + new Date().getTime());
+                const response = await fetch('posts.json');
                 postsGlobal = await response.json();
                 renderizarFeedPosts();
                 window.addEventListener('scroll', comprobarScrollInfinito);
