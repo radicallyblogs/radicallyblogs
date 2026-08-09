@@ -1567,4 +1567,35 @@ html, body {
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
+}/* ========================================================================== */
+/*                         ESTILOS DEL BOTÓN CARGAR MÁS                       */
+/* ========================================================================== */
+
+#btn-load-more {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 40px;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btn-load-more:hover {
+    background-color: #f0f0f0;
+}
+
+/* Adaptación al Modo Oscuro */
+.dark-mode #btn-load-more {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.dark-mode #btn-load-more:hover {
+    background-color: #333333;
 }
