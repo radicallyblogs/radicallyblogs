@@ -1589,16 +1589,7 @@ html, body {
     background-color: #f0f0f0;
 }
 
-/* Adaptación al Modo Oscuro */
-.dark-mode #btn-load-more {
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-}
-
-.dark-mode #btn-load-more:hover {
-    background-color: #333333;
-}/* ================================================= */
+/* ================================================= */
 /*                OCULTAR TÍTULO ACTUALIDAD          */
 /* ================================================= */
 
