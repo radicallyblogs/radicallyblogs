@@ -1598,4 +1598,10 @@ html, body {
 
 .dark-mode #btn-load-more:hover {
     background-color: #333333;
+}/* ================================================= */
+/*                OCULTAR TÍTULO ACTUALIDAD          */
+/* ================================================= */
+
+.feed-title {
+    display: none;
 }
