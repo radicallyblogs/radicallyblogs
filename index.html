@@ -73,7 +73,7 @@
         document.addEventListener("DOMContentLoaded", async () => {
             // Cargar historias con filtro de 24 horas
             try {
-                const resStories = await fetch('stories.json');
+                const resStories = await fetch('stories.json?t=' + new Date().getTime());
                 const dataBruta = await resStories.json();
                 const ahora = Date.now();
                 historiasData = dataBruta.filter(h => {
@@ -90,7 +90,7 @@
 
             // Cargar posts
             try {
-                const response = await fetch('posts.json');
+                const response = await fetch('posts.json?t=' + new Date().getTime());
                 postsGlobal = await response.json();
                 renderizarFeedPosts();
                 window.addEventListener('scroll', comprobarScrollInfinito);
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                         <div class="pb-image-container">
-                            <img src="${imagenUrl}" alt="Photo Bloggy" onclick="abrirLightbox('${imagenUrl}')">
+                            <img src="${imagenUrl}" alt="Photo Bloggy" loading="lazy" onclick="abrirLightbox('${imagenUrl}')">
                         </div>
                         <div class="pb-meta-icons">
                             <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>vistas</span>
@@ -191,16 +191,16 @@
                 if (post.imagenes && post.imagenes.length > 0) {
                     if (post.imagenes.length === 1) {
                         const img = post.imagenes[0];
-                        imagenHTML = `<div class="post-single-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
+                        imagenHTML = `<div class="post-single-image-container"><img src="${img}" class="post-uploaded-img" loading="lazy" onclick="abrirLightbox('${img}')"></div>`;
                     } else {
                         let imgsString = '';
                         post.imagenes.forEach(img => {
-                            imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" onclick="abrirLightbox('${img}')"></div>`;
+                            imgsString += `<div class="post-image-container"><img src="${img}" class="post-uploaded-img" loading="lazy" onclick="abrirLightbox('${img}')"></div>`;
                         });
                         imagenHTML = `<div class="post-images-grid">${imgsString}</div>`;
                     }
                 } else if (post.imagen) {
-                    imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" onclick="abrirLightbox('${post.imagen}')"></div>`;
+                    imagenHTML = `<div class="post-single-image-container"><img src="${post.imagen}" class="post-uploaded-img" loading="lazy" onclick="abrirLightbox('${post.imagen}')"></div>`;
                 }
 
                 postHTML = `
@@ -292,7 +292,7 @@
                 historiasData.forEach((historia, i) => {
                     container.innerHTML += `
                         <div class="story-card" onclick="abrirHistoria(${i})">
-                            <img src="${historia.imagen}" alt="Historia ${i + 1}">
+                            <img src="${historia.imagen}" alt="Historia ${i + 1}" loading="lazy">
                             <div class="story-timestamp">${obtenerTextoHistoria(historia)}</div>
                         </div>
                     `;
