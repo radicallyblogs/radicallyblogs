@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "Extraño tanto subir aquí los veranos.",
+    "imagenes": [
+      "images/post_img_1786312821117_0.jpg"
+    ],
+    "fechaLarga": "dom, 9 de agosto de 2026",
+    "fechaCortas": "dom. 9 ago 2026",
+    "hora": "11:59 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-09T21:59:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "VALE, HA LLEGADO EL MOMENTO!!!\n\nEl blog Radicallyblogs acaba de salir de manera oficial desde mi repositorio propio en la web. Sin editores comerciales, sin marcas de agua molestas, sin limitaciones para el media ni compresiones agresivas que provocaban perdidas de calidad en imágenes, y sin ese arrastrar y soltar cutre que usaba para dar el pego.\n\nAhora esta pagina es completamente funcional y es la primera versión creada 100% y desde cero por mi usando código abierto de programación y fuente de alojamiento profesional. Me ha tomado una semana completa afinarla solo para publicarla en internet, por que todavía requiere de implementos como lo es la clásica sección BLOG MEDIA, la cual seguirá estando y que ya integrare en cuanto pueda sin falta. Lo importante ahora es que no necesitare depender de un editor pesado de WIX que solo puede usarse en ordenador, ya que he programado mi propio panel de creación que puedo usar tanto en ordenador como en el movil yendo por la calle. (La función de subir historias de verdad como en una app fue la cosa mas loca que he hecho jamás para la pagina) Y todo lo nuevo que pienso añadirle sobre la marcha.\n\nEl blog ahora mismo cuenta con absolutamente todas las publicaciones (bloggys) desde febrero de 2024 hasta la fecha, en plan aqui no ha pasado nada y con modo oscuro dinámico con el clásico fondo de estrellas de siempre.\n\nSi es verdad que todavía necesita de bastantes pulidos en cuanto a las partes mas técnicas, pero ya lo ire acondicionando mejor.\n\nEl próximo proyecto será el reproductor lector web de Lonermorejourney.",
     "imagenes": [],
