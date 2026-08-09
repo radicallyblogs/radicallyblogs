@@ -34,6 +34,7 @@
         <!-- SECCIÓN DE POSTS -->
         <h2 class="posts-heading">Posts recientes</h2>
         <div id="feed-posts"></div>
+        <button id="btn-load-more" onclick="cargarMas()" style="display: none;">Cargar más</button>
     </div>
 
     <!-- Lightbox de Posts -->
@@ -90,10 +91,9 @@
 
             // Cargar posts
             try {
-                const response = await fetch('posts.json?t=' + new Date().getTime());
+                const response = await fetch('posts.json');
                 postsGlobal = await response.json();
                 renderizarFeedPosts();
-                window.addEventListener('scroll', comprobarScrollInfinito);
             } catch (error) {
                 console.error("Error al cargar posts:", error);
             }
@@ -225,27 +225,32 @@
         }
 
         function renderizarFeedPosts() {
-            const container = document.getElementById('feed-posts');
-            container.innerHTML = '';
+    const container = document.getElementById('feed-posts');
+    const btnCargarMas = document.getElementById('btn-load-more');
+    container.innerHTML = '';
 
-            const postsFijados = postsGlobal.filter(post => post.fijado === true);
-            postsFijados.forEach(post => {
-                container.innerHTML += generarHtmlPost(post);
-            });
+    const postsFijados = postsGlobal.filter(post => post.fijado === true);
+    postsFijados.forEach(post => {
+        container.innerHTML += generarHtmlPost(post);
+    });
 
-            const postsParaMostrar = postsGlobal.slice(0, postsMostradosCount);
-            postsParaMostrar.forEach(post => {
-                container.innerHTML += generarHtmlPost(post);
-            });
-        }
+    const postsParaMostrar = postsGlobal.slice(0, postsMostradosCount);
+    postsParaMostrar.forEach(post => {
+        container.innerHTML += generarHtmlPost(post);
+    });
 
-        function comprobarScrollInfinito() {
-            if (postsMostradosCount >= postsGlobal.length) return;
+    // Controlar si se muestra u oculta el botón "Cargar más"
+    if (postsMostradosCount < postsGlobal.length) {
+        btnCargarMas.style.display = 'block';
+    } else {
+        btnCargarMas.style.display = 'none';
+    }
+}
 
-            if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 300) {
-                postsMostradosCount += 15;
-                renderizarFeedPosts();
-            }
+function cargarMas() {
+    postsMostradosCount += 10;
+    renderizarFeedPosts();
+}
         }
     </script>
 
