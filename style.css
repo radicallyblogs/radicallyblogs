@@ -1560,10 +1560,4 @@ body.dark-mode .posts-heading {
 
 .story-modal.active .story-modal-content {
     transform: scale(1); /* Se expande a su tamaño real con suavidad */
-}/* ====================================================
-   OPTIMIZACIÓN DE RENDIMIENTO Y SCROLL
-   ==================================================== */
-.post-card, .story-card, .pb-card {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 500px;
 }
