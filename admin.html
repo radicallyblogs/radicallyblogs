@@ -1269,7 +1269,7 @@ if (source === 'stories') {
         const bitmap = await createImageBitmap(file);
         let width = bitmap.width;
         let height = bitmap.height;
-        const LIMITE_PIXELES = 2500; // Límite de seguridad optimizado para web
+        const LIMITE_PIXELES = 1500; // Límite de seguridad optimizado para web
 
         // Si la imagen es más grande que el límite, la redimensionamos
         if (width > LIMITE_PIXELES || height > LIMITE_PIXELES) {
