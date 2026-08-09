@@ -974,7 +974,7 @@ body.dark-mode .mobile-date {
 
 /* 1. CONTENEDOR GENERAL (Posición en Escritorio) */
 .theme-switch-wrapper {
-    position: absolute;
+    position: fixed;
     top: 15px;      /* [Mover Arriba/Abajo - Escritorio]: Valores positivos bajan el interruptor */
     right: 20px;    /* [Mover Izquierda/Derecha - Escritorio]: Valores más altos lo alejan de la derecha */
     display: flex;
