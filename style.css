@@ -1189,7 +1189,7 @@ input, textarea {
     left: -5px;                /* 🎛️ PC: Mover TARJETAS Izquierda (-) o Derecha (+) */
     flex-shrink: 0;           /* 🎛️ PC: Evitar compresión flex */
     width: 135px;             /* 🎛️ PC: Ancho tarjeta */
-    height: 195px;            /* 🎛️ PC: Alto tarjeta */
+    height: 190px;            /* 🎛️ PC: Alto tarjeta */
     border-radius: 25px;      /* 🎛️ PC: Redondeo esquinas */
     overflow: hidden;         /* 🎛️ PC: Desbordamiento oculto */
     cursor: pointer;          /* 🎛️ PC: Tipo de cursor */
@@ -1271,7 +1271,7 @@ input, textarea {
         left: 0px;                /* 🎛️ MÓVIL: Mover TARJETAS Izquierda (-) o Derecha (+) */
         flex-shrink: 0;           /* 🎛️ MÓVIL: Evitar compresión flex */
         width: 160px;             /* 🎛️ MÓVIL: Ancho tarjeta */
-        height: 240px;            /* 🎛️ MÓVIL: Alto tarjeta */
+        height: 235px;            /* 🎛️ MÓVIL: Alto tarjeta */
         border-radius: 30px;      /* 🎛️ MÓVIL: Redondeo esquinas */
         overflow: hidden;         /* 🎛️ MÓVIL: Desbordamiento oculto */
         cursor: pointer;          /* 🎛️ MÓVIL: Tipo de cursor */
