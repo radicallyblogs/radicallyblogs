@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Vaya mañanitas me esperan 😪",
+    "imagenes": [],
+    "fechaLarga": "lun, 10 de agosto de 2026",
+    "fechaCortas": "lun. 10 ago 2026",
+    "hora": "10:10 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-10T08:10:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Extraño tanto subir aquí los veranos.",
     "imagenes": [
