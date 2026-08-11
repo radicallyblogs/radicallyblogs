@@ -222,7 +222,7 @@ body {
         font-size: 17px;          /* Tamaño de fuente adaptado a móvil */
         font-weight: 400;         /* Grosor normal */
         -webkit-text-stroke: 0px; /* Sin trazo en móvil */
-        color: #000000;
+        color: #383838;
         margin-bottom: 2px;       /* SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
     }
 
@@ -1170,11 +1170,11 @@ input, textarea {
 .stories-container {
     /* PC */
     display: flex;            /* 🎛️ PC: Tipo de display */
-    gap: 9px;                /* 🎛️ PC: Separación entre tarjetas */
+    gap: 2px;                /* 🎛️ PC: Separación entre tarjetas */
     overflow-x: auto;         /* 🎛️ PC: Desplazamiento horizontal */
     scrollbar-width: none;    /* 🎛️ PC: Ocultar barra scroll Firefox */
     -ms-overflow-style: none; /* 🎛️ PC: Ocultar barra scroll Edge */
-    padding: 10px 4px 40px 10px; /* 🎛️ PC: El tercer valor (60px) abre el espacio por abajo */
+    padding: 10px 4px 15px 10px; /* 🎛️ PC: El tercer valor (60px) abre el espacio por abajo */
 }
 
 .stories-container::-webkit-scrollbar {
@@ -1183,45 +1183,78 @@ input, textarea {
 
 /* --- 4. TARJETA DE HISTORIA (.story-card) --- */
 .story-card {
-    /* PC */
-    position: relative;       /* 🎛️ PC: Posicionamiento necesario para mover con top/left */
-    top: -5px;                 /* 🎛️ PC: Mover TARJETAS Arriba (-) o Abajo (+) */
-    left: -5px;                /* 🎛️ PC: Mover TARJETAS Izquierda (-) o Derecha (+) */
-    flex-shrink: 0;           /* 🎛️ PC: Evitar compresión flex */
-    width: 135px;             /* 🎛️ PC: Ancho tarjeta */
-    height: 190px;            /* 🎛️ PC: Alto tarjeta */
-    border-radius: 25px;      /* 🎛️ PC: Redondeo esquinas */
-    overflow: hidden;         /* 🎛️ PC: Desbordamiento oculto */
-    cursor: pointer;          /* 🎛️ PC: Tipo de cursor */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 🎛️ PC: Sombra tarjeta */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 🎛️ PC: Transición hover */
-    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 🎛️ PC: Fuente interna */
+    position: relative;
+    top: -5px;
+    left: -5px;
+    flex-shrink: 0;
+    width: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    cursor: pointer;
+    box-shadow: none; 
+    transition: transform 0.2s ease; /* Animación activa */
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* --- Color en Modo Claro --- */
+.story-timestamp {
+    position: static;
+    width: 100%;
+    font-size: 0.75rem;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #161616; /* Negro para fondo blanco */
+    text-align: center;
+    margin-top: 6px;
+    font-weight: 700;
+    text-shadow: none;
 }
 
-.story-card:hover {
-    transform: scale(1.03); /* 🎛️ PC: Efecto zoom al pasar ratón */
+/* --- Color en Modo Oscuro --- */
+/* (Nota: si tu clase de modo oscuro se llama diferente, cambia ".dark-mode" por la que uses) */
+body.dark-mode .story-timestamp {
+    color: #b6b5b5; /* Blanco suave o gris claro para que destaque sobre fondo oscuro */
+}
+
+.story-card:hover img {
+    transform: scale(1.05); /* Efecto zoom activado solo para el círculo */
 }
 
 /* --- 5. IMAGEN DE LA TARJETA (.story-card img) --- */
 .story-card img {
-    /* PC */
-    width: 100%;              /* 🎛️ PC: Ancho imagen */
-    height: 100%;             /* 🎛️ PC: Alto imagen */
-    object-fit: cover;        /* 🎛️ PC: Ajuste de imagen */
-}
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 50%; /* Círculo perfecto */
+    border: 3.8px solid #7e7d7d2a !important; /* Borde gris sutil estilo Instagram */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra redonda aplicada solo al círculo */
+    transition: transform 0.2s ease;
 
+    /* TRUCO DEL ARO INTERIOR: */
+    padding: 3.5px; /* Esto crea la separación entre la foto y el borde */
+    background-color: #f0f0f00e; /* Color de ese espacio (blanco para modo claro) */
+    
+    /* BORDE Y SOMBRA EXTERIOR: */
+    border: 3px solid #7e7d7d56; /* El aro gris exterior */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.048); /* La sombra para que flote */
+}
+/* --- Adaptación Modo Oscuro para el borde (Opcional por si quieres que resalte más) --- */
+body.dark-mode .story-card img {
+    border-color: #e7e7e70c !important; /* Un gris un poco más visible para el fondo oscuro */
+}
 /* --- 6. TEXTO FECHA/HORA (.story-timestamp) --- */
 .story-timestamp {
-    /* PC */
-    position: absolute;       /* 🎛️ PC: Posicionamiento */
-    top: 15px;                /* 🎛️ PC: Distancia superior */
-    left: 10px;               /* 🎛️ PC: Distancia izquierda */
-    right: 10px;              /* 🎛️ PC: Distancia derecha */
-    font-size: 0.80rem;       /* 🎛️ PC: Tamaño letra fecha */
-    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 🎛️ PC: Fuente fecha */
-    color: #afaeae;           /* 🎛️ PC: Color texto fecha */
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.822); /* 🎛️ PC: Sombra texto fecha */
-    font-weight: 600;         /* 🎛️ PC: Grosor letra fecha */
+    position: static;
+    width: 100%;
+    font-size: 0.81rem;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #797979; /* Negro puro y nítido */
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 500;
+    text-shadow: none;
+    -webkit-text-stroke: 0.05px #000000; /* [Móvil - Delineado o borde de la letra] */
 }
 
 
@@ -1233,7 +1266,7 @@ input, textarea {
     /* --- 1. CONTENEDOR PRINCIPAL (.stories-section) --- */
     .stories-section {
         margin-top: 20px;         /* 🎛️ MÓVIL: Margen superior */
-        margin-bottom: 20px;      /* 🎛️ MÓVIL: Margen inferior */
+        margin-bottom: -27px;      /* 🎛️ MÓVIL: Margen inferior */
         width: 100%;              /* 🎛️ MÓVIL: Ancho */
         margin-left: 0px;         /* 🎛️ MÓVIL: Mover BLOQUE ENTERO a los lados (+ der, - izq) */
         transform: translateX(0px); /* 🎛️ MÓVIL: Desplazar BLOQUE ENTERO libremente */
@@ -1253,7 +1286,7 @@ input, textarea {
     /* --- 3. CONTENEDOR DEL CARRUSEL (.stories-container) --- */
     .stories-container {
         display: flex;            /* 🎛️ MÓVIL: Tipo de display */
-        gap: 10px;                /* 🎛️ MÓVIL: Separación entre tarjetas */
+        gap: 5px;                /* 🎛️ MÓVIL: Separación entre tarjetas */
         overflow-x: auto;         /* 🎛️ MÓVIL: Desplazamiento horizontal */
         scrollbar-width: none;    /* 🎛️ MÓVIL: Ocultar barra scroll Firefox */
         -ms-overflow-style: none; /* 🎛️ MÓVIL: Ocultar barra scroll Edge */
@@ -1264,45 +1297,71 @@ input, textarea {
         display: none; /* 🎛️ MÓVIL: Ocultar barra scroll Chrome/Safari */
     }
 
-    /* --- 4. TARJETA DE HISTORIA (.story-card) --- */
-    .story-card {
-        position: relative;       /* 🎛️ MÓVIL: Posicionamiento necesario para mover con top/left */
-        top: 0px;                 /* 🎛️ MÓVIL: Mover TARJETAS Arriba (-) o Abajo (+) */
-        left: 0px;                /* 🎛️ MÓVIL: Mover TARJETAS Izquierda (-) o Derecha (+) */
-        flex-shrink: 0;           /* 🎛️ MÓVIL: Evitar compresión flex */
-        width: 160px;             /* 🎛️ MÓVIL: Ancho tarjeta */
-        height: 235px;            /* 🎛️ MÓVIL: Alto tarjeta */
-        border-radius: 30px;      /* 🎛️ MÓVIL: Redondeo esquinas */
-        overflow: hidden;         /* 🎛️ MÓVIL: Desbordamiento oculto */
-        cursor: pointer;          /* 🎛️ MÓVIL: Tipo de cursor */
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* 🎛️ MÓVIL: Sombra tarjeta */
-        transition: transform 0.2s ease, box-shadow 0.2s ease; /* 🎛️ MÓVIL: Transición hover */
-        font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 🎛️ MÓVIL: Fuente interna */
-    }
+    /* --- 4. TARJETA DE HISTORIA (.story-card) - MÓVIL --- */
+.story-card {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    flex-shrink: 0;
+    width: 95px; /* Ancho optimizado para móvil */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: 0;
+    transition: transform 0.1s ease;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-    .story-card:hover {
-        transform: scale(1.03); /* 🎛️ MÓVIL: Efecto zoom al pasar ratón */
-    }
+.story-card:hover img {
+    transform: scale(1.05); /* Efecto zoom activado solo para el círculo */
+}
 
-    /* --- 5. IMAGEN DE LA TARJETA (.story-card img) --- */
-    .story-card img {
-        width: 100%;              /* 🎛️ MÓVIL: Ancho imagen */
-        height: 100%;             /* 🎛️ MÓVIL: Alto imagen */
-        object-fit: cover;        /* 🎛️ MÓVIL: Ajuste de imagen */
-    }
+/* --- 5. IMAGEN DE LA TARJETA (.story-card img) - MÓVIL --- */
+.story-card img {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 50%; /* Círculo perfecto */
+    border: 3.6px solid #cfcfcf5e !important; /* Borde estilo Instagram */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+    transition: transform 0.2s ease;
 
-    /* --- 6. TEXTO FECHA/HORA (.story-timestamp) --- */
-    .story-timestamp {
-        position: absolute;       /* 🎛️ MÓVIL: Posicionamiento */
-        top: 15px;                /* 🎛️ MÓVIL: Distancia superior */
-        left: 8px;                /* 🎛️ MÓVIL: Distancia izquierda */
-        right: 8px;               /* 🎛️ MÓVIL: Distancia derecha */
-        font-size: 0.90rem;       /* 🎛️ MÓVIL: Tamaño letra fecha */
-        font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 🎛️ MÓVIL: Fuente fecha */
-        color: #afadad;           /* 🎛️ MÓVIL: Color texto fecha */
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85); /* 🎛️ MÓVIL: Sombra texto fecha */
-        font-weight: 400;         /* 🎛️ MÓVIL: Grosor letra fecha */
-    }
+    /* TRUCO DEL ARO INTERIOR: */
+    padding: 4px; /* Esto crea la separación entre la foto y el borde */
+    background-color: #dad8d809; /* Color de ese espacio (blanco para modo claro) */
+    
+    /* BORDE Y SOMBRA EXTERIOR: */
+    border: 3px solid #cfcfcfef; /* El aro gris exterior */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.021); /* La sombra para que flote */
+}
+
+/* --- 6. TEXTO FECHA/HORA (.story-timestamp) - MÓVIL --- */
+.story-timestamp {
+    position: static;
+    width: 100%;
+    font-size: 0.87rem;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #7a7a7a; /* Color modo claro */
+    text-align: center;
+    margin-top: 6px;
+    font-weight: 500;
+    text-shadow: none;
+    -webkit-text-stroke: 0.05px #000000; /* [Móvil - Delineado o borde de la letra] */
+}
+
+/* --- Adaptación Modo Oscuro en Móvil --- */
+body.dark-mode .story-timestamp {
+    color: #afaeae;
+}
+
+body.dark-mode .story-card img {
+    border-color: #faf8f809 !important;
+    box-shadow: 0 4px 12px rgba(177, 177, 177, 0);
+}
 }/* ========================================================== */
 /* 🖥️ BLOQUE EXCLUSIVO PARA PC: BAJAR FEED MAESTRO            */
 /* ========================================================== */
