@@ -75,16 +75,19 @@
         let postsMostradosCount = 10;
 
         document.addEventListener("DOMContentLoaded", async () => {
-            // Cargar historias con filtro de 24 horas
+            // Cargar historias con filtro correcto de 24 horas
             try {
                 const resStories = await fetch('stories.json?t=' + new Date().getTime());
                 const dataBruta = await resStories.json();
                 const ahora = Date.now();
+                
+                // Filtramos usando fechaCreacion que es la que existe en tus datos
                 historiasData = dataBruta.filter(h => {
-                    if (h.createdAt) {
-                        return (ahora - h.createdAt) < (24 * 60 * 60 * 1000);
+                    if (h.fechaCreacion) {
+                        const tiempoHistoria = new Date(h.fechaCreacion).getTime();
+                        return (ahora - tiempoHistoria) < (24 * 60 * 60 * 1000);
                     }
-                    return true;
+                    return false; // Si no tiene fecha, no la mostramos por seguridad
                 });
             } catch (e) {
                 historiasData = [];
