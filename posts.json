@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Necesito un punto de vista con mas oxigeno y menos aire acondicionado.",
+    "imagenes": [],
+    "fechaLarga": "mar, 11 de agosto de 2026",
+    "fechaCortas": "mar. 11 ago 2026",
+    "hora": "9:31 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-11T19:31:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Es horrible lo que están viviendo las personas de Latinoamérica debido al evento de agrupamiento sísmico que sacude numerosas zonas de sur américa en estos momentos. Además de ser algo inevitable, Colombia es por asi decirlo mi segunda tierra y eso me conmociona en mayor parte. 🇨🇴✊🏻",
     "imagenes": [],
     "fechaLarga": "lun, 10 de agosto de 2026",
