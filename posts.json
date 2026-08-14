@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Estoy con las plantillas del reproductor de lectura, pero estoy teniendo una movida indecisiva con la fuente de los títulos y demás.😤",
+    "imagenes": [],
+    "fechaLarga": "vie, 14 de agosto de 2026",
+    "fechaCortas": "vie. 14 ago 2026",
+    "hora": "3:21 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-14T13:21:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Ya comence con la página de Lonermorejourney.\nLa que me espera.",
     "imagenes": [],
     "fechaLarga": "mié, 12 de agosto de 2026",
