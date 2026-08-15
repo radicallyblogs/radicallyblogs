@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "Intentando respirar.",
+    "imagenes": [
+      "images/post_img_1786822026254_0.jpg"
+    ],
+    "fechaLarga": "sáb, 15 de agosto de 2026",
+    "fechaCortas": "sáb. 15 ago 2026",
+    "hora": "9:25 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-15T19:25:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Ya solo me queda hacer el reproductor para terminar la parte estética de la puta página.",
     "imagenes": [
