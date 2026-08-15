@@ -2,7 +2,9 @@
   {
     "tipo": "clasico",
     "texto": "Ya solo me queda hacer el reproductor para terminar la parte estética de la puta página.",
-    "imagenes": [],
+    "imagenes": [
+      "images/post_img_1786797048327_new_0.jpg"
+    ],
     "fechaLarga": "sáb, 15 de agosto de 2026",
     "fechaCortas": "sáb. 15 ago 2026",
     "hora": "2:18 p. m.",
