@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Como pretendes que no me sienta desilusionado, si nunca has podido reconocer cosas tan simples que no parecen ser reconocibles.",
+    "imagenes": [],
+    "fechaLarga": "sáb, 15 de agosto de 2026",
+    "fechaCortas": "sáb. 15 ago 2026",
+    "hora": "11:26 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-15T21:26:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Intentando respirar.",
     "imagenes": [
