@@ -1269,7 +1269,7 @@ if (source === 'stories') {
         const bitmap = await createImageBitmap(file);
         let width = bitmap.width;
         let height = bitmap.height;
-        const LIMITE_PIXELES = 1500; // Límite de seguridad optimizado para web
+        const LIMITE_PIXELES = 2000; // Límite de seguridad optimizado para web
 
         // Si la imagen es más grande que el límite, la redimensionamos
         if (width > LIMITE_PIXELES || height > LIMITE_PIXELES) {
@@ -1289,7 +1289,7 @@ if (source === 'stories') {
             bitmap.close(); // Liberamos memoria inmediatamente
 
             // Convertimos a Blob comprimido (JPEG al 82% de calidad)
-            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.85));
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.87));
             
             if (blob) {
                 // Devolvemos un nuevo archivo optimizado
