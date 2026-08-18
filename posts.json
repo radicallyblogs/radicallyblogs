@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Estoy apunto de explotar y no lo aguanto",
+    "imagenes": [],
+    "fechaLarga": "mar, 18 de agosto de 2026",
+    "fechaCortas": "mar. 18 ago 2026",
+    "hora": "2:56 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-18T12:56:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Como pretendes que no me sienta desilusionado, si nunca has podido reconocer cosas tan simples que no parecen ser reconocibles.",
     "imagenes": [],
     "fechaLarga": "sáb, 15 de agosto de 2026",
