@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Quiero matar a la incertidumbre y ver al cielo con la certeza del alivio.",
+    "imagenes": [],
+    "fechaLarga": "vie, 21 de agosto de 2026",
+    "fechaCortas": "vie. 21 ago 2026",
+    "hora": "2:58 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-21T12:58:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Odio vivir con miedo.",
     "imagenes": [],
     "fechaLarga": "mar, 18 de agosto de 2026",
