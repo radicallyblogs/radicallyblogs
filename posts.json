@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "",
+    "imagenes": [
+      "images/post_img_1787427550748_0.jpg"
+    ],
+    "fechaLarga": "sáb, 22 de agosto de 2026",
+    "fechaCortas": "sáb. 22 ago 2026",
+    "hora": "9:38 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-22T19:38:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Quiero matar a la incertidumbre para ver el cielo brillar con la certeza del alivio.",
     "imagenes": [],
