@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Pues yo no veo que pase nada.",
+    "imagenes": [],
+    "fechaLarga": "vie, 28 de agosto de 2026",
+    "fechaCortas": "vie. 28 ago 2026",
+    "hora": "12:41 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-28T10:41:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "",
     "imagenes": [
