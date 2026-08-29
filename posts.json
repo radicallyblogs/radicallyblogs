@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Tengo tanto dentro de mi que os quiero compartir.",
+    "imagenes": [],
+    "fechaLarga": "dom, 30 de agosto de 2026",
+    "fechaCortas": "dom. 30 ago 2026",
+    "hora": "1:04 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-29T23:04:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Cuando las cosas están bien, por que no quedarse todo así.",
     "imagenes": [],
     "fechaLarga": "sáb, 29 de agosto de 2026",
