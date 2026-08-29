@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Si, me he puesto una foto de perfil del 2025 que en realidad fue tomada de 2022",
+    "imagenes": [],
+    "fechaLarga": "sáb, 29 de agosto de 2026",
+    "fechaCortas": "sáb. 29 ago 2026",
+    "hora": "2:51 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-29T12:51:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "felipeortegareyes ha actualizado su foto de perfil!",
     "imagenes": [
       "images/post_img_1788007440045_new_0.jpg"
