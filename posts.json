@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "La verdad me encantaría mostraros el detrás de cámaras de los últimos escenarios y de algunas portadas por que son bastante interesantes.😏 ",
+    "imagenes": [],
+    "fechaLarga": "sáb, 29 de agosto de 2026",
+    "fechaCortas": "sáb. 29 ago 2026",
+    "hora": "2:32 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-29T12:32:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Otro premiere que me encantó de poemas de verano replay el día 10 de mayo, hecho con modelado 3D",
     "imagenes": [
