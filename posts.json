@@ -1,6 +1,21 @@
 [
   {
     "tipo": "clasico",
+    "texto": "LA REALIDAD ARTIFICIAL DETRAS DE ESTAS ESCENAS (Y se ve tan poco la maquetación para el resultado final)🤯",
+    "imagenes": [
+      "images/post_img_1788196577161_new_0.jpg",
+      "images/post_img_1788196580991_new_1.jpg",
+      "images/post_img_1788196584337_new_2.jpg",
+      "images/post_img_1788196587330_new_3.jpg"
+    ],
+    "fechaLarga": "lun, 31 de agosto de 2026",
+    "fechaCortas": "lun. 31 ago 2026",
+    "hora": "7:05 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-31T17:05:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Estoy saturado, y no de aventuras espaciales.",
     "imagenes": [],
     "fechaLarga": "lun, 31 de agosto de 2026",
