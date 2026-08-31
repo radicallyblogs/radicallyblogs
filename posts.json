@@ -1,6 +1,19 @@
 [
   {
     "tipo": "clasico",
+    "texto": "LAYOUT VISION / FINAL RENDER\n\n(Esta claro que la magia de este trabajo fue gracias a los nodos de composición y demas pulidos finales)",
+    "imagenes": [
+      "images/post_img_1788197320424_new_0.jpg",
+      "images/post_img_1788197323969_new_1.jpg"
+    ],
+    "fechaLarga": "lun, 31 de agosto de 2026",
+    "fechaCortas": "lun. 31 ago 2026",
+    "hora": "7:25 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-31T17:25:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "LA REALIDAD ARTIFICIAL DETRAS DE ESTAS ESCENAS (Y se ve tan poco la maquetación para el resultado final)🤯",
     "imagenes": [
       "images/post_img_1788196577161_new_0.jpg",
