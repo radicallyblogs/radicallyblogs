@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Estoy saturado, y no de aventuras espaciales.",
+    "imagenes": [],
+    "fechaLarga": "lun, 31 de agosto de 2026",
+    "fechaCortas": "lun. 31 ago 2026",
+    "hora": "12:47 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-08-31T10:47:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Tengo tanto dentro de mi que os quiero compartir.",
     "imagenes": [],
     "fechaLarga": "dom, 30 de agosto de 2026",
