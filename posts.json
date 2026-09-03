@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Llevo todo el año sobrio y no siento ninguna satisfacción por ello.",
+    "imagenes": [],
+    "fechaLarga": "jue, 3 de septiembre de 2026",
+    "fechaCortas": "jue. 3 sep 2026",
+    "hora": "3:28 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-03T13:28:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": ".",
     "imagenes": [
