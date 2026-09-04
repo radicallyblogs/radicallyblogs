@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Calor, desgano, hambre, sed, pereza y al revés. 😵‍💫",
+    "imagenes": [],
+    "fechaLarga": "vie, 4 de septiembre de 2026",
+    "fechaCortas": "vie. 4 sep 2026",
+    "hora": "3:12 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-04T13:12:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "El teclado se descargo por primera vez a los cinco meses de comprarlo. Esta si fue una buena compra. 😂",
     "imagenes": [
       "images/post_img_1788522538225_new_0.jpg"
