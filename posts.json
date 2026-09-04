@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "El teclado vino a descargarse por primera vez a los cinco meses de comprarlo. Esta si fue una buena compra. 😂",
+    "imagenes": [
+      "images/post_img_1788522538225_new_0.jpg"
+    ],
+    "fechaLarga": "vie, 4 de septiembre de 2026",
+    "fechaCortas": "vie. 4 sep 2026",
+    "hora": "1:42 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-04T11:42:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Llevo todo el año sobrio y no siento ninguna satisfacción por ello.",
     "imagenes": [],
     "fechaLarga": "jue, 3 de septiembre de 2026",
