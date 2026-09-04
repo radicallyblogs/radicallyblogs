@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Tengo dolor de pensar. Deberia tomarme una aspirina con 400mg de respuestas.",
+    "imagenes": [],
+    "fechaLarga": "vie, 4 de septiembre de 2026",
+    "fechaCortas": "vie. 4 sep 2026",
+    "hora": "11:50 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-04T21:50:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Calor, desgano, hambre, sed, pereza y al revés. 😵‍💫",
     "imagenes": [],
     "fechaLarga": "vie, 4 de septiembre de 2026",
