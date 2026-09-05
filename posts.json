@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Ahora voy a por la mejor parte de la pagina. Y a ver que tal.",
+    "imagenes": [],
+    "fechaLarga": "sáb, 5 de septiembre de 2026",
+    "fechaCortas": "sáb. 5 sep 2026",
+    "hora": "9:35 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-05T19:35:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Me ha tomado más de 45 minutos solo hacer el disquito giratorio ese del reproductor. Y para replicarlo, nisiquiera para mejorarlo ni nada.",
     "imagenes": [
       "images/post_img_1788619552073_new_0.jpg",
