@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "Otro render fotorrealista brutal",
+    "imagenes": [
+      "images/post_img_1788722666596_0.png"
+    ],
+    "fechaLarga": "dom, 6 de septiembre de 2026",
+    "fechaCortas": "dom. 6 sep 2026",
+    "hora": "9:25 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-06T19:25:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Eso de levantarme y no comer lo estoy tomando como algo normal <a href=\"asdasdasdasdas\" target=\"_blank\">#domingodesganado</a>",
     "imagenes": [],
