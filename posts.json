@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Vivir en base a maltratos, desprecios y señalamientos, además de en base a que te miren mal es un placer. Ha qué si? A qué cualquiera estaría encantado?",
+    "imagenes": [],
+    "fechaLarga": "mar, 8 de septiembre de 2026",
+    "fechaCortas": "mar. 8 sep 2026",
+    "hora": "6:30 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-08T04:30:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Otro render fotorrealista brutal",
     "imagenes": [
