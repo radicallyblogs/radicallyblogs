@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Sinceramente creo que necesito relajarme a mi manera.",
+    "imagenes": [],
+    "fechaLarga": "mar, 8 de septiembre de 2026",
+    "fechaCortas": "mar. 8 sep 2026",
+    "hora": "12:15 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-08T10:15:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Vivir en base a maltratos, desprecios y señalamientos, además de en base a que te miren mal es un placer. Ha qué si? A qué cualquiera estaría encantado?",
     "imagenes": [],
     "fechaLarga": "mar, 8 de septiembre de 2026",
