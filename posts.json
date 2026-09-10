@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": ".",
+    "imagenes": [
+      "images/post_img_1789033947952_0.png"
+    ],
+    "fechaLarga": "jue, 10 de septiembre de 2026",
+    "fechaCortas": "jue. 10 sep 2026",
+    "hora": "11:51 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-10T09:51:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Que con un simple buenas noches puedas hacer mi mundo demuestra muchas cosas.",
     "imagenes": [],
