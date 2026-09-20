@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Esta serie está rayante, voy a ponerme otro episodio.",
+    "imagenes": [
+      "images/post_img_1789925890727_new_0.jpg"
+    ],
+    "fechaLarga": "dom, 20 de septiembre de 2026",
+    "fechaCortas": "dom. 20 sep 2026",
+    "hora": "7:37 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-20T17:37:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "La que está cayendo no son dos gotas.",
     "imagenes": [],
     "fechaLarga": "mié, 16 de septiembre de 2026",
