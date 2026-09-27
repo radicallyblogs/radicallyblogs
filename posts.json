@@ -1,6 +1,19 @@
 [
   {
     "tipo": "clasico",
+    "texto": "La IA me pone cachondo",
+    "imagenes": [
+      "images/post_img_1790533028691_new_0.png",
+      "images/post_img_1790533034048_new_1.png"
+    ],
+    "fechaLarga": "dom, 27 de septiembre de 2026",
+    "fechaCortas": "dom. 27 sep 2026",
+    "hora": "8:16 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-09-27T18:16:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Necesito un puto ticket, y no me voy a abstener a hacerlo.",
     "imagenes": [],
     "fechaLarga": "sáb, 26 de septiembre de 2026",
