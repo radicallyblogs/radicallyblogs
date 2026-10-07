@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Esta serie no fue lo mismo sin ti",
+    "imagenes": [
+      "images/post_img_1791397087954_new_0.jpg"
+    ],
+    "fechaLarga": "mié, 7 de octubre de 2026",
+    "fechaCortas": "mié. 7 oct 2026",
+    "hora": "8:17 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-10-07T18:17:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Ya estamos a octubre, y yo sigo perdido en nadas absolutas.",
     "imagenes": [],
     "fechaLarga": "jue, 1 de octubre de 2026",
