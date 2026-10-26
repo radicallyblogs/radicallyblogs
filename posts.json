@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Ya estoy actualizando el blog. En un par de días veréis algún cambio en el diseño general y habrá alguna función nueva. ",
+    "imagenes": [],
+    "fechaLarga": "lun, 26 de octubre de 2026",
+    "fechaCortas": "lun. 26 oct 2026",
+    "hora": "5:20 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-10-26T16:20:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "La descarada Miau descansando sobre el teclado🐱",
     "imagenes": [
