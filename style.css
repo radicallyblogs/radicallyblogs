@@ -119,10 +119,10 @@ body {
     /* Fecha específica de cada post en PC */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 18px;          /* Tamaño de fuente para la fecha en escritorio */
+        font-size: 22px;          /* Tamaño de fuente para la fecha en escritorio */
         font-weight: 300;         /* Grosor de fuente ligero */
-        -webkit-text-stroke: 0px #000000; /* Sin trazo de texto en PC para esta clase */
-        color: #000000;           /* Color negro */
+        -webkit-text-stroke: 0.30px #333333; /* Sin trazo de texto en PC para esta clase */
+        color: #333333;           /* Color negro */
         margin-bottom: 6px;       /* Margen inferior */
     }
 
@@ -186,7 +186,7 @@ body {
 
     /* Espaciado vertical entre posts reducido para pantallas móviles */
     .post {
-        margin-bottom: 10px; 
+        margin-bottom: 7px; 
     }
 
     /* CONTENEDOR MÓVIL: Ajusta el ancho y desplaza el feed hacia la izquierda */
@@ -194,7 +194,7 @@ body {
         width: 100% !important;
         max-width: 100% !important;
         margin: 20px 0 !important;
-        padding: 25px 0 0 9px !important; /* Relleno izquierdo específico de 9px */
+        padding: 25px 0 0 7px !important; /* Relleno izquierdo específico de 9px */
     }
 
     /* Oculta la fecha de escritorio en dispositivos móviles */
@@ -219,19 +219,20 @@ body {
     /* FECHA DEL POST EN MÓVIL */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 17px;          /* Tamaño de fuente adaptado a móvil */
+        font-size: 19px;          /* Tamaño de fuente adaptado a móvil */
         font-weight: 400;         /* Grosor normal */
-        -webkit-text-stroke: 0px; /* Sin trazo en móvil */
-        color: #383838;
-        margin-bottom: 2px;       /* SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
+        -webkit-text-stroke: 0.10px; /* Sin trazo en móvil */
+        word-spacing: -1px;
+        color: #464646;
+        margin-bottom: 1px;       /* SEPARACIÓN 2: Distancia entre la fecha y la foto/usuario de abajo */
     }
 
     /* USUARIO EN MÓVIL */
     .username {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        font-weight: 500;         /* Grosor medio para mayor legibilidad en móvil */
-        font-size: 17px;          /* Tamaño de fuente del usuario en móvil */
-        -webkit-text-stroke: 0px;
+        font-weight: 300;         /* Grosor medio para mayor legibilidad en móvil */
+        font-size: 18px;          /* Tamaño de fuente del usuario en móvil */
+        -webkit-text-stroke: 0.70px;
         color: #000000;
     }
 
@@ -239,7 +240,7 @@ body {
     .timestamp {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 400;
-        font-size: 17px;          /* TAMAÑO DE LA HORA EN MÓVIL */
+        font-size: 18px;          /* TAMAÑO DE LA HORA EN MÓVIL */
         -webkit-text-stroke: 0.10px;
         color: #777777;           /* Color gris secundario */
     }
@@ -254,7 +255,7 @@ body {
     overflow-wrap: break-word !important;    /* <-- Refuerza para que ningún enlace se escape */
     white-space: pre-line !important;      /* <-- AÑADE ESTA LÍNEA AQUÍ */
     font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 21px;      /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
+    font-size: 22px;      /* Tamaño de fuente ligeramente mayor para facilitar lectura móvil */
     font-weight: 400;
     -webkit-text-stroke: 0px;
     line-height: 1;       /* SEPARACIÓN 4: Distancia entre las líneas del párrafo de texto */
@@ -264,8 +265,8 @@ body {
 
     /* FOTO DE PERFIL (TAMAÑO Y POSICIÓN EN MÓVIL) */
     .avatar {
-        width: 34px !important;         /* Ancho reducido del avatar para móvil */
-        height: 34px !important;        /* Alto reducido para mantener proporción cuadrada */
+        width: 40px !important;         /* Ancho reducido del avatar para móvil */
+        height: 40px !important;        /* Alto reducido para mantener proporción cuadrada */
         position: relative !important;  
         top: 0px !important;            /* Desplazamiento vertical (positivo baja, negativo sube) */
         left: -2px !important;          /* Desplazamiento horizontal (positivo derecha, negativo izquierda) */
@@ -275,7 +276,7 @@ body {
     .username, .timestamp {
         position: relative !important;
         top: -1px !important;            /* Desplaza verticalmente el bloque de texto de usuario y hora */
-        left: -4px !important;          /* Desplaza horizontalmente el bloque de texto */
+        left: -6px !important;          /* Desplaza horizontalmente el bloque de texto */
     }
 }
 
@@ -616,7 +617,7 @@ body {
     background: #000;
     margin-bottom: 12px;        /* [PC]: Separación entre la foto y el pie */
     position: relative;
-    left: 0px;                  /* [PC - Posición X de la foto] */
+    left: -7px !important;                  /* [PC - Posición X de la foto] */
     top: 0px;                   /* [PC - Posición Y de la foto] */
 
     /* Sombra suave y limpia que respeta los 30px de radio de la foto */
@@ -713,8 +714,8 @@ body {
 
     /* 2.1 Avatar (Móvil) */
 .pb-header-wix .avatar {
-    width: 34px !important;    /* [Móvil - Ancho del avatar] */
-    height: 34px !important;   /* [Móvil - Alto del avatar] */
+    width: 37px !important;    /* [Móvil - Ancho del avatar] */
+    height: 37px !important;   /* [Móvil - Alto del avatar] */
     position: relative !important; /* [Móvil - Posición relativa] */
     left: -6px !important;      /* [Móvil - Posición X del avatar] */
     top: 6px !important;       /* [Móvil - Posición Y del avatar] */
@@ -727,7 +728,7 @@ body {
 
     /* 2.2 Nombre de Usuario (Móvil) */
     .pb-username {
-        font-size: 17px;        /* [Móvil - Tamaño del Nombre] */
+        font-size: 18px;        /* [Móvil - Tamaño del Nombre] */
         font-weight: 400;       /* [Móvil - Grosor del Nombre] */
         left: -11px;              /* [Móvil - Posición X del Nombre] */
         top: 6px;               /* [Móvil - Posición Y del Nombre] */
@@ -735,7 +736,7 @@ body {
 
     /* 2.3 Fecha y Hora (Móvil) */
     .pb-datetime {
-        font-size: 17px;        /* [Móvil - Tamaño de la Fecha] */
+        font-size: 18px;        /* [Móvil - Tamaño de la Fecha] */
         font-weight: 400;       /* [Móvil - Grosor de la Fecha] */
         left: -9px;              /* [Móvil - Posición X de la Fecha] */
         top: 3px;               /* [Móvil - Posición Y de la Fecha] */
@@ -779,17 +780,17 @@ body {
 }
 
 .pb-caption {
-    font-size: 17px !important;         /* [Móvil - Tamaño de fuente del texto] */
+    font-size: 18px !important;         /* [Móvil - Tamaño de fuente del texto] */
     font-weight: 400 !important;        /* [Móvil - Grosor de fuente del texto] */
     position: relative !important;      /* [Móvil - Posición relativa del texto] */
     left: 0px !important;             /* [Móvil - TU VALOR ORIGINAL INTACTO] */
-    top: 6px !important;               /* [Móvil - Posición Y del texto] */
+    top: 0px !important;               /* [Móvil - Posición Y del texto] */
     max-width: 95% !important;         /* [Móvil - Impide que rebase el ancho de la pantalla] */
     white-space: pre-line !important;   /* <--- AÑADE ESTA LÍNEA AQUÍ */
 }
 
 .pb-user-inferior {
-    font-size: 17px !important;         /* [Móvil - Tamaño de fuente del usuario inferior] */
+    font-size: 18px !important;         /* [Móvil - Tamaño de fuente del usuario inferior] */
     font-weight: 400 !important;        /* [Móvil - Grosor de fuente del usuario inferior] */
     position: relative !important;      /* [Móvil - Posición relativa del usuario inferior] */
     left: 0px !important;               /* [Móvil - Posición X del usuario inferior] */
@@ -801,7 +802,7 @@ body {
    ========================================================== */
 .pb-meta-icons {
     display: flex;
-    gap: 50px;                 /* [PC - Separación horizontal entre iconos] */
+    gap: 70px;                 /* [PC - Separación horizontal entre iconos] */
     color: #000000 !important; /* [PC - Color negro para los iconos y textos] */
     font-size: 20px;           /* [PC - Tamaño de fuente de iconos] */
     margin-bottom: 14px;       /* [PC - Margen inferior] */
@@ -827,10 +828,10 @@ body {
     .pb-meta-icons {
         display: flex !important;           /* [Móvil - Forzar diseño en línea para iconos] */
         flex-wrap: nowrap !important;       /* [Móvil - Impide que los iconos salten de línea] */
-        font-size: 17px !important;         /* [Móvil - Tamaño de fuente de iconos] */
-        font-weight: 400 !important;        /* [Móvil - Grosor de fuente de iconos] */
+        font-size: 18px !important;         /* [Móvil - Tamaño de fuente de iconos] */
+        font-weight: 500 !important;        /* [Móvil - Grosor de fuente de iconos] */
         color: #000000 !important;          /* [Móvil - Color negro para iconos y textos] */
-        gap: 30px !important;               /* [Móvil - Separación entre iconos] */
+        gap: 40px !important;               /* [Móvil - Separación entre iconos] */
         margin-bottom: 0px !important;      /* [Móvil - Margen inferior] */
         position: relative !important;      /* [Móvil - Posición relativa de iconos] */
         left: 22px !important;               /* [Móvil - Posición X de iconos] */
@@ -838,8 +839,8 @@ body {
     }
 
     .pb-meta-icons svg {
-        width: 23px !important;             /* [Móvil - Ancho de iconos SVG] */
-        height: 23px !important;            /* [Móvil - Alto de iconos SVG] */
+        width: 25px !important;             /* [Móvil - Ancho de iconos SVG] */
+        height: 25px !important;            /* [Móvil - Alto de iconos SVG] */
         vertical-align: middle !important;  /* [Móvil - Alineación vertical] */
         position: relative !important;      /* [Móvil - Posición relativa del icono SVG] */
         left: -3px !important;               /* [Móvil - Posición X del icono SVG (Modifícalo si necesitas moverlos)] */
