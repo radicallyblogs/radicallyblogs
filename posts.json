@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "El encargado de la máquinita nos dijo que si se atasca el euro hay que literalmente ponerla de cabeza y sacudirla de las patas para que caiga el euro y encima no sale la bolita 😆",
+    "imagenes": [
+      "images/post_img_1793295657681_0.jpg"
+    ],
+    "fechaLarga": "jue, 29 de octubre de 2026",
+    "fechaCortas": "jue. 29 oct 2026",
+    "hora": "6:37 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-10-29T17:37:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "No me iré sin dejar algo",
     "imagenes": [],
