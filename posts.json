@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "No me dejes solo...",
+    "imagenes": [],
+    "fechaLarga": "sáb, 31 de octubre de 2026",
+    "fechaCortas": "sáb. 31 oct 2026",
+    "hora": "4:14 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-10-31T15:14:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "El encargado de la máquinita nos dijo que si se atasca el euro hay que literalmente poner la maquina de cabeza y sacudirla de las patas para que caiga dentro el euro y encima no sale la bolita despues 😆",
     "imagenes": [
