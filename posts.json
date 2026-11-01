@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Y como siempre todo es una aguantadera",
+    "imagenes": [],
+    "fechaLarga": "dom, 1 de noviembre de 2026",
+    "fechaCortas": "dom. 1 nov 2026",
+    "hora": "9:51 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-01T20:51:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "No me dejes solo...",
     "imagenes": [],
     "fechaLarga": "sáb, 31 de octubre de 2026",
