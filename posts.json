@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "No me siento muy cómodo teniendo un blog tan publico.",
+    "imagenes": [],
+    "fechaLarga": "lun, 2 de noviembre de 2026",
+    "fechaCortas": "lun. 2 nov 2026",
+    "hora": "3:20 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-02T14:20:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Y como siempre todo es una aguantadera",
     "imagenes": [],
     "fechaLarga": "dom, 1 de noviembre de 2026",
