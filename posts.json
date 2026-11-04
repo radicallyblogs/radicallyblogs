@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Se me ha jodido la cámara del móvil justo cuando quería comenzar a subiros fotos jajaja.  Mirar, yo mejor me meto un pedo y a tomar por saco jajjaja",
+    "imagenes": [],
+    "fechaLarga": "mié, 4 de noviembre de 2026",
+    "fechaCortas": "mié. 4 nov 2026",
+    "hora": "2:47 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-04T13:47:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "No me siento muy cómodo teniendo un blog tan publico.",
     "imagenes": [],
     "fechaLarga": "lun, 2 de noviembre de 2026",
