@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Madre mía 😵",
+    "imagenes": [],
+    "fechaLarga": "sáb, 7 de noviembre de 2026",
+    "fechaCortas": "sáb. 7 nov 2026",
+    "hora": "12:02 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-06T23:02:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Se me ha jodido la cámara del móvil justo cuando quería comenzar a subiros fotos jajaja.  Mirar, yo mejor me meto un pedo y a tomar por saco jajjaja",
     "imagenes": [],
     "fechaLarga": "mié, 4 de noviembre de 2026",
