@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Pre madre mia",
+    "imagenes": [],
+    "fechaLarga": "sáb, 7 de noviembre de 2026",
+    "fechaCortas": "sáb. 7 nov 2026",
+    "hora": "6:20 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-07T17:20:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Madre mía 😵",
     "imagenes": [],
     "fechaLarga": "sáb, 7 de noviembre de 2026",
