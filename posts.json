@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Post madre mia 😥",
+    "imagenes": [],
+    "fechaLarga": "dom, 8 de noviembre de 2026",
+    "fechaCortas": "dom. 8 nov 2026",
+    "hora": "9:05 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-08T20:05:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Pre madre mia",
     "imagenes": [],
     "fechaLarga": "sáb, 7 de noviembre de 2026",
