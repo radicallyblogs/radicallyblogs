@@ -119,7 +119,7 @@ body {
     /* Fecha específica de cada post en PC */
     .post-date {
         font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 22px;          /* Tamaño de fuente para la fecha en escritorio */
+        font-size: 18px;          /* Tamaño de fuente para la fecha en escritorio */
         font-weight: 300;         /* Grosor de fuente ligero */
         -webkit-text-stroke: 0.30px #333333; /* Sin trazo de texto en PC para esta clase */
         color: #333333;           /* Color negro */
