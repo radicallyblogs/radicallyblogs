@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "Sigues en mi aun que ya no lo esté en ti",
+    "imagenes": [
+      "images/post_img_1794428650376_0.jpg"
+    ],
+    "fechaLarga": "mié, 11 de noviembre de 2026",
+    "fechaCortas": "mié. 11 nov 2026",
+    "hora": "9:22 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-11T20:22:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Ya le estoy dando los últimos pulidos a la página de Lonermorejourney 😪\n\nSi me he tardado un poco más que con la página del blog es por qué aquí si trabajo con los URLs y enlaces y todo debe poderse encontrar por internet desde las búsquedas y por su nombre, con el id exacto y toda esa mierda.\n\nYa falta poco, ya funciona. Para luego volver sin subir ni un título nuevo🤦🏻‍♂️",
     "imagenes": [],
