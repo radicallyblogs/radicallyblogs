@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Los servidores están funcionando como el culo y se está tardando mucho las subidas aquí",
+    "imagenes": [],
+    "fechaLarga": "mié, 11 de noviembre de 2026",
+    "fechaCortas": "mié. 11 nov 2026",
+    "hora": "9:54 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-11T20:54:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "Sigues en mi aun que ya no lo esté en ti",
     "imagenes": [
