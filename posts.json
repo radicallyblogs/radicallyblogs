@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Buenos días con la copa... con la mañana hermosa digo",
+    "imagenes": [],
+    "fechaLarga": "jue, 12 de noviembre de 2026",
+    "fechaCortas": "jue. 12 nov 2026",
+    "hora": "8:47 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-12T07:47:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Los servidores están funcionando como el culo y se está tardando mucho las subidas aquí",
     "imagenes": [],
     "fechaLarga": "mié, 11 de noviembre de 2026",
