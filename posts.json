@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "HoLAp",
+    "imagenes": [],
+    "fechaLarga": "vie, 13 de noviembre de 2026",
+    "fechaCortas": "vie. 13 nov 2026",
+    "hora": "11:43 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-13T10:43:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Hoy comenzamos pronto perras",
     "imagenes": [],
     "fechaLarga": "jue, 12 de noviembre de 2026",
