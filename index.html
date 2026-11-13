@@ -155,7 +155,7 @@ function obtenerFechaPublicacion(post, fechaOriginal, ocultarFechaEnHoras = fals
     if (diferencia < dia) {
         if (diferencia < hora) {
             const minutos = Math.max(1, Math.floor(diferencia / minuto));
-            return `hace ${minutos} min. ${fechaSinDia}`;
+            return ocultarFechaEnHoras ? `hace ${minutos} min.` : `hace ${minutos} min. ${fechaSinDia}`;
         }
 
         const horas = Math.floor(diferencia / hora);
