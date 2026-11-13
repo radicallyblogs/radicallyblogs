@@ -491,9 +491,16 @@ function cargarMas() {
         }
 
         const darkModeSwitch = document.getElementById('dark-mode-switch');
-        darkModeSwitch.addEventListener('change', () => {
-            document.body.classList.toggle('dark-mode');
-        });
+const modoOscuroGuardado = localStorage.getItem('darkMode') === 'true';
+
+document.body.classList.toggle('dark-mode', modoOscuroGuardado);
+darkModeSwitch.checked = modoOscuroGuardado;
+
+darkModeSwitch.addEventListener('change', () => {
+    const activo = darkModeSwitch.checked;
+    document.body.classList.toggle('dark-mode', activo);
+    localStorage.setItem('darkMode', activo);
+});
     </script>
 </body>
 </html>
