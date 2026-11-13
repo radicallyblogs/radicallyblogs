@@ -1,15 +1,13 @@
 [
   {
     "tipo": "clasico",
-    "texto": "Todavía quiero esto y lo necesito",
-    "imagenes": [
-      "images/post_img_1794602888915_new_0.png"
-    ],
+    "texto": "Desde que te fuiste estoy haciéndome daño y nisiquiera me importa.",
+    "imagenes": [],
     "fechaLarga": "vie, 13 de noviembre de 2026",
     "fechaCortas": "vie. 13 nov 2026",
-    "hora": "9:47 p. m.",
+    "hora": "9:12 p. m.",
     "fijado": false,
-    "fechaCreacion": "2026-11-13T20:47:00.000Z"
+    "fechaCreacion": "2026-11-13T20:12:00.000Z"
   },
   {
     "tipo": "clasico",
@@ -20,6 +18,18 @@
     "hora": "7:12 p. m.",
     "fijado": false,
     "fechaCreacion": "2026-11-13T18:12:00.000Z"
+  },
+  {
+    "tipo": "photo_bloggy",
+    "texto": "El sentir de los anteriorismos",
+    "imagenes": [
+      "images/post_img_1794595939264_0.jpg"
+    ],
+    "fechaLarga": "vie, 13 de noviembre de 2026",
+    "fechaCortas": "vie. 13 nov 2026",
+    "hora": "5:35 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-13T16:35:00.000Z"
   },
   {
     "tipo": "clasico",
@@ -119,7 +129,7 @@
     "imagenes": [],
     "fechaLarga": "sáb, 7 de noviembre de 2026",
     "fechaCortas": "sáb. 7 nov 2026",
-    "hora": "6:20 p. m.",
+    "hora": "6:20 p. m.",
     "fijado": false,
     "fechaCreacion": "2026-11-07T17:20:00.000Z"
   },
@@ -1844,7 +1854,7 @@
   },
   {
     "tipo": "clasico",
-    "texto": "Tantos sociópatas, narcisistas que hay en internet hablando de lo que creen saber cuando solo hacen monto con mas basura que trata temas \"actuales\" y ni saben mirar sus propios valores. Pero luego llego yo aflojando y entonces estoy fatal... Una puta mierda os coméis. ",
+    "texto": "Tantos sociópatas, narcisistas que hay en internet hablando de lo que creen saber cuando solo hacen monto con mas basura que trata temas \"actuales\" y ni saben mirar sus propios valores. Pero luego llego yo aflojando y entonces estoy fatal... Una puta mierda os coméis. ",
     "imagenes": [],
     "fechaLarga": "sáb, 18 de octubre de 2025",
     "fechaCortas": "sáb. 18 oct 2025",
@@ -1956,7 +1966,7 @@
   },
   {
     "tipo": "clasico",
-    "texto": "Este volumen 2, no será como tal una adaptación  o continuación directa para una segunda parte, si no mas bien, un proyecto nuevo, respetando siempre esa química que ha tenido para el publico, aun que usando o plasmando en ello mi creatividad desde un enfoque de mi perspectiva mas amplio, y sobre todo, en el que pueda sentirme desatado en cuanto a emoción se refiere.",
+    "texto": "Este volumen 2, no será como tal una adaptación  o continuación directa para una segunda parte, si no mas bien, un proyecto nuevo, respetando siempre esa química que ha tenido para el publico, aun que usando o plasmando en ello mi creatividad desde un enfoque de mi perspectiva mas amplio, y sobre todo, en el que pueda sentirme desatado en cuanto a emoción se refiere.",
     "imagenes": [],
     "fechaLarga": "dom, 10 de agosto de 2025",
     "fechaCortas": "dom. 10 ago 2025",
@@ -2062,7 +2072,7 @@
   },
   {
     "tipo": "clasico",
-    "texto": "Es el mirarte siendo amante de la pretensión,\ncomo hacer de ti una parte de mi.\nApilando cada nueva historia,\nde tan solo bramante sin amarre.\n\n- Entelequias ",
+    "texto": "Es el mirarte siendo amante de la pretensión,\ncomo hacer de ti una parte de mi.\nApilando cada nueva historia,\nde tan solo bramante sin amarre.\n\n- Entelequias ",
     "imagenes": [],
     "fechaLarga": "lun, 7 de julio de 2025",
     "fechaCortas": "lun. 7 jul 2025",
@@ -2142,7 +2152,7 @@
   },
   {
     "tipo": "clasico",
-    "texto": "La ilustración que estoy haciendo del libro con la técnica paginas rotas, va  a dejar obsoleto cualquier editor de formato.",
+    "texto": "La ilustración que estoy haciendo del libro con la técnica paginas rotas, va  a dejar obsoleto cualquier editor de formato.",
     "imagenes": [],
     "fechaLarga": "vie, 6 de junio de 2025",
     "fechaCortas": "vie. 6 jun 2025",
@@ -2152,7 +2162,7 @@
   },
   {
     "tipo": "clasico",
-    "texto": "Estoy mas que contento por ver el buen recibimiento que ha tenido el disco en tan solo unos pocos días. No solo por las lecturas, si no también por vuestro feedback que se ve a lo lejos. Tengo claro que no he sido previsor en cuanto  a lo que me costaría  darle forma y sobre todo el seguir dándosela, los formatos me tienen de paros en paros, aun teniendo herramientas de precisión para la paginación. De todas formas, he estado indagando durante horas y he caído  en una posible técnica para pulir mucho mas el archivo llamada \"paginas rotas\". Y creerme que si va a requerir de puta precisión.",
+    "texto": "Estoy mas que contento por ver el buen recibimiento que ha tenido el disco en tan solo unos pocos días. No solo por las lecturas, si no también por vuestro feedback que se ve a lo lejos. Tengo claro que no he sido previsor en cuanto  a lo que me costaría  darle forma y sobre todo el seguir dándosela, los formatos me tienen de paros en paros, aun teniendo herramientas de precisión para la paginación. De todas formas, he estado indagando durante horas y he caído  en una posible técnica para pulir mucho mas el archivo llamada \"paginas rotas\". Y creerme que si va a requerir de puta precisión.",
     "imagenes": [],
     "fechaLarga": "jue, 5 de junio de 2025",
     "fechaCortas": "jue. 5 jun 2025",
@@ -2529,7 +2539,7 @@
   },
   {
     "tipo": "clasico",
-    "texto": "La imagen esa de \"weirdcore\" por asi decirlo, llevaba meses, si no años queriendo subirla a un sitio preestablecido. Lo intente por distintas plataformas haciéndole como una especie de entrada triunfal, pero nunca me parecía buen momento o no me terminaba de convencer, y oye, puede significar algo importante para mi, como a todos alguna vez sus ideas. Pero no se trata de una simple imagen, se trata de como la desdicha por la poca conexión que note estando presente, no daba valor a lo que intentaba mostrar ni ofrecer, asi que por lo tanto, tuve que rotar el ascerdor como siempre, para asi conseguir un enfoque mas propio y personal, el cual me esta ayudando a sentir mas este espacio en internet, donde ahora tengo verdadera libertad para hacer un poco de mi estantería, no en si para catalogarlo, pero esta de puta madre poder volver a esos orígenes del blog 🤘🏻",
+    "texto": "La imagen esa de \"weirdcore\" por asi decirlo, llevaba meses, si no años queriendo subirla a un sitio preestablecido. Lo intente por distintas plataformas haciéndole como una especie de entrada triunfal, pero nunca me parecía buen momento o no me terminaba de convencer, y oye, puede significar algo importante para mi, como a todos alguna vez sus ideas. Pero no se trata de una simple imagen, se trata de como la desdicha por la poca conexión que note estando presente, no daba valor a lo que intentaba mostrar ni ofrecer, asi que por lo tanto, tuve que rotar el ascerdor como siempre, para asi conseguir un enfoque mas propio y personal, el cual me esta ayudando a sentir mas este espacio en internet, donde ahora tengo verdadera libertad para hacer un poco de mi estantería, no en si para catalogarlo, pero esta de puta madre poder volver a esos orígenes del blog 🤘🏻",
     "imagenes": [],
     "fechaLarga": "mié, 18 de diciembre de 2024",
     "fechaCortas": "mié. 18 dic 2024",
@@ -2979,7 +2989,7 @@
   },
   {
     "tipo": "clasico",
-    "texto": "Hace un rato pase El Zurgenmather a borrador en la pagina, asi como algunos mas que tambien han estado publicados anteriormente y con los que no pienso dejar de tratar, pero posteriormente de abril al paso de ahora, he tenido una combustión cerebral espontanea que se a convertido en una aceleración subatómica de ideas acatadas con un gran botín incomprensible para las mentes mas audaces ",
+    "texto": "Hace un rato pase El Zurgenmather a borrador en la pagina, asi como algunos mas que tambien han estado publicados anteriormente y con los que no pienso dejar de tratar, pero posteriormente de abril al paso de ahora, he tenido una combustión cerebral espontanea que se a convertido en una aceleración subatómica de ideas acatadas con un gran botín incomprensible para las mentes mas audaces ",
     "imagenes": [],
     "fechaLarga": "lun, 24 de junio de 2024",
     "fechaCortas": "lun. 24 jun 2024",
@@ -3343,7 +3353,7 @@
   },
   {
     "tipo": "clasico",
-    "texto": "Tengo hematomas en las piernas y las manos, marcas en la cara y los ojos hinchados, dolor en el cuerpo y la cabeza en el puesto del recuesto, dime que es querer si odio lo que hago y amo lo que haces por no saber que fue lo que manchaste, ya sabes lo que quiero, asi que si tu quieres te dejo, pero solo si los dos queremos, volvemos y nos vemos. </3 ",
+    "texto": "Tengo hematomas en las piernas y las manos, marcas en la cara y los ojos hinchados, dolor en el cuerpo y la cabeza en el puesto del recuesto, dime que es querer si odio lo que hago y amo lo que haces por no saber que fue lo que manchaste, ya sabes lo que quiero, asi que si tu quieres te dejo, pero solo si los dos queremos, volvemos y nos vemos. </3 ",
     "imagenes": [],
     "fechaLarga": "jue, 7 de marzo de 2024",
     "fechaCortas": "jue. 7 mar 2024",
