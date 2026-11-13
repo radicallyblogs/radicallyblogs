@@ -1,6 +1,18 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Todavía quiero esto y lo necesito",
+    "imagenes": [
+      "images/post_img_1794606321547_new_0.png"
+    ],
+    "fechaLarga": "vie, 13 de noviembre de 2026",
+    "fechaCortas": "vie. 13 nov 2026",
+    "hora": "10:45 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-13T21:45:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Desde que te fuiste estoy haciéndome daño y nisiquiera me importa.",
     "imagenes": [],
     "fechaLarga": "vie, 13 de noviembre de 2026",
