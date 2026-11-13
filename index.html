@@ -150,7 +150,7 @@ function obtenerFechaPublicacion(post, fechaOriginal) {
     const hora = 60 * minuto;
     const dia = 24 * hora;
 
-    const fechaSinDia = fechaOriginal.replace(/^[A-Za-z]{3}\.\s*/, '');
+    const fechaSinDia = fechaOriginal.replace(/^(?:lun(?:es)?|mar(?:tes)?|mi[eé](?:rcoles)?|jue(?:ves)?|vie(?:rnes)?|s[áa]b(?:ado)?|dom(?:ingo)?)[.,]?\s+/i, '');
 
 if (diferencia < dia) {
   if (diferencia < hora) {
