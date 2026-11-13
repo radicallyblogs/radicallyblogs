@@ -136,7 +136,7 @@
         }
 
         const iconoPinSvg = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align: middle; margin-left: 4px;" title="Fijado"><path d="M16 12V4H17V2H7V4H8V12L4 16V18H11V22H13V18H20V16L16 12Z"/></svg>`;
-function obtenerFechaPublicacion(post, fechaOriginal) {
+function obtenerFechaPublicacion(post, fechaOriginal, ocultarFechaEnHoras = false) {
     if (!post.fechaCreacion) return fechaOriginal;
 
     const fecha = new Date(post.fechaCreacion);
@@ -152,19 +152,19 @@ function obtenerFechaPublicacion(post, fechaOriginal) {
 
     const fechaSinDia = fechaOriginal.replace(/^(?:lun(?:es)?|mar(?:tes)?|mi[eé](?:rcoles)?|jue(?:ves)?|vie(?:rnes)?|s[áa]b(?:ado)?|dom(?:ingo)?)[.,]?\s+/i, '');
 
-if (diferencia < dia) {
-  if (diferencia < hora) {
-    const minutos = Math.max(1, Math.floor(diferencia / minuto));
-    return `hace ${minutos} min. ${fechaSinDia}`;
-  }
+    if (diferencia < dia) {
+        if (diferencia < hora) {
+            const minutos = Math.max(1, Math.floor(diferencia / minuto));
+            return `hace ${minutos} min. ${fechaSinDia}`;
+        }
 
-  const horas = Math.floor(diferencia / hora);
-  return `hace ${horas}h. ${fechaSinDia}`;
-}
+        const horas = Math.floor(diferencia / hora);
+        return ocultarFechaEnHoras ? `hace ${horas}h` : `hace ${horas}h. ${fechaSinDia}`;
+    }
 
-if (diferencia < 2 * dia) {
-  return `ayer. ${fechaSinDia}`;
-}
+    if (diferencia < 2 * dia) {
+        return `ayer. ${fechaSinDia}`;
+    }
 
     return fechaOriginal;
 }
@@ -176,8 +176,8 @@ if (diferencia < 2 * dia) {
             const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
             const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
 
-          const fechaLargaPost = obtenerFechaPublicacion(post, fechaLargaLimpia);
-const fechaCortaPost = obtenerFechaPublicacion(post, fechaCortasLimpia);
+          const fechaLargaPost = obtenerFechaPublicacion(post, fechaLargaLimpia, true);
+const fechaCortaPost = obtenerFechaPublicacion(post, fechaCortasLimpia, true);
 
             if (post.tipo === 'photo_bloggy') {
                 const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
