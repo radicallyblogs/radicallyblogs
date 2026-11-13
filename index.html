@@ -23,7 +23,7 @@
             <input type="checkbox" id="dark-mode-switch" />
             <label for="dark-mode-switch" class="switch-label">
                 <svg class="switch-icon sun-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="switch-icon moon-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="switch-icon moon-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path></svg>
             </label>
         </div>
     </header>
@@ -57,7 +57,7 @@
                 <div class="story-author-controls">
                     <img src="avatar.jpeg" alt="Perfil" class="story-profile-pic">
                     <button id="storyPauseBtn" class="story-pause-btn-top" onclick="togglePausarHistoria()">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
                     </button>
                 </div>
                 <span class="story-close" onclick="cerrarHistoria()">&times;</span>
@@ -135,39 +135,41 @@
             });
         }
 
-        const iconoPinSvg = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align: middle; margin-left: 4px;" title="Fijado"><path d="M16 12V4H17V2H7V4H8V12L4 16V18H11V22H13V18H20V16L16 12Z"/></svg>`;
-function obtenerFechaPublicacion(post, fechaOriginal) {
-    if (!post.fechaCreacion) return fechaOriginal;
+        const iconoPinSvg = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align: middle; margin-left: 4px;" title="Fijado"><path d="M16 12V4H17V2H7V4H8V12L6 14V16H11.2V21L12 22L12.8 21V16H18V14L16 12Z"></path></svg>`;
 
-    const fecha = new Date(post.fechaCreacion);
-    const diferencia = Date.now() - fecha.getTime();
+        function obtenerFechaPublicacion(post, fechaOriginal, ocultarFechaEnHoras = false) {
+            if (!post.fechaCreacion) return fechaOriginal;
 
-    if (Number.isNaN(fecha.getTime()) || diferencia < 0) {
-        return fechaOriginal;
-    }
+            const fecha = new Date(post.fechaCreacion);
+            const diferencia = Date.now() - fecha.getTime();
 
-    const minuto = 60 * 1000;
-    const hora = 60 * minuto;
-    const dia = 24 * hora;
+            if (Number.isNaN(fecha.getTime()) || diferencia < 0) {
+                return fechaOriginal;
+            }
 
-    const fechaSinDia = fechaOriginal.replace(/^(?:lun(?:es)?|mar(?:tes)?|mi[eé](?:rcoles)?|jue(?:ves)?|vie(?:rnes)?|s[áa]b(?:ado)?|dom(?:ingo)?)[.,]?\s+/i, '');
+            const minuto = 60 * 1000;
+            const hora = 60 * minuto;
+            const dia = 24 * hora;
 
-if (diferencia < dia) {
-  if (diferencia < hora) {
-    const minutos = Math.max(1, Math.floor(diferencia / minuto));
-    return `hace ${minutos} min. ${fechaSinDia}`;
-  }
+            const fechaSinDia = fechaOriginal.replace(/^(?:lun(?:es)?|mar(?:tes)?|mi[eé](?:rcoles)?|jue(?:ves)?|vie(?:rnes)?|s[áa]b(?:ado)?|dom(?:ingo)?)[.,]?\s+/i, '');
 
-  const horas = Math.floor(diferencia / hora);
-  return `hace ${horas}h. ${fechaSinDia}`;
-}
+            if (diferencia < dia) {
+                if (diferencia < hora) {
+                    const minutos = Math.max(1, Math.floor(diferencia / minuto));
+                    return `hace ${minutos} min. ${fechaSinDia}`;
+                }
 
-if (diferencia < 2 * dia) {
-  return `ayer. ${fechaSinDia}`;
-}
+                const horas = Math.floor(diferencia / hora);
+                return ocultarFechaEnHoras ? `hace ${horas}h` : `hace ${horas}h. ${fechaSinDia}`;
+            }
 
-    return fechaOriginal;
-}
+            if (diferencia < 2 * dia) {
+                return `ayer. ${fechaSinDia}`;
+            }
+
+            return fechaOriginal;
+        }
+
         function generarHtmlPost(post) {
             let postHTML = '';
             const horaLimpia = limpiarHora(post.hora);
@@ -176,8 +178,8 @@ if (diferencia < 2 * dia) {
             const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
             const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
 
-          const fechaLargaPost = obtenerFechaPublicacion(post, fechaLargaLimpia);
-const fechaCortaPost = obtenerFechaPublicacion(post, fechaCortasLimpia);
+            const fechaLargaPost = obtenerFechaPublicacion(post, fechaLargaLimpia, true);
+            const fechaCortaPost = obtenerFechaPublicacion(post, fechaCortasLimpia, true);
 
             if (post.tipo === 'photo_bloggy') {
                 const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
@@ -208,7 +210,8 @@ const fechaCortaPost = obtenerFechaPublicacion(post, fechaCortasLimpia);
                         }
                     }
                 }
-fechaPhoto = obtenerFechaPublicacion(post, fechaPhoto);
+                fechaPhoto = obtenerFechaPublicacion(post, fechaPhoto);
+
                 postHTML = `
                     <article class="photo-bloggy-post">
                         <div class="pb-header-wix">
@@ -222,9 +225,9 @@ fechaPhoto = obtenerFechaPublicacion(post, fechaPhoto);
                             <img src="${imagenUrl}" alt="Photo Bloggy" loading="lazy" onclick="abrirLightbox('${imagenUrl}')">
                         </div>
                         <div class="pb-meta-icons">
-                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>HD</span>
-                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>GMT/europe</span>
-                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>MacOs</span>
+                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M12 21s-8-4.35-8-10a4 4 0 0 1 7-2.65A4 4 0 0 1 20 11c0 5.65-8 10-8 10Z"></path></svg></span>
+                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path></svg></span>
+                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"></path></svg></span>
                         </div>
                         ${textoCaption}
                     </article>
@@ -268,36 +271,36 @@ fechaPhoto = obtenerFechaPublicacion(post, fechaPhoto);
         }
 
         function renderizarFeedPosts() {
-    const container = document.getElementById('feed-posts');
-    if (!container) return;
-    container.innerHTML = '';
+            const container = document.getElementById('feed-posts');
+            if (!container) return;
+            container.innerHTML = '';
 
-    if (!postsGlobal || !Array.isArray(postsGlobal)) return;
+            if (!postsGlobal || !Array.isArray(postsGlobal)) return;
 
-    const postsFijados = postsGlobal.filter(post => post.fijado === true);
-    postsFijados.forEach(post => {
-        container.innerHTML += generarHtmlPost(post);
-    });
+            const postsFijados = postsGlobal.filter(post => post.fijado === true);
+            postsFijados.forEach(post => {
+                container.innerHTML += generarHtmlPost(post);
+            });
 
-    const postsParaMostrar = postsGlobal.slice(0, postsMostradosCount);
-    postsParaMostrar.forEach(post => {
-        container.innerHTML += generarHtmlPost(post);
-    });
+            const postsParaMostrar = postsGlobal.slice(0, postsMostradosCount);
+            postsParaMostrar.forEach(post => {
+                container.innerHTML += generarHtmlPost(post);
+            });
 
-    const btnCargarMas = document.getElementById('btn-load-more');
-    if (btnCargarMas) {
-        if (postsMostradosCount < postsGlobal.length) {
-            btnCargarMas.style.display = 'block';
-        } else {
-            btnCargarMas.style.display = 'none';
+            const btnCargarMas = document.getElementById('btn-load-more');
+            if (btnCargarMas) {
+                if (postsMostradosCount < postsGlobal.length) {
+                    btnCargarMas.style.display = 'block';
+                } else {
+                    btnCargarMas.style.display = 'none';
+                }
+            }
         }
-    }
-}
 
-function cargarMas() {
-    postsMostradosCount += 10;
-    renderizarFeedPosts();
-}
+        function cargarMas() {
+            postsMostradosCount += 10;
+            renderizarFeedPosts();
+        }
     </script>
 
     <!-- 3. BLOQUE DE HISTORIAS (Separado e independiente) -->
@@ -375,7 +378,7 @@ function cargarMas() {
             
             const btn = document.getElementById('storyPauseBtn');
             if (btn) {
-                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>`;
             }
             
             const historia = historiasData[indiceHistoriaActual];
@@ -405,7 +408,7 @@ function cargarMas() {
                     barraActiva.style.animationPlayState = 'paused';
                 }
                 if (btn) {
-                    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+                    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8,5 19,12 8,19"></polygon></svg>`;
                 }
             } else {
                 tiempoInicio = Date.now();
@@ -415,7 +418,7 @@ function cargarMas() {
                     barraActiva.style.animationPlayState = 'running';
                 }
                 if (btn) {
-                    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+                    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>`;
                 }
 
                 temporizadorHistoria = setTimeout(() => {
