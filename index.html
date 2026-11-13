@@ -491,16 +491,50 @@ function cargarMas() {
         }
 
         const darkModeSwitch = document.getElementById('dark-mode-switch');
-const modoOscuroGuardado = localStorage.getItem('darkMode') === 'true';
 
-document.body.classList.toggle('dark-mode', modoOscuroGuardado);
-darkModeSwitch.checked = modoOscuroGuardado;
+function aplicarTema(activo) {
+    document.body.classList.toggle('dark-mode', activo);
+    darkModeSwitch.checked = activo;
+}
+
+function temaAutomaticoSegunHora() {
+    const ahora = new Date();
+    const horaActual = ahora.getHours() + (ahora.getMinutes() / 60);
+
+    // 18:30 en adelante y antes de las 07:00 => modo oscuro
+    return horaActual >= 18.5 || horaActual < 7;
+}
+
+function actualizarTema() {
+    const override = localStorage.getItem('darkModeOverride');
+    const overrideUntil = Number(localStorage.getItem('darkModeOverrideUntil') || 0);
+
+    const hayOverrideValido = override !== null && Date.now() < overrideUntil;
+
+    if (hayOverrideValido) {
+        aplicarTema(override === 'true');
+        return;
+    }
+
+    if (override !== null) {
+        localStorage.removeItem('darkModeOverride');
+        localStorage.removeItem('darkModeOverrideUntil');
+    }
+
+    aplicarTema(temaAutomaticoSegunHora());
+}
 
 darkModeSwitch.addEventListener('change', () => {
     const activo = darkModeSwitch.checked;
-    document.body.classList.toggle('dark-mode', activo);
-    localStorage.setItem('darkMode', activo);
+
+    localStorage.setItem('darkModeOverride', String(activo));
+    localStorage.setItem('darkModeOverrideUntil', String(Date.now() + (5 * 60 * 60 * 1000)));
+
+    aplicarTema(activo);
 });
+
+actualizarTema();
+setInterval(actualizarTema, 60 * 1000);
     </script>
 </body>
 </html>
