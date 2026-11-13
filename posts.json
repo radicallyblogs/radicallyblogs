@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "A mi hermano no le funciona el FightCade por su mierda de ordenador mariconiense",
+    "imagenes": [],
+    "fechaLarga": "vie, 13 de noviembre de 2026",
+    "fechaCortas": "vie. 13 nov 2026",
+    "hora": "4:11 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-13T15:11:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "HoLAp",
     "imagenes": [],
     "fechaLarga": "vie, 13 de noviembre de 2026",
