@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "El sentir de anteriorismos",
+    "imagenes": [
+      "images/post_img_1794595939264_0.jpg"
+    ],
+    "fechaLarga": "vie, 13 de noviembre de 2026",
+    "fechaCortas": "vie. 13 nov 2026",
+    "hora": "5:35 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-13T16:35:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Ahora cuando necesito una cámara ahhhhhh",
     "imagenes": [],
