@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Esta noche glu glu y no bajo el agua",
+    "imagenes": [],
+    "fechaLarga": "vie, 13 de noviembre de 2026",
+    "fechaCortas": "vie. 13 nov 2026",
+    "hora": "11:10 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-13T22:10:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Todavía quiero esto y lo necesito",
     "imagenes": [
       "images/post_img_1794606321547_new_0.png"
