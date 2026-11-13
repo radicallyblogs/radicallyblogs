@@ -136,7 +136,36 @@
         }
 
         const iconoPinSvg = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align: middle; margin-left: 4px;" title="Fijado"><path d="M16 12V4H17V2H7V4H8V12L4 16V18H11V22H13V18H20V16L16 12Z"/></svg>`;
+function obtenerFechaPublicacion(post, fechaOriginal) {
+    if (!post.fechaCreacion) return fechaOriginal;
 
+    const fecha = new Date(post.fechaCreacion);
+    const diferencia = Date.now() - fecha.getTime();
+
+    if (Number.isNaN(fecha.getTime()) || diferencia < 0) {
+        return fechaOriginal;
+    }
+
+    const minuto = 60 * 1000;
+    const hora = 60 * minuto;
+    const dia = 24 * hora;
+
+    if (diferencia < dia) {
+        if (diferencia < hora) {
+            const minutos = Math.max(1, Math.floor(diferencia / minuto));
+            return `hace ${minutos} min.`;
+        }
+
+        const horas = Math.floor(diferencia / hora);
+        return `hace ${horas} h.`;
+    }
+
+    if (diferencia < 2 * dia) {
+        return 'ayer.';
+    }
+
+    return fechaOriginal;
+}
         function generarHtmlPost(post) {
             let postHTML = '';
             const horaLimpia = limpiarHora(post.hora);
@@ -144,6 +173,9 @@
 
             const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
             const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
+
+          const fechaLargaPost = obtenerFechaPublicacion(post, fechaLargaLimpia);
+const fechaCortaPost = obtenerFechaPublicacion(post, fechaCortasLimpia);
 
             if (post.tipo === 'photo_bloggy') {
                 const imagenUrl = (post.imagenes && post.imagenes.length > 0) ? post.imagenes[0] : post.imagen;
@@ -174,7 +206,7 @@
                         }
                     }
                 }
-
+fechaPhoto = obtenerFechaPublicacion(post, fechaPhoto);
                 postHTML = `
                     <article class="photo-bloggy-post">
                         <div class="pb-header-wix">
@@ -215,8 +247,8 @@
                 postHTML = `
                     <div class="post">
                         <div class="post-date">
-                            <span class="desktop-date">${fechaLargaLimpia}</span>
-                            <span class="mobile-date">${fechaCortasLimpia}</span>
+                            <span class="desktop-date">${fechaLargaPost}</span>
+                            <span class="mobile-date">${fechaCortaPost}</span>
                         </div>
                         <div class="post-header">
                             <div class="avatar"></div>
