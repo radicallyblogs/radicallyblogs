@@ -1,6 +1,12 @@
 [
   {
     "tipo": "story",
+    "imagen": "stories-images/story_1794598773148_0.jpg",
+    "timestamp": "vie. 13 nov 2026 • 8:39 p. m.",
+    "fechaCreacion": "2026-11-13T19:39:27.563Z"
+  },
+  {
+    "tipo": "story",
     "imagen": "stories-images/story_1794391118065_0.jpg",
     "timestamp": "mié. 11 nov 2026 • 10:58 a. m.",
     "fechaCreacion": "2026-11-11T09:58:28.922Z"
