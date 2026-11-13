@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "El sentir de los anteriorismos",
+    "imagenes": [
+      "images/post_img_1794595095070_0.jpg"
+    ],
+    "fechaLarga": "vie, 13 de noviembre de 2026",
+    "fechaCortas": "vie. 13 nov 2026",
+    "hora": "6:25 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-13T17:25:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Odio los ambientes de crispación y tensión. Osea, no lo digo por nada, pero aun que no este habiendo contienda en el momento, solo el mero hecho de recibir las malas energías de una persona que esta cerca es un bloqueo que además te consume cuando el día es bueno para ti y necesitas ese espacio para tu interior personal. Y eso que yo no creo en las energías ni en ningún tipo de misticidades. La cosa está en que cuando esa mierda vive contigo entonces te sientes siendo pateado hacia atrás. Lo que no entiendo es por que esa persona prefiere indisponer a simplemente vivir. Esta claro que se trata de infelicidad por falta de vida.",
     "imagenes": [],
