@@ -150,19 +150,21 @@ function obtenerFechaPublicacion(post, fechaOriginal) {
     const hora = 60 * minuto;
     const dia = 24 * hora;
 
-    if (diferencia < dia) {
-        if (diferencia < hora) {
-            const minutos = Math.max(1, Math.floor(diferencia / minuto));
-            return `hace ${minutos} min.`;
-        }
+    const fechaSinDia = fechaOriginal.replace(/^[A-Za-z]{3}\.\s*/, '');
 
-        const horas = Math.floor(diferencia / hora);
-        return `hace ${horas} h.`;
-    }
+if (diferencia < dia) {
+  if (diferencia < hora) {
+    const minutos = Math.max(1, Math.floor(diferencia / minuto));
+    return `hace ${minutos} min. ${fechaSinDia}`;
+  }
 
-    if (diferencia < 2 * dia) {
-        return 'ayer.';
-    }
+  const horas = Math.floor(diferencia / hora);
+  return `hace ${horas}h. ${fechaSinDia}`;
+}
+
+if (diferencia < 2 * dia) {
+  return `ayer. ${fechaSinDia}`;
+}
 
     return fechaOriginal;
 }
