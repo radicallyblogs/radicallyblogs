@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Tengo unas ideazas ahora mismo",
+    "imagenes": [],
+    "fechaLarga": "sáb, 14 de noviembre de 2026",
+    "fechaCortas": "sáb. 14 nov 2026",
+    "hora": "2:10 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-14T13:10:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "NO QUIERO MUNDOS YUPISTICOS,\nQUIERO ADRENALINAS HISTÉRICAS.",
     "imagenes": [],
     "fechaLarga": "sáb, 14 de noviembre de 2026",
