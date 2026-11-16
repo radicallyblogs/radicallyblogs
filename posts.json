@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "YO NO TENGO POR QUE CAMBIAR, LA GENTE SE TIENE QUE CALLAR LA PUTA BOCA Y PUNTO",
+    "imagenes": [],
+    "fechaLarga": "lun, 16 de noviembre de 2026",
+    "fechaCortas": "lun. 16 nov 2026",
+    "hora": "1:40 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-16T12:40:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "¿Poemas de odio? Ah, bueno...",
     "imagenes": [],
     "fechaLarga": "lun, 16 de noviembre de 2026",
