@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "¿Poemas de odio? Ah, bueno...",
+    "imagenes": [],
+    "fechaLarga": "lun, 16 de noviembre de 2026",
+    "fechaCortas": "lun. 16 nov 2026",
+    "hora": "12:36 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-16T11:36:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Las ganas de su muerte son mis satisfacciones.",
     "imagenes": [],
     "fechaLarga": "lun, 16 de noviembre de 2026",
