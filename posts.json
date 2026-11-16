@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "No hay manera de olvidarte, no la hay💔",
+    "imagenes": [],
+    "fechaLarga": "lun, 16 de noviembre de 2026",
+    "fechaCortas": "lun. 16 nov 2026",
+    "hora": "11:06 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-16T22:06:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Aquí me siento acompañado....",
     "imagenes": [],
     "fechaLarga": "lun, 16 de noviembre de 2026",
