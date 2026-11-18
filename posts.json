@@ -1,5 +1,17 @@
 [
   {
+    "tipo": "photo_bloggy",
+    "texto": "El sonido y el aroma de mi única compañía",
+    "imagenes": [
+      "images/post_img_1795018704325_0.jpg"
+    ],
+    "fechaLarga": "mié, 18 de noviembre de 2026",
+    "fechaCortas": "mié. 18 nov 2026",
+    "hora": "5:15 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-18T16:15:00.000Z"
+  },
+  {
     "tipo": "clasico",
     "texto": "Me va a explotar la cabeza., es como no tener salida",
     "imagenes": [],
