@@ -1,5 +1,15 @@
 [
   {
+    "tipo": "clasico",
+    "texto": "Tengo miedo por mi",
+    "imagenes": [],
+    "fechaLarga": "vie, 20 de noviembre de 2026",
+    "fechaCortas": "vie. 20 nov 2026",
+    "hora": "10:50 p. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-20T21:50:00.000Z"
+  },
+  {
     "tipo": "photo_bloggy",
     "texto": "El sonido y el aroma de mi única compañía",
     "imagenes": [
