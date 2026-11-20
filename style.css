@@ -1388,9 +1388,9 @@ body.dark-mode .story-card img {
 .posts-heading {
     font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 700; /* Bold */
-    font-size: 35px;  /* Tamaño compacto para móvil */
-    margin-top: 25px; 
-    margin-bottom: 17px;
+    font-size: 40px;  /* Tamaño compacto para móvil */
+    margin-top: 15px; 
+    margin-bottom: 10px;
     padding-left: 0; 
     color: #000000;   /* Color negro para el modo claro */
 }
@@ -1405,9 +1405,187 @@ body.dark-mode .posts-heading {
     .posts-heading {
         font-size: 30px;  /* Tamaño más grande en escritorio */
         margin-top: -10px; 
+        margin-bottom: 10px;
+    }
+}
+
+/* TÍTULO: BLOGGYS DESTACADOS */
+.pinned-heading {
+    font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    padding-left: 0;
+    color: #000000;
+}
+
+body.dark-mode .pinned-heading {
+    color: #ffffff;
+}
+
+body.dark-mode .section-title-icon {
+    color: #dbdbdb;
+}
+
+.pinned-title-icon {
+    fill: currentColor;
+}
+
+@media (min-width: 768px) {
+    .pinned-heading {
+        font-size: 30px;
+        margin-top: -10px;
         margin-bottom: 20px;
     }
-}/* ========================================================== */
+}
+
+/* TÍTULOS MENSUALES - MÓVIL */
+@media (max-width: 767px) {
+    .month-heading {
+        font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 1.1;
+        margin: 5px 0 5px;
+        color: #000000;
+    }
+}
+
+/* TÍTULOS MENSUALES - ORDENADOR */
+@media (min-width: 768px) {
+    .month-heading {
+        font-family: 'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 1.1;
+        margin: 25px 0 12px;
+        color: #000000;
+    }
+}
+
+body.dark-mode .month-heading {
+    color: #ffffff;
+}
+
+/* INDICADOR "ÚLTIMO POST" - MÓVIL */
+@media (max-width: 768px) {
+    @media (max-width: 768px) {
+    .post-date {
+        position: relative;
+        width: fit-content;
+    }
+
+    .last-post-badge {
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        /* Mantiene los 3px que ya tienes para subirlo */
+        transform: translateY(calc(-50% - 3px));
+
+        /* Aquí se quedan tus demás valores actuales */
+    }
+}
+    .last-post-badge {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        display: inline-flex;
+        align-items: center;
+        margin-left: 9px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        background-color: #000000;
+        color: #ffffff;
+        font-size: 19px;
+        line-height: 1.2;
+        font-weight: 400;
+        -webkit-text-stroke: 0.2px;
+        white-space: nowrap;
+        vertical-align: middle;
+        transform: translateY(-17px);
+    }
+}
+
+/* INDICADOR "ÚLTIMO POST" - ORDENADOR */
+@media (min-width: 769px) {
+    .last-post-badge {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 10px;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background-color: #000000;
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 500;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+}
+
+body.dark-mode .last-post-badge {
+    background-color: #ffffff;
+    color: #000000 !important;
+}
+
+/* ICONOS DE TÍTULO - MÓVIL */
+@media (max-width: 767px) {
+    .posts-heading,
+    .pinned-heading {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .section-title-icon {
+        display: inline-block;
+        flex: 0 0 auto;
+        order: -1;
+        color: #000000;
+    }
+
+    .pinned-title-icon {
+        width: 46px;
+        height: 46px;
+        transform: rotate(-35deg);
+    }
+
+    .globe-title-icon {
+        width: 55px;
+        height: 55px;
+        transform: translateY(0px);
+    }
+}
+
+/* ICONOS DE TÍTULO - ORDENADOR */
+@media (min-width: 768px) {
+    .posts-heading,
+    .pinned-heading {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .section-title-icon {
+        display: inline-block;
+        flex: 0 0 auto;
+        order: -1;
+        color: #000000;
+    }
+
+    .pinned-title-icon {
+        width: 33px;
+        height: 33px;
+        transform: rotate(-35deg);
+    }
+
+    .globe-title-icon {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* ========================================================== */
 /* MODAL DE HISTORIAS - DISEÑO LIMPIO Y FÁCIL DE EDITAR     */
 /* ========================================================== */
 
@@ -1655,4 +1833,112 @@ html, body {
 
 .feed-title {
     display: none;
+}
+
+/* PERFIL - MÓVIL */
+@media (max-width: 768px) {
+    .profile-section {
+        margin: 0 0 28px;
+        color: #000000;
+        padding-left: 5px;
+    }
+
+    .profile-avatar {
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 0 12px;
+    }
+
+    .profile-username {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        margin: 0;
+        font-size: 20px;
+        line-height: 0.9;
+        font-weight: 500;
+        -webkit-text-stroke: 0.10px;
+    }
+
+    .profile-joined {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 2px 0 12px;
+        color: #555555;
+        font-size: 18px;
+        line-height: 1.3;
+        -webkit-text-stroke: 0.10px;
+    }
+
+    .profile-description {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        margin: 0;
+        max-width: 80%;
+        font-size: 18px;
+        line-height: 1.35;
+        font-weight: 400;
+        -webkit-text-stroke: 0px;
+        overflow-wrap: anywhere;
+    }
+
+    .profile-description a {
+        color: #3897f0;
+        text-decoration: none;
+    }
+}
+
+/* PERFIL - ORDENADOR */
+@media (min-width: 769px) {
+    .profile-section {
+        margin: 0 0 32px;
+        color: #000000;
+    }
+
+    .profile-avatar {
+        display: block;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 0 5px;
+    }
+
+    .profile-username {
+        font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 300;
+        -webkit-text-stroke: 0.2px;
+    }
+
+    .profile-joined {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 2px 0 14px;
+        color: #555555;
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .profile-description {
+        font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        max-width: 70%;
+        font-size: 18px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .profile-description a {
+        color: #3897f0;
+        text-decoration: none;
+    }
+}
+
+body.dark-mode .profile-section {
+    color: #ffffff;
+}
+
+body.dark-mode .profile-joined {
+    color: #bdbdbd;
 }

@@ -29,6 +29,13 @@
     </header>
 
     <div class="feed-container">
+        <section class="profile-section" aria-label="Perfil">
+            <img class="profile-avatar" src="avatar.jpeg" alt="Foto de perfil de felipeortegareyes">
+            <h1 class="profile-username">felipeortegareyes</h1>
+            <p class="profile-joined">Se unió el 19 de septiembre de 2022</p>
+            <p class="profile-description" id="profile-description"></p>
+        </section>
+
         <h2 class="feed-title">Actualidad</h2>
 
         <!-- SECCIÓN DE HISTORIAS -->
@@ -37,8 +44,33 @@
             <div class="stories-container" id="stories-container"></div>
         </div>
 
+        <!-- SECCIÓN DE POSTS FIJADOS -->
+        <section id="pinned-posts-section" style="display: none;">
+            <h2 class="pinned-heading">
+                <span>Bloggys destacados</span>
+                <svg class="section-title-icon pinned-title-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16 12V4h1V2H7v2h1v8l-4 4v2h7v4h2v-4h7v-2l-4-4z"></path>
+                </svg>
+            </h2>
+            <div id="pinned-posts"></div>
+        </section>
+
         <!-- SECCIÓN DE POSTS -->
-        <h2 class="posts-heading">Posts recientes</h2>
+        <h2 class="posts-heading">
+            <span>Posts recientes</span>
+            <svg class="section-title-icon globe-title-icon" viewBox="0 0 48 48" aria-hidden="true">
+                <defs>
+                    <clipPath id="globe-clip">
+                        <circle cx="24" cy="24" r="20.5"></circle>
+                    </clipPath>
+                </defs>
+                <g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" clip-path="url(#globe-clip)">
+                    <path d="M24 3V45M24 3C13 9 13 39 24 45M24 3C4 9 4 39 24 45M24 3C35 9 35 39 24 45M24 3C44 9 44 39 24 45"></path>
+                    <path d="M11 7C16 13 32 13 37 7M5 14C15 19 33 19 43 14M3.5 24H44.5M5 34C15 29 33 29 43 34M11 41C16 35 32 35 37 41"></path>
+                </g>
+                <circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+            </svg>
+        </h2>
         <div id="feed-posts"></div>
         <button id="btn-load-more" onclick="cargarMas()" style="display: none;">Cargar más</button>
     </div>
@@ -77,7 +109,49 @@
         let historiasData = [];
         let postsMostradosCount = 10;
 
+        function renderizarDescripcionPerfil(descripcion) {
+            const elemento = document.getElementById('profile-description');
+            elemento.replaceChildren();
+
+            const agregarTexto = texto => {
+                texto.split('\n').forEach((linea, index) => {
+                    if (index > 0) elemento.appendChild(document.createElement('br'));
+                    elemento.appendChild(document.createTextNode(linea));
+                });
+            };
+            const regexUrl = /https?:\/\/[^\s<]+/g;
+            let posicion = 0;
+            let coincidencia;
+
+            while ((coincidencia = regexUrl.exec(descripcion)) !== null) {
+                agregarTexto(descripcion.slice(posicion, coincidencia.index));
+                const enlace = document.createElement('a');
+                enlace.href = coincidencia[0];
+                enlace.target = '_blank';
+                enlace.rel = 'noopener noreferrer';
+                enlace.textContent = coincidencia[0];
+                elemento.appendChild(enlace);
+                posicion = regexUrl.lastIndex;
+            }
+
+            agregarTexto(descripcion.slice(posicion));
+        }
+
         document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const response = await fetch('profile.json?t=' + new Date().getTime());
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar profile.json (${response.status}).`);
+                }
+                const profile = await response.json();
+                if (typeof profile.description !== 'string') {
+                    throw new Error('El campo description de profile.json no es válido.');
+                }
+                renderizarDescripcionPerfil(profile.description);
+            } catch (error) {
+                console.error("Error al cargar la descripción del perfil:", error);
+            }
+
             // Cargar historias con filtro correcto de 24 horas
             try {
                 const resStories = await fetch('stories.json?t=' + new Date().getTime());
@@ -168,10 +242,11 @@ function obtenerFechaPublicacion(post, fechaOriginal, ocultarFechaEnHoras = fals
 
     return fechaOriginal;
 }
-        function generarHtmlPost(post) {
+        function generarHtmlPost(post, esUltimoPost = false) {
             let postHTML = '';
             const horaLimpia = limpiarHora(post.hora);
             const indicadorPin = post.fijado ? iconoPinSvg : '';
+            const indicadorUltimoPost = esUltimoPost ? '<span class="last-post-badge">último post</span>' : '';
 
             const fechaLargaLimpia = limpiarFecha(post.fechaLarga);
             const fechaCortasLimpia = limpiarFecha(post.fechaCortas);
@@ -251,6 +326,7 @@ fechaPhoto = obtenerFechaPublicacion(post, fechaPhoto);
                         <div class="post-date">
                             <span class="desktop-date">${fechaLargaPost}</span>
                             <span class="mobile-date">${fechaCortaPost}</span>
+                            ${indicadorUltimoPost}
                         </div>
                         <div class="post-header">
                             <div class="avatar"></div>
@@ -267,6 +343,18 @@ fechaPhoto = obtenerFechaPublicacion(post, fechaPhoto);
             return postHTML;
         }
 
+        function obtenerClaveMes(post) {
+            const fecha = new Date(post.fechaCreacion);
+            if (!post.fechaCreacion || Number.isNaN(fecha.getTime())) return null;
+            return `${fecha.getFullYear()}-${fecha.getMonth()}`;
+        }
+
+        function obtenerTituloMes(post) {
+            const fecha = new Date(post.fechaCreacion);
+            const mes = fecha.toLocaleDateString('es-ES', { month: 'long' });
+            return mes.charAt(0).toLocaleUpperCase('es-ES') + mes.slice(1);
+        }
+
         function renderizarFeedPosts() {
     const container = document.getElementById('feed-posts');
     if (!container) return;
@@ -275,13 +363,43 @@ fechaPhoto = obtenerFechaPublicacion(post, fechaPhoto);
     if (!postsGlobal || !Array.isArray(postsGlobal)) return;
 
     const postsFijados = postsGlobal.filter(post => post.fijado === true);
-    postsFijados.forEach(post => {
-        container.innerHTML += generarHtmlPost(post);
-    });
+    const pinnedSection = document.getElementById('pinned-posts-section');
+    const pinnedContainer = document.getElementById('pinned-posts');
+    if (pinnedSection && pinnedContainer) {
+        pinnedSection.style.display = postsFijados.length > 0 ? 'block' : 'none';
+        pinnedContainer.innerHTML = postsFijados.map(post => generarHtmlPost(post)).join('');
+    }
 
     const postsParaMostrar = postsGlobal.slice(0, postsMostradosCount);
-    postsParaMostrar.forEach(post => {
-        container.innerHTML += generarHtmlPost(post);
+    const ultimosPostsPorMes = new Map();
+    let fechaPostMasReciente = null;
+    let mesActivo = null;
+    let indicePostMasReciente = -1;
+
+    postsGlobal.forEach((post, index) => {
+        const claveMes = obtenerClaveMes(post);
+        if (!claveMes) return;
+        const fecha = new Date(post.fechaCreacion);
+
+        const ultimoPostDelMes = ultimosPostsPorMes.get(claveMes);
+        if (!ultimoPostDelMes || fecha > ultimoPostDelMes.fecha) {
+            ultimosPostsPorMes.set(claveMes, { fecha, index });
+        }
+        if (!fechaPostMasReciente || fecha > fechaPostMasReciente) {
+            fechaPostMasReciente = fecha;
+            mesActivo = claveMes;
+            indicePostMasReciente = index;
+        }
+    });
+
+    postsParaMostrar.forEach((post, index) => {
+        const claveMes = obtenerClaveMes(post);
+        const ultimoPostDelMes = claveMes ? ultimosPostsPorMes.get(claveMes) : null;
+
+        if (ultimoPostDelMes && claveMes !== mesActivo && ultimoPostDelMes.index === index) {
+            container.innerHTML += `<h2 class="month-heading">${obtenerTituloMes(post)}</h2>`;
+        }
+        container.innerHTML += generarHtmlPost(post, index === indicePostMasReciente);
     });
 
     const btnCargarMas = document.getElementById('btn-load-more');
