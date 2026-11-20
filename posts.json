@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Estoy ahí con unos buenos versos",
+    "imagenes": [],
+    "fechaLarga": "sáb, 21 de noviembre de 2026",
+    "fechaCortas": "sáb. 21 nov 2026",
+    "hora": "12:38 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-20T23:38:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Tengo miedo por mi",
     "imagenes": [],
     "fechaLarga": "vie, 20 de noviembre de 2026",
