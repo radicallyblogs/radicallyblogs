@@ -1161,7 +1161,8 @@ input, textarea {
     font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* 🎛️ PC: Fuente título */
     font-size: 1.80rem;        /* 🎛️ PC: Tamaño letra título */
     font-weight: 700;         /* 🎛️ PC: Grosor letra título */
-    margin-bottom: 15px;      /* 🎛️ PC: Espaciado inferior título */
+    margin-top: -20px;
+    margin-bottom: -2px;      /* 🎛️ PC: Espaciado inferior título */
     color: var(--text-color); /* 🎛️ PC: Color título */
     margin-left: 0px;         /* 🎛️ PC: Mover TÍTULO a los lados (+ der, - izq) */
     transform: translateX(0px); /* 🎛️ PC: Desplazar TÍTULO libremente */
@@ -1248,7 +1249,7 @@ body.dark-mode .story-card img {
 .story-timestamp {
     position: static;
     width: 100%;
-    font-size: 0.81rem;
+    font-size: 1rem;
     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #797979; /* Negro puro y nítido */
     text-align: center;
@@ -1266,7 +1267,7 @@ body.dark-mode .story-card img {
     
     /* --- 1. CONTENEDOR PRINCIPAL (.stories-section) --- */
     .stories-section {
-        margin-top: 20px;         /* 🎛️ MÓVIL: Margen superior */
+        margin-top: -20px;         /* 🎛️ MÓVIL: Margen superior */
         margin-bottom: -27px;      /* 🎛️ MÓVIL: Margen inferior */
         width: 100%;              /* 🎛️ MÓVIL: Ancho */
         margin-left: 0px;         /* 🎛️ MÓVIL: Mover BLOQUE ENTERO a los lados (+ der, - izq) */
@@ -1278,7 +1279,7 @@ body.dark-mode .story-card img {
         font-family: "SF UI Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* 🎛️ MÓVIL: Fuente título */
         font-size: 1.90rem;       /* 🎛️ MÓVIL: Tamaño letra título */
         font-weight: 700;         /* 🎛️ MÓVIL: Grosor letra título */
-        margin-bottom: 10px;      /* 🎛️ MÓVIL: Espaciado inferior título */
+        margin-bottom: -5px;      /* 🎛️ MÓVIL: Espaciado inferior título */
         color: var(--text-color); /* 🎛️ MÓVIL: Color título */
         margin-left: 0px;         /* 🎛️ MÓVIL: Mover TÍTULO a los lados (+ der, - izq) */
         transform: translateX(0px); /* 🎛️ MÓVIL: Desplazar TÍTULO libremente */
@@ -1344,7 +1345,7 @@ body.dark-mode .story-card img {
 .story-timestamp {
     position: static;
     width: 100%;
-    font-size: 0.87rem;
+    font-size: 0.97rem;
     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #7a7a7a; /* Color modo claro */
     text-align: center;
@@ -1498,7 +1499,7 @@ body.dark-mode .month-heading {
         font-size: 19px;
         line-height: 1.2;
         font-weight: 400;
-        -webkit-text-stroke: 0.2px;
+        -webkit-text-stroke: 0px;
         white-space: nowrap;
         vertical-align: middle;
         transform: translateY(-17px);
