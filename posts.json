@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "Buenos días y aprendiendo a las malas",
+    "imagenes": [],
+    "fechaLarga": "lun, 23 de noviembre de 2026",
+    "fechaCortas": "lun. 23 nov 2026",
+    "hora": "11:47 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-23T10:47:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Mis soledades son importantes y nadie sabe ni quien soy, aun teniéndome un puesto en sus gustos personales💔",
     "imagenes": [],
     "fechaLarga": "lun, 23 de noviembre de 2026",
