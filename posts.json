@@ -1,6 +1,16 @@
 [
   {
     "tipo": "clasico",
+    "texto": "V😓",
+    "imagenes": [],
+    "fechaLarga": "sáb, 28 de noviembre de 2026",
+    "fechaCortas": "sáb. 28 nov 2026",
+    "hora": "12:25 a. m.",
+    "fijado": false,
+    "fechaCreacion": "2026-11-27T23:25:00.000Z"
+  },
+  {
+    "tipo": "clasico",
     "texto": "Te necesito, por favor. Con un hola bastaría antes de que se acabe toda la esperanza 💔",
     "imagenes": [],
     "fechaLarga": "vie, 27 de noviembre de 2026",
