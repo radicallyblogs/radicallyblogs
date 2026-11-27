@@ -208,7 +208,7 @@
     "fechaLarga": "dom, 15 de noviembre de 2026",
     "fechaCortas": "dom. 15 nov 2026",
     "hora": "10:45 p. m.",
-    "fijado": true,
+    "fijado": false,
     "fechaCreacion": "2026-11-15T21:45:00.000Z"
   },
   {
